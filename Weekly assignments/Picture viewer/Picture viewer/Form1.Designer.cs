@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            panel1 = new Panel();
             textBox1 = new TextBox();
             button1 = new Button();
             label1 = new Label();
@@ -36,26 +37,33 @@
             groupBox2 = new GroupBox();
             pictureBox1 = new PictureBox();
             openFileDialog1 = new OpenFileDialog();
-            folderBrowserDialog1 = new FolderBrowserDialog();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
+            // panel1
+            // 
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1125, 41);
+            panel1.TabIndex = 0;
+            // 
             // textBox1
             // 
-            textBox1.Location = new Point(3, 12);
+            textBox1.Location = new Point(3, 45);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(892, 27);
             textBox1.TabIndex = 1;
             // 
             // button1
             // 
-            button1.Location = new Point(901, 10);
+            button1.Location = new Point(901, 43);
             button1.Name = "button1";
             button1.Size = new Size(212, 29);
             button1.TabIndex = 2;
-            button1.Text = "Browser";
+            button1.Text = "Open";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -71,9 +79,9 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(listBox1);
-            groupBox1.Location = new Point(3, 45);
+            groupBox1.Location = new Point(7, 88);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(247, 227);
+            groupBox1.Size = new Size(247, 397);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "imagine";
@@ -90,19 +98,19 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(pictureBox1);
-            groupBox2.Location = new Point(256, 45);
+            groupBox2.Location = new Point(278, 104);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(857, 477);
+            groupBox2.Size = new Size(835, 372);
             groupBox2.TabIndex = 5;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Picture";
+            groupBox2.Text = "groupBox2";
             // 
             // pictureBox1
             // 
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Location = new Point(3, 23);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(851, 451);
+            pictureBox1.Size = new Size(829, 346);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -122,6 +130,7 @@
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(textBox1);
+            Controls.Add(panel1);
             Name = "Form1";
             Text = "Form1";
             groupBox1.ResumeLayout(false);
@@ -132,6 +141,8 @@
         }
 
         #endregion
+
+        private Panel panel1;
         private TextBox textBox1;
         private Button button1;
         private Label label1;
@@ -140,6 +151,5 @@
         private GroupBox groupBox2;
         private PictureBox pictureBox1;
         private OpenFileDialog openFileDialog1;
-        private FolderBrowserDialog folderBrowserDialog1;
     }
 }

@@ -14,6 +14,7 @@ D:\Network programming\picture viewer\Picture viewer\Picture viewer\obj\Debug\ne
 D:\Network programming\picture viewer\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.pdb
 D:\Network programming\picture viewer\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.genruntimeconfig.cache
 D:\Network programming\picture viewer\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\ref\Picture viewer.dll
+<<<<<<< HEAD
 D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\bin\Debug\net8.0-windows\Picture viewer.exe
 D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\bin\Debug\net8.0-windows\Picture viewer.deps.json
 D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\bin\Debug\net8.0-windows\Picture viewer.runtimeconfig.json
@@ -48,3 +49,5 @@ D:\New folder\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-
 D:\New folder\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.pdb
 D:\New folder\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.genruntimeconfig.cache
 D:\New folder\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\ref\Picture viewer.dll
+=======
+>>>>>>> parent of 57f85b8 (cap nhat 9/15/2024)

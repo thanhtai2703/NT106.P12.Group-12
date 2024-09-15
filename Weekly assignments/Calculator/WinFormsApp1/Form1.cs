@@ -99,7 +99,7 @@ namespace WinFormsApp1
 
         private void add_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            if (temp != "")
             {
                 operand = "+";
                 number1 = float.Parse(temp);
@@ -113,7 +113,7 @@ namespace WinFormsApp1
         private void sub_Click(object sender, EventArgs e)
         {
 
-            if (textBox1.Text != "")
+            if (temp != "")
             {
                 operand = "-";
                 number1 = float.Parse(temp);
@@ -126,7 +126,7 @@ namespace WinFormsApp1
 
         private void mul_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            if (temp != "")
             {
                 operand = "*";
                 number1 = float.Parse(temp);
@@ -139,7 +139,7 @@ namespace WinFormsApp1
 
         private void div_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            if (temp != "")
             {
                 operand = "/";
                 number1 = float.Parse(temp);

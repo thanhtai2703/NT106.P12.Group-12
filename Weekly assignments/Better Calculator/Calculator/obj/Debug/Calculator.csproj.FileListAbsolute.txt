@@ -18,3 +18,13 @@ C:\Users\huung\Downloads\Lập Trình Mạng\Calculator - Copy\Calculator\obj\De
 C:\Users\huung\Downloads\Lập Trình Mạng\Calculator - Copy\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
 C:\Users\huung\Downloads\Lập Trình Mạng\Calculator - Copy\Calculator\obj\Debug\Calculator.exe
 C:\Users\huung\Downloads\Lập Trình Mạng\Calculator - Copy\Calculator\obj\Debug\Calculator.pdb
+D:\Group-12\Weekly assignments\Better Calculator\Calculator\bin\Debug\Calculator.exe.config
+D:\Group-12\Weekly assignments\Better Calculator\Calculator\bin\Debug\Calculator.exe
+D:\Group-12\Weekly assignments\Better Calculator\Calculator\bin\Debug\Calculator.pdb
+D:\Group-12\Weekly assignments\Better Calculator\Calculator\obj\Debug\Calculator.csproj.AssemblyReference.cache
+D:\Group-12\Weekly assignments\Better Calculator\Calculator\obj\Debug\Calculator.Form1.resources
+D:\Group-12\Weekly assignments\Better Calculator\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+D:\Group-12\Weekly assignments\Better Calculator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+D:\Group-12\Weekly assignments\Better Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+D:\Group-12\Weekly assignments\Better Calculator\Calculator\obj\Debug\Calculator.exe
+D:\Group-12\Weekly assignments\Better Calculator\Calculator\obj\Debug\Calculator.pdb

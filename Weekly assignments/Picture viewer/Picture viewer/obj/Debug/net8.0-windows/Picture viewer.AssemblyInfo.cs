@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Picture viewer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+57f85b8d1c3603d0fcb50db591b07cef97c57205")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d59ac00735b34cd7a5008462c8e75608825bb63")]
+>>>>>>> parent of 57f85b8 (cap nhat 9/15/2024)
 [assembly: System.Reflection.AssemblyProductAttribute("Picture viewer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Picture viewer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

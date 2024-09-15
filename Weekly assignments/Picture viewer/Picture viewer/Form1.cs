@@ -1,8 +1,4 @@
 using System.IO;
-using System.Drawing;
-using System.Data;
-
-
 namespace Picture_viewer
 {
     public partial class Form1 : Form
@@ -16,36 +12,24 @@ namespace Picture_viewer
         {
 
         }
-        public string _currentDirectory = "";
+        string _current = "";
         private void button1_Click(object sender, EventArgs e)
         {
-            using (FolderBrowserDialog dlg = new FolderBrowserDialog())
+            using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                if (dlg.ShowDialog() == DialogResult.OK)
+                ofd.Filter = "*.jpg|*.jpg|*.gif|*.ico";
+                if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    string[] files = Directory.GetFiles(dlg.SelectedPath, "*.jpg");
 
-                    _currentDirectory = dlg.SelectedPath;
-                    textBox1.Text = _currentDirectory;
-                    foreach (string file in files)
-                    {
-                        listBox1.Items.Add(Path.GetFileName(file));
-                    }
+                    _current = ofd.FileName;
+                    listBox1.Items.Add(ofd.FileName);
                 }
             }
-
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string directory = Path.Combine(_currentDirectory, listBox1.Text).ToString();
-            pictureBox1.Image = Image.FromFile(directory);
-            
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-          
+            pictureBox1.Image = Image.FromFile(listBox1.Text);
         }
     }
 }
