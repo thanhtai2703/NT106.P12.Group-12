@@ -12,8 +12,9 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\huung\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\huung\\.nuget\\packages"
+      "C:\\Users\\taith\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\taith\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,

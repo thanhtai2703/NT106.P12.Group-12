@@ -37,6 +37,7 @@
             groupBox2 = new GroupBox();
             pictureBox1 = new PictureBox();
             openFileDialog1 = new OpenFileDialog();
+            folderBrowserDialog1 = new FolderBrowserDialog();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -63,7 +64,7 @@
             button1.Name = "button1";
             button1.Size = new Size(212, 29);
             button1.TabIndex = 2;
-            button1.Text = "Open";
+            button1.Text = "Browser";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -151,5 +152,6 @@
         private GroupBox groupBox2;
         private PictureBox pictureBox1;
         private OpenFileDialog openFileDialog1;
+        private FolderBrowserDialog folderBrowserDialog1;
     }
 }

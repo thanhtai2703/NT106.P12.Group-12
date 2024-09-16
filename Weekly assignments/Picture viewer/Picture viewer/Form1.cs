@@ -1,4 +1,5 @@
 using System.IO;
+using System.Xml.Schema;
 namespace Picture_viewer
 {
     public partial class Form1 : Form
@@ -12,24 +13,28 @@ namespace Picture_viewer
         {
 
         }
-        string _current = "";
+        string _currentPath = "";
         private void button1_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog ofd = new OpenFileDialog())
+            using (FolderBrowserDialog fbd = new FolderBrowserDialog())
             {
-                ofd.Filter = "*.jpg|*.jpg|*.gif|*.ico";
-                if (ofd.ShowDialog() == DialogResult.OK)
+                if (fbd.ShowDialog() == DialogResult.OK)
                 {
-
-                    _current = ofd.FileName;
-                    listBox1.Items.Add(ofd.FileName);
+                    _currentPath = fbd.SelectedPath;
+                    foreach(string file in Directory.GetFiles(_currentPath,"*jpg"))
+                    {
+                        listBox1.Items.Add(Path.GetFileName(file));
+                    }
+                    textBox1.Text = _currentPath;
                 }
             }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pictureBox1.Image = Image.FromFile(listBox1.Text);
+            string name = listBox1.SelectedItem.ToString();
+            string location = Path.Combine(_currentPath, name);
+            pictureBox1.Image = Image.FromFile(location);
         }
     }
 }
