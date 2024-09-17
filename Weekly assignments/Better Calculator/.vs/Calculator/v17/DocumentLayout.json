@@ -1,14 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Group-12\\Weekly assignments\\Better Calculator\\",
+  "WorkspaceRootPath": "D:\\STUDY\\Weekly assignments\\Better Calculator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5AE8329C-5CE9-42FE-9BDE-96E436F1BF9A}|Calculator\\Calculator.csproj|D:\\Group-12\\Weekly assignments\\Better Calculator\\calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AE8329C-5CE9-42FE-9BDE-96E436F1BF9A}|Calculator\\Calculator.csproj|solutionrelative:calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5AE8329C-5CE9-42FE-9BDE-96E436F1BF9A}|Calculator\\Calculator.csproj|d:\\study\\weekly assignments\\better calculator\\calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5AE8329C-5CE9-42FE-9BDE-96E436F1BF9A}|Calculator\\Calculator.csproj|solutionrelative:calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5AE8329C-5CE9-42FE-9BDE-96E436F1BF9A}|Calculator\\Calculator.csproj|d:\\group-12\\weekly assignments\\better calculator\\calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5AE8329C-5CE9-42FE-9BDE-96E436F1BF9A}|Calculator\\Calculator.csproj|solutionrelative:calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{5AE8329C-5CE9-42FE-9BDE-96E436F1BF9A}|Calculator\\Calculator.csproj|D:\\STUDY\\Weekly assignments\\Better Calculator\\calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AE8329C-5CE9-42FE-9BDE-96E436F1BF9A}|Calculator\\Calculator.csproj|solutionrelative:calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,28 +18,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\Group-12\\Weekly assignments\\Better Calculator\\Calculator\\Form1.cs",
+              "DocumentMoniker": "D:\\STUDY\\Weekly assignments\\Better Calculator\\Calculator\\Form1.cs",
               "RelativeDocumentMoniker": "Calculator\\Form1.cs",
-              "ToolTip": "D:\\Group-12\\Weekly assignments\\Better Calculator\\Calculator\\Form1.cs",
+              "ToolTip": "D:\\STUDY\\Weekly assignments\\Better Calculator\\Calculator\\Form1.cs",
               "RelativeToolTip": "Calculator\\Form1.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAA+wCgAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-14T05:24:46.726Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "D:\\Group-12\\Weekly assignments\\Better Calculator\\Calculator\\Form1.cs",
+              "DocumentMoniker": "D:\\STUDY\\Weekly assignments\\Better Calculator\\Calculator\\Form1.cs",
               "RelativeDocumentMoniker": "Calculator\\Form1.cs",
-              "ToolTip": "D:\\Group-12\\Weekly assignments\\Better Calculator\\Calculator\\Form1.cs [Design]",
+              "ToolTip": "D:\\STUDY\\Weekly assignments\\Better Calculator\\Calculator\\Form1.cs [Design]",
               "RelativeToolTip": "Calculator\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-14T05:18:42.762Z",
