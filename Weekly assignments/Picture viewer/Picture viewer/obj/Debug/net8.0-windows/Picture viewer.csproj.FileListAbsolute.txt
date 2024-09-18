@@ -48,3 +48,4 @@ D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-wi
 D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.pdb
 D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.genruntimeconfig.cache
 D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\ref\Picture viewer.dll
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture_viewer.Properties.Resources.resources

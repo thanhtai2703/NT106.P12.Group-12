@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             textBox1 = new TextBox();
             button1 = new Button();
             label1 = new Label();
@@ -74,17 +75,17 @@
             groupBox1.Controls.Add(flowLayoutPanel1);
             groupBox1.Location = new Point(7, 45);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(247, 397);
+            groupBox1.Size = new Size(247, 570);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
-            groupBox1.Text = "imagine";
+            groupBox1.Text = "Preview";
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(3, 23);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(241, 371);
+            flowLayoutPanel1.Size = new Size(241, 544);
             flowLayoutPanel1.TabIndex = 0;
             flowLayoutPanel1.PreviewKeyDown += flowLayoutPanel1_PreviewKeyDown;
             // 
@@ -93,17 +94,17 @@
             groupBox2.Controls.Add(pictureBox1);
             groupBox2.Location = new Point(260, 52);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(835, 431);
+            groupBox2.Size = new Size(886, 566);
             groupBox2.TabIndex = 5;
             groupBox2.TabStop = false;
-            groupBox2.Text = "groupBox2";
+            groupBox2.Text = "Picture";
             // 
             // pictureBox1
             // 
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Location = new Point(3, 23);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(829, 405);
+            pictureBox1.Size = new Size(880, 540);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -117,14 +118,15 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1125, 534);
+            ClientSize = new Size(1158, 630);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(textBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
-            Text = "Picture Explorer";
+            Text = "PictureViewer";
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

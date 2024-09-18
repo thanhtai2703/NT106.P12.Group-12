@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Picture viewer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5088719fa27b2b7640d5f48901d30dd21a115fc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ea1d226d1d4b9e0b52b224b3e7431f637d2ed31")]
 [assembly: System.Reflection.AssemblyProductAttribute("Picture viewer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Picture viewer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
