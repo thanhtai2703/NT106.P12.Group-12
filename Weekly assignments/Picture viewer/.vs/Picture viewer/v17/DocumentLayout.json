@@ -1,9 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\STUDY\\Weekly assignments\\Picture viewer\\",
+  "WorkspaceRootPath": "D:\\Group-12\\Weekly assignments\\Picture viewer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ABE20E82-6E80-4D48-8E22-90C9EF95772E}|Picture viewer\\Picture viewer.csproj|d:\\study\\weekly assignments\\picture viewer\\picture viewer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{ABE20E82-6E80-4D48-8E22-90C9EF95772E}|Picture viewer\\Picture viewer.csproj|d:\\group-12\\weekly assignments\\picture viewer\\picture viewer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABE20E82-6E80-4D48-8E22-90C9EF95772E}|Picture viewer\\Picture viewer.csproj|solutionrelative:picture viewer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABE20E82-6E80-4D48-8E22-90C9EF95772E}|Picture viewer\\Picture viewer.csproj|d:\\group-12\\weekly assignments\\picture viewer\\picture viewer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{ABE20E82-6E80-4D48-8E22-90C9EF95772E}|Picture viewer\\Picture viewer.csproj|solutionrelative:picture viewer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -19,10 +23,23 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "D:\\STUDY\\Weekly assignments\\Picture viewer\\Picture viewer\\Form1.cs",
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\Group-12\\Weekly assignments\\Picture viewer\\Picture viewer\\Form1.cs",
               "RelativeDocumentMoniker": "Picture viewer\\Form1.cs",
-              "ToolTip": "D:\\STUDY\\Weekly assignments\\Picture viewer\\Picture viewer\\Form1.cs [Design]",
+              "ToolTip": "D:\\Group-12\\Weekly assignments\\Picture viewer\\Picture viewer\\Form1.cs",
+              "RelativeToolTip": "Picture viewer\\Form1.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAAAmwFEAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T08:37:43.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\Group-12\\Weekly assignments\\Picture viewer\\Picture viewer\\Form1.cs",
+              "RelativeDocumentMoniker": "Picture viewer\\Form1.cs",
+              "ToolTip": "D:\\Group-12\\Weekly assignments\\Picture viewer\\Picture viewer\\Form1.cs [Design]",
               "RelativeToolTip": "Picture viewer\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-16T14:45:00.201Z",

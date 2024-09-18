@@ -31,3 +31,20 @@ D:\STUDY\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windo
 D:\STUDY\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.pdb
 D:\STUDY\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.genruntimeconfig.cache
 D:\STUDY\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\ref\Picture viewer.dll
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\bin\Debug\net8.0-windows\Picture viewer.exe
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\bin\Debug\net8.0-windows\Picture viewer.deps.json
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\bin\Debug\net8.0-windows\Picture viewer.runtimeconfig.json
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\bin\Debug\net8.0-windows\Picture viewer.dll
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\bin\Debug\net8.0-windows\Picture viewer.pdb
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture_viewer.Form1.resources
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.csproj.GenerateResource.cache
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.AssemblyInfoInputs.cache
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.AssemblyInfo.cs
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.csproj.CoreCompileInputs.cache
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.sourcelink.json
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.dll
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\refint\Picture viewer.dll
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.pdb
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\Picture viewer.genruntimeconfig.cache
+D:\Group-12\Weekly assignments\Picture viewer\Picture viewer\obj\Debug\net8.0-windows\ref\Picture viewer.dll
