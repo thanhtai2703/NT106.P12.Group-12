@@ -1,0 +1,17 @@
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\bin\Debug\net8.0-windows\Explorer.exe
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\bin\Debug\net8.0-windows\Explorer.deps.json
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\bin\Debug\net8.0-windows\Explorer.runtimeconfig.json
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\bin\Debug\net8.0-windows\Explorer.dll
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\bin\Debug\net8.0-windows\Explorer.pdb
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\obj\Debug\net8.0-windows\Explorer.Form1.resources
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\obj\Debug\net8.0-windows\Explorer.csproj.GenerateResource.cache
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\obj\Debug\net8.0-windows\Explorer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\obj\Debug\net8.0-windows\Explorer.AssemblyInfoInputs.cache
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\obj\Debug\net8.0-windows\Explorer.AssemblyInfo.cs
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\obj\Debug\net8.0-windows\Explorer.csproj.CoreCompileInputs.cache
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\obj\Debug\net8.0-windows\Explorer.sourcelink.json
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\obj\Debug\net8.0-windows\Explorer.dll
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\obj\Debug\net8.0-windows\refint\Explorer.dll
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\obj\Debug\net8.0-windows\Explorer.pdb
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\obj\Debug\net8.0-windows\Explorer.genruntimeconfig.cache
+D:\Group-12\Weekly assignments\WindowExplorer\Explorer\Explorer\obj\Debug\net8.0-windows\ref\Explorer.dll
