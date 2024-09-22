@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\Group-12\\Weekly assignments\\WindowExplorer\\Explorer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{81AA50C5-324F-4440-8E9E-6B4541DDF69D}|Explorer\\Explorer.csproj|D:\\Group-12\\Weekly assignments\\WindowExplorer\\Explorer\\explorer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{81AA50C5-324F-4440-8E9E-6B4541DDF69D}|Explorer\\Explorer.csproj|solutionrelative:explorer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{81AA50C5-324F-4440-8E9E-6B4541DDF69D}|Explorer\\Explorer.csproj|d:\\group-12\\weekly assignments\\windowexplorer\\explorer\\explorer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{81AA50C5-324F-4440-8E9E-6B4541DDF69D}|Explorer\\Explorer.csproj|solutionrelative:explorer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81AA50C5-324F-4440-8E9E-6B4541DDF69D}|Explorer\\Explorer.csproj|d:\\group-12\\weekly assignments\\windowexplorer\\explorer\\explorer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{81AA50C5-324F-4440-8E9E-6B4541DDF69D}|Explorer\\Explorer.csproj|solutionrelative:explorer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,24 +18,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\Group-12\\Weekly assignments\\WindowExplorer\\Explorer\\Explorer\\Form1.cs",
               "RelativeDocumentMoniker": "Explorer\\Form1.cs",
               "ToolTip": "D:\\Group-12\\Weekly assignments\\WindowExplorer\\Explorer\\Explorer\\Form1.cs",
               "RelativeToolTip": "Explorer\\Form1.cs",
-              "ViewState": "AQIAAKMAAAAAAAAAAAAiwL4AAAAAAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAYwAoAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-21T00:53:53.839Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "D:\\Group-12\\Weekly assignments\\WindowExplorer\\Explorer\\Explorer\\Form1.cs",
               "RelativeDocumentMoniker": "Explorer\\Form1.cs",

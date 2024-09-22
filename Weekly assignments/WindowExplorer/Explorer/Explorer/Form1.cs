@@ -8,7 +8,7 @@ namespace Explorer
     {
         private string currentDirectory;
         private TreeNode currentTreeNode;
-        private string clipboardFile; // Stores the full path of the copied or cut file
+        private string clipboardFile;
         private bool isCutOperation;  // True if cut operation, false if copy operation
         public Form1()
         {
