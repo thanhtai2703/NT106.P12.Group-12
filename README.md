@@ -1,14 +1,19 @@
-# Group-12. NT106.P12
-# Weekly assigment
+# Monopoly
 
 ## Description
 
-## Members
+## Getting Started
+
+### Executing program
+
+
+```
+
+```
+## Authors
 
 Contributors names and contact info
 
-1.Trương Thành Tài (MSSV: 23521380)  
-Email:[@23521380](23521380@gm.uit.edu.vn)
-
-## Acknowledgments
+ex. Dominique Pizzie  
+ex. [@DomPizzie](https://twitter.com/dompizzie)
 
