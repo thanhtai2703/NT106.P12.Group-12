@@ -14,6 +14,6 @@
 
 Contributors names and contact info
 
-ex. Trương Thành Tài
-ex. [@23521380](23521380@gm.uit.edu.vn)
+ Trương Thành Tài
+[@23521380](23521380@gm.uit.edu.vn)
 
