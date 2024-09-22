@@ -54,7 +54,7 @@ namespace Explorer
                 {
                     ListViewItem item = new ListViewItem(file.Name);
                     item.Tag = file.FullName;  // Store the full file path in the Tag property
-                    item.SubItems.Add(file.Length.ToString());  // Add file size (optional)
+                    item.SubItems.Add(file.Length.ToString());  
                     listView1.Items.Add(item);
                 }
             }
