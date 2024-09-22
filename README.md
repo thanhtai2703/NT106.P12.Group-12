@@ -14,6 +14,6 @@
 
 Contributors names and contact info
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+ex. Trương Thành Tài
+ex. [@23521380](23521380@gm.uit.edu.vn)
 
