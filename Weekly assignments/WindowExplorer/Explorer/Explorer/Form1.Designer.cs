@@ -129,7 +129,7 @@
             listView1.Location = new Point(0, 0);
             listView1.Name = "listView1";
             listView1.Size = new Size(530, 450);
-            listView1.SmallImageList = imageList2;
+            listView1.SmallImageList = imageList1;
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
@@ -154,8 +154,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(splitContainer1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
-            Text = "Form1";
+            Text = "WindowExplorer";
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();

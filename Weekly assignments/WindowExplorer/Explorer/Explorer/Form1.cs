@@ -9,10 +9,11 @@ namespace Explorer
         private string currentDirectory;
         private TreeNode currentTreeNode;
         private string clipboardFile;
-        private bool isCutOperation;  // True if cut operation, false if copy operation
+        private bool isCutOperation;  // true = cut, false = copy
         public Form1()
         {
             InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;
             LoadDrives();
         }
         private void LoadDrives()
@@ -54,7 +55,7 @@ namespace Explorer
                 {
                     ListViewItem item = new ListViewItem(file.Name);
                     item.Tag = file.FullName;  // Store the full file path in the Tag property
-                    item.SubItems.Add(file.Length.ToString());  
+                    item.SubItems.Add(file.Length.ToString());
                     listView1.Items.Add(item);
                 }
             }
@@ -110,40 +111,46 @@ namespace Explorer
                 isCutOperation = true;  // It's a cut operation
             }
         }
-
-        private void PasteItem_Click(object sender, EventArgs e)
+        private void PasteItem_Click(Object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(clipboardFile) && !string.IsNullOrEmpty(currentDirectory))
-            {
-                string destinationPath = Path.Combine(currentDirectory, Path.GetFileName(clipboardFile));
-
-                // Check if the destination file already exists
-                if (File.Exists(destinationPath))
+            ThreadStart st = new ThreadStart(ThreadPasteItem_Click);
+            Thread patse = new Thread(st);
+           patse.Start();
+        }
+        private void ThreadPasteItem_Click()
+        {
+                if (!string.IsNullOrEmpty(clipboardFile) && !string.IsNullOrEmpty(currentDirectory))
                 {
-                    MessageBox.Show("File already exists in the destination folder.");
-                    return;
-                }
+                    string destinationPath = Path.Combine(currentDirectory, Path.GetFileName(clipboardFile));
 
-                try
-                {
-                    if (isCutOperation)
+                    // Check if the destination file already exists
+                    if (File.Exists(destinationPath))
                     {
-                        File.Move(clipboardFile, destinationPath);  // Move file (cut operation)
-                        isCutOperation = false;
-                    }
-                    else
-                    {
-                        File.Copy(clipboardFile, destinationPath);  // Copy file (copy operation)
+                        MessageBox.Show("File already exists in the destination folder.");
+                        return;
                     }
 
-                    clipboardFile = null;  // Clear the clipboard
-                    LoadDirectoriesAndFiles(currentTreeNode);  // Refresh the view
+                    try
+                    {
+                        if (isCutOperation)
+                        {
+                            File.Move(clipboardFile, destinationPath);  // Move file (cut operation)
+                            isCutOperation = false;
+                        }
+                        else
+                        {
+                            File.Copy(clipboardFile, destinationPath);  // Copy file (copy operation)
+                        }
+
+                        clipboardFile = null;  // Clear the clipboard
+                        LoadDirectoriesAndFiles(currentTreeNode);  // Refresh the view
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error while pasting the file: {ex.Message}");
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error while pasting the file: {ex.Message}");
-                }
-            }
+
         }
 
         private void DeleteItem_Click(object sender, EventArgs e)
@@ -172,6 +179,7 @@ namespace Explorer
                 LoadDirectoriesAndFiles(currentTreeNode);  // Refresh view after folder creation
             }
         }
+
         private async void CopyLargeFileAsync(string sourceFile, string destFile)
         {
             byte[] buffer = new byte[1024 * 1024]; // 1MB buffer
@@ -184,6 +192,7 @@ namespace Explorer
                     await destStream.WriteAsync(buffer, 0, bytesRead);
                 }
             }
+
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
