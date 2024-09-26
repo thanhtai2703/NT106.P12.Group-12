@@ -17,7 +17,7 @@ Monopoly is a classic board game that simulates the process of buying, trading, 
 - Trò chơi kết thúc khi chỉ còn 1 người tồn tại.
 ### Tính năng
 - Hỗ trợ phòng chơi ( 2 - 4 người chơi).
-- 
+- Trò chuyện trực tuyến.
 ## Knowledges
 
 ## Authors
