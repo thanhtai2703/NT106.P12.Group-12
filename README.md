@@ -18,11 +18,13 @@ ________________________________________________________________________________
 - Bàn cờ 40 ô với các địa điểm, sự kiện đặc biệt.
 - Khung chat trò chuyện giữa các người chơi.
 - Thông tin hiện tại của các người chơi ( số tiền, số nhà sỡ hữu , trạng thái (ở tù , tự do ) )
-- Sau 1 khoảng thời gian nếu người chơi hiện tại không có hành động thì sẽ đến lượt kế tiếp
+- Giới hạn thời gian mỗi lượt đi. Sau 1 khoảng thời gian nếu người chơi hiện tại không có hành động thì sẽ đến lượt kế tiếp
 - Trò chơi kết thúc khi chỉ còn 1 người tồn tại.
+- Các ô Khí Vận, Cơ Hội đem lại những sự kiện ngẫu nhiên
 ### Tính năng
+- Đặt tên người chơi.
 - Hỗ trợ phòng chơi trực tuyến qua LAN ( 2 - 4 người chơi).
-- Tạo phòng, tham gia phòng
+- Tạo phòng mới, tham gia phòng.
 - Trò chuyện trực tuyến.
 ## Kiến thức
 - Client/Server
