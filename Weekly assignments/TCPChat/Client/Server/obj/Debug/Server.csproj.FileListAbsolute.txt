@@ -1,0 +1,10 @@
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Server\bin\Debug\Server.exe.config
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Server\bin\Debug\Server.exe
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Server\bin\Debug\Server.pdb
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Server\obj\Debug\Server.Form1.resources
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Server\obj\Debug\Server.Properties.Resources.resources
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Server\obj\Debug\Server.csproj.GenerateResource.cache
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Server\obj\Debug\Server.exe
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Server\obj\Debug\Server.pdb

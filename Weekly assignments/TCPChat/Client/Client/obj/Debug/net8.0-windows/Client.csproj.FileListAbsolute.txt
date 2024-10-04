@@ -1,0 +1,17 @@
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\bin\Debug\net8.0-windows\Client.exe
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\bin\Debug\net8.0-windows\Client.deps.json
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\bin\Debug\net8.0-windows\Client.runtimeconfig.json
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\bin\Debug\net8.0-windows\Client.dll
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\bin\Debug\net8.0-windows\Client.pdb
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\obj\Debug\net8.0-windows\Client.Form1.resources
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\obj\Debug\net8.0-windows\Client.csproj.GenerateResource.cache
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\obj\Debug\net8.0-windows\Client.GeneratedMSBuildEditorConfig.editorconfig
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\obj\Debug\net8.0-windows\Client.AssemblyInfoInputs.cache
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\obj\Debug\net8.0-windows\Client.AssemblyInfo.cs
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\obj\Debug\net8.0-windows\Client.csproj.CoreCompileInputs.cache
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\obj\Debug\net8.0-windows\Client.sourcelink.json
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\obj\Debug\net8.0-windows\Client.dll
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\obj\Debug\net8.0-windows\refint\Client.dll
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\obj\Debug\net8.0-windows\Client.pdb
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\obj\Debug\net8.0-windows\Client.genruntimeconfig.cache
+D:\GROUP-12\Weekly assignments\TCPChat\Client\Client\obj\Debug\net8.0-windows\ref\Client.dll
