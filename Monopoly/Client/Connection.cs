@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing.Drawing2D;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -13,6 +15,26 @@ namespace Client
             InitializeComponent();
         }
         //Khi nhấn nút Connect 
+
+        private void button1_Paint(object sender, PaintEventArgs e)
+        {
+            // Tạo GraphicsPath cho button bo góc
+            GraphicsPath path = new GraphicsPath();
+            int radius = 20; // Độ bo tròn của góc
+
+            // Tạo một hình chữ nhật bo góc
+            path.AddArc(new Rectangle(0, 0, radius, radius), 180, 90); // Góc trên trái
+            path.AddArc(new Rectangle(returnBtn.Width - radius, 0, radius, radius), 270, 90); // Góc trên phải
+            path.AddArc(new Rectangle(returnBtn.Width - radius, returnBtn.Height - radius, radius, radius), 0, 90); // Góc dưới phải
+            path.AddArc(new Rectangle(0, returnBtn.Height - radius, radius, radius), 90, 90); // Góc dưới trái
+
+            path.CloseAllFigures();
+
+            // Áp dụng vùng bo góc cho nút
+            returnBtn.Region = new Region(path);
+            btnChooseColor.Region = new Region(path);
+        }
+
         private void btnConnect_Click(object sender, EventArgs e)
         {
             //Nhập phòng cho client
@@ -41,6 +63,20 @@ namespace Client
             //Khi nhấn vào nút trở lại thì gắn cho DialogResult kết quả Cancel 
             DialogResult = DialogResult.Cancel;
             Close();
+        }
+
+        private void Button_MouseEnter(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.FlatAppearance.BorderSize = 2;
+            btn.FlatAppearance.BorderColor = Color.LightBlue;
+        }
+
+        // Khi con trỏ chuột rời khỏi Button
+        private void Button_MouseLeave(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.FlatAppearance.BorderSize = 0;
         }
     }
 }

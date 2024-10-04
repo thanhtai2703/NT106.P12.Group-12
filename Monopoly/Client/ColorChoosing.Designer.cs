@@ -34,16 +34,17 @@
             this.returnBtn = new System.Windows.Forms.Button();
             this.connect_button = new System.Windows.Forms.Button();
             this.tbColor = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // chooseBluePlayerBtn
             // 
-            this.chooseBluePlayerBtn.BackColor = System.Drawing.Color.White;
+            this.chooseBluePlayerBtn.BackColor = System.Drawing.Color.Transparent;
             this.chooseBluePlayerBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chooseBluePlayerBtn.BackgroundImage")));
             this.chooseBluePlayerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chooseBluePlayerBtn.FlatAppearance.BorderSize = 0;
             this.chooseBluePlayerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.chooseBluePlayerBtn.Location = new System.Drawing.Point(312, 239);
+            this.chooseBluePlayerBtn.Location = new System.Drawing.Point(316, 189);
             this.chooseBluePlayerBtn.Name = "chooseBluePlayerBtn";
             this.chooseBluePlayerBtn.Size = new System.Drawing.Size(66, 74);
             this.chooseBluePlayerBtn.TabIndex = 30;
@@ -53,12 +54,12 @@
             // 
             // chooseRedPlayerBtn
             // 
-            this.chooseRedPlayerBtn.BackColor = System.Drawing.Color.White;
+            this.chooseRedPlayerBtn.BackColor = System.Drawing.Color.Transparent;
             this.chooseRedPlayerBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chooseRedPlayerBtn.BackgroundImage")));
             this.chooseRedPlayerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chooseRedPlayerBtn.FlatAppearance.BorderSize = 0;
             this.chooseRedPlayerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.chooseRedPlayerBtn.Location = new System.Drawing.Point(231, 238);
+            this.chooseRedPlayerBtn.Location = new System.Drawing.Point(183, 189);
             this.chooseRedPlayerBtn.Name = "chooseRedPlayerBtn";
             this.chooseRedPlayerBtn.Size = new System.Drawing.Size(66, 74);
             this.chooseRedPlayerBtn.TabIndex = 29;
@@ -68,54 +69,77 @@
             // 
             // returnBtn
             // 
-            this.returnBtn.BackColor = System.Drawing.Color.Transparent;
+            this.returnBtn.BackColor = System.Drawing.Color.White;
             this.returnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.returnBtn.FlatAppearance.BorderSize = 0;
             this.returnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.returnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.returnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.returnBtn.ForeColor = System.Drawing.Color.White;
-            this.returnBtn.Location = new System.Drawing.Point(169, 341);
+            this.returnBtn.Font = new System.Drawing.Font("Elephant", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.returnBtn.ForeColor = System.Drawing.Color.Black;
+            this.returnBtn.Location = new System.Drawing.Point(164, 280);
             this.returnBtn.Name = "returnBtn";
             this.returnBtn.Size = new System.Drawing.Size(124, 33);
             this.returnBtn.TabIndex = 28;
+            this.returnBtn.Text = "Back";
             this.returnBtn.UseVisualStyleBackColor = false;
             this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
+            this.returnBtn.Paint += new System.Windows.Forms.PaintEventHandler(this.button1_Paint);
+            this.returnBtn.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.returnBtn.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // connect_button
             // 
-            this.connect_button.BackColor = System.Drawing.Color.Transparent;
+            this.connect_button.BackColor = System.Drawing.Color.White;
             this.connect_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.connect_button.FlatAppearance.BorderSize = 0;
             this.connect_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.connect_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.connect_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.connect_button.ForeColor = System.Drawing.Color.White;
-            this.connect_button.Location = new System.Drawing.Point(316, 340);
+            this.connect_button.Font = new System.Drawing.Font("Elephant", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.connect_button.ForeColor = System.Drawing.Color.Black;
+            this.connect_button.Location = new System.Drawing.Point(316, 280);
             this.connect_button.Name = "connect_button";
             this.connect_button.Size = new System.Drawing.Size(124, 33);
             this.connect_button.TabIndex = 24;
+            this.connect_button.Text = "Connect";
             this.connect_button.UseVisualStyleBackColor = false;
             this.connect_button.Click += new System.EventHandler(this.connect_button_Click);
+            this.connect_button.Paint += new System.Windows.Forms.PaintEventHandler(this.button1_Paint);
+            this.connect_button.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.connect_button.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // tbColor
             // 
             this.tbColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbColor.Enabled = false;
-            this.tbColor.Location = new System.Drawing.Point(245, 207);
+            this.tbColor.Location = new System.Drawing.Point(231, 161);
             this.tbColor.Multiline = true;
             this.tbColor.Name = "tbColor";
             this.tbColor.Size = new System.Drawing.Size(115, 22);
             this.tbColor.TabIndex = 31;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(204, 125);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 26);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Choose Color";
+            // 
             // ColorChoosing
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::Client.Properties.Resources.hin04;
+            this.BackgroundImage = global::Client.Properties.Resources.monopoly_board_games_element_background_free_vector;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(583, 394);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tbColor);
             this.Controls.Add(this.chooseBluePlayerBtn);
             this.Controls.Add(this.chooseRedPlayerBtn);
@@ -143,5 +167,6 @@
         private System.Windows.Forms.Button returnBtn;
         private System.Windows.Forms.Button connect_button;
         private System.Windows.Forms.TextBox tbColor;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -63,6 +63,16 @@ namespace Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _81rRTIxhz4L__AC_SL1500_ {
+            get {
+                object obj = ResourceManager.GetObject("81rRTIxhz4L._AC_SL1500_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bluePawn {
             get {
                 object obj = ResourceManager.GetObject("bluePawn", resourceCulture);
@@ -133,9 +143,59 @@ namespace Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap monopoly_board_games_element_background_free_vector {
+            get {
+                object obj = ResourceManager.GetObject("monopoly-board-games-element-background-free-vector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap real_money_monopoly_background_free_vector {
+            get {
+                object obj = ResourceManager.GetObject("real-money-monopoly-background-free-vector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap redPawn {
             get {
                 object obj = ResourceManager.GetObject("redPawn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot__24_ {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot (24)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap th__3_ {
+            get {
+                object obj = ResourceManager.GetObject("th (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap th__4_ {
+            get {
+                object obj = ResourceManager.GetObject("th (4)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
