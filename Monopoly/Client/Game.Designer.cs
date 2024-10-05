@@ -87,6 +87,7 @@
             this.sendBt = new System.Windows.Forms.Button();
             this.messageRTB = new System.Windows.Forms.RichTextBox();
             this.colorLb = new System.Windows.Forms.Label();
+            this.Startbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.redPawnIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bluePawnIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tile0)).BeginInit();
@@ -788,7 +789,7 @@
             // 
             // colorLb
             // 
-            this.colorLb.Font = new System.Drawing.Font("UTM Avo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colorLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colorLb.ForeColor = System.Drawing.Color.Yellow;
             this.colorLb.Location = new System.Drawing.Point(1138, 29);
             this.colorLb.Name = "colorLb";
@@ -796,12 +797,32 @@
             this.colorLb.TabIndex = 117;
             this.colorLb.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // Startbtn
+            // 
+            this.Startbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(176)))), ((int)(((byte)(193)))));
+            this.Startbtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.Startbtn.FlatAppearance.BorderSize = 2;
+            this.Startbtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.Startbtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.Startbtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.Startbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Startbtn.Font = new System.Drawing.Font("Times New Roman", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Startbtn.Location = new System.Drawing.Point(306, 519);
+            this.Startbtn.Margin = new System.Windows.Forms.Padding(0);
+            this.Startbtn.Name = "Startbtn";
+            this.Startbtn.Size = new System.Drawing.Size(96, 46);
+            this.Startbtn.TabIndex = 118;
+            this.Startbtn.Text = "Bắt đầu";
+            this.Startbtn.UseVisualStyleBackColor = false;
+            this.Startbtn.Click += new System.EventHandler(this.Startbtn_Click);
+            // 
             // Game
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::Client.Properties.Resources.hin000;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1258, 664);
+            this.Controls.Add(this.Startbtn);
             this.Controls.Add(this.colorLb);
             this.Controls.Add(this.messageRTB);
             this.Controls.Add(this.sendBt);
@@ -982,5 +1003,6 @@
         private System.Windows.Forms.Button sendBt;
         private System.Windows.Forms.RichTextBox messageRTB;
         private System.Windows.Forms.Label colorLb;
+        private System.Windows.Forms.Button Startbtn;
     }
 }

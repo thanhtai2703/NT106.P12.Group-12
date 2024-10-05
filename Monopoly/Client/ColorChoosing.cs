@@ -42,14 +42,14 @@ namespace Client
                 //Nếu chọn màu đỏ 
                 case "Đỏ":
                     //Gán tên người chơi là Red 
-                    ConnectionOptions.PlayerName = "Đỏ" + " (" + ConnectionOptions.Room + ")";
+                    ConnectionOptions.PlayerName = "Đỏ" + ";" + ConnectionOptions.Room;
                     Close();
                     DialogResult = DialogResult.OK;
                     break;
                  //Nếu chọn màu xanh
                 case "Xanh":
                     //Gán tên người chơi là Blue
-                    ConnectionOptions.PlayerName = "Xanh" + " (" + ConnectionOptions.Room + ")";
+                    ConnectionOptions.PlayerName = "Xanh" + ";"+ConnectionOptions.Room;
                     Close();
                     //Gắn cho DialogResult kết quả OK 
                     DialogResult = DialogResult.OK;

@@ -26,6 +26,7 @@ namespace Client
         private readonly Property[] Properties = new Property[40];
         //Chứa hình ảnh của các ô 
         private readonly PictureBox[] Tile;
+        private string messagetype="";
         private readonly int[] Opportunity = { -100, 100, -150, 150, -200, 200 };
         //Thông tin 1 người chơi 
         //Nhận dữ liệu trên Server
@@ -107,9 +108,9 @@ namespace Client
                         MainMenu mainMenu = new MainMenu();
                         mainMenu.ShowDialog();
                         Stream.Write(
-                            Encoding.Unicode.GetBytes(ConnectionOptions.PlayerName + " đã rời"),
+                            Encoding.Unicode.GetBytes("Rời"+";" + ConnectionOptions.PlayerName),
                             0,
-                            Encoding.Unicode.GetBytes(ConnectionOptions.PlayerName + " đã rời").Length);
+                            Encoding.Unicode.GetBytes("Rời" +";"+ ConnectionOptions.PlayerName).Length);
                         Disconnect();
                     }
                     //Hiển thị thông điệp là đang đợi người chơi thứ 2 nên vô hiệu hóa các nút chơi
@@ -145,27 +146,43 @@ namespace Client
                     //Nếu chọn Cancel thì hủy kết nối ròi quay về MainMenu chính 
                     if (colorChoosing.DialogResult is DialogResult.Cancel)
                     {
+                        messagetype = "Rời";
                         MainMenu mainMenu = new MainMenu();
                         mainMenu.ShowDialog();
-                        SendMessageToServer(ConnectionOptions.PlayerName + " đã rời");
+                        SendMessageToServer(messagetype+";"+ConnectionOptions.PlayerName);
                         Disconnect();
                     }
                     //Gửi tên  người chơi đến server
-                    SendMessageToServer(ConnectionOptions.PlayerName);
+                    SendMessageToServer("Kết nối"+";"+ConnectionOptions.PlayerName);
 
                     //Xác định người chơi hiện tại và đánh dấu họ đã kết nối 
-                    if (Regex.IsMatch(ConnectionOptions.PlayerName, @"Đỏ\s*\(\s*(\d+)\s*\)"))
+                    string[] player = ConnectionOptions.PlayerName.Split(';');
+                    switch (player[0])
                     {
-                        colorLb.BackColor = Color.Red;
-                        RedConnected = true;
-                        CurrentPlayerId = 0;
+                        case "Đỏ":
+                                colorLb.BackColor = Color.Red;
+                                RedConnected = true;
+                                CurrentPlayerId = 0;
+                           break;
+                        case "Xanh":
+                            colorLb.BackColor = Color.Blue;
+                            BlueConnected = true;
+                            CurrentPlayerId = 1;
+                            break;
+
                     }
-                    else if (Regex.IsMatch(ConnectionOptions.PlayerName, @"Xanh\s*\(\s*(\d+)\s*\)"))
-                    {
-                        colorLb.BackColor = Color.Blue;
-                        BlueConnected = true;
-                        CurrentPlayerId = 1;
-                    }
+                    //if (Regex.IsMatch(ConnectionOptions.PlayerName, @"Đỏ\s*\(\s*(\d+)\s*\)"))
+                    //{
+                    //    colorLb.BackColor = Color.Red;
+                    //    RedConnected = true;
+                    //    CurrentPlayerId = 0;
+                    //}
+                    //else if (Regex.IsMatch(ConnectionOptions.PlayerName, @"Xanh\s*\(\s*(\d+)\s*\)"))
+                    //{
+                    //    colorLb.BackColor = Color.Blue;
+                    //    BlueConnected = true;
+                    //    CurrentPlayerId = 1;
+                    //}
                     colorLb.Text = ConnectionOptions.Room;
                 }
 
@@ -369,77 +386,143 @@ namespace Client
                     String message = builder.ToString();
                     //Xử lý các loại tin nhắn từ máy chủ
                     // Tách chuỗi ra để dễ cho việc xử lý từng phòng chơi
-                    string[] parts = message.Split(new char[] { ' ', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] parts = message.Split(';');
+                    //string[] parts = message.Split(new char[] { ' ', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
 
                     //Nhận được thông điệp máy chủ cả 2 ngươi chơi đều đã kết nối
                     //if (Regex.IsMatch(message, @"Cả\s+2\s+người\s+chơi\s+đã\s+kết\s+nối:\s+\d+") && parts[parts.Length - 1] == ConnectionOptions.Room)
-                    if (message.Contains("Cả 2 người chơi đã kết nối: ") && parts[parts.Length - 1] == ConnectionOptions.Room)
+                    switch (parts[0])
                     {
-                        if (Regex.IsMatch(ConnectionOptions.PlayerName, @"Đỏ\s*\(\s*(\d+)\s*\)")) 
-                            currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
-                            {
-                                currentPlayersTurn_textbox.Text = "Tung xúc sắc để bắt đầu trò chơi";
-                                throwDiceBtn.Enabled = true;
-                                buyBtn.Enabled = false;
-                                endTurnBtn.Enabled = false;
-                            });
-                        if (Regex.IsMatch(ConnectionOptions.PlayerName, @"Xanh\s*\(\s*(\d+)\s*\)"))
-                            currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
-                            {
-                                currentPlayersTurn_textbox.Text = "Đỏ đang thực hiện lượt chơi. Chờ...";
-                            });
-                    }
-
-                    //Khi người chơi màu đỏ đã kết nối 
-                    else if (Regex.IsMatch(message, @"Đỏ\s*\(\s*(\d+)\s*\)\s*đã kết nối") && parts[1] == ConnectionOptions.Room)
-                    {
-                        RedConnected = true;
-                        // Kiểm tra xem người chơi màu xanh có kết nối không và gửi thông báo nếu cả hai đã kết nối
-                        if (!BlueConnected) 
-                            continue;
-                        SendMessageToServer("Cả 2 người chơi đã kết nối: " + ConnectionOptions.Room);
-                    }
-
-                    //Khi người chơi màu xanh đã kết nối 
-                    else if (Regex.IsMatch(message, @"Xanh\s*\(\s*(\d+)\s*\)\s*đã kết nối") && parts[1] == ConnectionOptions.Room)
-                    {
-                        BlueConnected = true;
-                        // Kiểm tra xem người chơi màu đỏ có kết nối không và gửi thông báo nếu cả hai đã kết nối
-                        if (!RedConnected) 
-                            continue;
-                        SendMessageToServer("Cả 2 người chơi đã kết nối: " + ConnectionOptions.Room);
-
-                    }
-
-                    //Xử lý tin nhắn
-                    if (message.Contains(" nhắn: "))
-                    {
-
-                        this.Invoke(new MethodInvoker(delegate
-                        {
-                            if (parts[1] == ConnectionOptions.Room)
-                            {
-                                string message_show = message;
-                                message_show = message_show.Replace(" nhắn", "");
-                                messageRTB.Invoke((MethodInvoker)delegate
+                        //case "Kết nối":
+                        //    if (parts[1] == "Đỏ")
+                        //    {
+                        //        colorLb.BackColor = Color.Red;
+                        //        RedConnected = true;
+                        //        CurrentPlayerId = 0;
+                        //    }
+                        //    else
+                        //    {
+                        //        colorLb.BackColor = Color.Blue;
+                        //        BlueConnected = true;
+                        //        CurrentPlayerId = 1;
+                        //    }
+                        //    colorLb.Text = ConnectionOptions.Room;
+                        //    break;
+                        case "Bắt đầu":
+                                if (CurrentPlayerId == Convert.ToInt32(parts[3]))
                                 {
-                                    messageRTB.AppendText(message_show + Environment.NewLine);
+                                currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
+                                {
+                                    currentPlayersTurn_textbox.Text = "Tung xúc sắc để bắt đầu trò chơi";
+                                    throwDiceBtn.Enabled = true;
+                                    buyBtn.Enabled = false;
+                                    endTurnBtn.Enabled = false;
+                                });
+                                 }
+                            else
+                            {
+                                currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
+                                {
+                                    currentPlayersTurn_textbox.Text = "Đỏ đang thực hiện lượt chơi. Chờ...";
                                 });
                             }
-                        }));
-                    }
+                            break;
+                        case "Nhắn":
+                            this.Invoke(new MethodInvoker(delegate
+                            {
+                                if (parts[1] == ConnectionOptions.Room)
+                                {
+                                    string message_show = message;
+                                    message_show = message_show.Replace(" nhắn", "");
+                                    messageRTB.Invoke((MethodInvoker)delegate
+                                    {
+                                        messageRTB.AppendText(message_show + Environment.NewLine);
+                                    });
+                                }
+                            }));
+                            break;
+                        case "Rời":
+                            SendMessageToServer(ConnectionOptions.PlayerName + " đã rời.");
+                            this.Invoke((MethodInvoker)delegate {
+                                MessageBox.Show("Đối thủ của bạn đã rời", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                this.Hide();
+                                MainMenu mainMenu = new MainMenu();
+                                mainMenu.ShowDialog();
+                                Disconnect();
+                            });
+                            break;
+                       // case "Kết quả":
 
-                    if (message.Contains(" đã rời") && parts[1] == ConnectionOptions.Room)
-                    {
-                        SendMessageToServer(ConnectionOptions.PlayerName + " đã rời.");
-                        this.Invoke((MethodInvoker)delegate {
-                            MessageBox.Show("Đối thủ của bạn đã rời", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                            this.Hide();
-                            MainMenu mainMenu = new MainMenu();
-                            mainMenu.ShowDialog();
-                            Disconnect();
-                        });
+
+
                     }
+                    //if (message.Contains("Cả 2 người chơi đã kết nối: ") && parts[2] == ConnectionOptions.Room)
+                    //{
+                    //    if (Regex.IsMatch(ConnectionOptions.PlayerName, @"Đỏ\s*\(\s*(\d+)\s*\)")) 
+                    //        currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
+                    //        {
+                    //            currentPlayersTurn_textbox.Text = "Tung xúc sắc để bắt đầu trò chơi";
+                    //            throwDiceBtn.Enabled = true;
+                    //            buyBtn.Enabled = false;
+                    //            endTurnBtn.Enabled = false;
+                    //        });
+                    //    if (Regex.IsMatch(ConnectionOptions.PlayerName, @"Xanh\s*\(\s*(\d+)\s*\)"))
+                    //        currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
+                    //        {
+                    //            currentPlayersTurn_textbox.Text = "Đỏ đang thực hiện lượt chơi. Chờ...";
+                    //        });
+                    //}
+
+                    ////Khi người chơi màu đỏ đã kết nối 
+                    //else if (Regex.IsMatch(message, @"Đỏ\s*\(\s*(\d+)\s*\)\s*đã kết nối") && parts[1] == ConnectionOptions.Room)
+                    //{
+                    //    RedConnected = true;
+                    //    // Kiểm tra xem người chơi màu xanh có kết nối không và gửi thông báo nếu cả hai đã kết nối
+                    //    if (!BlueConnected) 
+                    //        continue;
+                    //    SendMessageToServer("Cả 2 người chơi đã kết nối: " + ConnectionOptions.Room);
+                    //}
+
+                    ////Khi người chơi màu xanh đã kết nối 
+                    //else if (Regex.IsMatch(message, @"Xanh\s*\(\s*(\d+)\s*\)\s*đã kết nối") && parts[1] == ConnectionOptions.Room)
+                    //{
+                    //    BlueConnected = true;
+                    //    // Kiểm tra xem người chơi màu đỏ có kết nối không và gửi thông báo nếu cả hai đã kết nối
+                    //    if (!RedConnected) 
+                    //        continue;
+                    //    SendMessageToServer("Cả 2 người chơi đã kết nối: " + ConnectionOptions.Room);
+
+                    //}
+
+                    //Xử lý tin nhắn
+                    //if (message.Contains(" nhắn: "))
+                    //{
+
+                    //    this.Invoke(new MethodInvoker(delegate
+                    //    {
+                    //        if (parts[1] == ConnectionOptions.Room)
+                    //        {
+                    //            string message_show = message;
+                    //            message_show = message_show.Replace(" nhắn", "");
+                    //            messageRTB.Invoke((MethodInvoker)delegate
+                    //            {
+                    //                messageRTB.AppendText(message_show + Environment.NewLine);
+                    //            });
+                    //        }
+                    //    }));
+                    //}
+
+                    //if (message.Contains(" đã rời") && parts[1] == ConnectionOptions.Room)
+                    //{
+                    //    SendMessageToServer(ConnectionOptions.PlayerName + " đã rời.");
+                    //    this.Invoke((MethodInvoker)delegate {
+                    //        MessageBox.Show("Đối thủ của bạn đã rời", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    //        this.Hide();
+                    //        MainMenu mainMenu = new MainMenu();
+                    //        mainMenu.ShowDialog();
+                    //        Disconnect();
+                    //    });
+                    //}
 
                     //Khi nhận được kết quả lượt đi 
                     //Xử lý thông tin nhận được và cập nhật kết quả cho người 
@@ -700,6 +783,13 @@ namespace Client
             }
             return 1;
         }
+
+        private void Startbtn_Click(object sender, EventArgs e)
+        {
+            messagetype = "Bắt đầu";
+            SendMessageToServer(messagetype + ";" + ConnectionOptions.PlayerName + ';' + 0);
+        }
+
         //Xử lý khi nút ném xúc xắc 
         private void ThrowDiceBtn_Click(object sender, EventArgs e)
         {
