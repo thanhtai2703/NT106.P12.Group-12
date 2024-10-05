@@ -129,15 +129,15 @@ namespace Server
                                 string tempMessage = message;
                                 string nextPlayerId = arraypayload[3];
                                 //tempMessage = tempMessage.Replace("Kết quả lượt đi của Đỏ", "");
-                                string[] data = arraypayload[4].Split('~');
-                                int STT = Convert.ToInt32(data[1]);
-                                string vitri = FindNameByNumber(STT);
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName
-                                                    + "\tVị trí: " + vitri
-                                                    + "\tTiền: " + data[2] + Environment.NewLine;
-                                UpdateToFile("[" + DateTime.Now + "] " + userName
-                                                    + "\tVị trí: " + vitri
-                                                    + "\tTiền: " + data[2]);
+                                //string[] data = arraypayload[4].Split('~');
+                                //int STT = Convert.ToInt32(data[1]);
+                                //string vitri = FindNameByNumber(STT);
+                                //Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName
+                                //                    + "\tVị trí: " + vitri
+                                //                    + "\tTiền: " + data[2] + Environment.NewLine;
+                                //UpdateToFile("[" + DateTime.Now + "] " + userName
+                                //                    + "\tVị trí: " + vitri
+                                //                    + "\tTiền: " + data[2]);
                                 Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Đến lượt của người tiếp theo" + Environment.NewLine;
                                 UpdateToFile("[" + DateTime.Now + "] " + "Đến lượt của người tiếp theo");
                             });

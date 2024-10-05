@@ -222,12 +222,36 @@ namespace Client
         //Cập nhật thông tin về người chơi trên giao diện 
         private void UpdatePlayersStatusBoxes()
         {
-            redPlayerStatusBox_richtextbox.Text = "Người chơi Đỏ" + "\n"
+            if (redPlayerStatusBox_richtextbox.InvokeRequired)
+            {
+                redPlayerStatusBox_richtextbox.Invoke((MethodInvoker)delegate
+                {
+                    redPlayerStatusBox_richtextbox.Text = "Người chơi Đỏ" + "\n"
                 + "Tiền còn lại: " + Players[0].Balance + "\n"
                 + PropertiesToString(Players[0].PropertiesOwned);
-            bluePlayerStatusBox_richtextbox.Text = "Người chơi Xanh" + "\n"
-                + "Tiền còn lại: " + Players[1].Balance + "\n"
-                + PropertiesToString(Players[1].PropertiesOwned);
+                });
+                }
+            else
+            {
+                redPlayerStatusBox_richtextbox.Text = "Người chơi Đỏ" + "\n"
+              + "Tiền còn lại: " + Players[0].Balance + "\n"
+              + PropertiesToString(Players[0].PropertiesOwned);
+            }
+            if (bluePlayerStatusBox_richtextbox.InvokeRequired)
+            {
+                bluePlayerStatusBox_richtextbox.Invoke((MethodInvoker)delegate
+                {
+                    bluePlayerStatusBox_richtextbox.Text = "Người chơi Xanh" + "\n"
+                        + "Tiền còn lại: " + Players[1].Balance + "\n"
+                        + PropertiesToString(Players[1].PropertiesOwned);
+                });
+            }
+            else
+            {
+                bluePlayerStatusBox_richtextbox.Text = "Người chơi Xanh" + "\n"
+                        + "Tiền còn lại: " + Players[1].Balance + "\n"
+                        + PropertiesToString(Players[1].PropertiesOwned);
+            }    
         }
         //Thay đổi số dư và cập nhật lên giao diện 
         private void ChangeBalance(Player player, int cashChange)
@@ -451,7 +475,50 @@ namespace Client
                                 Disconnect();
                             });
                             break;
-                       // case "Kết quả":
+                        case "Kết quả":
+                            //string[] infomation = parts[6].Split('~');   
+                            int temp = Convert.ToInt32(parts[3]);
+                            if (Convert.ToInt32(parts[3]) == CurrentPlayerId)
+                            {
+                                currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
+                                {
+                                    // Cập nhật trạng thái của textbox hiển thị lượt của người chơi hiện tại
+                                    currentPlayersTurn_textbox.Text = "Lượt của bạn";
+                                    // Kích hoạt nút để ném xúc xắc
+                                    throwDiceBtn.Enabled = true;
+                                    // Vô hiệu hóa nút mua đất
+                                    buyBtn.Enabled = false;
+                                    // Vô hiệu hóa nút kết thúc lượt đi
+                                    endTurnBtn.Enabled = false;
+                                });
+                            }
+
+                                // Tạo một đối tượng ReceivedMessage để lưu trữ thông điệp nhận được
+                                ReceivedMessage receivedMessage = new ReceivedMessage();
+
+                                // Lấy vị trí kết thúc lượt đi từ tin nhắn
+                                String stringPosition = parts[4];
+                                receivedMessage.EndPosition = Convert.ToInt32(stringPosition);
+
+                                // Lấy số tiền sau lượt đi từ tin nhắn
+                                String stringBalance = parts[5];
+                                receivedMessage.Balance = Convert.ToInt32(stringBalance);
+
+                                // Lấy tài sản (đất) hiện có từ tin nhắn
+                                String stringPropertiesOwned = parts[6];
+                                if (stringPropertiesOwned != null)
+                                {
+                                    // Lấy mã số của các nhà được sở hữu
+                                    int[] tempArrayOfPropertiesOwned = stringPropertiesOwned
+                                        .Split(' ')
+                                        .Where(x => !string.IsNullOrWhiteSpace(x))
+                                        .Select(x => int.Parse(x))
+                                        .ToArray();
+                                    for (int k = 0; k < tempArrayOfPropertiesOwned.Length; k++)
+                                        receivedMessage.PropertiesOwned[k] = tempArrayOfPropertiesOwned[k];
+                                }
+                                UpdatePlayerStatus(temp, receivedMessage);
+                            break;
 
 
 
@@ -526,170 +593,170 @@ namespace Client
 
                     //Khi nhận được kết quả lượt đi 
                     //Xử lý thông tin nhận được và cập nhật kết quả cho người 
-                    if (message.Contains("Kết quả lượt đi") && parts[0] == ConnectionOptions.Room)
-                    {
-                        // Lưu tin nhắn gốc
-                        var tempMessage = message;
-                        var subString = string.Empty;
+                    //if (message.Contains("Kết quả lượt đi") && parts[0] == ConnectionOptions.Room)
+                    //{
+                    //    // Lưu tin nhắn gốc
+                    //    var tempMessage = message;
+                    //    var subString = string.Empty;
 
-                        // Xác định xem lượt đi này thuộc về người chơi nào
-                        switch (CurrentPlayerId)
-                        {
-                            case 0:
-                                subString = "Kết quả lượt đi của Xanh";
-                                break;
-                            case 1:
-                                subString = "Kết quả lượt đi của Đỏ";
-                                break;
-                        }
-                        // Loại bỏ chuỗi xác định lượt đi của một người chơi khỏi tin nhắn
-                        tempMessage = tempMessage.Replace(subString, "");
+                    //    // Xác định xem lượt đi này thuộc về người chơi nào
+                    //    switch (CurrentPlayerId)
+                    //    {
+                    //        case 0:
+                    //            subString = "Kết quả lượt đi của Xanh";
+                    //            break;
+                    //        case 1:
+                    //            subString = "Kết quả lượt đi của Đỏ";
+                    //            break;
+                    //    }
+                    //    // Loại bỏ chuỗi xác định lượt đi của một người chơi khỏi tin nhắn
+                    //    tempMessage = tempMessage.Replace(subString, "");
 
-                        // Thực hiện các thay đổi giao diện người dùng bằng cách sử dụng Invoke để đảm bảo chúng chạy trên luồng chính
-                        currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
-                        {
-                            // Cập nhật trạng thái của textbox hiển thị lượt của người chơi hiện tại
-                            currentPlayersTurn_textbox.Text = "Lượt của bạn";
-                            // Kích hoạt nút để ném xúc xắc
-                            throwDiceBtn.Enabled = true;
-                            // Vô hiệu hóa nút mua đất
-                            buyBtn.Enabled = false;
-                            // Vô hiệu hóa nút kết thúc lượt đi
-                            endTurnBtn.Enabled = false;
-                        });
+                    //    // Thực hiện các thay đổi giao diện người dùng bằng cách sử dụng Invoke để đảm bảo chúng chạy trên luồng chính
+                    //    currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
+                    //    {
+                    //        // Cập nhật trạng thái của textbox hiển thị lượt của người chơi hiện tại
+                    //        currentPlayersTurn_textbox.Text = "Lượt của bạn";
+                    //        // Kích hoạt nút để ném xúc xắc
+                    //        throwDiceBtn.Enabled = true;
+                    //        // Vô hiệu hóa nút mua đất
+                    //        buyBtn.Enabled = false;
+                    //        // Vô hiệu hóa nút kết thúc lượt đi
+                    //        endTurnBtn.Enabled = false;
+                    //    });
 
-                        // Tạo một đối tượng ReceivedMessage để lưu trữ thông điệp nhận được
-                        ReceivedMessage receivedMessage = new ReceivedMessage();
+                    //    // Tạo một đối tượng ReceivedMessage để lưu trữ thông điệp nhận được
+                    //    ReceivedMessage receivedMessage = new ReceivedMessage();
 
-                        // Lấy vị trí kết thúc lượt đi từ tin nhắn
-                        String stringPosition = tempMessage.Split('~')[1];
-                        receivedMessage.EndPosition = Convert.ToInt32(stringPosition);
+                    //    // Lấy vị trí kết thúc lượt đi từ tin nhắn
+                    //    String stringPosition = tempMessage.Split('~')[1];
+                    //    receivedMessage.EndPosition = Convert.ToInt32(stringPosition);
 
-                        // Lấy số tiền sau lượt đi từ tin nhắn
-                        String stringBalance = tempMessage.Split('~')[2];
-                        receivedMessage.Balance = Convert.ToInt32(stringBalance);
+                    //    // Lấy số tiền sau lượt đi từ tin nhắn
+                    //    String stringBalance = tempMessage.Split('~')[2];
+                    //    receivedMessage.Balance = Convert.ToInt32(stringBalance);
 
-                        // Lấy tài sản (đất) hiện có từ tin nhắn
-                        String stringPropertiesOwned = tempMessage.Split('~')[3];
-                        if (stringPropertiesOwned != "NULL")
-                        {
-                            // Lấy mã số của các nhà được sở hữu
-                            int[] tempArrayOfPropertiesOwned = stringPropertiesOwned
-                                .Split(' ')
-                                .Where(x => !string.IsNullOrWhiteSpace(x))
-                                .Select(x => int.Parse(x))
-                                .ToArray();
-                            for (int k = 0; k < tempArrayOfPropertiesOwned.Length; k++)
-                                receivedMessage.PropertiesOwned[k] = tempArrayOfPropertiesOwned[k];
-                        }
+                    //    // Lấy tài sản (đất) hiện có từ tin nhắn
+                    //    String stringPropertiesOwned = tempMessage.Split('~')[3];
+                    //    if (stringPropertiesOwned != "NULL")
+                    //    {
+                    //        // Lấy mã số của các nhà được sở hữu
+                    //        int[] tempArrayOfPropertiesOwned = stringPropertiesOwned
+                    //            .Split(' ')
+                    //            .Where(x => !string.IsNullOrWhiteSpace(x))
+                    //            .Select(x => int.Parse(x))
+                    //            .ToArray();
+                    //        for (int k = 0; k < tempArrayOfPropertiesOwned.Length; k++)
+                    //            receivedMessage.PropertiesOwned[k] = tempArrayOfPropertiesOwned[k];
+                    //    }
 
-                        // Cập nhật trạng thái của người chơi
-                        switch (CurrentPlayerId)
-                        {
-                            case 0:
-                                // Đổi lượt điều khiển sang người chơi tiếp theo
-                                CurrentPlayerId = 1;
-                                // Di chuyển biểu tượng của người chơi đến vị trí kết thúc lượt đi
-                                Invoke((MethodInvoker)delegate
-                                {
-                                    MoveIcon(receivedMessage.EndPosition);
-                                });
-                                // Cập nhật vị trí và số dư của người chơi
-                                Players[CurrentPlayerId].Position = receivedMessage.EndPosition;
-                                Players[CurrentPlayerId].Balance = receivedMessage.Balance;
+                    //    // Cập nhật trạng thái của người chơi
+                    //    switch (CurrentPlayerId)
+                    //    {
+                    //        case 0:
+                    //            // Đổi lượt điều khiển sang người chơi tiếp theo
+                    //            CurrentPlayerId = 1;
+                    //            // Di chuyển biểu tượng của người chơi đến vị trí kết thúc lượt đi
+                    //            Invoke((MethodInvoker)delegate
+                    //            {
+                    //                MoveIcon(receivedMessage.EndPosition);
+                    //            });
+                    //            // Cập nhật vị trí và số dư của người chơi
+                    //            Players[CurrentPlayerId].Position = receivedMessage.EndPosition;
+                    //            Players[CurrentPlayerId].Balance = receivedMessage.Balance;
 
-                                // Cập nhật danh sách tài sản được sở hữu của người chơi
-                                int i = 0;
-                                foreach (var item in receivedMessage.PropertiesOwned)
-                                {
-                                    Players[CurrentPlayerId].PropertiesOwned[i] = item;
-                                    i++;
-                                }
+                    //            // Cập nhật danh sách tài sản được sở hữu của người chơi
+                    //            int i = 0;
+                    //            foreach (var item in receivedMessage.PropertiesOwned)
+                    //            {
+                    //                Players[CurrentPlayerId].PropertiesOwned[i] = item;
+                    //                i++;
+                    //            }
 
-                                // Vẽ các biểu tượng tài sản mà người chơi đang sở hữu
-                                foreach (var item in Players[CurrentPlayerId].PropertiesOwned)
-                                    if (item != 0)
-                                    {
-                                        Properties[item].Owned = true;
-                                        Players[CurrentPlayerId].NumberOfPropertiesOwned++;
-                                        currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
-                                        {
-                                            DrawCircle(item, 1);
-                                        });
-                                    }
-                                // Đổi lượt điều khiển trở lại người chơi ban đầu
-                                CurrentPlayerId = 0;
-                                // Cập nhật hộp thông tin trạng thái của các người chơi
-                                UpdatePlayersStatusBoxes();
-                                break;
+                    //            // Vẽ các biểu tượng tài sản mà người chơi đang sở hữu
+                    //            foreach (var item in Players[CurrentPlayerId].PropertiesOwned)
+                    //                if (item != 0)
+                    //                {
+                    //                    Properties[item].Owned = true;
+                    //                    Players[CurrentPlayerId].NumberOfPropertiesOwned++;
+                    //                    currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
+                    //                    {
+                    //                        DrawCircle(item, 1);
+                    //                    });
+                    //                }
+                    //            // Đổi lượt điều khiển trở lại người chơi ban đầu
+                    //            CurrentPlayerId = 0;
+                    //            // Cập nhật hộp thông tin trạng thái của các người chơi
+                    //            UpdatePlayersStatusBoxes();
+                    //            break;
 
-                            case 1:
-                                // Đổi lượt điều khiển sang người chơi tiếp theo
-                                CurrentPlayerId = 0;
-                                // Di chuyển biểu tượng của người chơi đến vị trí kết thúc lượt đi
-                                Invoke((MethodInvoker)delegate
-                                {
-                                    MoveIcon(receivedMessage.EndPosition);
-                                });
-                                // Cập nhật vị trí và số dư của người chơi
-                                Players[CurrentPlayerId].Position = receivedMessage.EndPosition;
-                                Players[CurrentPlayerId].Balance = receivedMessage.Balance;
+                    //        case 1:
+                    //            // Đổi lượt điều khiển sang người chơi tiếp theo
+                    //            CurrentPlayerId = 0;
+                    //            // Di chuyển biểu tượng của người chơi đến vị trí kết thúc lượt đi
+                    //            Invoke((MethodInvoker)delegate
+                    //            {
+                    //                MoveIcon(receivedMessage.EndPosition);
+                    //            });
+                    //            // Cập nhật vị trí và số dư của người chơi
+                    //            Players[CurrentPlayerId].Position = receivedMessage.EndPosition;
+                    //            Players[CurrentPlayerId].Balance = receivedMessage.Balance;
 
-                                // Cập nhật danh sách tài sản được sở hữu của người chơi
-                                int k = 0;
-                                foreach (var item in receivedMessage.PropertiesOwned)
-                                {
-                                    Players[CurrentPlayerId].PropertiesOwned[k] = item;
-                                    k++;
-                                }
+                    //            // Cập nhật danh sách tài sản được sở hữu của người chơi
+                    //            int k = 0;
+                    //            foreach (var item in receivedMessage.PropertiesOwned)
+                    //            {
+                    //                Players[CurrentPlayerId].PropertiesOwned[k] = item;
+                    //                k++;
+                    //            }
 
-                                // Vẽ các biểu tượng tài sản mà người chơi đang sở hữu
-                                foreach (var item in Players[CurrentPlayerId].PropertiesOwned)
-                                    if (item != 0)
-                                    {
-                                        Properties[item].Owned = true;
-                                        Players[CurrentPlayerId].NumberOfPropertiesOwned++;
-                                        currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
-                                        {
-                                            DrawCircle(item, 0);
-                                        });
-                                    }
-                                // Đổi lượt điều khiển trở lại người chơi ban đầu
-                                CurrentPlayerId = 1;
-                                // Cập nhật hộp thông tin trạng thái của các người chơi
-                                UpdatePlayersStatusBoxes();
-                                break;
-                        }
+                    //            // Vẽ các biểu tượng tài sản mà người chơi đang sở hữu
+                    //            foreach (var item in Players[CurrentPlayerId].PropertiesOwned)
+                    //                if (item != 0)
+                    //                {
+                    //                    Properties[item].Owned = true;
+                    //                    Players[CurrentPlayerId].NumberOfPropertiesOwned++;
+                    //                    currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
+                    //                    {
+                    //                        DrawCircle(item, 0);
+                    //                    });
+                    //                }
+                    //            // Đổi lượt điều khiển trở lại người chơi ban đầu
+                    //            CurrentPlayerId = 1;
+                    //            // Cập nhật hộp thông tin trạng thái của các người chơi
+                    //            UpdatePlayersStatusBoxes();
+                    //            break;
+                    //    }
 
-                        // Kiểm tra nếu số dư của người chơi trở thành âm
-                        if (Convert.ToInt32(stringBalance) < 0)
-                            Win(); // Gọi hàm Win để xử lý việc người chơi đã thua cuộc
-                    }
+                    //    // Kiểm tra nếu số dư của người chơi trở thành âm
+                    //    if (Convert.ToInt32(stringBalance) < 0)
+                    //        Win(); // Gọi hàm Win để xử lý việc người chơi đã thua cuộc
+                    //}
                     //Cập nhật số tiền cho người chơi 
-                    if (message.Contains("Trả tiền thuê nhà cho Đỏ: ") && parts[0] == ConnectionOptions.Room)
-                    {
-                        string sumOfRentString = parts[parts.Length-1];
-                        int sumOfRent = Convert.ToInt32(sumOfRentString);
-                        ChangeBalance(Players[1], -sumOfRent);
-                        ChangeBalance(Players[0], sumOfRent);
-                        MessageBox.Show("Xanh trả tiền thuê nhà cho Đỏ: : " + sumOfRent);
-                    }
-                    else if (message.Contains("Trả tiền thuê nhà cho Xanh: ")&& parts[0] == ConnectionOptions.Room)
-                    {
-                        string sumOfRentString = parts[parts.Length - 1];
-                        int sumOfRent = Convert.ToInt32(sumOfRentString);
-                        ChangeBalance(Players[0], -sumOfRent);
-                        ChangeBalance(Players[1], sumOfRent);
-                        MessageBox.Show("Đỏ trả tiền thuê nhà cho Xanh: " + sumOfRent);
-                    }
+                    //if (message.Contains("Trả tiền thuê nhà cho Đỏ: ") && parts[0] == ConnectionOptions.Room)
+                    //{
+                    //    string sumOfRentString = parts[parts.Length-1];
+                    //    int sumOfRent = Convert.ToInt32(sumOfRentString);
+                    //    ChangeBalance(Players[1], -sumOfRent);
+                    //    ChangeBalance(Players[0], sumOfRent);
+                    //    MessageBox.Show("Xanh trả tiền thuê nhà cho Đỏ: : " + sumOfRent);
+                    //}
+                    //else if (message.Contains("Trả tiền thuê nhà cho Xanh: ")&& parts[0] == ConnectionOptions.Room)
+                    //{
+                    //    string sumOfRentString = parts[parts.Length - 1];
+                    //    int sumOfRent = Convert.ToInt32(sumOfRentString);
+                    //    ChangeBalance(Players[0], -sumOfRent);
+                    //    ChangeBalance(Players[1], sumOfRent);
+                    //    MessageBox.Show("Đỏ trả tiền thuê nhà cho Xanh: " + sumOfRent);
+                    //}
                 }
-                catch
+                catch(Exception e) 
                 {
-                    MessageBox.Show("Đã mất kết nối");
-                    Disconnect();
+                        MessageBox.Show(e.Message);
                 }
         }
         //Hàm được gọi khi người chơi thua cuộc
+
         private void Lose()
         {
             if (MessageBox.Show("Bạn đã thua! Chúc may mắn lần sau!", "Thông báo", MessageBoxButtons.OK) == DialogResult.OK)
@@ -699,6 +766,46 @@ namespace Client
                 MainMenu mainMenu = new MainMenu();
                 mainMenu.ShowDialog();
             }
+        }
+        private void UpdatePlayerStatus(int playerId, ReceivedMessage receivedMessage)
+        {
+            int temp = CurrentPlayerId;
+            CurrentPlayerId = CurrentPlayerId is 0 ? 1 : 0;
+            // Di chuyển biểu tượng của người chơi đến vị trí kết thúc lượt đi
+            Invoke((MethodInvoker)delegate
+            {
+                MoveIcon(receivedMessage.EndPosition);
+            });
+
+            // Cập nhật vị trí và số dư của người chơi
+            Players[CurrentPlayerId].Position = receivedMessage.EndPosition;
+            Players[CurrentPlayerId].Balance = receivedMessage.Balance;
+
+            // Cập nhật danh sách tài sản được sở hữu của người chơi
+            int i = 0;
+            foreach (var item in receivedMessage.PropertiesOwned)
+            {
+                Players[CurrentPlayerId].PropertiesOwned[i] = item;
+                i++;
+            }
+
+            // Vẽ các biểu tượng tài sản mà người chơi đang sở hữu
+            foreach (var item in Players[CurrentPlayerId].PropertiesOwned)
+            {
+                if (item != 0)
+                {
+                    Properties[item].Owned = true;
+                    Players[CurrentPlayerId].NumberOfPropertiesOwned++;
+                    currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
+                    {
+                        DrawCircle(item, playerId);
+                    });
+                }
+            }
+            CurrentPlayerId = temp;
+
+            // Cập nhật hộp thông tin trạng thái của các người chơi
+            UpdatePlayersStatusBoxes();
         }
 
         private void Win()
@@ -787,7 +894,7 @@ namespace Client
         private void Startbtn_Click(object sender, EventArgs e)
         {
             messagetype = "Bắt đầu";
-            SendMessageToServer(messagetype + ";" + ConnectionOptions.PlayerName + ';' + 0);
+            SendMessageToServer(messagetype + ";" + ConnectionOptions.PlayerName + ";" + 0);
         }
 
         //Xử lý khi nút ném xúc xắc 
@@ -1007,6 +1114,7 @@ namespace Client
 
         private void EndTurnBtn_Click(object sender, EventArgs e)
         {
+            messagetype = "Kết quả";
             if (Gamemodes.Multiplayer)
             {
                 currentPositionInfo_richtextbox.Text = string.Empty;
@@ -1014,15 +1122,15 @@ namespace Client
                 switch (CurrentPlayerId)
                 {
                     case 0:
-                        turnLogString = ConnectionOptions.Room + " Kết quả lượt đi của Đỏ";
+                        turnLogString = messagetype +";"+ ConnectionOptions.PlayerName + ";"+ "1"+";"; //" Kết quả lượt đi của Đỏ"
                         break;
                     case 1:
-                        turnLogString = ConnectionOptions.Room + " Kết quả lượt đi của Xanh";
+                        turnLogString = messagetype + ";" + ConnectionOptions.PlayerName + ";" + "0"+";";
                         break;
                 }
-                turnLogString += CurrentPlayerId.ToString() + '~'
-                    + Players[CurrentPlayerId].Position + '~'
-                    + Players[CurrentPlayerId].Balance + '~';
+                turnLogString = turnLogString 
+                    + Players[CurrentPlayerId].Position + ";"
+                    + Players[CurrentPlayerId].Balance + ";";
                 foreach (var item in Players[CurrentPlayerId].PropertiesOwned)
                     if (item != 0)
                     {
