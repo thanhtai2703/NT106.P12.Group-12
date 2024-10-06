@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Client
 {
     public partial class Game : Form
@@ -30,6 +31,9 @@ namespace Client
         public static Lobby lobby;
         public static int counter=0;
         private readonly int[] Opportunity = { -100, 100, -150, 150, -200, 200 };
+        private System.Windows.Forms.Timer turnTimer;
+        private int timeLeft;
+        private int turnTimeLimit = 10;
         //Thông tin 1 người chơi 
         //Nhận dữ liệu trên Server
         private class ReceivedMessage
@@ -401,6 +405,10 @@ namespace Client
                     }
             }
         }
+        private void UpdateTimeDisplay()
+        {
+            timeLabel.Text = $"Time left: {timeLeft} seconds"; // Hiển thị thời gian còn lại
+        }
         //Nhận các tin nhắn từ server và xử lý
         private void ReceiveMessage()
         {
@@ -429,40 +437,21 @@ namespace Client
                     //if (Regex.IsMatch(message, @"Cả\s+2\s+người\s+chơi\s+đã\s+kết\s+nối:\s+\d+") && parts[parts.Length - 1] == ConnectionOptions.Room)
                     switch (parts[0])
                     {
-                        //case "Kết nối":
-                        //    if (parts[1] == "Đỏ")
-                        //    {
-                        //        colorLb.BackColor = Color.Red;
-                        //        RedConnected = true;
-                        //        CurrentPlayerId = 0;
-                        //    }
-                        //    else
-                        //    {
-                        //        colorLb.BackColor = Color.Blue;
-                        //        BlueConnected = true;
-                        //        CurrentPlayerId = 1;
-                        //    }
-                        //    colorLb.Text = ConnectionOptions.Room;
-                        //    break;
-                        //case "Kết nối":
-                        //    lobby.DisplayConnectedPlayer(parts[1]);
-                        //    break;
-                        //case "Lobby":
-                        //        switch (parts[1])
-                        //        {
-                        //            case "Đỏ":
-                        //                lobby.DisplayConnectedPlayer(1, ConnectionOptions.PlayerName);
-                        //                break;
-                        //            case "Xanh":
-                        //                lobby.DisplayConnectedPlayer(2, ConnectionOptions.PlayerName);
-                        //                break;
-                        //        }
-                        //    break;
+
                         case "Bắt đầu":
                                 if (CurrentPlayerId == Convert.ToInt32(parts[3]))
                                 {
                                 currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
                                 {
+                                    timeLeft = turnTimeLimit;
+                                    if (turnTimer == null)
+                                    {
+                                        turnTimer = new System.Windows.Forms.Timer();
+                                        turnTimer.Interval = 1000; // 1 giây (1000ms)
+                                        turnTimer.Tick += new EventHandler(timer1_Tick);
+                                    }
+                                    UpdateTimeDisplay();
+                                    turnTimer.Start();
                                     currentPlayersTurn_textbox.Text = "Tung xúc sắc để bắt đầu trò chơi";
                                     throwDiceBtn.Enabled = true;
                                     buyBtn.Enabled = false;
@@ -510,6 +499,15 @@ namespace Client
                                 currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
                                 {
                                     // Cập nhật trạng thái của textbox hiển thị lượt của người chơi hiện tại
+                                    timeLeft = turnTimeLimit;
+                                    if (turnTimer == null)
+                                    {
+                                        turnTimer = new System.Windows.Forms.Timer();
+                                        turnTimer.Interval = 1000; // 1 giây (1000ms)
+                                        turnTimer.Tick += new EventHandler(timer1_Tick);
+                                    }
+                                    UpdateTimeDisplay();
+                                    turnTimer.Start();
                                     currentPlayersTurn_textbox.Text = "Lượt của bạn";
                                     // Kích hoạt nút để ném xúc xắc
                                     throwDiceBtn.Enabled = true;
@@ -953,6 +951,64 @@ namespace Client
             Startbtn.Enabled = false;
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timeLeft--;
+
+            // Cập nhật giao diện
+            UpdateTimeDisplay();
+
+            // Nếu hết thời gian, chuyển lượt
+            if (timeLeft <= 0)
+            {
+                turnTimer.Stop(); // Dừng bộ đếm
+                EndTurn(); // Kết thúc lượt của người chơi hiện tại
+            }
+        }
+        private void EndTurn()
+        {
+            messagetype = "Kết quả";
+            currentPositionInfo_richtextbox.Text = string.Empty;
+            string turnLogString = string.Empty;
+            switch (CurrentPlayerId)
+            {
+                case 0:
+                    turnLogString = messagetype + ";" + ConnectionOptions.PlayerName + ";" + "1" + ";"; //" Kết quả lượt đi của Đỏ"
+                    break;
+                case 1:
+                    turnLogString = messagetype + ";" + ConnectionOptions.PlayerName + ";" + "0" + ";";
+                    break;
+            }
+            turnLogString = turnLogString
+                + Players[CurrentPlayerId].Position + ";"
+                + Players[CurrentPlayerId].Balance + ";";
+            foreach (var item in Players[CurrentPlayerId].PropertiesOwned)
+                if (item != 0)
+                {
+                    turnLogString += item;
+                    turnLogString += ' ';
+                }
+            if (CurrentPlayerId is 0)
+            {
+                currentPlayersTurn_textbox.Text = "Xanh đang thực hiện lượt chơi. Chờ...";
+                SendMessageToServer(turnLogString);
+            }
+            else
+            {
+                currentPlayersTurn_textbox.Text = "Đỏ đang thực hiện lượt chơi. Chờ...";
+                SendMessageToServer(turnLogString);
+            }
+
+
+            if (Players[CurrentPlayerId].Balance < 0)
+                Lose();
+            else
+            {
+                throwDiceBtn.Enabled = false;
+                buyBtn.Enabled = false;
+                endTurnBtn.Enabled = false;
+            }
+        }
         //Xử lý khi nút ném xúc xắc 
         private void ThrowDiceBtn_Click(object sender, EventArgs e)
         {
@@ -1170,6 +1226,7 @@ namespace Client
 
         private void EndTurnBtn_Click(object sender, EventArgs e)
         {
+            turnTimer.Stop();
             messagetype = "Kết quả";
             if (Gamemodes.Multiplayer)
             {

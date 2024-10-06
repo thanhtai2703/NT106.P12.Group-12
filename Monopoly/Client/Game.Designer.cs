@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.redPawnIcon = new System.Windows.Forms.PictureBox();
             this.bluePawnIcon = new System.Windows.Forms.PictureBox();
@@ -88,6 +89,8 @@
             this.messageRTB = new System.Windows.Forms.RichTextBox();
             this.colorLb = new System.Windows.Forms.Label();
             this.Startbtn = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.redPawnIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bluePawnIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tile0)).BeginInit();
@@ -816,12 +819,26 @@
             this.Startbtn.UseVisualStyleBackColor = false;
             this.Startbtn.Click += new System.EventHandler(this.Startbtn_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timeLabel
+            // 
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.Location = new System.Drawing.Point(730, 341);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(63, 25);
+            this.timeLabel.TabIndex = 119;
+            this.timeLabel.Text = "label1";
+            // 
             // Game
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::Client.Properties.Resources.hin000;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1258, 664);
+            this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.Startbtn);
             this.Controls.Add(this.colorLb);
             this.Controls.Add(this.messageRTB);
@@ -1004,5 +1021,7 @@
         private System.Windows.Forms.RichTextBox messageRTB;
         private System.Windows.Forms.Label colorLb;
         private System.Windows.Forms.Button Startbtn;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label timeLabel;
     }
 }

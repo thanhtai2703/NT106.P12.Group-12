@@ -35,6 +35,8 @@
             this.connect_button = new System.Windows.Forms.Button();
             this.tbColor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // chooseBluePlayerBtn
@@ -125,11 +127,33 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(204, 125);
+            this.label1.Location = new System.Drawing.Point(205, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 26);
             this.label1.TabIndex = 32;
             this.label1.Text = "Choose Color";
+            // 
+            // txtName
+            // 
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtName.Enabled = false;
+            this.txtName.Location = new System.Drawing.Point(231, 133);
+            this.txtName.Multiline = true;
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(115, 22);
+            this.txtName.TabIndex = 33;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(75, 133);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(137, 23);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "enter your name";
             // 
             // ColorChoosing
             // 
@@ -139,6 +163,8 @@
             this.BackgroundImage = global::Client.Properties.Resources.monopoly_board_games_element_background_free_vector;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(583, 394);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbColor);
             this.Controls.Add(this.chooseBluePlayerBtn);
@@ -168,5 +194,7 @@
         private System.Windows.Forms.Button connect_button;
         private System.Windows.Forms.TextBox tbColor;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label label2;
     }
 }
