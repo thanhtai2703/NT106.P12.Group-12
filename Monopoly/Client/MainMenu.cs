@@ -7,6 +7,7 @@ namespace Client
 {
     public partial class MainMenu : Form
     {
+        public static Lobby lobby;
         public MainMenu()
         {
             InitializeComponent();
@@ -55,6 +56,8 @@ namespace Client
             Gamemodes.Multiplayer = true;
             //Tạo đối tượng game mới và hiển thị dưới dạng hộp thoại 
             Hide();
+           // var lobby = new Lobby();
+            //lobby.Show();
             var game = new Game();
             game.ShowDialog();
             //Hiển thị lại form MainMenu sau khi chơi xong 

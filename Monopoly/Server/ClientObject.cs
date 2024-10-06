@@ -95,6 +95,9 @@ namespace Server
                     //if (Regex.IsMatch(message, @"Cả\s+2\s+người\s+chơi\s+đã\s+kết\s+nối:\s+\d+"))
                     switch (arraypayload[0])
                     {
+                        case "Lobby":
+                            server.SendMessageToOpponentClient(message, Id);
+                            break;
                         case "Kết nối":
                             userName = arraypayload[1];
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
@@ -142,13 +145,13 @@ namespace Server
                                 UpdateToFile("[" + DateTime.Now + "] " + "Đến lượt của người tiếp theo");
                             });
                             break;
-                        case "nhắn":
+                        case "Nhắn":
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
                                 Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName + message + Environment.NewLine;
                                 UpdateToFile("[" + DateTime.Now + "] " + userName + message);
                             });
-                            server.SendMessageToEveryone(userName + message, Id);
+                            server.SendMessageToEveryone(message+";"+userName, Id);
                             break;
                         case "Thuê":
                             Program.f.tbLog.Invoke((MethodInvoker)delegate

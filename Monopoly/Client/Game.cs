@@ -27,6 +27,8 @@ namespace Client
         //Chứa hình ảnh của các ô 
         private readonly PictureBox[] Tile;
         private string messagetype="";
+        public static Lobby lobby;
+        public static int counter=0;
         private readonly int[] Opportunity = { -100, 100, -150, 150, -200, 200 };
         //Thông tin 1 người chơi 
         //Nhận dữ liệu trên Server
@@ -38,6 +40,7 @@ namespace Client
         public Game()
         {
             InitializeComponent();
+            //this.Hide();
             //Tạo các ô trên bàn cờ và người chơi 
             #region Creating tiles and players
             Tile = new[]
@@ -113,6 +116,9 @@ namespace Client
                             Encoding.Unicode.GetBytes("Rời" +";"+ ConnectionOptions.PlayerName).Length);
                         Disconnect();
                     }
+                    //lobby = new Lobby();
+                    //lobby.Show();
+                    //this.Hide();
                     //Hiển thị thông điệp là đang đợi người chơi thứ 2 nên vô hiệu hóa các nút chơi
                     currentPlayersTurn_textbox.Text = "Chờ đợi người chơi thứ hai...";
                     throwDiceBtn.Enabled = false;
@@ -152,6 +158,12 @@ namespace Client
                         SendMessageToServer(messagetype+";"+ConnectionOptions.PlayerName);
                         Disconnect();
                     }
+                    //lobby.DisplayConnectedPlayer(ConnectionOptions.PlayerName);
+                    //this.Hide();
+                   // lobby = new Lobby();
+//                    lobby.DisplayConnectedPlayer(counter,ConnectionOptions.PlayerName);
+                   // lobby.Show();
+                    SendMessageToServer("Lobby"+";"+ConnectionOptions.PlayerName);
                     //Gửi tên  người chơi đến server
                     SendMessageToServer("Kết nối"+";"+ConnectionOptions.PlayerName);
 
@@ -432,6 +444,20 @@ namespace Client
                         //    }
                         //    colorLb.Text = ConnectionOptions.Room;
                         //    break;
+                        //case "Kết nối":
+                        //    lobby.DisplayConnectedPlayer(parts[1]);
+                        //    break;
+                        //case "Lobby":
+                        //        switch (parts[1])
+                        //        {
+                        //            case "Đỏ":
+                        //                lobby.DisplayConnectedPlayer(1, ConnectionOptions.PlayerName);
+                        //                break;
+                        //            case "Xanh":
+                        //                lobby.DisplayConnectedPlayer(2, ConnectionOptions.PlayerName);
+                        //                break;
+                        //        }
+                        //    break;
                         case "Bắt đầu":
                                 if (CurrentPlayerId == Convert.ToInt32(parts[3]))
                                 {
@@ -448,21 +474,22 @@ namespace Client
                                 currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
                                 {
                                     currentPlayersTurn_textbox.Text = "Đỏ đang thực hiện lượt chơi. Chờ...";
+                                    Startbtn.Enabled = false;
                                 });
                             }
                             break;
                         case "Nhắn":
                             this.Invoke(new MethodInvoker(delegate
                             {
-                                if (parts[1] == ConnectionOptions.Room)
-                                {
-                                    string message_show = message;
-                                    message_show = message_show.Replace(" nhắn", "");
+                                //if (parts[1] == ConnectionOptions.Room)
+                               // {
+                                    //string message_show = message;
+                                    //message_show = message_show.Replace(" nhắn", "");
                                     messageRTB.Invoke((MethodInvoker)delegate
                                     {
-                                        messageRTB.AppendText(message_show + Environment.NewLine);
+                                        messageRTB.AppendText(parts[2] +":" + parts[1] + Environment.NewLine);
                                     });
-                                }
+                                //}
                             }));
                             break;
                         case "Rời":
@@ -519,6 +546,31 @@ namespace Client
                                 }
                                 UpdatePlayerStatus(temp, receivedMessage);
                             break;
+                        case "Thuê":
+                            if (parts[2] == ConnectionOptions.Room)
+                            {
+                                string sumOfRentString = parts[3];
+                                int sumOfRent = Convert.ToInt32(sumOfRentString);
+                                switch (parts[1])
+                                {
+                                    case "Đỏ":
+                                       // string sumOfRentString = parts[3];
+                                        //int sumOfRent = Convert.ToInt32(sumOfRentString);
+                                        ChangeBalance(Players[0], -sumOfRent);
+                                        ChangeBalance(Players[1], sumOfRent);
+                                        MessageBox.Show("Đỏ trả tiền thuê nhà cho xanh : " + sumOfRent);
+                                        break;
+                                    case "Xanh":
+                                       // string sumOfRentString = parts[3];
+                                       // int sumOfRent = Convert.ToInt32(sumOfRentString);
+                                        ChangeBalance(Players[1], -sumOfRent);
+                                        ChangeBalance(Players[0], sumOfRent);
+                                        MessageBox.Show("Xanh trả tiền thuê nhà cho đỏ: " + sumOfRent);
+                                        break;
+                                }
+                            }
+                            break;
+                            
 
 
 
@@ -753,6 +805,7 @@ namespace Client
                 catch(Exception e) 
                 {
                         MessageBox.Show(e.Message);
+                    Disconnect();
                 }
         }
         //Hàm được gọi khi người chơi thua cuộc
@@ -798,7 +851,7 @@ namespace Client
                     Players[CurrentPlayerId].NumberOfPropertiesOwned++;
                     currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
                     {
-                        DrawCircle(item, playerId);
+                        DrawCircle(item, CurrentPlayerId);
                     });
                 }
             }
@@ -848,17 +901,19 @@ namespace Client
 
         private void sendBt_Click(object sender, EventArgs e)
         {
+            messagetype = "Nhắn";
             string message = messageTb.Text.Trim();
             if (string.IsNullOrEmpty(message))
                 return;
-            SendMessageToServer(" nhắn: " + message);
+            SendMessageToServer(messagetype+";"+ message);
             messageTb.Text = "";
         }
 
         private void Game_FormClosed(object sender, FormClosedEventArgs e)
         {
+            messagetype = "Rời";
             if (Gamemodes.Multiplayer)
-                SendMessageToServer(ConnectionOptions.PlayerName + " đã rời");
+                SendMessageToServer(messagetype +";"+ConnectionOptions.PlayerName);
         }
 
         //Animation di chuyển vị trí
@@ -891,10 +946,11 @@ namespace Client
             return 1;
         }
 
-        private void Startbtn_Click(object sender, EventArgs e)
+        public void Startbtn_Click(object sender, EventArgs e)
         {
             messagetype = "Bắt đầu";
             SendMessageToServer(messagetype + ";" + ConnectionOptions.PlayerName + ";" + 0);
+            Startbtn.Enabled = false;
         }
 
         //Xử lý khi nút ném xúc xắc 
@@ -927,8 +983,8 @@ namespace Client
 
             //Ném xúc sắc 
             Random rand = new Random();
-            int firstDice = rand.Next(1, 7);
-            int secondDice = rand.Next(1, 7);
+            int firstDice = 2;//rand.Next(1, 7);
+            int secondDice = 2;//rand.Next(1, 7);
             Dice = firstDice + secondDice;
             //Hiển thị kết quả xức sắc 
             whatIsOnDices_textbox.Text = "Kết quả tung: " + firstDice + " và " + secondDice + ". Tổng: " + Dice + ". ";
@@ -1048,7 +1104,7 @@ namespace Client
                     ChangeBalance(Players[1], GetRent(Dice));
                     if (Gamemodes.Multiplayer)
                     {
-                        string rentMessage = ConnectionOptions.Room + " Trả tiền thuê nhà cho Xanh: " + GetRent(Dice);
+                        string rentMessage = "Thuê"+";"+ConnectionOptions.PlayerName + GetRent(Dice);
                         MessageBox.Show("Đỏ trả tiền thuê nhà cho Xanh: " + GetRent(Dice));
                         SendMessageToServer(rentMessage);
                     }
@@ -1058,7 +1114,7 @@ namespace Client
                     ChangeBalance(Players[0], GetRent(Dice));
                     if (Gamemodes.Multiplayer)
                     {
-                        string rentMessage = ConnectionOptions.Room + " Trả tiền thuê nhà cho Đỏ: : " + GetRent(Dice);
+                        string rentMessage = "Thuê" + ";" + ConnectionOptions.PlayerName + GetRent(Dice);
                         MessageBox.Show("Xanh trả tiền thuê nhà cho Đỏ: : " + GetRent(Dice));
                         SendMessageToServer(rentMessage);
                     }
@@ -1188,7 +1244,7 @@ namespace Client
                 currentPositionInfo_richtextbox.Text = string.Empty;
             }
         }
-        private static void SendMessageToServer(string message)
+        public static void SendMessageToServer(string message)
         {
             try
             {
