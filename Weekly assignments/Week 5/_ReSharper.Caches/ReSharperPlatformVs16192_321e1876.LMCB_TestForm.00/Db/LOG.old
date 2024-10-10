@@ -1,0 +1,135 @@
+2020/04/20-12:17:40.899 6fcc Recovering log #444
+2020/04/20-12:17:40.899 6fcc Level-0 table #460: started
+2020/04/20-12:17:40.914 6fcc Level-0 table #460: 1651264 bytes OK
+2020/04/20-12:17:40.930 6fcc Delete type=0 #444
+2020/04/20-12:17:40.930 6fcc Delete type=3 #442
+2020/04/20-12:17:41.148 4d24 Compacting 1@0 + 2@1 files
+2020/04/20-12:17:41.148 4d24 Generated table #462: 46 keys, 15437 bytes
+2020/04/20-12:17:41.180 4d24 Generated table #463: 3142 keys, 2164787 bytes
+2020/04/20-12:17:41.180 4d24 Generated table #464: 418 keys, 422335 bytes
+2020/04/20-12:17:41.180 4d24 Compacted 1@0 + 2@1 files => 2602559 bytes
+2020/04/20-12:17:41.180 4d24 Delete type=2 #446
+2020/04/20-12:17:41.180 4d24 Delete type=2 #447
+2020/04/20-12:17:41.180 4d24 Delete type=2 #460
+2020/04/20-12:17:41.180 4d24 compacted to: files[ 0 3 14 0 0 0 0 ]
+2020/04/20-12:18:41.893 4d24 Compacting 1@1 + 1@2 files
+2020/04/20-12:18:41.908 4d24 Generated table #465: 1225 keys, 1401995 bytes
+2020/04/20-12:18:41.908 4d24 Compacted 1@1 + 1@2 files => 1401995 bytes
+2020/04/20-12:18:41.908 4d24 Delete type=2 #423
+2020/04/20-12:18:41.908 4d24 Delete type=2 #464
+2020/04/20-12:18:41.908 4d24 compacted to: files[ 0 2 14 0 0 0 0 ]
+2020/04/20-13:11:39.471 4d24 Level-0 table #467: started
+2020/04/20-13:11:39.537 4d24 Level-0 table #467: 4279094 bytes OK
+2020/04/20-13:11:39.539 4d24 Delete type=0 #461
+2020/04/20-13:11:47.608 4d24 Compacting 1@0 + 2@1 files
+2020/04/20-13:11:47.620 4d24 Generated table #468: 657 keys, 317757 bytes
+2020/04/20-13:11:47.642 4d24 Generated table #469: 3142 keys, 2164787 bytes
+2020/04/20-13:11:47.676 4d24 Generated table #470: 463 keys, 433235 bytes
+2020/04/20-13:11:47.676 4d24 Compacted 1@0 + 2@1 files => 2915779 bytes
+2020/04/20-13:11:47.676 4d24 Delete type=2 #462
+2020/04/20-13:11:47.676 4d24 Delete type=2 #463
+2020/04/20-13:11:47.676 4d24 Delete type=2 #467
+2020/04/20-13:11:47.676 4d24 compacted to: files[ 0 3 14 0 0 0 0 ]
+2020/04/20-13:11:47.683 4d24 Compacting 1@1 + 5@2 files
+2020/04/20-13:11:47.703 4d24 Generated table #471: 1266 keys, 2131461 bytes
+2020/04/20-13:11:47.727 4d24 Generated table #472: 4809 keys, 2163106 bytes
+2020/04/20-13:11:47.754 4d24 Generated table #473: 4940 keys, 2159792 bytes
+2020/04/20-13:11:47.782 4d24 Generated table #474: 4582 keys, 2166049 bytes
+2020/04/20-13:11:47.810 4d24 Generated table #475: 4199 keys, 2176417 bytes
+2020/04/20-13:11:47.815 4d24 Generated table #476: 299 keys, 313869 bytes
+2020/04/20-13:11:47.815 4d24 Compacted 1@1 + 5@2 files => 11110694 bytes
+2020/04/20-13:11:47.816 4d24 Delete type=2 #448
+2020/04/20-13:11:47.818 4d24 Delete type=2 #449
+2020/04/20-13:11:47.818 4d24 Delete type=2 #450
+2020/04/20-13:11:47.819 4d24 Delete type=2 #451
+2020/04/20-13:11:47.819 4d24 Delete type=2 #452
+2020/04/20-13:11:47.820 4d24 Delete type=2 #468
+2020/04/20-13:11:47.820 4d24 compacted to: files[ 0 2 15 0 0 0 0 ]
+2020/04/20-13:13:27.935 4d24 Compacting 1@1 + 1@2 files
+2020/04/20-13:13:27.953 4d24 Generated table #477: 1606 keys, 1735250 bytes
+2020/04/20-13:13:27.953 4d24 Compacted 1@1 + 1@2 files => 1735250 bytes
+2020/04/20-13:13:27.954 4d24 Delete type=2 #465
+2020/04/20-13:13:27.955 4d24 Delete type=2 #470
+2020/04/20-13:13:27.955 4d24 compacted to: files[ 0 1 15 0 0 0 0 ]
+2020/04/20-14:06:57.525 4d24 Level-0 table #479: started
+2020/04/20-14:06:57.594 4d24 Level-0 table #479: 3750882 bytes OK
+2020/04/20-14:06:57.597 4d24 Delete type=0 #466
+2020/04/20-14:08:28.726 4d24 Compacting 1@0 + 1@1 files
+2020/04/20-14:08:28.742 4d24 Generated table #480: 31 keys, 11400 bytes
+2020/04/20-14:08:28.787 4d24 Generated table #481: 3142 keys, 2164787 bytes
+2020/04/20-14:08:28.808 4d24 Generated table #482: 907 keys, 695352 bytes
+2020/04/20-14:08:28.808 4d24 Compacted 1@0 + 1@1 files => 2871539 bytes
+2020/04/20-14:08:28.809 4d24 Delete type=2 #469
+2020/04/20-14:08:28.810 4d24 Delete type=2 #479
+2020/04/20-14:08:28.811 4d24 compacted to: files[ 0 3 15 0 0 0 0 ]
+2020/04/20-14:08:58.360 4d24 Compacting 1@1 + 1@2 files
+2020/04/20-14:08:58.389 4d24 Generated table #483: 2358 keys, 2191304 bytes
+2020/04/20-14:08:58.394 4d24 Generated table #484: 109 keys, 180399 bytes
+2020/04/20-14:08:58.394 4d24 Compacted 1@1 + 1@2 files => 2371703 bytes
+2020/04/20-14:08:58.395 4d24 Delete type=2 #477
+2020/04/20-14:08:58.396 4d24 Delete type=2 #482
+2020/04/20-14:08:58.396 4d24 compacted to: files[ 0 2 16 0 0 0 0 ]
+2020/04/20-14:10:28.067 4d24 Compacting 1@1 + 5@2 files
+2020/04/20-14:10:28.083 4d24 Generated table #485: 1272 keys, 2133844 bytes
+2020/04/20-14:10:28.109 4d24 Generated table #486: 4809 keys, 2163106 bytes
+2020/04/20-14:10:28.135 4d24 Generated table #487: 4940 keys, 2159792 bytes
+2020/04/20-14:10:28.158 4d24 Generated table #488: 4582 keys, 2166049 bytes
+2020/04/20-14:10:28.187 4d24 Generated table #489: 4202 keys, 2176498 bytes
+2020/04/20-14:10:28.187 4d24 Compacted 1@1 + 5@2 files => 10799289 bytes
+2020/04/20-14:10:28.188 4d24 Delete type=2 #471
+2020/04/20-14:10:28.188 4d24 Delete type=2 #472
+2020/04/20-14:10:28.189 4d24 Delete type=2 #473
+2020/04/20-14:10:28.189 4d24 Delete type=2 #474
+2020/04/20-14:10:28.190 4d24 Delete type=2 #475
+2020/04/20-14:10:28.190 4d24 Delete type=2 #480
+2020/04/20-14:10:28.190 4d24 compacted to: files[ 0 1 16 0 0 0 0 ]
+2020/04/20-14:39:00.032 4d24 Level-0 table #491: started
+2020/04/20-14:39:00.065 4d24 Level-0 table #491: 3798945 bytes OK
+2020/04/20-14:39:00.067 4d24 Delete type=0 #478
+2020/04/20-14:39:58.700 4d24 Compacting 1@0 + 1@1 files
+2020/04/20-14:39:58.716 4d24 Generated table #492: 23 keys, 10271 bytes
+2020/04/20-14:39:58.768 4d24 Generated table #493: 3142 keys, 2164787 bytes
+2020/04/20-14:39:58.774 4d24 Generated table #494: 26 keys, 72896 bytes
+2020/04/20-14:39:58.774 4d24 Compacted 1@0 + 1@1 files => 2247954 bytes
+2020/04/20-14:39:58.776 4d24 Delete type=2 #481
+2020/04/20-14:39:58.776 4d24 Delete type=2 #491
+2020/04/20-14:39:58.777 4d24 compacted to: files[ 0 3 16 0 0 0 0 ]
+2020/04/20-14:40:04.953 4d24 Compacting 1@1 + 1@2 files
+2020/04/20-14:40:04.971 4d24 Generated table #495: 1273 keys, 2135263 bytes
+2020/04/20-14:40:04.971 4d24 Compacted 1@1 + 1@2 files => 2135263 bytes
+2020/04/20-14:40:04.972 4d24 Delete type=2 #485
+2020/04/20-14:40:04.973 4d24 Delete type=2 #492
+2020/04/20-14:40:04.973 4d24 compacted to: files[ 0 2 16 0 0 0 0 ]
+2020/04/20-14:44:53.715 4d24 Compacting 1@1 + 2@2 files
+2020/04/20-14:44:53.752 4d24 Generated table #496: 2360 keys, 2197618 bytes
+2020/04/20-14:44:53.758 4d24 Generated table #497: 107 keys, 178874 bytes
+2020/04/20-14:44:53.758 4d24 Compacted 1@1 + 2@2 files => 2376492 bytes
+2020/04/20-14:44:53.758 4d24 Delete type=2 #483
+2020/04/20-14:44:53.759 4d24 Delete type=2 #484
+2020/04/20-14:44:53.760 4d24 Delete type=2 #494
+2020/04/20-14:44:53.761 4d24 compacted to: files[ 0 1 16 0 0 0 0 ]
+2020/04/20-15:28:43.940 4d24 Level-0 table #499: started
+2020/04/20-15:28:43.973 4d24 Level-0 table #499: 3868825 bytes OK
+2020/04/20-15:28:43.974 4d24 Delete type=0 #490
+2020/04/20-15:29:20.266 4d24 Compacting 1@0 + 1@1 files
+2020/04/20-15:29:20.272 4d24 Generated table #500: 18 keys, 9575 bytes
+2020/04/20-15:29:20.295 4d24 Generated table #501: 3142 keys, 2164787 bytes
+2020/04/20-15:29:20.301 4d24 Generated table #502: 26 keys, 75204 bytes
+2020/04/20-15:29:20.301 4d24 Compacted 1@0 + 1@1 files => 2249566 bytes
+2020/04/20-15:29:20.303 4d24 Delete type=2 #493
+2020/04/20-15:29:20.303 4d24 Delete type=2 #499
+2020/04/20-15:29:20.304 4d24 compacted to: files[ 0 3 16 0 0 0 0 ]
+2020/04/20-15:29:59.481 4d24 Compacting 1@1 + 1@2 files
+2020/04/20-15:29:59.501 4d24 Generated table #503: 1273 keys, 2135503 bytes
+2020/04/20-15:29:59.501 4d24 Compacted 1@1 + 1@2 files => 2135503 bytes
+2020/04/20-15:29:59.502 4d24 Delete type=2 #495
+2020/04/20-15:29:59.502 4d24 Delete type=2 #500
+2020/04/20-15:29:59.504 4d24 compacted to: files[ 0 2 16 0 0 0 0 ]
+2020/04/20-15:30:42.861 4d24 Compacting 1@1 + 2@2 files
+2020/04/20-15:30:42.887 4d24 Generated table #504: 2360 keys, 2197618 bytes
+2020/04/20-15:30:42.890 4d24 Generated table #505: 107 keys, 181181 bytes
+2020/04/20-15:30:42.890 4d24 Compacted 1@1 + 2@2 files => 2378799 bytes
+2020/04/20-15:30:42.891 4d24 Delete type=2 #496
+2020/04/20-15:30:42.892 4d24 Delete type=2 #497
+2020/04/20-15:30:42.892 4d24 Delete type=2 #502
+2020/04/20-15:30:42.893 4d24 compacted to: files[ 0 1 16 0 0 0 0 ]

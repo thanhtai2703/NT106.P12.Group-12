@@ -1,0 +1,19 @@
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\LMCB_TestForm\bin\Debug\LMCB_TestForm.exe
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\LMCB_TestForm\bin\Debug\LMCB_TestForm.exe.config
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\LMCB_TestForm\bin\Debug\LMCB_TestForm.pdb
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\LMCB_TestForm\obj\Debug\LMCB_TestForm.Form1.resources
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\LMCB_TestForm\obj\Debug\LMCB_TestForm.Properties.Resources.resources
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\LMCB_TestForm\obj\Debug\LMCB_TestForm.csproj.GenerateResource.cache
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\LMCB_TestForm\obj\Debug\LMCB_TestForm.exe
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\LMCB_TestForm\obj\Debug\LMCB_TestForm.pdb
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\LMCB_TestForm\obj\Debug\LMCB_TestForm.csprojAssemblyReference.cache
+D:\LMCB_TestForm\LMCB_TestForm\bin\Debug\LMCB_TestForm.exe.config
+D:\LMCB_TestForm\LMCB_TestForm\bin\Debug\LMCB_TestForm.exe
+D:\LMCB_TestForm\LMCB_TestForm\bin\Debug\LMCB_TestForm.pdb
+D:\LMCB_TestForm\LMCB_TestForm\obj\Debug\LMCB_TestForm.csproj.AssemblyReference.cache
+D:\LMCB_TestForm\LMCB_TestForm\obj\Debug\LMCB_TestForm.Form1.resources
+D:\LMCB_TestForm\LMCB_TestForm\obj\Debug\LMCB_TestForm.Properties.Resources.resources
+D:\LMCB_TestForm\LMCB_TestForm\obj\Debug\LMCB_TestForm.csproj.GenerateResource.cache
+D:\LMCB_TestForm\LMCB_TestForm\obj\Debug\LMCB_TestForm.csproj.CoreCompileInputs.cache
+D:\LMCB_TestForm\LMCB_TestForm\obj\Debug\LMCB_TestForm.exe
+D:\LMCB_TestForm\LMCB_TestForm\obj\Debug\LMCB_TestForm.pdb

@@ -1,0 +1,34 @@
+2020/04/21-09:09:26.404 5d24 Recovering log #498
+2020/04/21-09:09:26.411 5d24 Level-0 table #507: started
+2020/04/21-09:09:26.424 5d24 Level-0 table #507: 1474417 bytes OK
+2020/04/21-09:09:26.429 5d24 Delete type=0 #498
+2020/04/21-09:09:26.429 5d24 Delete type=3 #459
+2020/04/21-09:09:28.082 1dc8 Compacting 1@0 + 1@1 files
+2020/04/21-09:09:28.089 1dc8 Generated table #509: 10 keys, 5253 bytes
+2020/04/21-09:09:28.117 1dc8 Generated table #510: 3142 keys, 2164787 bytes
+2020/04/21-09:09:28.121 1dc8 Generated table #511: 11 keys, 1043 bytes
+2020/04/21-09:09:28.121 1dc8 Compacted 1@0 + 1@1 files => 2171083 bytes
+2020/04/21-09:09:28.123 1dc8 compacted to: files[ 0 3 16 0 0 0 0 ]
+2020/04/21-09:31:59.807 1dc8 Level-0 table #513: started
+2020/04/21-09:31:59.838 1dc8 Level-0 table #513: 3892967 bytes OK
+2020/04/21-09:31:59.840 1dc8 Delete type=2 #501
+2020/04/21-09:31:59.840 1dc8 Delete type=2 #507
+2020/04/21-09:31:59.840 1dc8 Delete type=0 #508
+2020/04/21-09:32:12.905 1dc8 Compacting 1@0 + 3@1 files
+2020/04/21-09:32:12.925 1dc8 Generated table #514: 54 keys, 11676 bytes
+2020/04/21-09:32:12.950 1dc8 Generated table #515: 3142 keys, 2164787 bytes
+2020/04/21-09:32:12.954 1dc8 Generated table #516: 42 keys, 96295 bytes
+2020/04/21-09:32:12.954 1dc8 Compacted 1@0 + 3@1 files => 2272758 bytes
+2020/04/21-09:32:12.956 1dc8 Delete type=2 #509
+2020/04/21-09:32:12.957 1dc8 Delete type=2 #510
+2020/04/21-09:32:12.957 1dc8 Delete type=2 #511
+2020/04/21-09:32:12.957 1dc8 Delete type=2 #513
+2020/04/21-09:32:12.958 1dc8 compacted to: files[ 0 3 16 0 0 0 0 ]
+2020/04/21-09:32:18.864 1dc8 Compacting 1@1 + 2@2 files
+2020/04/21-09:32:18.891 1dc8 Generated table #517: 2359 keys, 2202759 bytes
+2020/04/21-09:32:18.894 1dc8 Generated table #518: 110 keys, 196391 bytes
+2020/04/21-09:32:18.894 1dc8 Compacted 1@1 + 2@2 files => 2399150 bytes
+2020/04/21-09:32:18.896 1dc8 Delete type=2 #504
+2020/04/21-09:32:18.896 1dc8 Delete type=2 #505
+2020/04/21-09:32:18.896 1dc8 Delete type=2 #516
+2020/04/21-09:32:18.896 1dc8 compacted to: files[ 0 2 16 0 0 0 0 ]

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMCB_TestForm", "LMCB_TestForm\LMCB_TestForm.csproj", "{2F0A82C1-F90E-4569-907C-902DBE6C1FB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerChatForm", "ServerChatForm\ServerChatForm.csproj", "{3E4DDFE9-AFFE-4FAB-AEA5-9121B571B590}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F0A82C1-F90E-4569-907C-902DBE6C1FB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F0A82C1-F90E-4569-907C-902DBE6C1FB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F0A82C1-F90E-4569-907C-902DBE6C1FB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F0A82C1-F90E-4569-907C-902DBE6C1FB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E4DDFE9-AFFE-4FAB-AEA5-9121B571B590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E4DDFE9-AFFE-4FAB-AEA5-9121B571B590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E4DDFE9-AFFE-4FAB-AEA5-9121B571B590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E4DDFE9-AFFE-4FAB-AEA5-9121B571B590}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8EF68B4A-6EE9-400C-92E2-F1D3BA879C76}
+	EndGlobalSection
+EndGlobal

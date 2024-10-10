@@ -1,0 +1,19 @@
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\ServerChatForm\bin\Debug\ServerChatForm.exe.config
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\ServerChatForm\bin\Debug\ServerChatForm.exe
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\ServerChatForm\bin\Debug\ServerChatForm.pdb
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\ServerChatForm\obj\Debug\ServerChatForm.Form1.resources
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\ServerChatForm\obj\Debug\ServerChatForm.Properties.Resources.resources
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\ServerChatForm\obj\Debug\ServerChatForm.csproj.GenerateResource.cache
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\ServerChatForm\obj\Debug\ServerChatForm.exe
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\ServerChatForm\obj\Debug\ServerChatForm.pdb
+C:\Users\Rosen HCMC\source\repos\LMCB_TestForm\ServerChatForm\obj\Debug\ServerChatForm.csprojAssemblyReference.cache
+D:\LMCB_TestForm\ServerChatForm\bin\Debug\ServerChatForm.exe.config
+D:\LMCB_TestForm\ServerChatForm\bin\Debug\ServerChatForm.exe
+D:\LMCB_TestForm\ServerChatForm\bin\Debug\ServerChatForm.pdb
+D:\LMCB_TestForm\ServerChatForm\obj\Debug\ServerChatForm.csproj.AssemblyReference.cache
+D:\LMCB_TestForm\ServerChatForm\obj\Debug\ServerChatForm.Form1.resources
+D:\LMCB_TestForm\ServerChatForm\obj\Debug\ServerChatForm.Properties.Resources.resources
+D:\LMCB_TestForm\ServerChatForm\obj\Debug\ServerChatForm.csproj.GenerateResource.cache
+D:\LMCB_TestForm\ServerChatForm\obj\Debug\ServerChatForm.csproj.CoreCompileInputs.cache
+D:\LMCB_TestForm\ServerChatForm\obj\Debug\ServerChatForm.exe
+D:\LMCB_TestForm\ServerChatForm\obj\Debug\ServerChatForm.pdb
