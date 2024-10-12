@@ -35,8 +35,8 @@
             this.connect_button = new System.Windows.Forms.Button();
             this.tbColor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // chooseBluePlayerBtn
@@ -133,16 +133,6 @@
             this.label1.TabIndex = 32;
             this.label1.Text = "Choose Color";
             // 
-            // txtName
-            // 
-            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(231, 133);
-            this.txtName.Multiline = true;
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(115, 22);
-            this.txtName.TabIndex = 33;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -155,6 +145,13 @@
             this.label2.TabIndex = 34;
             this.label2.Text = "enter your name";
             // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(231, 124);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(100, 32);
+            this.txtName.TabIndex = 35;
+            // 
             // ColorChoosing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
@@ -163,8 +160,8 @@
             this.BackgroundImage = global::Client.Properties.Resources.monopoly_board_games_element_background_free_vector;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(583, 394);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtName);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbColor);
             this.Controls.Add(this.chooseBluePlayerBtn);
@@ -194,7 +191,7 @@
         private System.Windows.Forms.Button connect_button;
         private System.Windows.Forms.TextBox tbColor;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtName;
     }
 }

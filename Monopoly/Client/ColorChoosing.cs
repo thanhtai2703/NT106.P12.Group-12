@@ -11,7 +11,8 @@ namespace Client
         {
             Program.colorChoosing = this;
             InitializeComponent();
-
+            if (ConnectionOptions.NameRedIsTaken) chooseRedPlayerBtn.Enabled = false;
+            if (ConnectionOptions.NameBlueIsTaken) chooseBluePlayerBtn.Enabled = false;
             //Thiết lập giá trị mặc định cho tbColor
             tbColor.Text = "Chưa được chọn";
 
@@ -42,6 +43,7 @@ namespace Client
                 //Nếu chọn màu đỏ 
                 case "Đỏ":
                     //Gán tên người chơi là Red 
+                    ConnectionOptions.UserName = txtName.Text;
                     ConnectionOptions.PlayerName = "Đỏ" + ";" + ConnectionOptions.Room;
                     Close();
                     DialogResult = DialogResult.OK;
@@ -49,6 +51,7 @@ namespace Client
                  //Nếu chọn màu xanh
                 case "Xanh":
                     //Gán tên người chơi là Blue
+                    ConnectionOptions.UserName = txtName.Text;
                     ConnectionOptions.PlayerName = "Xanh" + ";"+ConnectionOptions.Room;
                     Close();
                     //Gắn cho DialogResult kết quả OK 

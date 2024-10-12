@@ -13,17 +13,20 @@ namespace Server
     {
         private Socket serverSocket;
         private readonly List<ClientObject> clients = new List<ClientObject>();
-      
+        
+        //thêm kết nối
         protected internal void AddConnection(ClientObject clientObject)
         {
             clients.Add(clientObject);
         }
+        //xóa kết nối
         protected internal void RemoveConnection(string id)
         {
             var client = clients.Find(c => c.Id == id);
             if (client != null)
                 clients.Remove(client);
         }
+        //lắng nghe từ client
         protected internal void Listen_Client()
         {
             try
@@ -35,7 +38,7 @@ namespace Server
                 Program.f.tbLog.Invoke((MethodInvoker)delegate
                 {
                     Program.f.tbLog.Text += "[" + DateTime.Now + "] " 
-                                            + "Đang đợi người chơi vào ..." 
+                                            + "Server đã được bật, chờ đợi người chơi vào..." 
                                             + Environment.NewLine;
                 });
                 while (true)
@@ -59,6 +62,7 @@ namespace Server
                 });
             }
         }
+        //gửi tin nhắn đến đối thủ
         protected internal void SendMessageToOpponentClient(string message, string id)
         {
             foreach (var client in clients.Where(c => c.Id != id))
@@ -75,6 +79,7 @@ namespace Server
                 client.Client.Send(data);
             }
         }
+        //gửi tin đến mọi người
         protected internal void SendMessageToEveryone(string message, string id)
         {
             foreach (var client in clients)

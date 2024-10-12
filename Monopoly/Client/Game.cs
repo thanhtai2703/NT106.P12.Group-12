@@ -27,7 +27,7 @@ namespace Client
         private readonly Property[] Properties = new Property[40];
         //Chứa hình ảnh của các ô 
         private readonly PictureBox[] Tile;
-        private string messagetype="";
+        private string messagetype=""; //control message
         public static Lobby lobby;
         public static int counter=0;
         private readonly int[] Opportunity = { -100, 100, -150, 150, -200, 200 };
@@ -167,7 +167,7 @@ namespace Client
                    // lobby = new Lobby();
 //                    lobby.DisplayConnectedPlayer(counter,ConnectionOptions.PlayerName);
                    // lobby.Show();
-                    SendMessageToServer("Lobby"+";"+ConnectionOptions.PlayerName);
+                   // SendMessageToServer("Lobby"+";"+ConnectionOptions.PlayerName);
                     //Gửi tên  người chơi đến server
                     SendMessageToServer("Kết nối"+";"+ConnectionOptions.PlayerName);
 
@@ -176,11 +176,13 @@ namespace Client
                     switch (player[0])
                     {
                         case "Đỏ":
+                            Players[0].Name = ConnectionOptions.UserName;
                                 colorLb.BackColor = Color.Red;
                                 RedConnected = true;
                                 CurrentPlayerId = 0;
                            break;
                         case "Xanh":
+                            Players[1].Name = ConnectionOptions.UserName;
                             colorLb.BackColor = Color.Blue;
                             BlueConnected = true;
                             CurrentPlayerId = 1;
@@ -242,14 +244,14 @@ namespace Client
             {
                 redPlayerStatusBox_richtextbox.Invoke((MethodInvoker)delegate
                 {
-                    redPlayerStatusBox_richtextbox.Text = "Người chơi Đỏ" + "\n"
+                    redPlayerStatusBox_richtextbox.Text = "Người chơi đỏ" + "\n"
                 + "Tiền còn lại: " + Players[0].Balance + "\n"
                 + PropertiesToString(Players[0].PropertiesOwned);
                 });
                 }
             else
             {
-                redPlayerStatusBox_richtextbox.Text = "Người chơi Đỏ" + "\n"
+                redPlayerStatusBox_richtextbox.Text = "Người chơi đỏ" + "\n"
               + "Tiền còn lại: " + Players[0].Balance + "\n"
               + PropertiesToString(Players[0].PropertiesOwned);
             }
@@ -257,14 +259,14 @@ namespace Client
             {
                 bluePlayerStatusBox_richtextbox.Invoke((MethodInvoker)delegate
                 {
-                    bluePlayerStatusBox_richtextbox.Text = "Người chơi Xanh" + "\n"
+                    bluePlayerStatusBox_richtextbox.Text = "Người chơi xanh" + "\n"
                         + "Tiền còn lại: " + Players[1].Balance + "\n"
                         + PropertiesToString(Players[1].PropertiesOwned);
                 });
             }
             else
             {
-                bluePlayerStatusBox_richtextbox.Text = "Người chơi Xanh" + "\n"
+                bluePlayerStatusBox_richtextbox.Text = "Người chơi xanh" + "\n"
                         + "Tiền còn lại: " + Players[1].Balance + "\n"
                         + PropertiesToString(Players[1].PropertiesOwned);
             }    
@@ -437,6 +439,20 @@ namespace Client
                     //if (Regex.IsMatch(message, @"Cả\s+2\s+người\s+chơi\s+đã\s+kết\s+nối:\s+\d+") && parts[parts.Length - 1] == ConnectionOptions.Room)
                     switch (parts[0])
                     {
+                        case "Kết nối":
+                            if (parts[1]=="Đỏ")
+                            {
+                                RedConnected = true;
+                                ConnectionOptions.NameRedIsTaken = true;
+                            }
+                            if (parts[1]=="Xanh")
+                            {
+                                BlueConnected = true;
+                                ConnectionOptions.NameBlueIsTaken = true;
+                            }    
+                            Players[1].Name = "tèo";
+                            UpdatePlayersStatusBoxes();
+                            break;
 
                         case "Bắt đầu":
                                 if (CurrentPlayerId == Convert.ToInt32(parts[3]))
@@ -499,6 +515,7 @@ namespace Client
                                 currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
                                 {
                                     // Cập nhật trạng thái của textbox hiển thị lượt của người chơi hiện tại
+                                    //bắt đầu điếm thời gian
                                     timeLeft = turnTimeLimit;
                                     if (turnTimer == null)
                                     {
@@ -543,6 +560,10 @@ namespace Client
                                         receivedMessage.PropertiesOwned[k] = tempArrayOfPropertiesOwned[k];
                                 }
                                 UpdatePlayerStatus(temp, receivedMessage);
+                            if (Convert.ToInt32(stringBalance) < 0)
+                            {
+                                Win();
+                            }
                             break;
                         case "Thuê":
                             if (parts[2] == ConnectionOptions.Room)
@@ -568,11 +589,18 @@ namespace Client
                                 }
                             }
                             break;
-                            
-
-
-
+                        case "Red pawn is already selected":
+                            {
+                                ConnectionOptions.NameRedIsTaken = true;
+                                break;
+                            }
+                        case "Blue pawn is already selected":
+                            {
+                                ConnectionOptions.NameBlueIsTaken = true;
+                                break;
+                            }
                     }
+
                     //if (message.Contains("Cả 2 người chơi đã kết nối: ") && parts[2] == ConnectionOptions.Room)
                     //{
                     //    if (Regex.IsMatch(ConnectionOptions.PlayerName, @"Đỏ\s*\(\s*(\d+)\s*\)")) 
@@ -799,6 +827,7 @@ namespace Client
                     //    ChangeBalance(Players[1], sumOfRent);
                     //    MessageBox.Show("Đỏ trả tiền thuê nhà cho Xanh: " + sumOfRent);
                     //}
+                    
                 }
                 catch(Exception e) 
                 {

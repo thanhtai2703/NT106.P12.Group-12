@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static Server.Program;
 
 namespace Server
 {
@@ -83,22 +84,26 @@ namespace Server
             serverObject.AddConnection(this);
         }
         protected internal string Id { get; }
+        //Xử lý tin nhắn gửi lên từ client
         public void Process()
         {
             try
             {
                 while (true)
                 {
-                    string message = GetMessage();
-                    string []arraypayload = message.Split(';');
-                    // Nhận được thông điệp cả 2 người chơi đã kết nối
-                    //if (Regex.IsMatch(message, @"Cả\s+2\s+người\s+chơi\s+đã\s+kết\s+nối:\s+\d+"))
-                    switch (arraypayload[0])
+                    string message = GetMessage(); //Tạo biến tạm để xử lý tin nhắn
+                    string []arraypayload = message.Split(';'); // tách chuỗi tin nhắn
+                    switch (arraypayload[0]) // xử lí control message
                     {
-                        case "Lobby":
-                            server.SendMessageToOpponentClient(message, Id);
-                            break;
                         case "Kết nối":
+                            if (arraypayload[1]=="Đỏ")
+                            {
+                                Taken.Red = true;
+                            }
+                            if (arraypayload[1]=="Xanh")
+                            {
+                                Taken.Blue = true;
+                            }    
                             userName = arraypayload[1];
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
@@ -116,7 +121,6 @@ namespace Server
                             });
                             break;
                         case "Rời":
-                           // if (!message.Contains(" đã rời."))
                             server.SendMessageToOpponentClient(message, Id);
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
@@ -161,6 +165,32 @@ namespace Server
                             });
                             server.SendMessageToOpponentClient(message, Id);
                             break;
+                        case "Red pawn is already selected":
+                            {
+                                server.SendMessageToOpponentClient(message, Id);
+                                Program.f.tbLog.Invoke((MethodInvoker)delegate
+                                {
+                                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " + message + Environment.NewLine;
+                                });
+                                break;
+                            }
+                        case "Blue pawn is already selected":
+                            {
+                                server.SendMessageToOpponentClient(message, Id);
+                                Program.f.tbLog.Invoke((MethodInvoker)delegate
+                                {
+                                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " + message + Environment.NewLine;
+                                });
+                                break;
+                            }
+                        case "Người chơi mới đã vào":
+                             Program.f.tbLog.Invoke((MethodInvoker)delegate
+                                {
+                                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " + message + Environment.NewLine;
+                                });
+                                if (Taken.Red) server.SendMessageToSender("Red pawn is already selected"+";", Id);
+                                if (Taken.Blue) server.SendMessageToSender("Blue pawn is already selected"+";", Id);
+                                break;
                     }
 
                     //    if (message.Contains("Cả 2 người chơi đã kết nối: "))
@@ -277,7 +307,7 @@ namespace Server
                     //    });
                     //    server.SendMessageToOpponentClient(message, Id);
                     //}
-                     if (message.Contains("thắng.") || message.Contains("thua.") || message == "Người chơi mới đã vào") {
+                     if (message.Contains("thắng.") || message.Contains("thua.")) {
                         Program.f.tbLog.Invoke((MethodInvoker)delegate
                         {
                             Program.f.tbLog.Text += "[" + DateTime.Now + "] " + message + Environment.NewLine;
@@ -294,6 +324,7 @@ namespace Server
                 });
             }
         }
+        //hàm phân tích tin nhắn
         private string GetMessage()
         {
             byte[] data = new byte[256];
@@ -306,6 +337,7 @@ namespace Server
 
             return builder.ToString();
         }
+        //ghi thông tin vào file
         private void UpdateToFile(string data) 
         {
             if (write == null)
