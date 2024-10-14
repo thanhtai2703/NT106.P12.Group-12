@@ -826,11 +826,11 @@
             // timeLabel
             // 
             this.timeLabel.AutoSize = true;
-            this.timeLabel.Location = new System.Drawing.Point(730, 341);
+            this.timeLabel.Location = new System.Drawing.Point(705, 297);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(63, 25);
+            this.timeLabel.Size = new System.Drawing.Size(60, 25);
             this.timeLabel.TabIndex = 119;
-            this.timeLabel.Text = "label1";
+            this.timeLabel.Text = "Timer";
             // 
             // Game
             // 

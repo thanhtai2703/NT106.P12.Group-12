@@ -118,7 +118,7 @@
             this.tbColor.Location = new System.Drawing.Point(231, 161);
             this.tbColor.Multiline = true;
             this.tbColor.Name = "tbColor";
-            this.tbColor.Size = new System.Drawing.Size(115, 22);
+            this.tbColor.Size = new System.Drawing.Size(151, 22);
             this.tbColor.TabIndex = 31;
             // 
             // label1
@@ -149,7 +149,7 @@
             // 
             this.txtName.Location = new System.Drawing.Point(231, 124);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 32);
+            this.txtName.Size = new System.Drawing.Size(151, 32);
             this.txtName.TabIndex = 35;
             // 
             // ColorChoosing

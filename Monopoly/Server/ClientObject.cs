@@ -99,18 +99,25 @@ namespace Server
                             if (arraypayload[1]=="Đỏ")
                             {
                                 Taken.Red = true;
+                                Player.Name1 = arraypayload[3];
                             }
                             if (arraypayload[1]=="Xanh")
                             {
                                 Taken.Blue = true;
-                            }    
+                                Player.Name2 = arraypayload[3];
+                            }   
                             userName = arraypayload[1];
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
                                 Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName + " đã kết nối" + Environment.NewLine;
                                 UpdateToFile("[" + DateTime.Now + "] " + userName + " đã kết nối");
                             });
+                            if(Taken.Red == true && Taken.Blue == true)
+                            {
+                                server.SendMessageToEveryone("Cập nhật" + ";"+Player.Name1 +";"+Player.Name2+";", Id);
+                            }    
                             server.SendMessageToOpponentClient(message,Id);
+                            //server.SendMessageToSender(message,Id);
                             break;
                         case "Bắt đầu":
                             server.SendMessageToEveryone(message, Id);

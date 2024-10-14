@@ -30,6 +30,11 @@ namespace Server
             public static bool Red { get; set; }
             public static bool Blue { get; set; }
         }
+        internal static class Player
+        {
+            public static string Name1 { get; set; }
+            public static string Name2 { get; set; }
+        }
 
     }
  
