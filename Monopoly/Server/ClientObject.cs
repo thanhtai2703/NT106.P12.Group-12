@@ -16,8 +16,9 @@ namespace Server
         protected internal Socket Client;
         private readonly ServerObject server;
         private string userName;
-        private int currentTurn;
+       // private int currentTurn;
         private StreamWriter write;
+        static List<Room> room = new List<Room>();
         DateTime now = DateTime.Now;
 
         List<(string, int)> o = new List<(string, int)>
@@ -96,28 +97,62 @@ namespace Server
                     switch (arraypayload[0]) // xử lí control message
                     {
                         case "Kết nối":
-                            if (arraypayload[1]=="Đỏ")
+                            bool isFound = false;
+                            for (int i = 0; i < room.Count; i++)
                             {
-                                Taken.Red = true;
-                                Player.Name1 = arraypayload[3];
+                                if (room[i].roomId == Convert.ToInt32(arraypayload[2]))
+                                {
+                                    isFound = true;
+                                    if (arraypayload[1] == "Đỏ")
+                                    {
+                                        room[i].roomTaken.Red = true;
+                                        room[i].roomPlayer.Name1 = arraypayload[3];
+                                    }
+                                    if (arraypayload[1] == "Xanh")
+                                    {
+                                        room[i].roomTaken.Blue = true;
+                                        room[i].roomPlayer.Name2 = arraypayload[3];
+                                    }
+                                }
+                                if (room[i].roomTaken.Red == true && room[i].roomTaken.Blue == true)
+                                {
+                                    server.SendMessageToEveryone("Cập nhật" + ";" + room[i].roomId +";" + room[i].roomPlayer.Name1 + ";" + room[i].roomPlayer.Name2 + ";", Id);//cập nhật + phòng + teen1 + tên 2
+                                }
+                                break;
                             }
-                            if (arraypayload[1]=="Xanh")
+                            if(!isFound)
                             {
-                                Taken.Blue = true;
-                                Player.Name2 = arraypayload[3];
-                            }   
-                            userName = arraypayload[1];
-                            Program.f.tbLog.Invoke((MethodInvoker)delegate
-                            {
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName + " đã kết nối" + Environment.NewLine;
-                                UpdateToFile("[" + DateTime.Now + "] " + userName + " đã kết nối");
-                            });
-                            if(Taken.Red == true && Taken.Blue == true)
-                            {
-                                server.SendMessageToEveryone("Cập nhật" + ";"+Player.Name1 +";"+Player.Name2+";", Id);
+                                Room a = new Room();
+                                a.roomId = Convert.ToInt32(arraypayload[2]);
+                                if (arraypayload[1] == "Đỏ")
+                                {
+                                    a.roomTaken.Blue = false;
+                                    a.roomTaken.Red = true;
+                                    a.roomPlayer.Name1 = arraypayload[3];
+                                    a.roomPlayer.Name2 = "";
+                                }
+                                if (arraypayload[1] == "Xanh")
+                                {
+                                    a.roomTaken.Red = false;
+                                    a.roomTaken.Blue = true;
+                                    a.roomPlayer.Name2 = arraypayload[3];
+                                    a.roomPlayer.Name1 = "";
+                                }
+                                room.Add(a);
                             }    
-                            server.SendMessageToOpponentClient(message,Id);
-                            //server.SendMessageToSender(message,Id);
+                                userName = arraypayload[1];
+                                Program.f.tbLog.Invoke((MethodInvoker)delegate
+                                {
+                                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName + " đã kết nối" + Environment.NewLine;
+                                    UpdateToFile("[" + DateTime.Now + "] " + userName + " đã kết nối");
+                                });
+                                //if (Taken.Red == true && Taken.Blue == true)
+                                //{
+                                //    server.SendMessageToEveryone("Cập nhật" + ";" + Player.Name1 + ";" + Player.Name2 + ";", Id);
+                                //}
+                                server.SendMessageToOpponentClient(message, Id);
+                                //server.SendMessageToSender(message,Id);
+                            
                             break;
                         case "Bắt đầu":
                             server.SendMessageToEveryone(message, Id);
@@ -195,8 +230,14 @@ namespace Server
                                 {
                                     Program.f.tbLog.Text += "[" + DateTime.Now + "] " + message + Environment.NewLine;
                                 });
-                                if (Taken.Red) server.SendMessageToSender("Red pawn is already selected"+";", Id);
-                                if (Taken.Blue) server.SendMessageToSender("Blue pawn is already selected"+";", Id);
+                            for (int i = 0; i < room.Count; i++)
+                            {
+                                if (room[i].roomId == Convert.ToInt32(arraypayload[1]))
+                                {
+                                    if (room[i].roomTaken.Red) server.SendMessageToSender("Red pawn is already selected" + ";" + room[i].roomId+";", Id);
+                                    if (room[i].roomTaken.Blue) server.SendMessageToSender("Blue pawn is already selected" + ";" + room[i].roomId+";", Id);
+                                }
+                            }
                                 break;
                     }
 

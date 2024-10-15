@@ -147,7 +147,7 @@ namespace Client
                     Thread receiveThread = new Thread(ReceiveMessage);
                     receiveThread.Start();
 
-                    SendMessageToServer("Người chơi mới đã vào");
+                    SendMessageToServer("Người chơi mới đã vào"+";"+ConnectionOptions.Room);
 
 
                     //Hiển thị Form chọn màu 
@@ -440,51 +440,60 @@ namespace Client
                             UpdatePlayersStatusBoxes();
                             break;
                         case "Kết nối":
-                            if (parts[1] == "Đỏ") redPlayerStatusBox_richtextbox.Text = parts[3];
-                            if (parts[1] == "Xanh") bluePlayerStatusBox_richtextbox.Text = parts[3];
+                            if (parts[2] == ConnectionOptions.Room)
+                            {
+                                if (parts[1] == "Đỏ") redPlayerStatusBox_richtextbox.Text = parts[3];
+                                if (parts[1] == "Xanh") bluePlayerStatusBox_richtextbox.Text = parts[3];
+                            }
                             break;
                         case "Bắt đầu":
+                            if (ConnectionOptions.Room == parts[2])
+                            {
                                 if (CurrentPlayerId == Convert.ToInt32(parts[3]))
                                 {
-                                currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
-                                {
-                                    timeLeft = turnTimeLimit;
-                                    if (turnTimer == null)
+                                    currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
                                     {
-                                        turnTimer = new System.Windows.Forms.Timer();
-                                        turnTimer.Interval = 1000; // 1 giây (1000ms)
-                                        turnTimer.Tick += new EventHandler(timer1_Tick);
-                                    }
-                                    UpdateTimeDisplay();
-                                    turnTimer.Start();
-                                    currentPlayersTurn_textbox.Text = "Tung xúc sắc để bắt đầu trò chơi";
-                                    throwDiceBtn.Enabled = true;
-                                    buyBtn.Enabled = false;
-                                    endTurnBtn.Enabled = false;
-                                });
-                                 }
-                            else
-                            {
-                                currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
+                                        timeLeft = turnTimeLimit;
+                                        if (turnTimer == null)
+                                        {
+                                            turnTimer = new System.Windows.Forms.Timer();
+                                            turnTimer.Interval = 1000; // 1 giây (1000ms)
+                                            turnTimer.Tick += new EventHandler(timer1_Tick);
+                                        }
+                                        UpdateTimeDisplay();
+                                        turnTimer.Start();
+                                        currentPlayersTurn_textbox.Text = "Tung xúc sắc để bắt đầu trò chơi";
+                                        throwDiceBtn.Enabled = true;
+                                        buyBtn.Enabled = false;
+                                        endTurnBtn.Enabled = false;
+                                    });
+                                }
+                                else
                                 {
-                                    currentPlayersTurn_textbox.Text = "Đỏ đang thực hiện lượt chơi. Chờ...";
-                                    Startbtn.Enabled = false;
-                                });
+                                    currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
+                                    {
+                                        currentPlayersTurn_textbox.Text = "Đỏ đang thực hiện lượt chơi. Chờ...";
+                                        Startbtn.Enabled = false;
+                                    });
+                                }
                             }
                             break;
                         case "Nhắn":
-                            this.Invoke(new MethodInvoker(delegate
+                            if (parts[2] == ConnectionOptions.Room)
                             {
-                                //if (parts[1] == ConnectionOptions.Room)
-                               // {
+                                this.Invoke(new MethodInvoker(delegate
+                                {
+                                    //if (parts[1] == ConnectionOptions.Room)
+                                    // {
                                     //string message_show = message;
                                     //message_show = message_show.Replace(" nhắn", "");
                                     messageRTB.Invoke((MethodInvoker)delegate
-                                    {
-                                        messageRTB.AppendText(parts[2] +":" + parts[1] + Environment.NewLine);
-                                    });
-                                //}
-                            }));
+                                {
+                                            messageRTB.AppendText(parts[2] + ":" + parts[1] + Environment.NewLine);
+                                        });
+                                    //}
+                                }));
+                            }
                             break;
                         case "Rời":
                             SendMessageToServer(ConnectionOptions.PlayerName + " đã rời.");
@@ -498,31 +507,34 @@ namespace Client
                             break;
                         case "Kết quả":
                             //string[] infomation = parts[6].Split('~');   
-                            int temp = Convert.ToInt32(parts[3]);
-                            if (Convert.ToInt32(parts[3]) == CurrentPlayerId)
+                            if (parts[2] == ConnectionOptions.Room)
                             {
-                                currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
+
+                                int temp = Convert.ToInt32(parts[3]);
+                                if (Convert.ToInt32(parts[3]) == CurrentPlayerId)
                                 {
-                                    // Cập nhật trạng thái của textbox hiển thị lượt của người chơi hiện tại
-                                    //bắt đầu điếm thời gian
-                                    timeLeft = turnTimeLimit;
-                                    if (turnTimer == null)
+                                    currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
                                     {
-                                        turnTimer = new System.Windows.Forms.Timer();
-                                        turnTimer.Interval = 1000; // 1 giây (1000ms)
-                                        turnTimer.Tick += new EventHandler(timer1_Tick);
-                                    }
-                                    UpdateTimeDisplay();
-                                    turnTimer.Start();
-                                    currentPlayersTurn_textbox.Text = "Lượt của bạn";
-                                    // Kích hoạt nút để ném xúc xắc
-                                    throwDiceBtn.Enabled = true;
-                                    // Vô hiệu hóa nút mua đất
-                                    buyBtn.Enabled = false;
-                                    // Vô hiệu hóa nút kết thúc lượt đi
-                                    endTurnBtn.Enabled = false;
-                                });
-                            }
+                                        // Cập nhật trạng thái của textbox hiển thị lượt của người chơi hiện tại
+                                        //bắt đầu điếm thời gian
+                                        timeLeft = turnTimeLimit;
+                                        if (turnTimer == null)
+                                        {
+                                            turnTimer = new System.Windows.Forms.Timer();
+                                            turnTimer.Interval = 1000; // 1 giây (1000ms)
+                                            turnTimer.Tick += new EventHandler(timer1_Tick);
+                                        }
+                                        UpdateTimeDisplay();
+                                        turnTimer.Start();
+                                        currentPlayersTurn_textbox.Text = "Lượt của bạn";
+                                        // Kích hoạt nút để ném xúc xắc
+                                        throwDiceBtn.Enabled = true;
+                                        // Vô hiệu hóa nút mua đất
+                                        buyBtn.Enabled = false;
+                                        // Vô hiệu hóa nút kết thúc lượt đi
+                                        endTurnBtn.Enabled = false;
+                                    });
+                                }
 
                                 // Tạo một đối tượng ReceivedMessage để lưu trữ thông điệp nhận được
                                 ReceivedMessage receivedMessage = new ReceivedMessage();
@@ -549,9 +561,10 @@ namespace Client
                                         receivedMessage.PropertiesOwned[k] = tempArrayOfPropertiesOwned[k];
                                 }
                                 UpdatePlayerStatus(temp, receivedMessage);
-                            if (Convert.ToInt32(stringBalance) < 0)
-                            {
-                                Win();
+                                if (Convert.ToInt32(stringBalance) < 0)
+                                {
+                                    Win();
+                                }
                             }
                             break;
                         case "Thuê":
@@ -580,242 +593,22 @@ namespace Client
                             break;
                         case "Red pawn is already selected":
                             {
-                                ConnectionOptions.NameRedIsTaken = true;
+                                if (ConnectionOptions.Room == parts[1])
+                                {
+                                    ConnectionOptions.NameRedIsTaken = true;
+                                }
                                 break;
                             }
                         case "Blue pawn is already selected":
                             {
-                                ConnectionOptions.NameBlueIsTaken = true;
+                                if (ConnectionOptions.Room == parts[1])
+                                { 
+                                    ConnectionOptions.NameBlueIsTaken = true;
+                                }
                                 break;
                             }
                     }
 
-                    //if (message.Contains("Cả 2 người chơi đã kết nối: ") && parts[2] == ConnectionOptions.Room)
-                    //{
-                    //    if (Regex.IsMatch(ConnectionOptions.PlayerName, @"Đỏ\s*\(\s*(\d+)\s*\)")) 
-                    //        currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
-                    //        {
-                    //            currentPlayersTurn_textbox.Text = "Tung xúc sắc để bắt đầu trò chơi";
-                    //            throwDiceBtn.Enabled = true;
-                    //            buyBtn.Enabled = false;
-                    //            endTurnBtn.Enabled = false;
-                    //        });
-                    //    if (Regex.IsMatch(ConnectionOptions.PlayerName, @"Xanh\s*\(\s*(\d+)\s*\)"))
-                    //        currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
-                    //        {
-                    //            currentPlayersTurn_textbox.Text = "Đỏ đang thực hiện lượt chơi. Chờ...";
-                    //        });
-                    //}
-
-                    ////Khi người chơi màu đỏ đã kết nối 
-                    //else if (Regex.IsMatch(message, @"Đỏ\s*\(\s*(\d+)\s*\)\s*đã kết nối") && parts[1] == ConnectionOptions.Room)
-                    //{
-                    //    RedConnected = true;
-                    //    // Kiểm tra xem người chơi màu xanh có kết nối không và gửi thông báo nếu cả hai đã kết nối
-                    //    if (!BlueConnected) 
-                    //        continue;
-                    //    SendMessageToServer("Cả 2 người chơi đã kết nối: " + ConnectionOptions.Room);
-                    //}
-
-                    ////Khi người chơi màu xanh đã kết nối 
-                    //else if (Regex.IsMatch(message, @"Xanh\s*\(\s*(\d+)\s*\)\s*đã kết nối") && parts[1] == ConnectionOptions.Room)
-                    //{
-                    //    BlueConnected = true;
-                    //    // Kiểm tra xem người chơi màu đỏ có kết nối không và gửi thông báo nếu cả hai đã kết nối
-                    //    if (!RedConnected) 
-                    //        continue;
-                    //    SendMessageToServer("Cả 2 người chơi đã kết nối: " + ConnectionOptions.Room);
-
-                    //}
-
-                    //Xử lý tin nhắn
-                    //if (message.Contains(" nhắn: "))
-                    //{
-
-                    //    this.Invoke(new MethodInvoker(delegate
-                    //    {
-                    //        if (parts[1] == ConnectionOptions.Room)
-                    //        {
-                    //            string message_show = message;
-                    //            message_show = message_show.Replace(" nhắn", "");
-                    //            messageRTB.Invoke((MethodInvoker)delegate
-                    //            {
-                    //                messageRTB.AppendText(message_show + Environment.NewLine);
-                    //            });
-                    //        }
-                    //    }));
-                    //}
-
-                    //if (message.Contains(" đã rời") && parts[1] == ConnectionOptions.Room)
-                    //{
-                    //    SendMessageToServer(ConnectionOptions.PlayerName + " đã rời.");
-                    //    this.Invoke((MethodInvoker)delegate {
-                    //        MessageBox.Show("Đối thủ của bạn đã rời", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    //        this.Hide();
-                    //        MainMenu mainMenu = new MainMenu();
-                    //        mainMenu.ShowDialog();
-                    //        Disconnect();
-                    //    });
-                    //}
-
-                    //Khi nhận được kết quả lượt đi 
-                    //Xử lý thông tin nhận được và cập nhật kết quả cho người 
-                    //if (message.Contains("Kết quả lượt đi") && parts[0] == ConnectionOptions.Room)
-                    //{
-                    //    // Lưu tin nhắn gốc
-                    //    var tempMessage = message;
-                    //    var subString = string.Empty;
-
-                    //    // Xác định xem lượt đi này thuộc về người chơi nào
-                    //    switch (CurrentPlayerId)
-                    //    {
-                    //        case 0:
-                    //            subString = "Kết quả lượt đi của Xanh";
-                    //            break;
-                    //        case 1:
-                    //            subString = "Kết quả lượt đi của Đỏ";
-                    //            break;
-                    //    }
-                    //    // Loại bỏ chuỗi xác định lượt đi của một người chơi khỏi tin nhắn
-                    //    tempMessage = tempMessage.Replace(subString, "");
-
-                    //    // Thực hiện các thay đổi giao diện người dùng bằng cách sử dụng Invoke để đảm bảo chúng chạy trên luồng chính
-                    //    currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
-                    //    {
-                    //        // Cập nhật trạng thái của textbox hiển thị lượt của người chơi hiện tại
-                    //        currentPlayersTurn_textbox.Text = "Lượt của bạn";
-                    //        // Kích hoạt nút để ném xúc xắc
-                    //        throwDiceBtn.Enabled = true;
-                    //        // Vô hiệu hóa nút mua đất
-                    //        buyBtn.Enabled = false;
-                    //        // Vô hiệu hóa nút kết thúc lượt đi
-                    //        endTurnBtn.Enabled = false;
-                    //    });
-
-                    //    // Tạo một đối tượng ReceivedMessage để lưu trữ thông điệp nhận được
-                    //    ReceivedMessage receivedMessage = new ReceivedMessage();
-
-                    //    // Lấy vị trí kết thúc lượt đi từ tin nhắn
-                    //    String stringPosition = tempMessage.Split('~')[1];
-                    //    receivedMessage.EndPosition = Convert.ToInt32(stringPosition);
-
-                    //    // Lấy số tiền sau lượt đi từ tin nhắn
-                    //    String stringBalance = tempMessage.Split('~')[2];
-                    //    receivedMessage.Balance = Convert.ToInt32(stringBalance);
-
-                    //    // Lấy tài sản (đất) hiện có từ tin nhắn
-                    //    String stringPropertiesOwned = tempMessage.Split('~')[3];
-                    //    if (stringPropertiesOwned != "NULL")
-                    //    {
-                    //        // Lấy mã số của các nhà được sở hữu
-                    //        int[] tempArrayOfPropertiesOwned = stringPropertiesOwned
-                    //            .Split(' ')
-                    //            .Where(x => !string.IsNullOrWhiteSpace(x))
-                    //            .Select(x => int.Parse(x))
-                    //            .ToArray();
-                    //        for (int k = 0; k < tempArrayOfPropertiesOwned.Length; k++)
-                    //            receivedMessage.PropertiesOwned[k] = tempArrayOfPropertiesOwned[k];
-                    //    }
-
-                    //    // Cập nhật trạng thái của người chơi
-                    //    switch (CurrentPlayerId)
-                    //    {
-                    //        case 0:
-                    //            // Đổi lượt điều khiển sang người chơi tiếp theo
-                    //            CurrentPlayerId = 1;
-                    //            // Di chuyển biểu tượng của người chơi đến vị trí kết thúc lượt đi
-                    //            Invoke((MethodInvoker)delegate
-                    //            {
-                    //                MoveIcon(receivedMessage.EndPosition);
-                    //            });
-                    //            // Cập nhật vị trí và số dư của người chơi
-                    //            Players[CurrentPlayerId].Position = receivedMessage.EndPosition;
-                    //            Players[CurrentPlayerId].Balance = receivedMessage.Balance;
-
-                    //            // Cập nhật danh sách tài sản được sở hữu của người chơi
-                    //            int i = 0;
-                    //            foreach (var item in receivedMessage.PropertiesOwned)
-                    //            {
-                    //                Players[CurrentPlayerId].PropertiesOwned[i] = item;
-                    //                i++;
-                    //            }
-
-                    //            // Vẽ các biểu tượng tài sản mà người chơi đang sở hữu
-                    //            foreach (var item in Players[CurrentPlayerId].PropertiesOwned)
-                    //                if (item != 0)
-                    //                {
-                    //                    Properties[item].Owned = true;
-                    //                    Players[CurrentPlayerId].NumberOfPropertiesOwned++;
-                    //                    currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
-                    //                    {
-                    //                        DrawCircle(item, 1);
-                    //                    });
-                    //                }
-                    //            // Đổi lượt điều khiển trở lại người chơi ban đầu
-                    //            CurrentPlayerId = 0;
-                    //            // Cập nhật hộp thông tin trạng thái của các người chơi
-                    //            UpdatePlayersStatusBoxes();
-                    //            break;
-
-                    //        case 1:
-                    //            // Đổi lượt điều khiển sang người chơi tiếp theo
-                    //            CurrentPlayerId = 0;
-                    //            // Di chuyển biểu tượng của người chơi đến vị trí kết thúc lượt đi
-                    //            Invoke((MethodInvoker)delegate
-                    //            {
-                    //                MoveIcon(receivedMessage.EndPosition);
-                    //            });
-                    //            // Cập nhật vị trí và số dư của người chơi
-                    //            Players[CurrentPlayerId].Position = receivedMessage.EndPosition;
-                    //            Players[CurrentPlayerId].Balance = receivedMessage.Balance;
-
-                    //            // Cập nhật danh sách tài sản được sở hữu của người chơi
-                    //            int k = 0;
-                    //            foreach (var item in receivedMessage.PropertiesOwned)
-                    //            {
-                    //                Players[CurrentPlayerId].PropertiesOwned[k] = item;
-                    //                k++;
-                    //            }
-
-                    //            // Vẽ các biểu tượng tài sản mà người chơi đang sở hữu
-                    //            foreach (var item in Players[CurrentPlayerId].PropertiesOwned)
-                    //                if (item != 0)
-                    //                {
-                    //                    Properties[item].Owned = true;
-                    //                    Players[CurrentPlayerId].NumberOfPropertiesOwned++;
-                    //                    currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
-                    //                    {
-                    //                        DrawCircle(item, 0);
-                    //                    });
-                    //                }
-                    //            // Đổi lượt điều khiển trở lại người chơi ban đầu
-                    //            CurrentPlayerId = 1;
-                    //            // Cập nhật hộp thông tin trạng thái của các người chơi
-                    //            UpdatePlayersStatusBoxes();
-                    //            break;
-                    //    }
-
-                    //    // Kiểm tra nếu số dư của người chơi trở thành âm
-                    //    if (Convert.ToInt32(stringBalance) < 0)
-                    //        Win(); // Gọi hàm Win để xử lý việc người chơi đã thua cuộc
-                    //}
-                    //Cập nhật số tiền cho người chơi 
-                    //if (message.Contains("Trả tiền thuê nhà cho Đỏ: ") && parts[0] == ConnectionOptions.Room)
-                    //{
-                    //    string sumOfRentString = parts[parts.Length-1];
-                    //    int sumOfRent = Convert.ToInt32(sumOfRentString);
-                    //    ChangeBalance(Players[1], -sumOfRent);
-                    //    ChangeBalance(Players[0], sumOfRent);
-                    //    MessageBox.Show("Xanh trả tiền thuê nhà cho Đỏ: : " + sumOfRent);
-                    //}
-                    //else if (message.Contains("Trả tiền thuê nhà cho Xanh: ")&& parts[0] == ConnectionOptions.Room)
-                    //{
-                    //    string sumOfRentString = parts[parts.Length - 1];
-                    //    int sumOfRent = Convert.ToInt32(sumOfRentString);
-                    //    ChangeBalance(Players[0], -sumOfRent);
-                    //    ChangeBalance(Players[1], sumOfRent);
-                    //    MessageBox.Show("Đỏ trả tiền thuê nhà cho Xanh: " + sumOfRent);
-                    //}
                     
                 }
                 catch(Exception e) 

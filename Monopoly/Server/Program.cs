@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections.Generic;
 namespace Server
 {
     internal static class Program
@@ -25,15 +26,23 @@ namespace Server
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ServerForm());
         }
-        internal static class Taken
+        internal class Taken
         {
-            public static bool Red { get; set; }
-            public static bool Blue { get; set; }
+            //public static bool Red { get; set; }
+            //public static bool Blue { get; set; }
+            public bool Red { get; set; }
+            public bool Blue { get; set; }
         }
-        internal static class Player
+        internal class Player
         {
-            public static string Name1 { get; set; }
-            public static string Name2 { get; set; }
+            public string Name1 { get; set; }
+            public string Name2 { get; set; }
+        }
+        internal class Room
+        {
+            public int roomId;
+            public Taken roomTaken = new Taken(); // Tạo một instance của Taken
+            public Player roomPlayer = new Player(); // Tạo một instance của Player
         }
 
     }
