@@ -456,15 +456,15 @@ namespace Client
                                 {
                                     currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
                                     {
-                                        timeLeft = turnTimeLimit;
-                                        if (turnTimer == null)
-                                        {
-                                            turnTimer = new System.Windows.Forms.Timer();
-                                            turnTimer.Interval = 1000; // 1 giây (1000ms)
-                                            turnTimer.Tick += new EventHandler(timer1_Tick);
-                                        }
-                                        UpdateTimeDisplay();
-                                        turnTimer.Start();
+                                        //timeLeft = turnTimeLimit;
+                                        //if (turnTimer == null)
+                                        //{
+                                        //    turnTimer = new System.Windows.Forms.Timer();
+                                        //    turnTimer.Interval = 1000; // 1 giây (1000ms)
+                                        //    turnTimer.Tick += new EventHandler(timer1_Tick);
+                                        //}
+                                        //UpdateTimeDisplay();
+                                        //turnTimer.Start();
                                         currentPlayersTurn_textbox.Text = "Tung xúc sắc để bắt đầu trò chơi";
                                         throwDiceBtn.Enabled = true;
                                         buyBtn.Enabled = false;
@@ -505,7 +505,7 @@ namespace Client
                                 this.Invoke((MethodInvoker)delegate
                                 {
                                     MessageBox.Show("Đối thủ của bạn đã rời", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                                    this.Hide();
+                                    this.Close();
                                     MainMenu mainMenu = new MainMenu();
                                     mainMenu.ShowDialog();
                                     Disconnect();
@@ -614,6 +614,13 @@ namespace Client
                                 }
                                 break;
                             }
+                        case "Phòng đã đủ người chơi":
+                            if(ConnectionOptions.Room == parts[1])
+                            {
+                                ConnectionOptions.NameBlueIsTaken = true;
+                                ConnectionOptions.NameRedIsTaken = true;
+                            }    
+                            break;
                     }
 
                     
@@ -631,9 +638,9 @@ namespace Client
             if (MessageBox.Show("Bạn đã thua! Chúc may mắn lần sau!", "Thông báo", MessageBoxButtons.OK) == DialogResult.OK)
             {
                 SendMessageToServer(ConnectionOptions.PlayerName + " thua.");
-                this.Hide();
-                MainMenu mainMenu = new MainMenu();
-                mainMenu.ShowDialog();
+                this.Close();
+                //MainMenu mainMenu = new MainMenu();
+                //mainMenu.ShowDialog();
             }
         }
         private void UpdatePlayerStatus(int playerId, ReceivedMessage receivedMessage)
@@ -682,9 +689,9 @@ namespace Client
             if (MessageBox.Show("Bạn đã thắng! Congratulations!", "Thông báo", MessageBoxButtons.OK) == DialogResult.OK)
             {
                 SendMessageToServer(ConnectionOptions.PlayerName + " thắng.");
-                this.Hide();
-                MainMenu mainMenu = new MainMenu();
-                mainMenu.ShowDialog();
+                this.Close();
+               // MainMenu mainMenu = new MainMenu();
+                //mainMenu.ShowDialog();
             }
 
         }
@@ -721,7 +728,7 @@ namespace Client
             string message = messageTb.Text.Trim();
             if (string.IsNullOrEmpty(message))
                 return;
-            SendMessageToServer(messagetype+";"+ message);
+            SendMessageToServer(messagetype+";"+ConnectionOptions.Room+";"+ message);
             messageTb.Text = "";
         }
 
@@ -729,7 +736,7 @@ namespace Client
         {
             messagetype = "Rời";
             if (Gamemodes.Multiplayer)
-                SendMessageToServer(messagetype +";"+ConnectionOptions.PlayerName+";");
+            SendMessageToServer(messagetype +";"+ConnectionOptions.PlayerName+";");
         }
 
         //Animation di chuyển vị trí
@@ -1036,7 +1043,7 @@ namespace Client
                 if (Gamemodes.Multiplayer)
                     SendMessageToServer(ConnectionOptions.PlayerName + " đã rời");
 
-                this.Hide();
+                this.Close();
                 MainMenu mainMenu = new MainMenu();
                 mainMenu.ShowDialog();
             }
@@ -1044,7 +1051,7 @@ namespace Client
 
         private void EndTurnBtn_Click(object sender, EventArgs e)
         {
-            turnTimer.Stop();
+            //turnTimer.Stop();
             messagetype = "Kết quả";
             if (Gamemodes.Multiplayer)
             {

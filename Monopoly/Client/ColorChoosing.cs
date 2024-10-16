@@ -13,6 +13,13 @@ namespace Client
             InitializeComponent();
             if (ConnectionOptions.NameRedIsTaken) chooseRedPlayerBtn.Enabled = false;
             if (ConnectionOptions.NameBlueIsTaken) chooseBluePlayerBtn.Enabled = false;
+            if(ConnectionOptions.NameRedIsTaken&&ConnectionOptions.NameBlueIsTaken)
+            {
+                MessageBox.Show("Server đã đầy.");
+                ConnectionOptions.NameRedIsTaken = false;
+                ConnectionOptions.NameBlueIsTaken = false;
+                this.Close();
+            }    
             //Thiết lập giá trị mặc định cho tbColor
             tbColor.Text = "Chưa được chọn";
 
@@ -57,7 +64,7 @@ namespace Client
                     //Gắn cho DialogResult kết quả OK 
                     DialogResult = DialogResult.OK;
                     break;
-                case "Chưa chọn":
+                case "Chưa được chọn":
                     //Nếu chưa chọn màu thì hiển thị thông báo yêu cầu chọn màu 
                     MessageBox.Show("Chọn màu!");
                     break;

@@ -71,6 +71,7 @@ namespace Server
                 client.Client.Send(data);
             }
         }
+        //gửi tin nhắn đến chính người gửi, dùng trong trường hợp cần cập nhật thông tin
         protected internal void SendMessageToSender(string message, string id)
         {
             foreach (var client in clients.Where(c => c.Id == id))
