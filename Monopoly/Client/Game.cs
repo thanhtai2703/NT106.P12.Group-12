@@ -435,16 +435,19 @@ namespace Client
                     switch (parts[0])
                     {
                         case "Cập nhật":
-                            Players[0].Name = parts[1];
-                            Players[1].Name = parts[2];
-                            UpdatePlayersStatusBoxes();
+                            if (ConnectionOptions.Room == parts[1])
+                            {
+                                Players[0].Name = parts[1];
+                                Players[1].Name = parts[2];
+                                UpdatePlayersStatusBoxes();
+                            }
                             break;
                         case "Kết nối":
-                            if (parts[2] == ConnectionOptions.Room)
-                            {
-                                if (parts[1] == "Đỏ") redPlayerStatusBox_richtextbox.Text = parts[3];
-                                if (parts[1] == "Xanh") bluePlayerStatusBox_richtextbox.Text = parts[3];
-                            }
+                            //if (parts[2] == ConnectionOptions.Room)
+                            //{
+                            //    if (parts[1] == "Đỏ") redPlayerStatusBox_richtextbox.Text = parts[3];
+                            //    if (parts[1] == "Xanh") bluePlayerStatusBox_richtextbox.Text = parts[3];
+                            //}
                             break;
                         case "Bắt đầu":
                             if (ConnectionOptions.Room == parts[2])
