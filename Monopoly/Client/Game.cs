@@ -437,8 +437,8 @@ namespace Client
                         case "Cập nhật":
                             if (ConnectionOptions.Room == parts[1])
                             {
-                                Players[0].Name = parts[1];
-                                Players[1].Name = parts[2];
+                                Players[0].Name = parts[2];
+                                Players[1].Name = parts[3];
                                 UpdatePlayersStatusBoxes();
                             }
                             break;
@@ -499,14 +499,18 @@ namespace Client
                             }
                             break;
                         case "Rời":
-                            SendMessageToServer(ConnectionOptions.PlayerName + " đã rời.");
-                            this.Invoke((MethodInvoker)delegate {
-                                MessageBox.Show("Đối thủ của bạn đã rời", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                                this.Hide();
-                                MainMenu mainMenu = new MainMenu();
-                                mainMenu.ShowDialog();
-                                Disconnect();
-                            });
+                            if (ConnectionOptions.Room == parts[2])
+                            {
+                                SendMessageToServer(ConnectionOptions.PlayerName + " đã rời.");
+                                this.Invoke((MethodInvoker)delegate
+                                {
+                                    MessageBox.Show("Đối thủ của bạn đã rời", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                    this.Hide();
+                                    MainMenu mainMenu = new MainMenu();
+                                    mainMenu.ShowDialog();
+                                    Disconnect();
+                                });
+                            }
                             break;
                         case "Kết quả":
                             //string[] infomation = parts[6].Split('~');   
@@ -725,7 +729,7 @@ namespace Client
         {
             messagetype = "Rời";
             if (Gamemodes.Multiplayer)
-                SendMessageToServer(messagetype +";"+ConnectionOptions.PlayerName);
+                SendMessageToServer(messagetype +";"+ConnectionOptions.PlayerName+";");
         }
 
         //Animation di chuyển vị trí

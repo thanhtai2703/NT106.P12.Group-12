@@ -113,12 +113,16 @@ namespace Server
                                         room[i].roomTaken.Blue = true;
                                         room[i].roomPlayer.Name2 = arraypayload[3];
                                     }
+                                    if (room[i].roomTaken.Red == true && room[i].roomTaken.Blue == true)
+                                    {
+                                        server.SendMessageToEveryone("Cập nhật" + ";" + room[i].roomId + ";" + room[i].roomPlayer.Name1 + ";" + room[i].roomPlayer.Name2 + ";", Id);//cập nhật + phòng + teen1 + tên 2
+                                    }
+                                    break;
                                 }
-                                if (room[i].roomTaken.Red == true && room[i].roomTaken.Blue == true)
-                                {
-                                    server.SendMessageToEveryone("Cập nhật" + ";" + room[i].roomId +";" + room[i].roomPlayer.Name1 + ";" + room[i].roomPlayer.Name2 + ";", Id);//cập nhật + phòng + teen1 + tên 2
-                                }
-                                break;
+                                //if (room[i].roomTaken.Red == true && room[i].roomTaken.Blue == true)
+                                //{
+                                //    server.SendMessageToEveryone("Cập nhật" + ";" + room[i].roomId +";" + room[i].roomPlayer.Name1 + ";" + room[i].roomPlayer.Name2 + ";", Id);//cập nhật + phòng + teen1 + tên 2
+                                //}
                             }
                             if(!isFound)
                             {
