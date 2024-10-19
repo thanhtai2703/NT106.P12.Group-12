@@ -23,19 +23,27 @@ namespace Server
         //xóa kết nối
         protected internal void RemoveConnection(string id)
         {
-            if (clients == null) return; // Kiểm tra null cho danh sách clients
+            //if (clients == null) return; // Kiểm tra null cho danh sách clients
 
-            lock (_lock) // Khóa để đảm bảo an toàn cho đa luồng
-            {
+            //lock (_lock) // Khóa để đảm bảo an toàn cho đa luồng
+            //{
+            //    var client = clients.Find(c => c.Id == id);
+            //    if (client != null)
+            //    {
+            //        // Giải phóng tài nguyên nếu client hỗ trợ (giả sử client implements IDisposable)
+            //        (client as IDisposable)?.Dispose();
+
+            //        clients.Remove(client); // Xóa client khỏi danh sách
+            //    }
+            //}
+            if (clients == null) return; // Kiểm tra null cho danh sách clients
                 var client = clients.Find(c => c.Id == id);
                 if (client != null)
                 {
                     // Giải phóng tài nguyên nếu client hỗ trợ (giả sử client implements IDisposable)
-                    (client as IDisposable)?.Dispose();
 
                     clients.Remove(client); // Xóa client khỏi danh sách
                 }
-            }
         }
         //lắng nghe từ client
         protected internal void Listen_Client()

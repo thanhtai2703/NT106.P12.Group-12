@@ -3,6 +3,7 @@ using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -34,7 +35,6 @@ namespace Client
         private System.Windows.Forms.Timer turnTimer;
         private int timeLeft;
         private int turnTimeLimit = 10;
-        private Lobby lobby = new Lobby();
         //Thông tin 1 người chơi 
         //Nhận dữ liệu trên Server
         private class ReceivedMessage
@@ -123,9 +123,7 @@ namespace Client
                         //    Encoding.Unicode.GetBytes("Rời" +";"+ ConnectionOptions.PlayerName).Length);
                         //Disconnect();
                     }
-                    //lobby = new Lobby();
-                    //lobby.Show();
-                    //this.Hide();
+
                     //Hiển thị thông điệp là đang đợi người chơi thứ 2 nên vô hiệu hóa các nút chơi
                     currentPlayersTurn_textbox.Text = "Chờ đợi người chơi thứ hai...";
                     throwDiceBtn.Enabled = false;
@@ -159,7 +157,7 @@ namespace Client
                     //Nếu chọn Cancel thì hủy kết nối ròi quay về MainMenu chính 
                     if (colorChoosing.DialogResult is DialogResult.Cancel)
                     {
-                        messagetype = "Rời";
+                        messagetype = "Thoát";
                         //Disconnect();
                         //return;
                         //this.Close();
@@ -169,26 +167,23 @@ namespace Client
                         SendMessageToServer(messagetype+";"+ConnectionOptions.PlayerName);
                         this.InstanceDisconnect();
                        // Disconnect();
-                        //this.Close();
+                        this.Close();
                     }
                     //Gửi tên  người chơi đến server
                     //SendMessageToServer("Kết nối"+";"+ConnectionOptions.PlayerName);
                     SendMessageToServer("Kết nối" + ";" + ConnectionOptions.PlayerName +";"+ ConnectionOptions.UserName+";");
-                    //Lobby lobby = new Lobby();
                     //Xác định người chơi hiện tại và đánh dấu họ đã kết nối 
                     string[] player = ConnectionOptions.PlayerName.Split(';');
                     switch (player[0])
                     {
                         case "Đỏ":
                             //Players[0].Name = ConnectionOptions.RedUserName;
-                            //lobby.DisplayConnectedPlayer(1, ConnectionOptions.UserName);
                             Player1Name.Text = ConnectionOptions.UserName;
                                 colorLb.BackColor = Color.Red;
                                 RedConnected = true;
                                 CurrentPlayerId = 0;
                            break;
                         case "Xanh":
-                            //lobby.DisplayConnectedPlayer(2, ConnectionOptions.UserName);
                             Player2Name.Text = ConnectionOptions.UserName;
                             //Players[1].Name = ConnectionOptions.BlueUserName;
                             colorLb.BackColor = Color.Blue;
@@ -197,18 +192,7 @@ namespace Client
                             break;
 
                     }
-                    //if (Regex.IsMatch(ConnectionOptions.PlayerName, @"Đỏ\s*\(\s*(\d+)\s*\)"))
-                    //{
-                    //    colorLb.BackColor = Color.Red;
-                    //    RedConnected = true;
-                    //    CurrentPlayerId = 0;
-                    //}
-                    //else if (Regex.IsMatch(ConnectionOptions.PlayerName, @"Xanh\s*\(\s*(\d+)\s*\)"))
-                    //{
-                    //    colorLb.BackColor = Color.Blue;
-                    //    BlueConnected = true;
-                    //    CurrentPlayerId = 1;
-                    //}
+        
                     colorLb.Text = ConnectionOptions.Room;
                 }
 
@@ -220,6 +204,7 @@ namespace Client
             UpdatePlayersStatusBoxes();
             buyBtn.Enabled = false;
         }
+        
 
         //Tạo ô cờ gồm tên, màu, có thể mua được, giá, vị trí 
         private void CreateTile(string tileName, bool tileBuyable, string tileColor, int tilePrice, int tilePosition)
@@ -624,6 +609,7 @@ namespace Client
                             {
                                 if (ConnectionOptions.Room == parts[1])
                                 {
+                                   ConnectionOptions.RedUserName = parts[2];
                                     ConnectionOptions.NameRedIsTaken = true;
                                 }
                                 break;
@@ -631,7 +617,8 @@ namespace Client
                         case "Blue pawn is already selected":
                             {
                                 if (ConnectionOptions.Room == parts[1])
-                                { 
+                                {
+                                    ConnectionOptions.BlueUserName = parts[2];
                                     ConnectionOptions.NameBlueIsTaken = true;
                                 }
                                 break;
@@ -639,6 +626,8 @@ namespace Client
                         case "Phòng đã đủ người chơi":
                             if(ConnectionOptions.Room == parts[1])
                             {
+                                ConnectionOptions.RedUserName = parts[2];
+                                ConnectionOptions.BlueUserName = parts[3];
                                 ConnectionOptions.NameBlueIsTaken = true;
                                 ConnectionOptions.NameRedIsTaken = true;
                             }    
@@ -665,6 +654,7 @@ namespace Client
                 //MainMenu mainMenu = new MainMenu();
                 //mainMenu.ShowDialog();
             }
+
         }
         private void UpdatePlayerStatus(int playerId, ReceivedMessage receivedMessage)
         {
@@ -714,6 +704,7 @@ namespace Client
                 SendMessageToServer(ConnectionOptions.PlayerName + " thắng.");
                 this.Close();
                 this.InstanceDisconnect();
+                //this.Close();
                 //MainMenu mainMenu = new MainMenu();
                 //mainMenu.ShowDialog();
             }
@@ -894,12 +885,12 @@ namespace Client
                 }
             if (CurrentPlayerId is 0)
             {
-                currentPlayersTurn_textbox.Text = "Xanh đang thực hiện lượt chơi. Chờ...";
+                currentPlayersTurn_textbox.Text =  Players[1].Name + "đang thực hiện lượt chơi. Chờ...";
                 SendMessageToServer(turnLogString);
             }
             else
             {
-                currentPlayersTurn_textbox.Text = "Đỏ đang thực hiện lượt chơi. Chờ...";
+                currentPlayersTurn_textbox.Text = Players[2].Name + "đang thực hiện lượt chơi. Chờ...";
                 SendMessageToServer(turnLogString);
             }
 
@@ -943,8 +934,8 @@ namespace Client
 
             //Ném xúc sắc 
             Random rand = new Random();
-            int firstDice = 2;//rand.Next(1, 7);
-            int secondDice = 2;//rand.Next(1, 7);
+            int firstDice = 4;//rand.Next(1, 7);
+            int secondDice = 4;//rand.Next(1, 7);
             Dice = firstDice + secondDice;
             //Hiển thị kết quả xức sắc 
             whatIsOnDices_textbox.Text = "Kết quả tung: " + firstDice + " và " + secondDice + ". Tổng: " + Dice + ". ";
@@ -980,7 +971,7 @@ namespace Client
                     goingToJail = true;
                     break;
             }
-
+            //Đi qua ô bắt đầu
             if (CurrentPosition >= 40)
             {
                 ChangeBalance(Players[CurrentPlayerId], 200);
@@ -1101,7 +1092,8 @@ namespace Client
                 {
                     ChangeBalance(Players[CurrentPlayerId], -Properties[CurrentPosition].Price);
                     //Lấy vị trí nhà mới
-                    Players[CurrentPlayerId].PropertiesOwned[Players[CurrentPlayerId].NumberOfPropertiesOwned] = CurrentPosition;
+                    //Players[CurrentPlayerId].PropertiesOwned[Players[CurrentPlayerId].NumberOfPropertiesOwned] = CurrentPosition;
+                    Players[CurrentPlayerId].PropertiesOwned[CurrentPosition] = CurrentPosition;
 
                     Properties[CurrentPosition].Owned = true;
                     Players[CurrentPlayerId].NumberOfPropertiesOwned++;

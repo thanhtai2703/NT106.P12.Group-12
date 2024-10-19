@@ -73,7 +73,7 @@
             // 
             this.groupBox2.Controls.Add(this.pictureBox2);
             this.groupBox2.Controls.Add(this.name2);
-            this.groupBox2.Location = new System.Drawing.Point(323, 23);
+            this.groupBox2.Location = new System.Drawing.Point(512, 23);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(276, 350);
             this.groupBox2.TabIndex = 1;

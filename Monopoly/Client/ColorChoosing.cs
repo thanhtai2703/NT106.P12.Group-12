@@ -11,13 +11,23 @@ namespace Client
         {
             Program.colorChoosing = this;
             InitializeComponent();
-            if (ConnectionOptions.NameRedIsTaken) chooseRedPlayerBtn.Enabled = false;
-            if (ConnectionOptions.NameBlueIsTaken) chooseBluePlayerBtn.Enabled = false;
+            if (ConnectionOptions.NameRedIsTaken)
+            {
+                chooseRedPlayerBtn.Enabled = false;
+                label3.Text = ConnectionOptions.RedUserName;
+            }
+            if (ConnectionOptions.NameBlueIsTaken)
+            {
+                chooseBluePlayerBtn.Enabled = false;
+                label4.Text = ConnectionOptions.BlueUserName;
+            }
             if(ConnectionOptions.NameRedIsTaken&&ConnectionOptions.NameBlueIsTaken)
             {
                 MessageBox.Show("Server đã đầy.");
                 ConnectionOptions.NameRedIsTaken = false;
                 ConnectionOptions.NameBlueIsTaken = false;
+                //label3.Text = ConnectionOptions.RedUserName;
+                //label4.Text = ConnectionOptions.BlueUserName;
                 //this.Hide();
             }    
             //Thiết lập giá trị mặc định cho tbColor
@@ -73,6 +83,7 @@ namespace Client
             }
 
         }
+       
         private void returnBtn_Click(object sender, EventArgs e)
         {
             //Khi nhấn vào nút trở lại thì gắn cho DialogResult kết quả Cancel 

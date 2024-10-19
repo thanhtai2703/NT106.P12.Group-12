@@ -28,6 +28,7 @@ namespace Client
         public static string PlayerName { get; set; }
         public static string UserName { get; set; }
         public static string BlueUserName { get; set; }
+        public static string RedUserName {  get; set; }
         public static bool NameRedIsTaken { get; set; }
         public static bool NameBlueIsTaken { get; set; }
     }

@@ -37,6 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // chooseBluePlayerBtn
@@ -79,7 +81,7 @@
             this.returnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.returnBtn.Font = new System.Drawing.Font("Elephant", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.returnBtn.ForeColor = System.Drawing.Color.Black;
-            this.returnBtn.Location = new System.Drawing.Point(164, 280);
+            this.returnBtn.Location = new System.Drawing.Point(152, 303);
             this.returnBtn.Name = "returnBtn";
             this.returnBtn.Size = new System.Drawing.Size(124, 33);
             this.returnBtn.TabIndex = 28;
@@ -100,7 +102,7 @@
             this.connect_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.connect_button.Font = new System.Drawing.Font("Elephant", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.connect_button.ForeColor = System.Drawing.Color.Black;
-            this.connect_button.Location = new System.Drawing.Point(316, 280);
+            this.connect_button.Location = new System.Drawing.Point(316, 303);
             this.connect_button.Name = "connect_button";
             this.connect_button.Size = new System.Drawing.Size(124, 33);
             this.connect_button.TabIndex = 24;
@@ -152,6 +154,24 @@
             this.txtName.Size = new System.Drawing.Size(151, 32);
             this.txtName.TabIndex = 35;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(160, 270);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(116, 25);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "chưa chọn....";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(316, 270);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(123, 25);
+            this.label4.TabIndex = 37;
+            this.label4.Text = "Chưa chọn.....";
+            // 
             // ColorChoosing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
@@ -160,6 +180,8 @@
             this.BackgroundImage = global::Client.Properties.Resources.monopoly_board_games_element_background_free_vector;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(583, 394);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -193,5 +215,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -179,6 +179,10 @@ namespace Server
                                 UpdateToFile("[" + DateTime.Now + "] " + message);
                             });
                             server.RemoveConnection(this.Id);
+                            RemoveRoom(Convert.ToInt32(arraypayload[2]));
+                            break;
+                        case "Thoát":
+                            server.RemoveConnection(this.Id);
                             break;
                         case "Kết quả":
                             //Cập nhật thông tin lượt đi của người chơi vừa kết thúc lượt, gửi qua client đối thủ.
@@ -251,13 +255,13 @@ namespace Server
                                 {
                                     if (room[i].roomTaken.Blue && room[i].roomTaken.Red)
                                     {
-                                        server.SendMessageToSender("Phòng đã đủ người chơi" + ";" + room[i].roomId + ";", Id);
+                                        server.SendMessageToSender("Phòng đã đủ người chơi" + ";" + room[i].roomId + ";"+ room[i].roomPlayer.Name1+";"+ room[i].roomPlayer.Name2, Id);
                                         break;
                                     }
                                     //Kiểm tra quân đỏ đã được chọn chưa và gửi thông tin lại người gửi để thông báo
-                                    if (room[i].roomTaken.Red) server.SendMessageToSender("Red pawn is already selected" + ";" + room[i].roomId+";", Id);
+                                    if (room[i].roomTaken.Red) server.SendMessageToSender("Red pawn is already selected" + ";" + room[i].roomId + ";" + room[i].roomPlayer.Name1, Id);
                                     //Kiểm tra quân xanh đã được chọn chưa và gửi thông tin lại người gửi để thông báo
-                                    if (room[i].roomTaken.Blue) server.SendMessageToSender("Blue pawn is already selected" + ";" + room[i].roomId+";", Id);
+                                    if (room[i].roomTaken.Blue) server.SendMessageToSender("Blue pawn is already selected" + ";" + room[i].roomId+";"+ room[i].roomPlayer.Name2, Id);
                                     break;
                                 }
                             }
@@ -384,6 +388,7 @@ namespace Server
                             Program.f.tbLog.Text += "[" + DateTime.Now + "] " + message + Environment.NewLine;
                             UpdateToFile("[" + DateTime.Now + "] " + message);
                         });
+                        server.RemoveConnection(this.Id);
                     }
                 }
             }
@@ -420,6 +425,14 @@ namespace Server
         {
             Client.Shutdown(SocketShutdown.Both);
             Client.Close();
+        }
+        private void RemoveRoom(int deleteId)
+        {
+            int index = room.FindIndex(room => room.roomId == deleteId);
+            if (index != -1)
+            {
+                room.RemoveAt(index);
+            }
         }
     }
 }
