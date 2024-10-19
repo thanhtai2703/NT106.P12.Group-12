@@ -17,6 +17,7 @@ namespace Client
         private static Socket serverSocket;
         //Tạo luồng mạng để gửi nhận dữ liệu 
         private static NetworkStream Stream;
+        private bool Receiving = true;
         //Kiểm tra người chơi đỏ/ xanh đã kết nối hay chưa 
         private bool RedConnected, BlueConnected;
         //Lưu giá trị của Xúc xắc, vị trí trên bàn cờ, ID của người chơi, 
@@ -28,12 +29,12 @@ namespace Client
         //Chứa hình ảnh của các ô 
         private readonly PictureBox[] Tile;
         private string messagetype=""; //control message
-        public static Lobby lobby;
         public static int counter=0;
         private readonly int[] Opportunity = { -100, 100, -150, 150, -200, 200 };
         private System.Windows.Forms.Timer turnTimer;
         private int timeLeft;
         private int turnTimeLimit = 10;
+        private Lobby lobby = new Lobby();
         //Thông tin 1 người chơi 
         //Nhận dữ liệu trên Server
         private class ReceivedMessage
@@ -112,13 +113,15 @@ namespace Client
                     //Nếu chọn Cancel thì hủy kết nối ròi quay về MainMenu chính 
                     if (connection.DialogResult is DialogResult.Cancel)
                     {
-                        MainMenu mainMenu = new MainMenu();
-                        mainMenu.ShowDialog();
-                        Stream.Write(
-                            Encoding.Unicode.GetBytes("Rời"+";" + ConnectionOptions.PlayerName),
-                            0,
-                            Encoding.Unicode.GetBytes("Rời" +";"+ ConnectionOptions.PlayerName).Length);
-                        Disconnect();
+                        this.Close();
+                        return;
+                        //MainMenu mainMenu = new MainMenu();
+                        //mainMenu.ShowDialog();
+                        ////Stream.Write(
+                        //    Encoding.Unicode.GetBytes("Rời"+";" + ConnectionOptions.PlayerName),
+                        //    0,
+                        //    Encoding.Unicode.GetBytes("Rời" +";"+ ConnectionOptions.PlayerName).Length);
+                        //Disconnect();
                     }
                     //lobby = new Lobby();
                     //lobby.Show();
@@ -157,26 +160,36 @@ namespace Client
                     if (colorChoosing.DialogResult is DialogResult.Cancel)
                     {
                         messagetype = "Rời";
-                        MainMenu mainMenu = new MainMenu();
-                        mainMenu.ShowDialog();
+                        //Disconnect();
+                        //return;
+                        //this.Close();
+                        //return;
+                        //MainMenu mainMenu = new MainMenu();
+                        //mainMenu.ShowDialog();
                         SendMessageToServer(messagetype+";"+ConnectionOptions.PlayerName);
-                        Disconnect();
+                        this.InstanceDisconnect();
+                       // Disconnect();
+                        //this.Close();
                     }
                     //Gửi tên  người chơi đến server
                     //SendMessageToServer("Kết nối"+";"+ConnectionOptions.PlayerName);
                     SendMessageToServer("Kết nối" + ";" + ConnectionOptions.PlayerName +";"+ ConnectionOptions.UserName+";");
-
+                    //Lobby lobby = new Lobby();
                     //Xác định người chơi hiện tại và đánh dấu họ đã kết nối 
                     string[] player = ConnectionOptions.PlayerName.Split(';');
                     switch (player[0])
                     {
                         case "Đỏ":
                             //Players[0].Name = ConnectionOptions.RedUserName;
+                            //lobby.DisplayConnectedPlayer(1, ConnectionOptions.UserName);
+                            Player1Name.Text = ConnectionOptions.UserName;
                                 colorLb.BackColor = Color.Red;
                                 RedConnected = true;
                                 CurrentPlayerId = 0;
                            break;
                         case "Xanh":
+                            //lobby.DisplayConnectedPlayer(2, ConnectionOptions.UserName);
+                            Player2Name.Text = ConnectionOptions.UserName;
                             //Players[1].Name = ConnectionOptions.BlueUserName;
                             colorLb.BackColor = Color.Blue;
                             BlueConnected = true;
@@ -410,7 +423,7 @@ namespace Client
         private void ReceiveMessage()
         {
             //Lặp vô hạn để liên tục nhận tin nhắn từ máy chủ 
-            while (true)
+            while (Receiving)
                 try
                 {
                     //Tạo mảng byte để chứa dữ liệu từ máy chủ 
@@ -437,6 +450,14 @@ namespace Client
                         case "Cập nhật":
                             if (ConnectionOptions.Room == parts[1])
                             {
+                                Player1Name.Invoke((MethodInvoker)delegate
+                                {
+                                    Player1Name.Text = parts[2];
+                                });
+                                Player2Name.Invoke((MethodInvoker)delegate
+                                {
+                                    Player2Name.Text = parts[3];
+                                });
                                 Players[0].Name = parts[2];
                                 Players[1].Name = parts[3];
                                 UpdatePlayersStatusBoxes();
@@ -501,14 +522,15 @@ namespace Client
                         case "Rời":
                             if (ConnectionOptions.Room == parts[2])
                             {
-                                SendMessageToServer(ConnectionOptions.PlayerName + " đã rời.");
+                                //SendMessageToServer("Rời"+";"+ConnectionOptions.PlayerName);
                                 this.Invoke((MethodInvoker)delegate
                                 {
                                     MessageBox.Show("Đối thủ của bạn đã rời", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                                    this.Close();
-                                    MainMenu mainMenu = new MainMenu();
-                                    mainMenu.ShowDialog();
-                                    Disconnect();
+                                    QuitGame();
+                                    //this.InstanceDisconnect();
+                                    //this.Close();
+                                    //MainMenu mainMenu = new MainMenu();
+                                    //mainMenu.ShowDialog();
                                 });
                             }
                             break;
@@ -524,15 +546,15 @@ namespace Client
                                     {
                                         // Cập nhật trạng thái của textbox hiển thị lượt của người chơi hiện tại
                                         //bắt đầu điếm thời gian
-                                        timeLeft = turnTimeLimit;
-                                        if (turnTimer == null)
-                                        {
-                                            turnTimer = new System.Windows.Forms.Timer();
-                                            turnTimer.Interval = 1000; // 1 giây (1000ms)
-                                            turnTimer.Tick += new EventHandler(timer1_Tick);
-                                        }
-                                        UpdateTimeDisplay();
-                                        turnTimer.Start();
+                                        //timeLeft = turnTimeLimit;
+                                        //if (turnTimer == null)
+                                        //{
+                                        //    turnTimer = new System.Windows.Forms.Timer();
+                                        //    turnTimer.Interval = 1000; // 1 giây (1000ms)
+                                        //    turnTimer.Tick += new EventHandler(timer1_Tick);
+                                        //}
+                                        //UpdateTimeDisplay();
+                                        //turnTimer.Start();
                                         currentPlayersTurn_textbox.Text = "Lượt của bạn";
                                         // Kích hoạt nút để ném xúc xắc
                                         throwDiceBtn.Enabled = true;
@@ -628,7 +650,7 @@ namespace Client
                 catch(Exception e) 
                 {
                         MessageBox.Show(e.Message);
-                    Disconnect();
+                    this.InstanceDisconnect();
                 }
         }
         //Hàm được gọi khi người chơi thua cuộc
@@ -639,6 +661,7 @@ namespace Client
             {
                 SendMessageToServer(ConnectionOptions.PlayerName + " thua.");
                 this.Close();
+                this.InstanceDisconnect();
                 //MainMenu mainMenu = new MainMenu();
                 //mainMenu.ShowDialog();
             }
@@ -690,18 +713,74 @@ namespace Client
             {
                 SendMessageToServer(ConnectionOptions.PlayerName + " thắng.");
                 this.Close();
-               // MainMenu mainMenu = new MainMenu();
+                this.InstanceDisconnect();
+                //MainMenu mainMenu = new MainMenu();
                 //mainMenu.ShowDialog();
             }
 
         }
+        private void StopReceiving()
+        {
+            Receiving = false;
+        }
+        public void InstanceDisconnect()
+        {
+            StopReceiving();  // Dừng luồng nhận tin nhắn
+            Disconnect();  // Gọi phương thức static Disconnect
+        }
         //Phương thức ngắt kết nối và thoát ứng dụng 
         private static void Disconnect()
         {
-            Stream?.Close();
-            serverSocket?.Close();
-            Environment.Exit(0);
+            try
+            {
+
+
+                if (Stream != null)
+                {
+                    Stream.Close();   // Đóng luồng
+                    Stream.Dispose(); // Giải phóng tài nguyên nếu cần
+                    Stream = null;    // Đặt về null để tránh việc tái sử dụng
+                }
+                if (serverSocket != null)
+                {
+                    if (serverSocket.Connected) // Kiểm tra nếu socket vẫn đang mở
+                    {
+                        serverSocket.Shutdown(SocketShutdown.Both); // Đóng cả gửi và nhận
+                    }
+
+                    serverSocket.Close();    // Đóng socket
+                    serverSocket.Dispose();  // Giải phóng tài nguyên
+                    serverSocket = null;     // Đặt về null để tránh việc tái sử dụng
+                }
+            }
+            catch (SocketException socketEx)
+            {
+                // Log lỗi socket, nếu cần (hoặc thông báo cho người dùng)
+                Console.WriteLine("Lỗi socket: " + socketEx.Message);
+            }
+            catch (ObjectDisposedException disposedEx)
+            {
+                // Log lỗi tài nguyên đã bị giải phóng trước đó
+                Console.WriteLine("Đối tượng đã bị đóng trước đó: " + disposedEx.Message);
+            }
+            catch (Exception ex)
+            {
+                // Bắt bất kỳ lỗi nào khác
+                Console.WriteLine("Lỗi không xác định: " + ex.Message);
+            }
+            finally
+            {
+                Environment.Exit(0);
+                // Đảm bảo toàn bộ ứng dụng thoát (nếu bạn thực sự muốn kết thúc toàn bộ)
+               // Application.Exit(); // Dừng ứng dụng đúng cách, thay vì sử dụng Environment.Exit(0)
+            }
+            //Stream?.Close();
+            //serverSocket?.Close();
+            ////serverSocket.Shutdown(SocketShutdown.Both);
+            ////Application.Exit();
+            //Environment.Exit(0);
         }
+
         //Phương thức di chiển biểu tượng của người chơi
         private void MoveIcon(int position)
         {
@@ -734,9 +813,9 @@ namespace Client
 
         private void Game_FormClosed(object sender, FormClosedEventArgs e)
         {
-            messagetype = "Rời";
-            if (Gamemodes.Multiplayer)
-            SendMessageToServer(messagetype +";"+ConnectionOptions.PlayerName+";");
+            //messagetype = "Rời";
+            //if (Gamemodes.Multiplayer)
+            //SendMessageToServer(messagetype +";"+ConnectionOptions.PlayerName+";");
         }
 
         //Animation di chuyển vị trí
@@ -1035,18 +1114,22 @@ namespace Client
             else 
                 currentPlayersTurn_textbox.Text = "Bạn không thể thực hiện hành động đó";
         }
-
-        private void QuitGameBtn_Click(object sender, EventArgs e)
+        private void QuitGame()
         {
             if (MessageBox.Show("Bạn có muốn thoát", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (Gamemodes.Multiplayer)
-                    SendMessageToServer(ConnectionOptions.PlayerName + " đã rời");
-
+                    SendMessageToServer("Rời" + ";" + ConnectionOptions.PlayerName);
+                this.InstanceDisconnect();
                 this.Close();
-                MainMenu mainMenu = new MainMenu();
-                mainMenu.ShowDialog();
+
+                //MainMenu mainMenu = new MainMenu();
+                //mainMenu.ShowDialog();
             }
+        }
+        private void QuitGameBtn_Click(object sender, EventArgs e)
+        {
+            QuitGame();
         }
 
         private void EndTurnBtn_Click(object sender, EventArgs e)

@@ -25,9 +25,7 @@ namespace Client
             path.AddArc(new Rectangle(quitBtn.Width - radius, 0, radius, radius), 270, 90); // Góc trên phải
             path.AddArc(new Rectangle(quitBtn.Width - radius, quitBtn.Height - radius, radius, radius), 0, 90); // Góc dưới phải
             path.AddArc(new Rectangle(0, quitBtn.Height - radius, radius, radius), 90, 90); // Góc dưới trái
-
             path.CloseAllFigures();
-
             // Áp dụng vùng bo góc cho nút
             quitBtn.Region = new Region(path);
             startSingleplayerGameBtn.Region = new Region(path);

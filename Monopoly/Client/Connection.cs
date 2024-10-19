@@ -49,7 +49,8 @@ namespace Client
                 //insertIP.Text;
                 //Gắn cho DialogResult kết quả OK 
                 DialogResult = DialogResult.OK;
-                Close();
+                //Close();
+                this.Hide();
             }
             else
             {
@@ -62,7 +63,7 @@ namespace Client
         {
             //Khi nhấn vào nút trở lại thì gắn cho DialogResult kết quả Cancel 
             DialogResult = DialogResult.Cancel;
-            Close();
+            this.Hide();
         }
 
         private void Button_MouseEnter(object sender, EventArgs e)

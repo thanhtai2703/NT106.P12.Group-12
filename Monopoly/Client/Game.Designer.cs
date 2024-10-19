@@ -91,6 +91,8 @@
             this.Startbtn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timeLabel = new System.Windows.Forms.Label();
+            this.Player1Name = new System.Windows.Forms.Label();
+            this.Player2Name = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.redPawnIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bluePawnIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tile0)).BeginInit();
@@ -832,6 +834,24 @@
             this.timeLabel.TabIndex = 119;
             this.timeLabel.Text = "Timer";
             // 
+            // Player1Name
+            // 
+            this.Player1Name.AutoSize = true;
+            this.Player1Name.Location = new System.Drawing.Point(725, 345);
+            this.Player1Name.Name = "Player1Name";
+            this.Player1Name.Size = new System.Drawing.Size(93, 25);
+            this.Player1Name.TabIndex = 120;
+            this.Player1Name.Text = "Waiting....";
+            // 
+            // Player2Name
+            // 
+            this.Player2Name.AutoSize = true;
+            this.Player2Name.Location = new System.Drawing.Point(1026, 344);
+            this.Player2Name.Name = "Player2Name";
+            this.Player2Name.Size = new System.Drawing.Size(93, 25);
+            this.Player2Name.TabIndex = 121;
+            this.Player2Name.Text = "Waiting....";
+            // 
             // Game
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -840,6 +860,8 @@
             this.BackgroundImage = global::Client.Properties.Resources.hin000;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1258, 664);
+            this.Controls.Add(this.Player2Name);
+            this.Controls.Add(this.Player1Name);
             this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.Startbtn);
             this.Controls.Add(this.colorLb);
@@ -1025,5 +1047,7 @@
         private System.Windows.Forms.Button Startbtn;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label timeLabel;
+        private System.Windows.Forms.Label Player1Name;
+        private System.Windows.Forms.Label Player2Name;
     }
 }

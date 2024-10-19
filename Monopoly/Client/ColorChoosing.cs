@@ -18,7 +18,7 @@ namespace Client
                 MessageBox.Show("Server đã đầy.");
                 ConnectionOptions.NameRedIsTaken = false;
                 ConnectionOptions.NameBlueIsTaken = false;
-                this.Close();
+                //this.Hide();
             }    
             //Thiết lập giá trị mặc định cho tbColor
             tbColor.Text = "Chưa được chọn";
@@ -52,7 +52,8 @@ namespace Client
                     //Gán tên người chơi là Red 
                     ConnectionOptions.UserName = txtName.Text;
                     ConnectionOptions.PlayerName = "Đỏ" + ";" + ConnectionOptions.Room;
-                    Close();
+                    //Close();
+                    this.Hide();
                     DialogResult = DialogResult.OK;
                     break;
                  //Nếu chọn màu xanh
@@ -60,7 +61,8 @@ namespace Client
                     //Gán tên người chơi là Blue
                     ConnectionOptions.UserName = txtName.Text;
                     ConnectionOptions.PlayerName = "Xanh" + ";"+ConnectionOptions.Room;
-                    Close();
+                    //Close();
+                    this.Hide();
                     //Gắn cho DialogResult kết quả OK 
                     DialogResult = DialogResult.OK;
                     break;
@@ -75,7 +77,7 @@ namespace Client
         {
             //Khi nhấn vào nút trở lại thì gắn cho DialogResult kết quả Cancel 
             DialogResult = DialogResult.Cancel;
-            Close();
+            this.Close();
         }
 
         //Xử lý sự kiện khi nhấn nút chọn màu đỏ
