@@ -129,6 +129,8 @@ namespace Client
                     throwDiceBtn.Enabled = false;
                     buyBtn.Enabled = false;
                     endTurnBtn.Enabled = false;
+                    if(Gamemodes.Create) Startbtn.Visible = true;
+                    else Startbtn.Visible = false;
                     //Kết nối tới Server
                     try
                     {
@@ -167,7 +169,7 @@ namespace Client
                         SendMessageToServer(messagetype+";"+ConnectionOptions.PlayerName);
                         this.InstanceDisconnect();
                        // Disconnect();
-                        this.Close();
+                        //this.Close();
                     }
                     //Gửi tên  người chơi đến server
                     //SendMessageToServer("Kết nối"+";"+ConnectionOptions.PlayerName);
@@ -488,18 +490,14 @@ namespace Client
                             }
                             break;
                         case "Nhắn":
-                            if (parts[2] == ConnectionOptions.Room)
+                            if (parts[1] == ConnectionOptions.Room)
                             {
                                 this.Invoke(new MethodInvoker(delegate
                                 {
-                                    //if (parts[1] == ConnectionOptions.Room)
-                                    // {
-                                    //string message_show = message;
-                                    //message_show = message_show.Replace(" nhắn", "");
                                     messageRTB.Invoke((MethodInvoker)delegate
                                 {
-                                            messageRTB.AppendText(parts[2] + ":" + parts[1] + Environment.NewLine);
-                                        });
+                                            messageRTB.AppendText(parts[2] + ": "+parts[3]+ Environment.NewLine);
+                                });
                                     //}
                                 }));
                             }
@@ -702,8 +700,9 @@ namespace Client
             if (MessageBox.Show("Bạn đã thắng! Congratulations!", "Thông báo", MessageBoxButtons.OK) == DialogResult.OK)
             {
                 SendMessageToServer(ConnectionOptions.PlayerName + " thắng.");
-                this.Close();
                 this.InstanceDisconnect();
+                this.Close();
+                //this.InstanceDisconnect();
                 //this.Close();
                 //MainMenu mainMenu = new MainMenu();
                 //mainMenu.ShowDialog();
@@ -798,7 +797,7 @@ namespace Client
             string message = messageTb.Text.Trim();
             if (string.IsNullOrEmpty(message))
                 return;
-            SendMessageToServer(messagetype+";"+ConnectionOptions.Room+";"+ message);
+            SendMessageToServer(messagetype+";"+ConnectionOptions.Room+";"+ConnectionOptions.UserName+";"+ message);
             messageTb.Text = "";
         }
 

@@ -32,6 +32,7 @@
             this.quitBtn = new System.Windows.Forms.Button();
             this.startSingleplayerGameBtn = new System.Windows.Forms.Button();
             this.startMultiplayerGameBtn = new System.Windows.Forms.Button();
+            this.JoinBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // quitBtn
@@ -72,7 +73,7 @@
             this.startSingleplayerGameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startSingleplayerGameBtn.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startSingleplayerGameBtn.ForeColor = System.Drawing.Color.White;
-            this.startSingleplayerGameBtn.Location = new System.Drawing.Point(223, 175);
+            this.startSingleplayerGameBtn.Location = new System.Drawing.Point(223, 140);
             this.startSingleplayerGameBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.startSingleplayerGameBtn.Name = "startSingleplayerGameBtn";
             this.startSingleplayerGameBtn.Size = new System.Drawing.Size(130, 35);
@@ -108,6 +109,27 @@
             this.startMultiplayerGameBtn.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
             this.startMultiplayerGameBtn.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
+            // JoinBtn
+            // 
+            this.JoinBtn.BackColor = System.Drawing.Color.White;
+            this.JoinBtn.BackgroundImage = global::Client.Properties.Resources.th__4_;
+            this.JoinBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.JoinBtn.FlatAppearance.BorderSize = 0;
+            this.JoinBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.JoinBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.JoinBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.JoinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.JoinBtn.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JoinBtn.ForeColor = System.Drawing.Color.White;
+            this.JoinBtn.Location = new System.Drawing.Point(223, 185);
+            this.JoinBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.JoinBtn.Name = "JoinBtn";
+            this.JoinBtn.Size = new System.Drawing.Size(130, 35);
+            this.JoinBtn.TabIndex = 8;
+            this.JoinBtn.Text = "Join";
+            this.JoinBtn.UseVisualStyleBackColor = false;
+            this.JoinBtn.Click += new System.EventHandler(this.JoinBtn_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
@@ -115,6 +137,7 @@
             this.BackgroundImage = global::Client.Properties.Resources._81rRTIxhz4L__AC_SL1500_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(587, 339);
+            this.Controls.Add(this.JoinBtn);
             this.Controls.Add(this.startMultiplayerGameBtn);
             this.Controls.Add(this.quitBtn);
             this.Controls.Add(this.startSingleplayerGameBtn);
@@ -136,5 +159,6 @@
         private System.Windows.Forms.Button quitBtn;
         private System.Windows.Forms.Button startSingleplayerGameBtn;
         private System.Windows.Forms.Button startMultiplayerGameBtn;
+        private System.Windows.Forms.Button JoinBtn;
     }
 }

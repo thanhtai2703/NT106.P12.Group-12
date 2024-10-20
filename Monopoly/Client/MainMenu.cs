@@ -7,7 +7,6 @@ namespace Client
 {
     public partial class MainMenu : Form
     {
-        public static Lobby lobby;
         public MainMenu()
         {
             InitializeComponent();
@@ -52,6 +51,7 @@ namespace Client
             //Thiết lập chế độ chơi là nhiều người chơi
             Gamemodes.Singleplayer = false;
             Gamemodes.Multiplayer = true;
+            Gamemodes.Create = true;
             //Tạo đối tượng game mới và hiển thị dưới dạng hộp thoại 
             Hide();
            // var lobby = new Lobby();
@@ -83,6 +83,22 @@ namespace Client
         {
             Button btn = sender as Button;
             btn.FlatAppearance.BorderSize = 0;
+        }
+
+        private void JoinBtn_Click(object sender, EventArgs e)
+        {
+            //Thiết lập chế độ chơi là nhiều người chơi
+            Gamemodes.Singleplayer = false;
+            Gamemodes.Multiplayer = true;
+            Gamemodes.Create = false;
+            //Tạo đối tượng game mới và hiển thị dưới dạng hộp thoại 
+            Hide();
+            // var lobby = new Lobby();
+            //lobby.Show();
+            var game = new Game();
+            game.ShowDialog();
+            //Hiển thị lại form MainMenu sau khi chơi xong 
+            Show();
         }
     }
 }

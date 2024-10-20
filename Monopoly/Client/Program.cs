@@ -18,6 +18,7 @@ namespace Client
     {
         public static bool Singleplayer { get; set; }
         public static bool Multiplayer { get; set; }
+        public static bool Create { get; set; }
     }
 
     internal static class ConnectionOptions

@@ -150,7 +150,7 @@ namespace Server
                                 userName = arraypayload[1];
                                 Program.f.tbLog.Invoke((MethodInvoker)delegate
                                 {
-                                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName + " đã kết nối" + Environment.NewLine;
+                                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName + " đã kết nối vào phòng" +";"+arraypayload[2]+ Environment.NewLine;
                                     UpdateToFile("[" + DateTime.Now + "] " + userName + " đã kết nối");
                                 });
                                 //if (Taken.Red == true && Taken.Blue == true)
@@ -166,7 +166,7 @@ namespace Server
                             server.SendMessageToEveryone(message, Id);
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + message + Environment.NewLine;
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Phòng " + arraypayload[2]+" đã bắt đầu" + Environment.NewLine;
                                 UpdateToFile("[" + DateTime.Now + "] " + message);
                             });
                             break;
@@ -175,7 +175,7 @@ namespace Server
                             server.SendMessageToOpponentClient(message, Id);
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + message + Environment.NewLine;
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Phòng " + arraypayload[2] + "đã kết thúc" + Environment.NewLine;
                                 UpdateToFile("[" + DateTime.Now + "] " + message);
                             });
                             server.RemoveConnection(this.Id);
@@ -201,7 +201,7 @@ namespace Server
                                 //UpdateToFile("[" + DateTime.Now + "] " + userName
                                 //                    + "\tVị trí: " + vitri
                                 //                    + "\tTiền: " + data[2]);
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Đến lượt của người tiếp theo" + Environment.NewLine;
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " +arraypayload[2] + "Đến lượt của người tiếp theo" + Environment.NewLine;
                                 UpdateToFile("[" + DateTime.Now + "] " + "Đến lượt của người tiếp theo");
                             });
                             break;
@@ -212,7 +212,7 @@ namespace Server
                                 Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName + message + Environment.NewLine;
                                 UpdateToFile("[" + DateTime.Now + "] " + userName + message);
                             });
-                            server.SendMessageToEveryone(message+";"+userName, Id);
+                            server.SendMessageToEveryone(message, Id);
                             break;
                         case "Thuê":
                             //Sự kiện Thuê nhà trong trò chơi
