@@ -39,7 +39,7 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.status = new System.Windows.Forms.Label();
+            this.status = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // chooseBluePlayerBtn
@@ -160,6 +160,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.IndianRed;
             this.label3.Location = new System.Drawing.Point(30, 279);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(116, 25);
@@ -169,6 +170,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.PaleTurquoise;
             this.label4.Location = new System.Drawing.Point(439, 275);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(123, 25);
@@ -177,14 +179,14 @@
             // 
             // status
             // 
-            this.status.AutoSize = true;
-            this.status.BackColor = System.Drawing.Color.Transparent;
-            this.status.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.status.Location = new System.Drawing.Point(224, 22);
+            this.status.BackColor = System.Drawing.SystemColors.Window;
+            this.status.Font = new System.Drawing.Font("Showcard Gothic", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status.Location = new System.Drawing.Point(139, 158);
             this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(109, 41);
-            this.status.TabIndex = 38;
-            this.status.Text = ".............";
+            this.status.ReadOnly = true;
+            this.status.Size = new System.Drawing.Size(313, 36);
+            this.status.TabIndex = 39;
+            this.status.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.status.Visible = false;
             // 
             // ColorChoosing
@@ -233,6 +235,6 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label status;
+        private System.Windows.Forms.TextBox status;
     }
 }

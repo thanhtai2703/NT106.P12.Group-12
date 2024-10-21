@@ -44,7 +44,7 @@ namespace Client
             var game = new Game();
             game.ShowDialog();
             //Hiển thị lại form MainMenu sau khi chơi xong 
-            Show();
+            //Show();
         }
         //Xử lý sự kiện khi nhấn vào nút nhiều người chơi
         private void StartMultiplayerGameBtn_Click(object sender, EventArgs e)

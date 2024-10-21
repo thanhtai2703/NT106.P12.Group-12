@@ -150,8 +150,8 @@ namespace Server
                                 userName = arraypayload[1];
                                 Program.f.tbLog.Invoke((MethodInvoker)delegate
                                 {
-                                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " + arraypayload[3] + " đã kết nối vào phòng" +arraypayload[2]+ Environment.NewLine;
-                                    UpdateToFile("[" + DateTime.Now + "] " + userName + " đã kết nối");
+                                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " + arraypayload[3] + " đã kết nối vào phòng " +arraypayload[2]+ Environment.NewLine;
+                                    UpdateToFile("[" + DateTime.Now + "] " + arraypayload[3] + " đã kết nối vào phòng " + arraypayload[2]);
                                 });
                                 //if (Taken.Red == true && Taken.Blue == true)
                                 //{
@@ -167,7 +167,7 @@ namespace Server
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
                                 Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Phòng " + arraypayload[2] + " đã bắt đầu" + Environment.NewLine;
-                                UpdateToFile("[" + DateTime.Now + "] " + message);
+                                UpdateToFile("[" + DateTime.Now + "] " + "Phòng " + arraypayload[2] + " đã bắt đầu");
                             });
                             break;
                         case "Rời":
@@ -175,8 +175,8 @@ namespace Server
                             server.SendMessageToOpponentClient(message, Id);
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Phòng " + arraypayload[2] + "đã kết thúc" + Environment.NewLine;
-                                UpdateToFile("[" + DateTime.Now + "] " + message);
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Phòng " + arraypayload[2] + " đã kết thúc" + Environment.NewLine;
+                                UpdateToFile("[" + DateTime.Now + "] " + "Phòng " + arraypayload[2] + " đã kết thúc");
                             });
                             server.RemoveConnection(this.Id);
                             RemoveRoom(Convert.ToInt32(arraypayload[2]));
@@ -191,16 +191,16 @@ namespace Server
                             {
                                 string tempMessage = message;
                                 string nextPlayerId = arraypayload[3];
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " +arraypayload[2] + "Đến lượt của người tiếp theo" + Environment.NewLine;
-                                UpdateToFile("[" + DateTime.Now + "] " + "Đến lượt của người tiếp theo");
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] Phòng" + arraypayload[2] + ":Đến lượt của người tiếp theo" + Environment.NewLine;
+                                UpdateToFile("[" + DateTime.Now + "] Phòng" + arraypayload[2] + ": Đến lượt của người tiếp theo");
                             });
                             break;
                         case "Nhắn":
                             //Sự kiện Chat
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName + message + Environment.NewLine;
-                                UpdateToFile("[" + DateTime.Now + "] " + userName + message);
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] Phòng " + arraypayload[1] +":" + arraypayload[2] +"đã gửi tin nhắn : "+ arraypayload[3] + Environment.NewLine;
+                                UpdateToFile("[" + DateTime.Now + "] Phòng" + arraypayload[1] + ":" + arraypayload[2] + "đã gửi tin nhắn : " + arraypayload[3]);
                             });
                             server.SendMessageToEveryone(message, Id);
                             break;
@@ -213,7 +213,7 @@ namespace Server
                             });
                             server.SendMessageToOpponentClient(message, Id);
                             break;
-                        case "Red pawn is already selected":
+                        case "Quân đỏ đã được chọn":
                             {
                                 //Khi quân cờ đỏ được chọn, gửi  thông tin đến đối thủ để vô hiệu hóa nút chọn.
                                 server.SendMessageToOpponentClient(message, Id);
@@ -223,7 +223,7 @@ namespace Server
                                 });
                                 break;
                             }
-                        case "Blue pawn is already selected":
+                        case "Quân xanh đã được chọn":
                             {
                                 //tương tự quân cờ đỏ.
                                 server.SendMessageToOpponentClient(message, Id);
@@ -266,9 +266,9 @@ namespace Server
                                         break;
                                     }
                                     //Kiểm tra quân đỏ đã được chọn chưa và gửi thông tin lại người gửi để thông báo
-                                    if (room[i].roomTaken.Red) server.SendMessageToSender("Red pawn is already selected" + ";" + room[i].roomId + ";" + room[i].roomPlayer.Name1, Id);
+                                    if (room[i].roomTaken.Red) server.SendMessageToSender("Quân đỏ đã được chọn" + ";" + room[i].roomId + ";" + room[i].roomPlayer.Name1, Id);
                                     //Kiểm tra quân xanh đã được chọn chưa và gửi thông tin lại người gửi để thông báo
-                                    if (room[i].roomTaken.Blue) server.SendMessageToSender("Blue pawn is already selected" + ";" + room[i].roomId + ";" + room[i].roomPlayer.Name2, Id);
+                                    if (room[i].roomTaken.Blue) server.SendMessageToSender("Quân xanh đã được chọn" + ";" + room[i].roomId + ";" + room[i].roomPlayer.Name2, Id);
                                     break;
                                 }
 
@@ -276,16 +276,31 @@ namespace Server
                             if (!Found)
                                 server.SendMessageToSender("Không tìm thấy phòng" + ";" + arraypayload[1],Id);
                             break;
+                        case "Thắng":
+                            Program.f.tbLog.Invoke((MethodInvoker)delegate
+                            {
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Người chơi " + arraypayload[1] + "đã dành chiến thắng ở phòng " + arraypayload[2] + Environment.NewLine;
+                                UpdateToFile("[" + DateTime.Now + "] " + message);
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Phòng " + arraypayload[2] + " đã kết thúc " + Environment.NewLine;
+                                UpdateToFile("[" + DateTime.Now + "] " + message);
+                            });
+                            RemoveRoom(Convert.ToInt32(arraypayload[2]));
+                            server.RemoveConnection(this.Id);
+                            break;
+                        case "Thua":
+                            Program.f.tbLog.Invoke((MethodInvoker)delegate
+                            {
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Người chơi " + arraypayload[1] + "đã thua ở phòng " + arraypayload[2] + Environment.NewLine;
+                                UpdateToFile("[" + DateTime.Now + "] " + message);
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Phòng " + arraypayload[2] + " đã kết thúc " + Environment.NewLine;
+                                UpdateToFile("[" + DateTime.Now + "] " + message);
+                            });
+                            RemoveRoom(Convert.ToInt32(arraypayload[2]));
+                            server.RemoveConnection(this.Id);
+                            break;
 
                     }
-                     if (message.Contains("thắng.") || message.Contains("thua.")) {
-                        Program.f.tbLog.Invoke((MethodInvoker)delegate
-                        {
-                            Program.f.tbLog.Text += "[" + DateTime.Now + "] " + message + Environment.NewLine;
-                            UpdateToFile("[" + DateTime.Now + "] " + message);
-                        });
-                        server.RemoveConnection(this.Id);
-                    }
+                    
                 }
             }
             catch (Exception e)

@@ -92,7 +92,7 @@
             this.startMultiplayerGameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startMultiplayerGameBtn.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startMultiplayerGameBtn.ForeColor = System.Drawing.Color.White;
-            this.startMultiplayerGameBtn.Location = new System.Drawing.Point(130, 287);
+            this.startMultiplayerGameBtn.Location = new System.Drawing.Point(136, 212);
             this.startMultiplayerGameBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.startMultiplayerGameBtn.Name = "startMultiplayerGameBtn";
             this.startMultiplayerGameBtn.Size = new System.Drawing.Size(343, 54);
@@ -114,7 +114,7 @@
             this.JoinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.JoinBtn.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.JoinBtn.ForeColor = System.Drawing.Color.White;
-            this.JoinBtn.Location = new System.Drawing.Point(130, 212);
+            this.JoinBtn.Location = new System.Drawing.Point(136, 288);
             this.JoinBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.JoinBtn.Name = "JoinBtn";
             this.JoinBtn.Size = new System.Drawing.Size(343, 46);

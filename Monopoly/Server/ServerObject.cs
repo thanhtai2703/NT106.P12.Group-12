@@ -52,7 +52,7 @@ namespace Server
             {
                 //Tạo kết nối với sever
                 serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                serverSocket.Bind(new IPEndPoint(IPAddress.Any, 8888));
+                serverSocket.Bind(new IPEndPoint(IPAddress.Any, 11000));
                 serverSocket.Listen(100);
                 Program.f.tbLog.Invoke((MethodInvoker)delegate
                 {

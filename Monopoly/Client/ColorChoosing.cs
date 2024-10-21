@@ -77,7 +77,7 @@ namespace Client
         }
         private void connect_button_Click(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(txtName.Text, @"[^a-zA-Z0-9]"))
+            if (Regex.IsMatch(txtName.Text, @"[^a-zA-Z0-9]")) // kiểm tra tên có ký tự đặc biệt không
             {
                 MessageBox.Show("vui lòng nhập tên không có kí tự đặc biệt");
             }
