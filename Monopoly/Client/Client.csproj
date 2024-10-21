@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\taith\AppData\Local\Temp\vsF425.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\huung\AppData\Local\Temp\vs8EA9.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\taith\AppData\Local\Temp\vsF425.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\huung\AppData\Local\Temp\vs8EA9.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -157,6 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\monopoly-board-games-element-background-free-vector.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11305626-monopoly-2008-windows-title-and-main-menu-screen.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
