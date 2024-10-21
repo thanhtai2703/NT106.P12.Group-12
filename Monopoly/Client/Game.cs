@@ -150,8 +150,9 @@ namespace Client
                     Thread receiveThread = new Thread(ReceiveMessage);
                     receiveThread.Start();
 
-                    SendMessageToServer("Người chơi mới đã vào"+";"+ConnectionOptions.Room);
-
+                    //SendMessageToServer("Người chơi mới đã vào"+";"+ConnectionOptions.Room);
+                    if (Gamemodes.Create) SendMessageToServer("Tạo phòng" + ";" + ConnectionOptions.Room);
+                    else SendMessageToServer("Tham gia" + ";" + ConnectionOptions.Room);
 
                     //Hiển thị Form chọn màu 
                     ColorChoosing colorChoosing = new ColorChoosing();
@@ -492,11 +493,12 @@ namespace Client
                         case "Nhắn":
                             if (parts[1] == ConnectionOptions.Room)
                             {
+                                string decodedMessage = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(parts[3]));
                                 this.Invoke(new MethodInvoker(delegate
                                 {
                                     messageRTB.Invoke((MethodInvoker)delegate
                                 {
-                                            messageRTB.AppendText(parts[2] + ": "+parts[3]+ Environment.NewLine);
+                                            messageRTB.AppendText(parts[2] + ": "+decodedMessage+ Environment.NewLine);
                                 });
                                     //}
                                 }));
@@ -630,6 +632,18 @@ namespace Client
                                 ConnectionOptions.NameRedIsTaken = true;
                             }    
                             break;
+                        case "Không tìm thấy phòng":
+                            if(ConnectionOptions.Room == parts[1])
+                            {
+                                ConnectionOptions.isJoined = false;
+                            }   
+                         break;
+                        case "Phòng đã tồn tại":
+                            if(ConnectionOptions.Room == parts[1])
+                            {
+                                ConnectionOptions.isCreated = true;
+                            }
+                            break;
                     }
 
                     
@@ -743,16 +757,6 @@ namespace Client
                     serverSocket = null;     // Đặt về null để tránh việc tái sử dụng
                 }
             }
-            catch (SocketException socketEx)
-            {
-                // Log lỗi socket, nếu cần (hoặc thông báo cho người dùng)
-                Console.WriteLine("Lỗi socket: " + socketEx.Message);
-            }
-            catch (ObjectDisposedException disposedEx)
-            {
-                // Log lỗi tài nguyên đã bị giải phóng trước đó
-                Console.WriteLine("Đối tượng đã bị đóng trước đó: " + disposedEx.Message);
-            }
             catch (Exception ex)
             {
                 // Bắt bất kỳ lỗi nào khác
@@ -794,10 +798,11 @@ namespace Client
         private void sendBt_Click(object sender, EventArgs e)
         {
             messagetype = "Nhắn";
-            string message = messageTb.Text.Trim();
+            string message = messageTb.Text.Trim(); // loại bỏ khoảng trắng
             if (string.IsNullOrEmpty(message))
                 return;
-            SendMessageToServer(messagetype+";"+ConnectionOptions.Room+";"+ConnectionOptions.UserName+";"+ message);
+            string ecoding = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(message));
+            SendMessageToServer(messagetype+";"+ConnectionOptions.Room+";"+ConnectionOptions.UserName+";"+ ecoding);
             messageTb.Text = "";
         }
 

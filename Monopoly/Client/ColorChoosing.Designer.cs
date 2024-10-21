@@ -39,18 +39,20 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.status = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // chooseBluePlayerBtn
             // 
             this.chooseBluePlayerBtn.BackColor = System.Drawing.Color.Transparent;
             this.chooseBluePlayerBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chooseBluePlayerBtn.BackgroundImage")));
+            this.chooseBluePlayerBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.chooseBluePlayerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chooseBluePlayerBtn.FlatAppearance.BorderSize = 0;
             this.chooseBluePlayerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.chooseBluePlayerBtn.Location = new System.Drawing.Point(316, 189);
+            this.chooseBluePlayerBtn.Location = new System.Drawing.Point(412, 95);
             this.chooseBluePlayerBtn.Name = "chooseBluePlayerBtn";
-            this.chooseBluePlayerBtn.Size = new System.Drawing.Size(66, 74);
+            this.chooseBluePlayerBtn.Size = new System.Drawing.Size(150, 172);
             this.chooseBluePlayerBtn.TabIndex = 30;
             this.chooseBluePlayerBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.chooseBluePlayerBtn.UseVisualStyleBackColor = false;
@@ -60,12 +62,13 @@
             // 
             this.chooseRedPlayerBtn.BackColor = System.Drawing.Color.Transparent;
             this.chooseRedPlayerBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chooseRedPlayerBtn.BackgroundImage")));
+            this.chooseRedPlayerBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.chooseRedPlayerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chooseRedPlayerBtn.FlatAppearance.BorderSize = 0;
             this.chooseRedPlayerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.chooseRedPlayerBtn.Location = new System.Drawing.Point(183, 189);
+            this.chooseRedPlayerBtn.Location = new System.Drawing.Point(12, 95);
             this.chooseRedPlayerBtn.Name = "chooseRedPlayerBtn";
-            this.chooseRedPlayerBtn.Size = new System.Drawing.Size(66, 74);
+            this.chooseRedPlayerBtn.Size = new System.Drawing.Size(157, 172);
             this.chooseRedPlayerBtn.TabIndex = 29;
             this.chooseRedPlayerBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.chooseRedPlayerBtn.UseVisualStyleBackColor = false;
@@ -81,7 +84,7 @@
             this.returnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.returnBtn.Font = new System.Drawing.Font("Elephant", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.returnBtn.ForeColor = System.Drawing.Color.Black;
-            this.returnBtn.Location = new System.Drawing.Point(152, 303);
+            this.returnBtn.Location = new System.Drawing.Point(186, 323);
             this.returnBtn.Name = "returnBtn";
             this.returnBtn.Size = new System.Drawing.Size(124, 33);
             this.returnBtn.TabIndex = 28;
@@ -102,7 +105,7 @@
             this.connect_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.connect_button.Font = new System.Drawing.Font("Elephant", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.connect_button.ForeColor = System.Drawing.Color.Black;
-            this.connect_button.Location = new System.Drawing.Point(316, 303);
+            this.connect_button.Location = new System.Drawing.Point(316, 323);
             this.connect_button.Name = "connect_button";
             this.connect_button.Size = new System.Drawing.Size(124, 33);
             this.connect_button.TabIndex = 24;
@@ -117,7 +120,7 @@
             // 
             this.tbColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbColor.Enabled = false;
-            this.tbColor.Location = new System.Drawing.Point(231, 161);
+            this.tbColor.Location = new System.Drawing.Point(216, 196);
             this.tbColor.Multiline = true;
             this.tbColor.Name = "tbColor";
             this.tbColor.Size = new System.Drawing.Size(151, 22);
@@ -129,7 +132,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(205, 99);
+            this.label1.Location = new System.Drawing.Point(226, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 26);
             this.label1.TabIndex = 32;
@@ -141,15 +144,15 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(75, 133);
+            this.label2.Location = new System.Drawing.Point(212, 97);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 23);
+            this.label2.Size = new System.Drawing.Size(148, 23);
             this.label2.TabIndex = 34;
-            this.label2.Text = "enter your name";
+            this.label2.Text = "Nhập tên của bạn";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(231, 124);
+            this.txtName.Location = new System.Drawing.Point(216, 123);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(151, 32);
             this.txtName.TabIndex = 35;
@@ -157,7 +160,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(160, 270);
+            this.label3.Location = new System.Drawing.Point(30, 279);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(116, 25);
             this.label3.TabIndex = 36;
@@ -166,11 +169,23 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(316, 270);
+            this.label4.Location = new System.Drawing.Point(439, 275);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(123, 25);
             this.label4.TabIndex = 37;
             this.label4.Text = "Chưa chọn.....";
+            // 
+            // status
+            // 
+            this.status.AutoSize = true;
+            this.status.BackColor = System.Drawing.Color.Transparent;
+            this.status.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.status.Location = new System.Drawing.Point(201, 158);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(109, 41);
+            this.status.TabIndex = 38;
+            this.status.Text = ".............";
+            this.status.Visible = false;
             // 
             // ColorChoosing
             // 
@@ -180,6 +195,7 @@
             this.BackgroundImage = global::Client.Properties.Resources.monopoly_board_games_element_background_free_vector;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(583, 394);
+            this.Controls.Add(this.status);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtName);
@@ -217,5 +233,6 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label status;
     }
 }

@@ -150,7 +150,7 @@ namespace Server
                                 userName = arraypayload[1];
                                 Program.f.tbLog.Invoke((MethodInvoker)delegate
                                 {
-                                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName + " đã kết nối vào phòng" +";"+arraypayload[2]+ Environment.NewLine;
+                                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " + arraypayload[3] + " đã kết nối vào phòng" +arraypayload[2]+ Environment.NewLine;
                                     UpdateToFile("[" + DateTime.Now + "] " + userName + " đã kết nối");
                                 });
                                 //if (Taken.Red == true && Taken.Blue == true)
@@ -166,7 +166,7 @@ namespace Server
                             server.SendMessageToEveryone(message, Id);
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Phòng " + arraypayload[2]+" đã bắt đầu" + Environment.NewLine;
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Phòng " + arraypayload[2] + " đã bắt đầu" + Environment.NewLine;
                                 UpdateToFile("[" + DateTime.Now + "] " + message);
                             });
                             break;
@@ -191,16 +191,6 @@ namespace Server
                             {
                                 string tempMessage = message;
                                 string nextPlayerId = arraypayload[3];
-                                //tempMessage = tempMessage.Replace("Kết quả lượt đi của Đỏ", "");
-                                //string[] data = arraypayload[4].Split('~');
-                                //int STT = Convert.ToInt32(data[1]);
-                                //string vitri = FindNameByNumber(STT);
-                                //Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName
-                                //                    + "\tVị trí: " + vitri
-                                //                    + "\tTiền: " + data[2] + Environment.NewLine;
-                                //UpdateToFile("[" + DateTime.Now + "] " + userName
-                                //                    + "\tVị trí: " + vitri
-                                //                    + "\tTiền: " + data[2]);
                                 Program.f.tbLog.Text += "[" + DateTime.Now + "] " +arraypayload[2] + "Đến lượt của người tiếp theo" + Environment.NewLine;
                                 UpdateToFile("[" + DateTime.Now + "] " + "Đến lượt của người tiếp theo");
                             });
@@ -243,7 +233,8 @@ namespace Server
                                 });
                                 break;
                             }
-                        case "Người chơi mới đã vào":
+                        case "Tạo phòng":
+                            //bool isCreated = false;
                              Program.f.tbLog.Invoke((MethodInvoker)delegate
                                 {
                                     Program.f.tbLog.Text += "[" + DateTime.Now + "] " + message + Environment.NewLine;
@@ -253,135 +244,40 @@ namespace Server
                             {
                                 if (room[i].roomId == Convert.ToInt32(arraypayload[1])) //Kiểm tra phòng có tồn tại không, Nếu có:
                                 {
+                                    server.SendMessageToSender("Phòng đã tồn tại" + ";" + arraypayload[1], Id);
+                                    Program.f.tbLog.Invoke((MethodInvoker)delegate
+                                    {
+                                        Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Phòng" + arraypayload[1] + "đã tồn tại" + Environment.NewLine;
+                                    });
+                                    break;
+                                }
+                            }
+                                break;
+                        case "Tham gia":
+                            bool Found = false;
+                            for (int i = 0; i < room.Count; i++)//Duyệt các phòng hiện tại
+                            {
+                                if (room[i].roomId == Convert.ToInt32(arraypayload[1])) //Kiểm tra phòng có tồn tại không, Nếu có:
+                                {
+                                    Found = true;
                                     if (room[i].roomTaken.Blue && room[i].roomTaken.Red)
                                     {
-                                        server.SendMessageToSender("Phòng đã đủ người chơi" + ";" + room[i].roomId + ";"+ room[i].roomPlayer.Name1+";"+ room[i].roomPlayer.Name2, Id);
+                                        server.SendMessageToSender("Phòng đã đủ người chơi" + ";" + room[i].roomId + ";" + room[i].roomPlayer.Name1 + ";" + room[i].roomPlayer.Name2, Id);
                                         break;
                                     }
                                     //Kiểm tra quân đỏ đã được chọn chưa và gửi thông tin lại người gửi để thông báo
                                     if (room[i].roomTaken.Red) server.SendMessageToSender("Red pawn is already selected" + ";" + room[i].roomId + ";" + room[i].roomPlayer.Name1, Id);
                                     //Kiểm tra quân xanh đã được chọn chưa và gửi thông tin lại người gửi để thông báo
-                                    if (room[i].roomTaken.Blue) server.SendMessageToSender("Blue pawn is already selected" + ";" + room[i].roomId+";"+ room[i].roomPlayer.Name2, Id);
+                                    if (room[i].roomTaken.Blue) server.SendMessageToSender("Blue pawn is already selected" + ";" + room[i].roomId + ";" + room[i].roomPlayer.Name2, Id);
                                     break;
                                 }
-                            }
-                                break;
-                    }
 
-                    //    if (message.Contains("Cả 2 người chơi đã kết nối: "))
-                    //{
-                    //    server.SendMessageToEveryone(message, Id);
-                    //    Program.f.tbLog.Invoke((MethodInvoker)delegate
-                    //    {
-                    //        Program.f.tbLog.Text += "[" + DateTime.Now + "] " + message + Environment.NewLine;
-                    //        UpdateToFile("[" + DateTime.Now + "] " + message);
-                    //    });
-                    //}
-                    //Nhận được thông điệp đỏ đã kết nối
-                    //else if (Regex.IsMatch(message, @"Đỏ\s*\(\s*(\d+)\s*\)") 
-                    //    && !message.Contains(" đã rời") 
-                    //    && !message.Contains("thắng") 
-                    //    && !message.Contains("thua"))
-                    //{
-                    //    userName = message;
-                    //    Program.f.tbLog.Invoke((MethodInvoker)delegate
-                    //    {
-                    //        Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName + " đã kết nối" + Environment.NewLine;
-                    //        UpdateToFile("[" + DateTime.Now + "] " + userName + " đã kết nối");
-                    //    });
-                    //    server.SendMessageToOpponentClient(userName + " đã kết nối", Id);
-                    //}
-                    ////Nhân được thông điệp xanh đã kết nối
-                    //else if (Regex.IsMatch(message, @"Xanh\s*\(\s*(\d+)\s*\)") 
-                    //    && !message.Contains(" đã rời")
-                    //    && !message.Contains("thắng")
-                    //    && !message.Contains("thua"))
-                    //{
-                    //    userName = message;
-                    //    Program.f.tbLog.Invoke((MethodInvoker)delegate
-                    //    {
-                    //        Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName + " đã kết nối" + Environment.NewLine;
-                    //        UpdateToFile("[" + DateTime.Now + "] " + userName + " đã kết nối");
-                    //    });
-                    //    server.SendMessageToOpponentClient(userName + " đã kết nối", Id);
-                    //}
-                    //Nhận được thông điệp rời đi của client
-                    //else if (message.Contains(" đã rời"))
-                    //{
-                    //    if (!message.Contains(" đã rời."))
-                    //        server.SendMessageToOpponentClient(message, Id);
-                    //    Program.f.tbLog.Invoke((MethodInvoker)delegate
-                    //    {
-                    //        Program.f.tbLog.Text += "[" + DateTime.Now + "] " + message + Environment.NewLine;
-                    //        UpdateToFile("[" + DateTime.Now + "] " + message);
-                    //    });
-                    //    server.RemoveConnection(this.Id);
-                    //    break;
-                    //}
-                    ////Nhận được tin nhắn của client và procast đến tất cả client còn lại
-                    //else if (message.Contains(" nhắn: "))
-                    //{
-                    //    Program.f.tbLog.Invoke((MethodInvoker)delegate
-                    //    {
-                    //        Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName + message + Environment.NewLine;
-                    //        UpdateToFile("[" + DateTime.Now + "] " + userName + message);
-                    //    });
-                    //    server.SendMessageToEveryone(userName + message, Id);
-                    //}
-                    //Nhận được thông điệp kết thúc lượt và các thông số lượt đi trước của đỏ
-                    //else if (message.Contains("Kết quả lượt đi của Đỏ"))
-                    //{   
-                    //    server.SendMessageToOpponentClient(message, Id);
-                    //    Program.f.tbLog.Invoke((MethodInvoker)delegate
-                    //    {
-                    //        string tempMessage = message;
-                    //        tempMessage = tempMessage.Replace("Kết quả lượt đi của Đỏ", "");
-                    //        string[] data = tempMessage.Split('~');
-                    //        int STT = Convert.ToInt32(data[1]);
-                    //        string vitri = FindNameByNumber(STT);
-                    //        Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName
-                    //                            + "\tVị trí: " + vitri
-                    //                            + "\tTiền: " + data[2] + Environment.NewLine;
-                    //        UpdateToFile("[" + DateTime.Now + "] " + userName
-                    //                            + "\tVị trí: " + vitri
-                    //                            + "\tTiền: " + data[2]);
-                    //        Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Đến lượt của Xanh" + Environment.NewLine;
-                    //        UpdateToFile("[" + DateTime.Now + "] " + "Đến lượt của Xanh");
-                    //    });
-                        
-                    //}
-                    ////Nhận được thông điệp kết thúc lượt và các thông số lượt đi trước của xanh
-                    //else if (message.Contains("Kết quả lượt đi của Xanh"))
-                    //{   
-                    //    server.SendMessageToOpponentClient(message, Id);
-                    //    Program.f.tbLog.Invoke((MethodInvoker)delegate
-                    //    {
-                    //        string tempMessage = message;
-                    //        tempMessage = tempMessage.Replace("Kết quả lượt đi của Xanh", "");
-                    //        string[] data = tempMessage.Split('~');
-                    //        int STT = Convert.ToInt32(data[1]);
-                    //        string vitri = FindNameByNumber(STT);
-                    //        Program.f.tbLog.Text += "[" + DateTime.Now + "] " + userName
-                    //                             + "\tVị trí: " + vitri
-                    //                             + "\tTiền: " + data[2] + Environment.NewLine;
-                    //        UpdateToFile("[" + DateTime.Now + "] " + userName
-                    //                            + "\tVị trí: " + vitri
-                    //                            + "\tTiền: " + data[2]);
-                    //        Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Đến lượt của Đỏ" + Environment.NewLine;
-                    //        UpdateToFile("[" + DateTime.Now + "] " + "Đến lượt của Đỏ");
-                    //    });
-                        
-                    //}
-                    //Nhận được thông điệp người chơi chịu mức thuế từ đối phương và số tiền thuế
-                    //else if (message.Contains("thuê"))
-                    //{
-                    //    Program.f.tbLog.Invoke((MethodInvoker)delegate
-                    //    {
-                    //        Program.f.tbLog.Text += "[" + DateTime.Now + "] " + message + Environment.NewLine;
-                    //        UpdateToFile("[" + DateTime.Now + "] " + message);
-                    //    });
-                    //    server.SendMessageToOpponentClient(message, Id);
-                    //}
+                            }
+                            if (!Found)
+                                server.SendMessageToSender("Không tìm thấy phòng" + ";" + arraypayload[1],Id);
+                            break;
+
+                    }
                      if (message.Contains("thắng.") || message.Contains("thua.")) {
                         Program.f.tbLog.Invoke((MethodInvoker)delegate
                         {

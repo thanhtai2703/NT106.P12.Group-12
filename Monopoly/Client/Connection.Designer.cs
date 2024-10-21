@@ -36,6 +36,17 @@
             label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = System.Drawing.Color.Transparent;
+            label1.Font = new System.Drawing.Font("Elephant", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(164, 141);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(87, 30);
+            label1.TabIndex = 20;
+            label1.Text = "Phòng";
+            // 
             // roomTb
             // 
             this.roomTb.BackColor = System.Drawing.Color.White;
@@ -61,7 +72,7 @@
             this.btnChooseColor.Name = "btnChooseColor";
             this.btnChooseColor.Size = new System.Drawing.Size(147, 45);
             this.btnChooseColor.TabIndex = 13;
-            this.btnChooseColor.Text = "Chossing Color";
+            this.btnChooseColor.Text = "Next";
             this.btnChooseColor.UseVisualStyleBackColor = false;
             this.btnChooseColor.Click += new System.EventHandler(this.btnConnect_Click);
             this.btnChooseColor.Paint += new System.Windows.Forms.PaintEventHandler(this.button1_Paint);
@@ -88,17 +99,6 @@
             this.returnBtn.Paint += new System.Windows.Forms.PaintEventHandler(this.button1_Paint);
             this.returnBtn.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
             this.returnBtn.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = System.Drawing.Color.Transparent;
-            label1.Font = new System.Drawing.Font("Elephant", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(164, 141);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(87, 30);
-            label1.TabIndex = 20;
-            label1.Text = "Phòng";
             // 
             // Connection
             // 

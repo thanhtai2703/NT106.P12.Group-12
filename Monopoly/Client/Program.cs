@@ -32,5 +32,7 @@ namespace Client
         public static string RedUserName {  get; set; }
         public static bool NameRedIsTaken { get; set; }
         public static bool NameBlueIsTaken { get; set; }
+        public static bool isJoined { get; set; } = true;
+        public static bool isCreated { get; set; } = false;
     }
 }

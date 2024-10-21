@@ -2,6 +2,7 @@
 using System.Drawing.Drawing2D;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Client
 {
@@ -11,6 +12,7 @@ namespace Client
         {
             Program.colorChoosing = this;
             InitializeComponent();
+            txtName.MaxLength = 12;
             if (ConnectionOptions.NameRedIsTaken)
             {
                 chooseRedPlayerBtn.Enabled = false;
@@ -23,15 +25,35 @@ namespace Client
             }
             if(ConnectionOptions.NameRedIsTaken&&ConnectionOptions.NameBlueIsTaken)
             {
-                MessageBox.Show("Server đã đầy.");
                 ConnectionOptions.NameRedIsTaken = false;
                 ConnectionOptions.NameBlueIsTaken = false;
-                //label3.Text = ConnectionOptions.RedUserName;
-                //label4.Text = ConnectionOptions.BlueUserName;
+                status.Visible = true;
+                status.Text = "phòng đã đầy";
+                txtName.Visible = false;
+                tbColor.Visible = false;
+                label2.Visible = false;
+                connect_button.Visible = false;
+                label3.Text = ConnectionOptions.RedUserName;
+                label4.Text = ConnectionOptions.BlueUserName;
+                returnBtn.Text = "Thoát";
                 //this.Hide();
             }    
             //Thiết lập giá trị mặc định cho tbColor
             tbColor.Text = "Chưa được chọn";
+            if (!ConnectionOptions.isJoined)
+            {
+                status.Visible = true;
+                status.Text = "Phòng không tồn tại!";
+                returnBtn.Text = "Thoát";
+                hidden();
+            }
+            else if (ConnectionOptions.isCreated == true)
+            {
+                status.Visible= true;
+                status.Text = "Phòng này đã được tạo trước đó ";
+                returnBtn.Text = "Thoát";
+                hidden();
+            }    
 
         }
 
@@ -55,31 +77,42 @@ namespace Client
         }
         private void connect_button_Click(object sender, EventArgs e)
         {
-            switch (tbColor.Text)
+            if (Regex.IsMatch(txtName.Text, @"[^a-zA-Z0-9]"))
             {
-                //Nếu chọn màu đỏ 
-                case "Đỏ":
-                    //Gán tên người chơi là Red 
-                    ConnectionOptions.UserName = txtName.Text;
-                    ConnectionOptions.PlayerName = "Đỏ" + ";" + ConnectionOptions.Room;
-                    //Close();
-                    this.Hide();
-                    DialogResult = DialogResult.OK;
-                    break;
-                 //Nếu chọn màu xanh
-                case "Xanh":
-                    //Gán tên người chơi là Blue
-                    ConnectionOptions.UserName = txtName.Text;
-                    ConnectionOptions.PlayerName = "Xanh" + ";"+ConnectionOptions.Room;
-                    //Close();
-                    this.Hide();
-                    //Gắn cho DialogResult kết quả OK 
-                    DialogResult = DialogResult.OK;
-                    break;
-                case "Chưa được chọn":
-                    //Nếu chưa chọn màu thì hiển thị thông báo yêu cầu chọn màu 
-                    MessageBox.Show("Chọn màu!");
-                    break;
+                MessageBox.Show("vui lòng nhập tên không có kí tự đặc biệt");
+            }
+            else if(txtName.Text == "")
+            {
+                MessageBox.Show("vui lòng nhập tên người chơi");
+            }    
+            else
+            {
+                switch (tbColor.Text)
+                {
+                    //Nếu chọn màu đỏ 
+                    case "Đỏ":
+                        //Gán tên người chơi là Red 
+                        ConnectionOptions.UserName = txtName.Text;
+                        ConnectionOptions.PlayerName = "Đỏ" + ";" + ConnectionOptions.Room;
+                        //Close();
+                        this.Hide();
+                        DialogResult = DialogResult.OK;
+                        break;
+                    //Nếu chọn màu xanh
+                    case "Xanh":
+                        //Gán tên người chơi là Blue
+                        ConnectionOptions.UserName = txtName.Text;
+                        ConnectionOptions.PlayerName = "Xanh" + ";" + ConnectionOptions.Room;
+                        //Close();
+                        this.Hide();
+                        //Gắn cho DialogResult kết quả OK 
+                        DialogResult = DialogResult.OK;
+                        break;
+                    case "Chưa được chọn":
+                        //Nếu chưa chọn màu thì hiển thị thông báo yêu cầu chọn màu 
+                        MessageBox.Show("Chọn màu!");
+                        break;
+                }
             }
 
         }
@@ -103,7 +136,18 @@ namespace Client
             //Cho tbColor hiển thị chữ "Red"
             tbColor.Text = "Xanh";
         }
-
+        private void hidden()
+        {
+            label2.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
+            txtName.Visible = false;
+            tbColor.Visible = false;
+            chooseBluePlayerBtn.Visible = false;
+            chooseRedPlayerBtn.Visible = false;
+            connect_button.Visible = false;
+            
+        }
         private void Button_MouseEnter(object sender, EventArgs e)
         {
             Button btn = sender as Button;
