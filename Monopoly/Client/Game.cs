@@ -33,7 +33,7 @@ namespace Client
         private System.Windows.Forms.Timer turnTimer;
         //Khởi tạo bộ đếm
         private int timeLeft;
-        private int turnTimeLimit = 20; 
+        private int turnTimeLimit = 200; 
         //Nhận dữ liệu trên Server
         private class ReceivedMessage
         {
@@ -113,13 +113,6 @@ namespace Client
                     {
                         this.Close();
                         return;
-                        //MainMenu mainMenu = new MainMenu();
-                        //mainMenu.ShowDialog();
-                        ////Stream.Write(
-                        //    Encoding.Unicode.GetBytes("Rời"+";" + ConnectionOptions.PlayerName),
-                        //    0,
-                        //    Encoding.Unicode.GetBytes("Rời" +";"+ ConnectionOptions.PlayerName).Length);
-                        //Disconnect();
                     }
 
                     //Hiển thị thông điệp là đang đợi người chơi thứ 2 nên vô hiệu hóa các nút chơi
@@ -159,12 +152,6 @@ namespace Client
                     if (colorChoosing.DialogResult is DialogResult.Cancel)
                     {
                         messagetype = "Thoát";
-                        //Disconnect();
-                        //return;
-                        //this.Close();
-                        //return;
-                        //MainMenu mainMenu = new MainMenu();
-                        //mainMenu.ShowDialog();
                         SendMessageToServer(messagetype+";"+ConnectionOptions.PlayerName);
                         this.InstanceDisconnect();
                        // Disconnect();
@@ -447,7 +434,7 @@ namespace Client
                                 {
                                     currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
                                     {
-                                        currentPlayersTurn_textbox.Text = "Ấn bắt đầu để tiến hành chơi;";
+                                        currentPlayersTurn_textbox.Text = "Ấn nút Bắt Đầu để tiến hành chơi;";
                                     });
                                 }
                                 else currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
@@ -458,13 +445,6 @@ namespace Client
                                 Players[1].Name = parts[3];
                                 UpdatePlayersStatusBoxes();
                             }
-                            break;
-                        case "Kết nối":
-                            //if (parts[2] == ConnectionOptions.Room)
-                            //{
-                            //    if (parts[1] == "Đỏ") redPlayerStatusBox_richtextbox.Text = parts[3];
-                            //    if (parts[1] == "Xanh") bluePlayerStatusBox_richtextbox.Text = parts[3];
-                            //}
                             break;
                         case "Bắt đầu":
                             if (ConnectionOptions.Room == parts[2])
@@ -492,7 +472,7 @@ namespace Client
                                 {
                                     currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
                                     {
-                                        currentPlayersTurn_textbox.Text = Player1Name.Text + " Đỏ đang thực hiện lượt chơi. Chờ...";
+                                        currentPlayersTurn_textbox.Text = Player1Name.Text + "đang thực hiện lượt chơi. Chờ...";
                                         Startbtn.Enabled = false;
                                     });
                                 }
@@ -513,20 +493,16 @@ namespace Client
                             }
                             break;
                         case "Rời":
-                            if (ConnectionOptions.Room == parts[2])
+                            if (ConnectionOptions.Room == parts[1])
                             {
+                                turnTimer.Stop();
                                 //SendMessageToServer("Rời"+";"+ConnectionOptions.PlayerName);
                                 this.Invoke((MethodInvoker)delegate
                                 {
                                     MessageBox.Show("Đối thủ của bạn đã rời", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                                     //QuitGame();
-                                    SendMessageToServer("Rời" + ";" + ConnectionOptions.PlayerName);
+                                    SendMessageToServer("Rời" + ";" + ConnectionOptions.Room);
                                     this.InstanceDisconnect();
-                                    //this.Close();
-                                    //this.InstanceDisconnect();
-                                    //this.Close();
-                                    //MainMenu mainMenu = new MainMenu();
-                                    //mainMenu.ShowDialog();
                                 });
                             }
                             break;
@@ -642,25 +618,33 @@ namespace Client
                                 break;
                             }
                         case "Phòng đã đủ người chơi":
-                            if(ConnectionOptions.Room == parts[1])
+                            this.Invoke((MethodInvoker)delegate
                             {
-                                ConnectionOptions.RedUserName = parts[2];
-                                ConnectionOptions.BlueUserName = parts[3];
-                                ConnectionOptions.NameBlueIsTaken = true;
-                                ConnectionOptions.NameRedIsTaken = true;
-                            }    
+                                Receiving = false;
+                                Disconnect();
+                                MessageBox.Show("Phòng đã đủ người chơi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                Environment.Exit(0);
+                            });
                             break;
                         case "Không tìm thấy phòng":
-                            if(ConnectionOptions.Room == parts[1])
+                            this.Invoke((MethodInvoker)delegate
                             {
-                                ConnectionOptions.isJoined = false;
-                            }   
+                                Receiving = false;
+                                Disconnect();
+                                MessageBox.Show("Không tìm thấy phòng chơi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                Environment.Exit(0);
+                               
+                                
+                            });
                          break;
                         case "Phòng đã tồn tại":
-                            if(ConnectionOptions.Room == parts[1])
+                            this.Invoke((MethodInvoker)delegate
                             {
-                                ConnectionOptions.isCreated = true;
-                            }
+                                Receiving = false;
+                                Disconnect();
+                                MessageBox.Show("Phòng đã tồn tại, vui lòng tạo phòng khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                Environment.Exit(0);
+                            });
                             break;
                     }
 
@@ -693,10 +677,6 @@ namespace Client
                 SendMessageToServer("Thắng" +";"+ConnectionOptions.UserName + ";"+ConnectionOptions.Room);
                 this.InstanceDisconnect();
                 this.Close();
-                //this.InstanceDisconnect();
-                //this.Close();
-                //MainMenu mainMenu = new MainMenu();
-                //mainMenu.ShowDialog();
             }
 
         }
@@ -744,10 +724,15 @@ namespace Client
         {
             Receiving = false;
         }
+        private void CloseAll()
+        {
+            Environment.Exit(0); //đóng toàn bộ ứng dụng
+        }
         public void InstanceDisconnect()
         {
             StopReceiving();  // Dừng luồng nhận tin nhắn
             Disconnect();  // Gọi phương thức static Disconnect
+            CloseAll();
         }
         //Phương thức ngắt kết nối và thoát ứng dụng 
         private static void Disconnect()
@@ -778,10 +763,6 @@ namespace Client
             {
                 // Bắt bất kỳ lỗi nào khác
                 Console.WriteLine("Lỗi không xác định: " + ex.Message);
-            }
-            finally
-            {
-                Environment.Exit(0); //đóng toàn bộ ứng dụng
             }
 
         }
@@ -1130,7 +1111,7 @@ namespace Client
             if (MessageBox.Show("Bạn có muốn thoát", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (Gamemodes.Multiplayer)
-                    SendMessageToServer("Rời" + ";" + ConnectionOptions.PlayerName);
+                    SendMessageToServer("Rời" + ";" + ConnectionOptions.Room);
                 this.InstanceDisconnect();
                 this.Close();
 

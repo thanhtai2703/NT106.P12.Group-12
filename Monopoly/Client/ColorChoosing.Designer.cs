@@ -39,7 +39,6 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.status = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // chooseBluePlayerBtn
@@ -177,18 +176,6 @@
             this.label4.TabIndex = 37;
             this.label4.Text = "Chưa chọn.....";
             // 
-            // status
-            // 
-            this.status.BackColor = System.Drawing.SystemColors.Window;
-            this.status.Font = new System.Drawing.Font("Showcard Gothic", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status.Location = new System.Drawing.Point(139, 158);
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            this.status.Size = new System.Drawing.Size(313, 36);
-            this.status.TabIndex = 39;
-            this.status.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.status.Visible = false;
-            // 
             // ColorChoosing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
@@ -197,7 +184,6 @@
             this.BackgroundImage = global::Client.Properties.Resources.monopoly_board_games_element_background_free_vector;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(583, 394);
-            this.Controls.Add(this.status);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtName);
@@ -235,6 +221,5 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox status;
     }
 }

@@ -22,38 +22,9 @@ namespace Client
             {
                 chooseBluePlayerBtn.Enabled = false;
                 label4.Text = ConnectionOptions.BlueUserName;
-            }
-            if(ConnectionOptions.NameRedIsTaken&&ConnectionOptions.NameBlueIsTaken)
-            {
-                ConnectionOptions.NameRedIsTaken = false;
-                ConnectionOptions.NameBlueIsTaken = false;
-                status.Visible = true;
-                status.Text = "phòng đã đầy";
-                txtName.Visible = false;
-                tbColor.Visible = false;
-                label2.Visible = false;
-                connect_button.Visible = false;
-                label3.Text = ConnectionOptions.RedUserName;
-                label4.Text = ConnectionOptions.BlueUserName;
-                returnBtn.Text = "Thoát";
-                //this.Hide();
-            }    
+            }  
             //Thiết lập giá trị mặc định cho tbColor
             tbColor.Text = "Chưa được chọn";
-            if (!ConnectionOptions.isJoined)
-            {
-                status.Visible = true;
-                status.Text = "Phòng không tồn tại!";
-                returnBtn.Text = "Thoát";
-                hidden();
-            }
-            else if (ConnectionOptions.isCreated == true)
-            {
-                status.Visible= true;
-                status.Text = "Phòng này đã được tạo trước đó ";
-                returnBtn.Text = "Thoát";
-                hidden();
-            }    
 
         }
 
@@ -135,18 +106,6 @@ namespace Client
         {
             //Cho tbColor hiển thị chữ "Red"
             tbColor.Text = "Xanh";
-        }
-        private void hidden()
-        {
-            label2.Visible = false;
-            label3.Visible = false;
-            label4.Visible = false;
-            txtName.Visible = false;
-            tbColor.Visible = false;
-            chooseBluePlayerBtn.Visible = false;
-            chooseRedPlayerBtn.Visible = false;
-            connect_button.Visible = false;
-            
         }
         private void Button_MouseEnter(object sender, EventArgs e)
         {

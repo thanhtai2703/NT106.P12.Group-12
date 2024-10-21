@@ -175,11 +175,11 @@ namespace Server
                             server.SendMessageToOpponentClient(message, Id);
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Phòng " + arraypayload[2] + " đã kết thúc" + Environment.NewLine;
-                                UpdateToFile("[" + DateTime.Now + "] " + "Phòng " + arraypayload[2] + " đã kết thúc");
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Phòng " + arraypayload[1] + " đã kết thúc" + Environment.NewLine;
+                                UpdateToFile("[" + DateTime.Now + "] " + "Phòng " + arraypayload[1] + " đã kết thúc");
                             });
                             server.RemoveConnection(this.Id);
-                            RemoveRoom(Convert.ToInt32(arraypayload[2]));
+                            RemoveRoom(Convert.ToInt32(arraypayload[1]));
                             break;
                         case "Thoát":
                             server.RemoveConnection(this.Id);
@@ -245,6 +245,7 @@ namespace Server
                                 if (room[i].roomId == Convert.ToInt32(arraypayload[1])) //Kiểm tra phòng có tồn tại không, Nếu có:
                                 {
                                     server.SendMessageToSender("Phòng đã tồn tại" + ";" + arraypayload[1], Id);
+                                    server.RemoveConnection(this.Id);
                                     Program.f.tbLog.Invoke((MethodInvoker)delegate
                                     {
                                         Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Phòng" + arraypayload[1] + "đã tồn tại" + Environment.NewLine;
@@ -263,6 +264,7 @@ namespace Server
                                     if (room[i].roomTaken.Blue && room[i].roomTaken.Red)
                                     {
                                         server.SendMessageToSender("Phòng đã đủ người chơi" + ";" + room[i].roomId + ";" + room[i].roomPlayer.Name1 + ";" + room[i].roomPlayer.Name2, Id);
+                                        server.RemoveConnection(this.Id);
                                         break;
                                     }
                                     //Kiểm tra quân đỏ đã được chọn chưa và gửi thông tin lại người gửi để thông báo
