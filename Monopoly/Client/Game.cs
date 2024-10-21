@@ -34,7 +34,7 @@ namespace Client
         private readonly int[] Opportunity = { -100, 100, -150, 150, -200, 200 };
         private System.Windows.Forms.Timer turnTimer;
         private int timeLeft;
-        private int turnTimeLimit = 10;
+        private int turnTimeLimit = 20;
         //Thông tin 1 người chơi 
         //Nhận dữ liệu trên Server
         private class ReceivedMessage
@@ -287,10 +287,10 @@ namespace Client
             {
                 case 0:
                     currentPlayersTurn_textbox.Text =
-                        "Đỏ, bạn đang ở tù!\r\nLượt của bạn sẽ bị bỏ qua và tới lượt kế. "; break;
+                        Player1Name.Text + " bạn đang ở tù!\r\nLượt của bạn sẽ bị bỏ qua và tới lượt kế. "; break;
                 case 1:
                     currentPlayersTurn_textbox.Text =
-                        "Xanh, bạn đang ở tù.!\r\nLượt của bạn sẽ bị bỏ qua và tới lượt kế. ";
+                        Player2Name.Text + " Xanh, bạn đang ở tù.!\r\nLượt của bạn sẽ bị bỏ qua và tới lượt kế. ";
                     break;
             }
             //Nếu người chơi đã vào tù 3 lần thì thả người chơi ra 
@@ -304,11 +304,11 @@ namespace Client
             {
                 case 0:
                     currentPlayersTurn_textbox.Text =
-                        "Đỏ, bạn đã được thả! ";
+                        Player1Name.Text + " Đỏ, bạn đã được thả! ";
                     break;
                 case 1:
                     currentPlayersTurn_textbox.Text =
-                        "Xanh, bạn đã được thả! ";
+                        Player2Name.Text + " Xanh, bạn đã được thả! ";
                     break;
             }
         }
@@ -446,6 +446,17 @@ namespace Client
                                 {
                                     Player2Name.Text = parts[3];
                                 });
+                                if (Gamemodes.Create)
+                                {
+                                    currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
+                                    {
+                                        currentPlayersTurn_textbox.Text = "Ấn bắt đầu để tiến hành chơi;";
+                                    });
+                                }
+                                else currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
+                                {
+                                    currentPlayersTurn_textbox.Text = "Chờ đợi chủ phòng bắt đầu.";
+                                });
                                 Players[0].Name = parts[2];
                                 Players[1].Name = parts[3];
                                 UpdatePlayersStatusBoxes();
@@ -465,15 +476,15 @@ namespace Client
                                 {
                                     currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
                                     {
-                                        //timeLeft = turnTimeLimit;
-                                        //if (turnTimer == null)
-                                        //{
-                                        //    turnTimer = new System.Windows.Forms.Timer();
-                                        //    turnTimer.Interval = 1000; // 1 giây (1000ms)
-                                        //    turnTimer.Tick += new EventHandler(timer1_Tick);
-                                        //}
-                                        //UpdateTimeDisplay();
-                                        //turnTimer.Start();
+                                        timeLeft = turnTimeLimit;
+                                        if (turnTimer == null)
+                                        {
+                                            turnTimer = new System.Windows.Forms.Timer();
+                                            turnTimer.Interval = 1000; // 1 giây (1000ms)
+                                            turnTimer.Tick += new EventHandler(timer1_Tick);
+                                        }
+                                        UpdateTimeDisplay();
+                                        turnTimer.Start();
                                         currentPlayersTurn_textbox.Text = "Tung xúc sắc để bắt đầu trò chơi";
                                         throwDiceBtn.Enabled = true;
                                         buyBtn.Enabled = false;
@@ -484,7 +495,7 @@ namespace Client
                                 {
                                     currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
                                     {
-                                        currentPlayersTurn_textbox.Text = "Đỏ đang thực hiện lượt chơi. Chờ...";
+                                        currentPlayersTurn_textbox.Text = Player1Name.Text + " Đỏ đang thực hiện lượt chơi. Chờ...";
                                         Startbtn.Enabled = false;
                                     });
                                 }
@@ -531,15 +542,15 @@ namespace Client
                                     {
                                         // Cập nhật trạng thái của textbox hiển thị lượt của người chơi hiện tại
                                         //bắt đầu điếm thời gian
-                                        //timeLeft = turnTimeLimit;
-                                        //if (turnTimer == null)
-                                        //{
-                                        //    turnTimer = new System.Windows.Forms.Timer();
-                                        //    turnTimer.Interval = 1000; // 1 giây (1000ms)
-                                        //    turnTimer.Tick += new EventHandler(timer1_Tick);
-                                        //}
-                                        //UpdateTimeDisplay();
-                                        //turnTimer.Start();
+                                        timeLeft = turnTimeLimit;
+                                        if (turnTimer == null)
+                                        {
+                                            turnTimer = new System.Windows.Forms.Timer();
+                                            turnTimer.Interval = 1000; // 1 giây (1000ms)
+                                            turnTimer.Tick += new EventHandler(timer1_Tick);
+                                        }
+                                        UpdateTimeDisplay();
+                                        turnTimer.Start();
                                         currentPlayersTurn_textbox.Text = "Lượt của bạn";
                                         // Kích hoạt nút để ném xúc xắc
                                         throwDiceBtn.Enabled = true;
@@ -866,46 +877,50 @@ namespace Client
         }
         private void EndTurn()
         {
+            turnTimer.Stop();
             messagetype = "Kết quả";
-            currentPositionInfo_richtextbox.Text = string.Empty;
-            string turnLogString = string.Empty;
-            switch (CurrentPlayerId)
+            if (Gamemodes.Multiplayer)
             {
-                case 0:
-                    turnLogString = messagetype + ";" + ConnectionOptions.PlayerName + ";" + "1" + ";"; //" Kết quả lượt đi của Đỏ"
-                    break;
-                case 1:
-                    turnLogString = messagetype + ";" + ConnectionOptions.PlayerName + ";" + "0" + ";";
-                    break;
-            }
-            turnLogString = turnLogString
-                + Players[CurrentPlayerId].Position + ";"
-                + Players[CurrentPlayerId].Balance + ";";
-            foreach (var item in Players[CurrentPlayerId].PropertiesOwned)
-                if (item != 0)
+                currentPositionInfo_richtextbox.Text = string.Empty;
+                string turnLogString = string.Empty;
+                switch (CurrentPlayerId)
                 {
-                    turnLogString += item;
-                    turnLogString += ' ';
+                    case 0:
+                        turnLogString = messagetype + ";" + ConnectionOptions.PlayerName + ";" + "1" + ";"; //" Kết quả lượt đi của Đỏ"
+                        break;
+                    case 1:
+                        turnLogString = messagetype + ";" + ConnectionOptions.PlayerName + ";" + "0" + ";";
+                        break;
                 }
-            if (CurrentPlayerId is 0)
-            {
-                currentPlayersTurn_textbox.Text =  Players[1].Name + "đang thực hiện lượt chơi. Chờ...";
-                SendMessageToServer(turnLogString);
-            }
-            else
-            {
-                currentPlayersTurn_textbox.Text = Players[2].Name + "đang thực hiện lượt chơi. Chờ...";
-                SendMessageToServer(turnLogString);
-            }
+                turnLogString = turnLogString
+                    + Players[CurrentPlayerId].Position + ";"
+                    + Players[CurrentPlayerId].Balance + ";";
+                foreach (var item in Players[CurrentPlayerId].PropertiesOwned)
+                    if (item != 0)
+                    {
+                        turnLogString += item;
+                        turnLogString += ' ';
+                    }
+                if (CurrentPlayerId is 0)
+                {
+                    currentPlayersTurn_textbox.Text = Player2Name.Text + " Xanh đang thực hiện lượt chơi. Chờ...";
+                    SendMessageToServer(turnLogString);
+                }
+                else
+                {
+                    currentPlayersTurn_textbox.Text = Player1Name.Text + " Đỏ đang thực hiện lượt chơi. Chờ...";
+                    SendMessageToServer(turnLogString);
+                }
 
 
-            if (Players[CurrentPlayerId].Balance < 0)
-                Lose();
-            else
-            {
-                throwDiceBtn.Enabled = false;
-                buyBtn.Enabled = false;
-                endTurnBtn.Enabled = false;
+                if (Players[CurrentPlayerId].Balance < 0)
+                    Lose();
+                else
+                {
+                    throwDiceBtn.Enabled = false;
+                    buyBtn.Enabled = false;
+                    endTurnBtn.Enabled = false;
+                }
             }
         }
         //Xử lý khi nút ném xúc xắc 
@@ -915,10 +930,10 @@ namespace Client
             switch (CurrentPlayerId)
             {
                 case 0:
-                    currentPlayersTurn_textbox.Text = "Lượt của người chơi Đỏ. ";
+                    currentPlayersTurn_textbox.Text = "Lượt của người chơi Đỏ. " + Player1Name.Text;
                     break;
                 case 1:
-                    currentPlayersTurn_textbox.Text = "Lượt của người chơi Xanh. ";
+                    currentPlayersTurn_textbox.Text = "Lượt của người chơi Xanh. " + Player2Name.Text;
                     break;
             }
             //Tạo các biến để theo dõi việc đi qua các ô đặt biệt 
@@ -1130,7 +1145,7 @@ namespace Client
 
         private void EndTurnBtn_Click(object sender, EventArgs e)
         {
-            //turnTimer.Stop();
+            turnTimer.Stop();
             messagetype = "Kết quả";
             if (Gamemodes.Multiplayer)
             {
@@ -1156,11 +1171,11 @@ namespace Client
                     }
                 if (CurrentPlayerId is 0)
                 {
-                    currentPlayersTurn_textbox.Text = "Xanh đang thực hiện lượt chơi. Chờ...";
+                    currentPlayersTurn_textbox.Text = Player2Name.Text + " Xanh đang thực hiện lượt chơi. Chờ...";
                     SendMessageToServer(turnLogString);
                 }
                 else {
-                    currentPlayersTurn_textbox.Text = "Đỏ đang thực hiện lượt chơi. Chờ...";
+                    currentPlayersTurn_textbox.Text = Player1Name.Text + " Đỏ đang thực hiện lượt chơi. Chờ...";
                     SendMessageToServer(turnLogString);
                 }
 

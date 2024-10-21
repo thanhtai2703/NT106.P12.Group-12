@@ -180,7 +180,7 @@
             this.status.AutoSize = true;
             this.status.BackColor = System.Drawing.Color.Transparent;
             this.status.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.status.Location = new System.Drawing.Point(201, 158);
+            this.status.Location = new System.Drawing.Point(224, 22);
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(109, 41);
             this.status.TabIndex = 38;

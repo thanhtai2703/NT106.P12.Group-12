@@ -29,7 +29,6 @@ namespace Client
             quitBtn.Region = new Region(path);
             startSingleplayerGameBtn.Region = new Region(path);
             startMultiplayerGameBtn.Region = new Region(path);
-            JoinBtn.Region = new Region(path);
         }
 
 

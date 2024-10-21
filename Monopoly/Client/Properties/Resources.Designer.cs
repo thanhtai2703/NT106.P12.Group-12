@@ -63,16 +63,6 @@ namespace Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _11305626_monopoly_2008_windows_title_and_main_menu_screen {
-            get {
-                object obj = ResourceManager.GetObject("11305626-monopoly-2008-windows-title-and-main-menu-screen", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap _81rRTIxhz4L__AC_SL1500_ {
             get {
                 object obj = ResourceManager.GetObject("81rRTIxhz4L._AC_SL1500_", resourceCulture);
