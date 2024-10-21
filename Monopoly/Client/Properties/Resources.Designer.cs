@@ -73,6 +73,16 @@ namespace Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap A_bright_and_vibrant_game_menu_screen_for_Monopoly {
+            get {
+                object obj = ResourceManager.GetObject("A_bright_and_vibrant_game_menu_screen_for_Monopoly", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bluePawn {
             get {
                 object obj = ResourceManager.GetObject("bluePawn", resourceCulture);
