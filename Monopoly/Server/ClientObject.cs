@@ -16,67 +16,10 @@ namespace Server
         protected internal Socket Client;
         private readonly ServerObject server;
         private string userName; // tên người gửi thông điệp từ client.
-       // private int currentTurn;
         private StreamWriter write;
         static List<Room> room = new List<Room>(); // khời tạo 1 danh sách phòng chơi trên server để quản lý các phòng chơi hiện có.
         DateTime now = DateTime.Now;
-
-        List<(string, int)> o = new List<(string, int)>
-            {
-                ("GO", 0),
-                ("Phú Lâm", 1),
-                ("Khí vận", 2),
-                ("Nhà bè Phú Xuân", 3),
-                ("Thuế lợi tức", 4),
-                ("Bến xe Lục Tỉnh", 5),
-                ("Thị Nghè", 6),
-                ("Cơ hội", 7),
-                ("Tân Định", 8),
-                ("Bến Chương Dương", 9),
-                ("Thăm tù", 10),
-                ("Phan Đình Phùng", 11),
-                ("Công ty điện lực", 12),
-                ("Trịnh Minh Thế", 13),
-                ("Lý Thái Tổ", 14),
-                ("Bến xe Lam Chợ Lớn", 15),
-                ("Đại lộ Hùng Vương", 16),
-                ("Khí vận", 17),
-                ("Gia Long", 18),
-                ("Bến Bạch Đằng", 19),
-                ("Sân bay", 20),
-                ("Đường Công Lý", 21),
-                ("Cơ hội", 22),
-                ("Đại lộ thống nhất", 23),
-                ("Đại lộ Cộng Hòa", 24),
-                ("Bến xe An Đông", 25),
-                ("Đại lộ Hồng Thập Tự", 26),
-                ("Đại lộ Hai Bà Trưng", 27),
-                ("Công ty thủy cục", 28),
-                ("Xa lộ Biên Hòa", 29),
-                ("VÔ TÙ", 30),
-                ("Phan Thanh Giảm", 31),
-                ("Lê Văn Duyệt", 32),
-                ("Khí vận", 33),
-                ("Nguyễn Thái Học", 34),
-                ("Tân Kì Tân Quý", 35),
-                ("Cơ hội", 36),
-                ("Nha Trang", 37),
-                ("Thuế lương bổng", 38),
-                ("Cố Đô Huế", 39)
-            };
-       
-        public string FindNameByNumber(int number)
-            {
-                foreach (var pair in o)
-                {
-                    if (pair.Item2 == number)
-                    {
-                        return pair.Item1; // Trả về tên khi tìm thấy số
-                    }
-                }
-                // Trả về null nếu không tìm thấy
-                return null; 
-            }
+        //hàm cung cấp ID riêng biệt cho từng client 
         public ClientObject(Socket socket, ServerObject serverObject)
         {
             Id = Guid.NewGuid().ToString(); //khởi tạo ID cho client
@@ -184,6 +127,20 @@ namespace Server
                         case "Thoát":
                             server.RemoveConnection(this.Id);
                             break;
+                        case "Thoát sảnh":
+                            server.SendMessageToOpponentClient(message, Id);
+                            int number = room.FindIndex(room => room.roomId == Convert.ToInt32(arraypayload[2]));
+                            switch (arraypayload[1])
+                            {
+                                case "Đỏ":
+                                    room[number].roomTaken.Red = false;
+                                    break;
+                                case "Xanh":
+                                    room[number].roomTaken.Blue = false;
+                                    break;
+                            }
+                            server.RemoveConnection(this.Id);
+                                break;
                         case "Kết quả":
                             //Cập nhật thông tin lượt đi của người chơi vừa kết thúc lượt, gửi qua client đối thủ.
                             server.SendMessageToOpponentClient(message, Id);

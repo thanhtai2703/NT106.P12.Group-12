@@ -449,6 +449,7 @@ namespace Client
                         case "Bắt đầu":
                             if (ConnectionOptions.Room == parts[2])
                             {
+                                ConnectionOptions.Started = true;
                                 if (CurrentPlayerId == Convert.ToInt32(parts[3]))
                                 {
                                     currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
@@ -506,8 +507,30 @@ namespace Client
                                 });
                             }
                             break;
+                        case "Thoát sảnh":
+                            if(ConnectionOptions.Room == parts[2])
+                            {
+                                switch(CurrentPlayerId)
+                                {
+                                    case 0:
+                                        ConnectionOptions.NameBlueIsTaken = false;
+                                        Player2Name.Invoke((MethodInvoker)delegate
+                                        {
+                                            Player2Name.Text = "đang chờ người chơi ...";
+                                        });
+                                        break;
+                                    case 1:
+                                        ConnectionOptions.NameRedIsTaken = false;
+                                        Player1Name.Invoke((MethodInvoker)delegate
+                                        {
+                                            Player1Name.Text = "đang chờ người chơi ...";
+                                        });
+                                        break;
+                                }    
+                            }   
+                            break;
+                            //Cập nhật thông tin người chơi.
                         case "Kết quả":
-                            //string[] infomation = parts[6].Split('~');   
                             if (parts[2] == ConnectionOptions.Room)
                             {
 
@@ -544,7 +567,7 @@ namespace Client
                                     });
                                 }
 
-                                // Tạo một đối tượng ReceivedMessage để lưu trữ thông điệp nhận được
+                                // Tạo một đối tượng ReceivedMessage để lưu trữ thông điệp tài sản nhận được
                                 ReceivedMessage receivedMessage = new ReceivedMessage();
 
                                 // Lấy vị trí kết thúc lượt đi từ tin nhắn
@@ -575,6 +598,7 @@ namespace Client
                                 }
                             }
                             break;
+                            //Sự kiện đi lên đất người khác
                         case "Thuê":
                             if (parts[2] == ConnectionOptions.Room)
                             {
@@ -583,15 +607,11 @@ namespace Client
                                 switch (parts[1])
                                 {
                                     case "Đỏ":
-                                       // string sumOfRentString = parts[3];
-                                        //int sumOfRent = Convert.ToInt32(sumOfRentString);
                                         ChangeBalance(Players[0], -sumOfRent);
                                         ChangeBalance(Players[1], sumOfRent);
                                         MessageBox.Show( Player1Name.Text + "trả tiền thuê nhà cho " + Player2Name.Text + sumOfRent);
                                         break;
                                     case "Xanh":
-                                       // string sumOfRentString = parts[3];
-                                       // int sumOfRent = Convert.ToInt32(sumOfRentString);
                                         ChangeBalance(Players[1], -sumOfRent);
                                         ChangeBalance(Players[0], sumOfRent);
                                         MessageBox.Show(Player2Name.Text + "trả tiền thuê nhà cho " + Player1Name.Text + sumOfRent);
@@ -599,6 +619,7 @@ namespace Client
                                 }
                             }
                             break;
+                            //thông báo chọn quân cờ
                         case "Quân đỏ đã được chọn":
                             {
                                 if (ConnectionOptions.Room == parts[1])
@@ -617,6 +638,7 @@ namespace Client
                                 }
                                 break;
                             }
+                          //Các thông báo liên quan tới việt Tạo, Tham gia phòng chơi
                         case "Phòng đã đủ người chơi":
                             this.Invoke((MethodInvoker)delegate
                             {
@@ -670,6 +692,7 @@ namespace Client
             }
 
         }
+        //Hàm gọi khi người chơi thắng
         private void Win()
         {
             if (MessageBox.Show("Bạn đã thắng! Congratulations!", "Thông báo", MessageBoxButtons.OK) == DialogResult.OK)
@@ -680,6 +703,7 @@ namespace Client
             }
 
         }
+        //Hàm cập nhật thông tin người chơi
         private void UpdatePlayerStatus(int playerId, ReceivedMessage receivedMessage)
         {
             int temp = CurrentPlayerId;
@@ -720,21 +744,24 @@ namespace Client
             // Cập nhật hộp thông tin trạng thái của các người chơi
             UpdatePlayersStatusBoxes();
         }
+        // tắt cờ Reciving để dừng việc nhận tin nhắn 
         private void StopReceiving()
         {
             Receiving = false;
         }
+        //Đóng ứng dụng
         private void CloseAll()
         {
             Environment.Exit(0); //đóng toàn bộ ứng dụng
         }
+        //Phương thức ngắt kết nối và đóng ứng dụng
         public void InstanceDisconnect()
         {
             StopReceiving();  // Dừng luồng nhận tin nhắn
             Disconnect();  // Gọi phương thức static Disconnect
             CloseAll();
         }
-        //Phương thức ngắt kết nối và thoát ứng dụng 
+        //Phương thức ngắt kết nối 
         private static void Disconnect()
         {
             try
@@ -761,8 +788,7 @@ namespace Client
             }
             catch (Exception ex)
             {
-                // Bắt bất kỳ lỗi nào khác
-                Console.WriteLine("Lỗi không xác định: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -1121,7 +1147,21 @@ namespace Client
         }
         private void QuitGameBtn_Click(object sender, EventArgs e)
         {
-            QuitGame();
+            if (ConnectionOptions.Started)
+            {
+                QuitGame();
+            }
+            else if(Gamemodes.Create)
+            {
+                QuitGame();
+            }
+            else
+            {
+                SendMessageToServer("Thoát sảnh" + ";" + ConnectionOptions.PlayerName);
+                this.InstanceDisconnect();
+                this.Close();
+            } 
+                
         }
 
         private void EndTurnBtn_Click(object sender, EventArgs e)
