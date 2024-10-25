@@ -499,8 +499,6 @@ namespace Client
                         case "Rời":
                             if (ConnectionOptions.Room == parts[1])
                             {
-                                turnTimer.Stop();
-                                //SendMessageToServer("Rời"+";"+ConnectionOptions.PlayerName);
                                 this.Invoke((MethodInvoker)delegate
                                 {
                                     MessageBox.Show("Đối thủ của bạn đã rời", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
