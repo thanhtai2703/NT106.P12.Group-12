@@ -218,14 +218,18 @@ namespace Server
 
                             }
                             if (!Found)
-                                server.SendMessageToSender("Room not found" + ";" + arraypayload[1],Id);
+
+                            {
+                                server.SendMessageToSender("Room not found" + ";" + arraypayload[1], Id);
+                                server.RemoveConnection(this.Id);
+                            }
                             break;
                         case "Thắng":
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Người chơi " + arraypayload[1] + "đã dành chiến thắng ở phòng " + arraypayload[2] + Environment.NewLine;
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Player " + arraypayload[1] + "has won at room " + arraypayload[2] + Environment.NewLine;
                              
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Phòng " + arraypayload[2] + " đã kết thúc " + Environment.NewLine;
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Room " + arraypayload[2] + " has ended " + Environment.NewLine;
                             });
                             RemoveRoom(Convert.ToInt32(arraypayload[2]));
                             server.RemoveConnection(this.Id);
@@ -233,8 +237,8 @@ namespace Server
                         case "Thua":
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Người chơi " + arraypayload[1] + "đã thua ở phòng " + arraypayload[2] + Environment.NewLine;
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Phòng " + arraypayload[2] + " đã kết thúc " + Environment.NewLine;
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Player " + arraypayload[1] + "has losed " + arraypayload[2] + Environment.NewLine;
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Room " + arraypayload[2] + " has ended " + Environment.NewLine;
                             });
                             RemoveRoom(Convert.ToInt32(arraypayload[2]));
                             server.RemoveConnection(this.Id);
@@ -265,12 +269,13 @@ namespace Server
 
             return builder.ToString();
         }
-        //ghi thông tin vào file
+        //Đóng kết nối 
         protected internal void Close()
         {
             Client.Shutdown(SocketShutdown.Both);
             Client.Close();
         }
+        //Xóa phòng chơi, dùng để tái tạo lại danh sách phòng
         private void RemoveRoom(int deleteId)
         {
             int index = room.FindIndex(room => room.roomId == deleteId);

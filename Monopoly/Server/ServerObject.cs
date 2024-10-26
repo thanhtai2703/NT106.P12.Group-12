@@ -18,13 +18,14 @@ namespace Server
         //thêm kết nối
         protected internal void AddConnection(ClientObject clientObject)
         {
+            //thêm 1 client vào danh sách clients hiện có
             clients.Add(clientObject);
         }
         //xóa kết nối
         protected internal void RemoveConnection(string id)
         {
             if (clients == null) return; // Kiểm tra null cho danh sách clients
-                var client = clients.Find(c => c.Id == id);
+                var client = clients.Find(c => c.Id == id); //tìm kiến id của client trong danh sách
                 if (client != null)
                 {
 
@@ -43,7 +44,7 @@ namespace Server
                 Program.f.tbLog.Invoke((MethodInvoker)delegate
                 {
                     Program.f.tbLog.Text += "[" + DateTime.Now + "] " 
-                                            + "Server đã được bật, chờ đợi người chơi vào..." 
+                                            + "Server is turn on, waiting for connection......." 
                                             + Environment.NewLine;
                 });
                 while (true)
@@ -51,8 +52,8 @@ namespace Server
                     //Tiếp nhận các client 
                     Socket handler = serverSocket.Accept();
                     //Tạo một clientObject mới
-                    ClientObject clientObject = new ClientObject(handler, this);
-                    // Tạo luồng riêng cho ClientObject
+                    ClientObject clientObject = new ClientObject(handler, this); // handle đại diện cho kết nối của server với clientObject, this cho phép clientObject có thể gọi các phương thức của serverObject
+                    // Tạo luồng riêng cho ClientObject để nhận tin nhắn
                     Thread clientThread = new Thread(new ThreadStart(clientObject.Process));
                     clientThread.Start();
                 }
