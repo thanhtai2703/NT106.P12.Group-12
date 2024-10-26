@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.quitBtn = new System.Windows.Forms.Button();
             this.startSingleplayerGameBtn = new System.Windows.Forms.Button();
-            this.startMultiplayerGameBtn = new System.Windows.Forms.Button();
+            this.CreateBtn = new System.Windows.Forms.Button();
             this.JoinBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -81,27 +81,27 @@
             this.startSingleplayerGameBtn.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
             this.startSingleplayerGameBtn.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
-            // startMultiplayerGameBtn
+            // CreateBtn
             // 
-            this.startMultiplayerGameBtn.BackColor = System.Drawing.Color.Transparent;
-            this.startMultiplayerGameBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.startMultiplayerGameBtn.FlatAppearance.BorderSize = 0;
-            this.startMultiplayerGameBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.startMultiplayerGameBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.startMultiplayerGameBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.startMultiplayerGameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.startMultiplayerGameBtn.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startMultiplayerGameBtn.ForeColor = System.Drawing.Color.White;
-            this.startMultiplayerGameBtn.Location = new System.Drawing.Point(229, 333);
-            this.startMultiplayerGameBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.startMultiplayerGameBtn.Name = "startMultiplayerGameBtn";
-            this.startMultiplayerGameBtn.Size = new System.Drawing.Size(294, 54);
-            this.startMultiplayerGameBtn.TabIndex = 7;
-            this.startMultiplayerGameBtn.UseVisualStyleBackColor = false;
-            this.startMultiplayerGameBtn.Click += new System.EventHandler(this.StartMultiplayerGameBtn_Click);
-            this.startMultiplayerGameBtn.Paint += new System.Windows.Forms.PaintEventHandler(this.button1_Paint);
-            this.startMultiplayerGameBtn.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
-            this.startMultiplayerGameBtn.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
+            this.CreateBtn.BackColor = System.Drawing.Color.Transparent;
+            this.CreateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CreateBtn.FlatAppearance.BorderSize = 0;
+            this.CreateBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.CreateBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.CreateBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.CreateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreateBtn.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreateBtn.ForeColor = System.Drawing.Color.White;
+            this.CreateBtn.Location = new System.Drawing.Point(229, 333);
+            this.CreateBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CreateBtn.Name = "CreateBtn";
+            this.CreateBtn.Size = new System.Drawing.Size(294, 54);
+            this.CreateBtn.TabIndex = 7;
+            this.CreateBtn.UseVisualStyleBackColor = false;
+            this.CreateBtn.Click += new System.EventHandler(this.CreateBtn_Click);
+            this.CreateBtn.Paint += new System.Windows.Forms.PaintEventHandler(this.button1_Paint);
+            this.CreateBtn.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.CreateBtn.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // JoinBtn
             // 
@@ -132,7 +132,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(749, 578);
             this.Controls.Add(this.JoinBtn);
-            this.Controls.Add(this.startMultiplayerGameBtn);
+            this.Controls.Add(this.CreateBtn);
             this.Controls.Add(this.quitBtn);
             this.Controls.Add(this.startSingleplayerGameBtn);
             this.DoubleBuffered = true;
@@ -152,7 +152,7 @@
         #endregion
         private System.Windows.Forms.Button quitBtn;
         private System.Windows.Forms.Button startSingleplayerGameBtn;
-        private System.Windows.Forms.Button startMultiplayerGameBtn;
+        private System.Windows.Forms.Button CreateBtn;
         private System.Windows.Forms.Button JoinBtn;
     }
 }

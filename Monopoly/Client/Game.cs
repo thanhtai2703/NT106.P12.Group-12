@@ -628,7 +628,7 @@ namespace Client
                                         ChangeBalance(Players[1], sumOfRent);
                                         this.Invoke((MethodInvoker)delegate
                                         {
-                                           MessageBox.Show( Player1Name.Text + "pay rent for " + Player2Name.Text + sumOfRent);
+                                           currentPlayersTurn_textbox.Text =  Player1Name.Text + "pay rent for " + Player2Name.Text + sumOfRent;
                                         });
                                         break;
                                     case "Xanh":
@@ -636,7 +636,7 @@ namespace Client
                                         ChangeBalance(Players[0], sumOfRent);
                                         this.Invoke((MethodInvoker)delegate
                                         {
-                                            MessageBox.Show(Player2Name.Text + "pay rent for " + Player1Name.Text + sumOfRent);
+                                            currentPlayersTurn_textbox.Text = Player2Name.Text + "pay rent for " + Player1Name.Text + sumOfRent;
                                         });
                                         //MessageBox.Show(Player2Name.Text + "trả tiền thuê nhà cho " + Player1Name.Text + sumOfRent);
                                         break;
@@ -693,6 +693,7 @@ namespace Client
                             });
                             break;
                         case "Vị trí":
+                            if(ConnectionOptions.Room == parts[2])
                             MoveOpponentIcon(Convert.ToInt32(parts[3]),Convert.ToInt32(parts[4]));
                             break;
                     }
@@ -1045,8 +1046,8 @@ namespace Client
 
             //Ném xúc sắc 
             Random rand = new Random();
-            int firstDice = 5;//rand.Next(1, 7);
-            int secondDice = 5 ;//rand.Next(1, 7);
+            int firstDice = 2;// rand.Next(1, 7);
+            int secondDice = 2;//rand.Next(1, 7);
             Dice = firstDice + secondDice;
             //Hiển thị kết quả xức sắc 
             whatIsOnDices_textbox.Text = "Result: " + firstDice + " and " + secondDice + ". Total: " + Dice + ". ";
@@ -1144,10 +1145,10 @@ namespace Client
                 switch (CurrentPlayerId)
                 {
                     case 0:
-                        currentPlayersTurn_textbox.Text = Player1Name + ", You are in Jail \r\n, your turn will passed ";
+                        currentPlayersTurn_textbox.Text = Player1Name.Text + ", You are in Jail \r\n, your turn will passed ";
                         break;
                     case 1:
-                        currentPlayersTurn_textbox.Text = Player2Name + " You are in Jail\r\n, your turn will passed ";
+                        currentPlayersTurn_textbox.Text = Player2Name.Text + " You are in Jail\r\n, your turn will passed ";
                         break;
                 }
             }
@@ -1166,11 +1167,11 @@ namespace Client
                     ChangeBalance(Players[1], GetRent(Dice));
                     if (Gamemodes.Multiplayer)
                     {
-                        string rentMessage = "Thuê"+";"+ConnectionOptions.PlayerName + GetRent(Dice);
-                        this.Invoke((MethodInvoker)delegate
-                        {
-                            MessageBox.Show(Player2Name.Text + " pay rent for " + Player1Name.Text + ":" + GetRent(Dice));
-                        });
+                        string rentMessage = "Thuê"+";"+ConnectionOptions.PlayerName +";"+ GetRent(Dice);
+                        //this.Invoke((MethodInvoker)delegate
+                        //{
+                        //    MessageBox.Show(Player2Name.Text + " pay rent for " + Player1Name.Text + ":" + GetRent(Dice));
+                        //});
                         SendMessageToServer(rentMessage);
                     }
                     break;
@@ -1179,11 +1180,11 @@ namespace Client
                     ChangeBalance(Players[0], GetRent(Dice));
                     if (Gamemodes.Multiplayer)
                     {
-                        string rentMessage = "Thuê" + ";" + ConnectionOptions.PlayerName + GetRent(Dice);
-                        this.Invoke((MethodInvoker)delegate
-                        {
-                            MessageBox.Show(Player2Name.Text + " pay rent for " + Player1Name.Text + ":" + GetRent(Dice));
-                        });
+                        string rentMessage = "Thuê" + ";" + ConnectionOptions.PlayerName + ";"+ GetRent(Dice);
+                        //this.Invoke((MethodInvoker)delegate
+                        //{
+                        //    MessageBox.Show(Player2Name.Text + " pay rent for " + Player1Name.Text + ":" + GetRent(Dice));
+                        //});
                         SendMessageToServer(rentMessage);
                     }
                     break;
