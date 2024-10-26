@@ -436,7 +436,6 @@ namespace Client
                     //string[] parts = message.Split(new char[] { ' ', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
 
                     //Nhận được thông điệp máy chủ cả 2 ngươi chơi đều đã kết nối
-                    //if (Regex.IsMatch(message, @"Cả\s+2\s+người\s+chơi\s+đã\s+kết\s+nối:\s+\d+") && parts[parts.Length - 1] == ConnectionOptions.Room)
                     switch (parts[0])
                     {
                         case "Update":
@@ -858,11 +857,7 @@ namespace Client
 
         private void sendBt_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             messagetype = "Send";
-=======
-            messagetype = "Message";
->>>>>>> e4a0bdeaf04cf33ab309315c62e7c60712fd15df
             string message = messageTb.Text.Trim(); // loại bỏ khoảng trắng
             if (string.IsNullOrEmpty(message))
                 return;
