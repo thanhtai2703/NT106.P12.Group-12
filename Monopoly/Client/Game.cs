@@ -692,6 +692,9 @@ namespace Client
                                 Environment.Exit(0);
                             });
                             break;
+                        case "Vị trí":
+                            MoveOpponentIcon(Convert.ToInt32(parts[3]),Convert.ToInt32(parts[4]));
+                            break;
                     }
 
                     
@@ -816,7 +819,29 @@ namespace Client
             }
 
         }
-
+        private void MoveOpponentIcon(int id, int position)
+        {
+            int x, y;
+            switch(id)
+            {
+                case 0:
+                    x = Tile[position].Location.X;
+                    y = Tile[position].Location.Y;
+                    redPawnIcon.Invoke((MethodInvoker)delegate
+                    {
+                        redPawnIcon.Location = new Point(x, y);
+                    });
+                    break;
+                case 1:
+                    x = Tile[position].Location.X;
+                    y = Tile[position].Location.Y;
+                    bluePawnIcon.Invoke((MethodInvoker)delegate
+                    {
+                        bluePawnIcon.Location = new Point(x, y);
+                    });
+                    break;
+            }    
+        }
         //Phương thức di chiển biểu tượng của người chơi
         private void MoveIcon(int position)
         {
@@ -873,13 +898,16 @@ namespace Client
         //Animation di chuyển vị trí
         private async Task<int> MoveTileByTile(int from, int to)
         {
+  
             // Nếu vị trí đích nhỏ hơn 40 (nằm trong phạm vi của bảng), di chuyển từ ô hiện tại đến ô đích
             if (to < 40)
             {
                 for (var i = from; i <= to; i++)
                 {
                     await Task.Delay(150);
+                    SendMessageToServer("Vị trí" +";"+ ConnectionOptions.PlayerName + ";" + CurrentPlayerId + ";" + i);
                     MoveIcon(i);
+                    //SendMessageToServer("Vị trí" + ConnectionOptions.PlayerName + ";" + CurrentPlayerId +";" +i);
                 }
             }
             else
@@ -889,11 +917,13 @@ namespace Client
                 for (var i = from; i <= 39; i++)
                 {
                     await Task.Delay(150);
+                    SendMessageToServer("Vị trí" + ";" + ConnectionOptions.PlayerName + ";" + CurrentPlayerId + ";" + i);
                     MoveIcon(i);
                 }
                 for (var i = 0; i <= to - 40; i++)
                 {
                     await Task.Delay(150);
+                    SendMessageToServer("Vị trí" + ";" + ConnectionOptions.PlayerName + ";" + CurrentPlayerId + ";" + i);
                     MoveIcon(i);
                 }
             }
@@ -1015,8 +1045,8 @@ namespace Client
 
             //Ném xúc sắc 
             Random rand = new Random();
-            int firstDice = 2;//rand.Next(1, 7);
-            int secondDice = 2 ;//rand.Next(1, 7);
+            int firstDice = 5;//rand.Next(1, 7);
+            int secondDice = 5 ;//rand.Next(1, 7);
             Dice = firstDice + secondDice;
             //Hiển thị kết quả xức sắc 
             whatIsOnDices_textbox.Text = "Result: " + firstDice + " and " + secondDice + ". Total: " + Dice + ". ";

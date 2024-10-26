@@ -155,6 +155,9 @@ namespace Server
                             });
                             server.SendMessageToOpponentClient(message, Id);
                             break;
+                        case "Vị trí":
+                            server.SendMessageToOpponentClient(message, Id);
+                            break;
                         case "Red pawn already selected":
                             {
                                 //Khi quân cờ đỏ được chọn, gửi  thông tin đến đối thủ để vô hiệu hóa nút chọn.
