@@ -772,9 +772,9 @@
             this.sendBt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.sendBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sendBt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sendBt.Location = new System.Drawing.Point(1185, 220);
+            this.sendBt.Location = new System.Drawing.Point(1173, 220);
             this.sendBt.Name = "sendBt";
-            this.sendBt.Size = new System.Drawing.Size(49, 34);
+            this.sendBt.Size = new System.Drawing.Size(61, 34);
             this.sendBt.TabIndex = 115;
             this.sendBt.Text = "Send";
             this.sendBt.UseVisualStyleBackColor = false;
@@ -830,7 +830,7 @@
             this.timeLabel.AutoSize = true;
             this.timeLabel.Location = new System.Drawing.Point(705, 297);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(47, 20);
+            this.timeLabel.Size = new System.Drawing.Size(60, 25);
             this.timeLabel.TabIndex = 119;
             this.timeLabel.Text = "Timer";
             // 
@@ -839,7 +839,7 @@
             this.Player1Name.AutoSize = true;
             this.Player1Name.Location = new System.Drawing.Point(725, 345);
             this.Player1Name.Name = "Player1Name";
-            this.Player1Name.Size = new System.Drawing.Size(72, 20);
+            this.Player1Name.Size = new System.Drawing.Size(93, 25);
             this.Player1Name.TabIndex = 120;
             this.Player1Name.Text = "Waiting....";
             // 
@@ -848,7 +848,7 @@
             this.Player2Name.AutoSize = true;
             this.Player2Name.Location = new System.Drawing.Point(1026, 344);
             this.Player2Name.Name = "Player2Name";
-            this.Player2Name.Size = new System.Drawing.Size(72, 20);
+            this.Player2Name.Size = new System.Drawing.Size(93, 25);
             this.Player2Name.TabIndex = 121;
             this.Player2Name.Text = "Waiting....";
             // 

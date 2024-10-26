@@ -24,7 +24,7 @@ namespace Client
                 label4.Text = ConnectionOptions.BlueUserName;
             }  
             //Thiết lập giá trị mặc định cho tbColor
-            tbColor.Text = "Chưa được chọn";
+            tbColor.Text = "Not selected yet.";
 
         }
 
@@ -50,38 +50,38 @@ namespace Client
         {
             if (Regex.IsMatch(txtName.Text, @"[^a-zA-Z0-9]")) // kiểm tra tên có ký tự đặc biệt không
             {
-                MessageBox.Show("vui lòng nhập tên không có kí tự đặc biệt");
+                MessageBox.Show("Please enter a name without special characters");
             }
             else if(txtName.Text == "")
             {
-                MessageBox.Show("vui lòng nhập tên người chơi");
+                MessageBox.Show("Please enter the player’s name.");
             }    
             else
             {
                 switch (tbColor.Text)
                 {
                     //Nếu chọn màu đỏ 
-                    case "Đỏ":
+                    case "Red":
                         //Gán tên người chơi là Red 
                         ConnectionOptions.UserName = txtName.Text;
-                        ConnectionOptions.PlayerName = "Đỏ" + ";" + ConnectionOptions.Room;
+                        ConnectionOptions.PlayerName = "Red" + ";" + ConnectionOptions.Room;
                         //Close();
                         this.Hide();
                         DialogResult = DialogResult.OK;
                         break;
                     //Nếu chọn màu xanh
-                    case "Xanh":
+                    case "Blue":
                         //Gán tên người chơi là Blue
                         ConnectionOptions.UserName = txtName.Text;
-                        ConnectionOptions.PlayerName = "Xanh" + ";" + ConnectionOptions.Room;
+                        ConnectionOptions.PlayerName = "Blue" + ";" + ConnectionOptions.Room;
                         //Close();
                         this.Hide();
                         //Gắn cho DialogResult kết quả OK 
                         DialogResult = DialogResult.OK;
                         break;
-                    case "Chưa được chọn":
+                    case "Not selected yet.":
                         //Nếu chưa chọn màu thì hiển thị thông báo yêu cầu chọn màu 
-                        MessageBox.Show("Chọn màu!");
+                        MessageBox.Show("Choose a color!");
                         break;
                 }
             }
@@ -99,13 +99,13 @@ namespace Client
         private void chooseRedPlayerBtn_Click(object sender, EventArgs e)
         {
             //Cho tbColor hiển thị chữ "Red"
-            tbColor.Text = "Đỏ";
+            tbColor.Text = "Red";
         }
         //Xử lý sự kiện khi nhấn nút chọn màu đỏ
         private void chooseBluePlayerBtn_Click(object sender, EventArgs e)
         {
             //Cho tbColor hiển thị chữ "Red"
-            tbColor.Text = "Xanh";
+            tbColor.Text = "Blue";
         }
         private void Button_MouseEnter(object sender, EventArgs e)
         {

@@ -46,9 +46,9 @@
             label1.Font = new System.Drawing.Font("Elephant", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.Location = new System.Drawing.Point(164, 139);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(72, 25);
+            label1.Size = new System.Drawing.Size(82, 30);
             label1.TabIndex = 20;
-            label1.Text = "Phòng";
+            label1.Text = "Room";
             // 
             // labelIp
             // 
@@ -57,7 +57,7 @@
             labelIp.Font = new System.Drawing.Font("Elephant", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             labelIp.Location = new System.Drawing.Point(164, 204);
             labelIp.Name = "labelIp";
-            labelIp.Size = new System.Drawing.Size(37, 25);
+            labelIp.Size = new System.Drawing.Size(44, 30);
             labelIp.TabIndex = 22;
             labelIp.Text = "IP";
             // 
@@ -128,7 +128,7 @@
             // 
             // Connection
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Client.Properties.Resources.real_money_monopoly_background_free_vector;
