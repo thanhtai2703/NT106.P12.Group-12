@@ -161,5 +161,8 @@
   <ItemGroup>
     <None Include="Resources\A_bright_and_vibrant_game_menu_screen_for_Monopoly.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Game menu.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -46,10 +46,10 @@
             this.quitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.quitBtn.Font = new System.Drawing.Font("Elephant", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quitBtn.ForeColor = System.Drawing.Color.White;
-            this.quitBtn.Location = new System.Drawing.Point(130, 373);
+            this.quitBtn.Location = new System.Drawing.Point(229, 503);
             this.quitBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.quitBtn.Name = "quitBtn";
-            this.quitBtn.Size = new System.Drawing.Size(349, 47);
+            this.quitBtn.Size = new System.Drawing.Size(304, 47);
             this.quitBtn.TabIndex = 6;
             this.quitBtn.UseVisualStyleBackColor = false;
             this.quitBtn.Click += new System.EventHandler(this.QuitBtn_Click);
@@ -70,10 +70,10 @@
             this.startSingleplayerGameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startSingleplayerGameBtn.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startSingleplayerGameBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.startSingleplayerGameBtn.Location = new System.Drawing.Point(130, 138);
+            this.startSingleplayerGameBtn.Location = new System.Drawing.Point(229, 253);
             this.startSingleplayerGameBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.startSingleplayerGameBtn.Name = "startSingleplayerGameBtn";
-            this.startSingleplayerGameBtn.Size = new System.Drawing.Size(343, 45);
+            this.startSingleplayerGameBtn.Size = new System.Drawing.Size(294, 45);
             this.startSingleplayerGameBtn.TabIndex = 5;
             this.startSingleplayerGameBtn.UseVisualStyleBackColor = false;
             this.startSingleplayerGameBtn.Click += new System.EventHandler(this.StartSingleplayerGameBtn_Click);
@@ -92,10 +92,10 @@
             this.startMultiplayerGameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startMultiplayerGameBtn.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startMultiplayerGameBtn.ForeColor = System.Drawing.Color.White;
-            this.startMultiplayerGameBtn.Location = new System.Drawing.Point(136, 212);
+            this.startMultiplayerGameBtn.Location = new System.Drawing.Point(229, 333);
             this.startMultiplayerGameBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.startMultiplayerGameBtn.Name = "startMultiplayerGameBtn";
-            this.startMultiplayerGameBtn.Size = new System.Drawing.Size(343, 54);
+            this.startMultiplayerGameBtn.Size = new System.Drawing.Size(294, 54);
             this.startMultiplayerGameBtn.TabIndex = 7;
             this.startMultiplayerGameBtn.UseVisualStyleBackColor = false;
             this.startMultiplayerGameBtn.Click += new System.EventHandler(this.StartMultiplayerGameBtn_Click);
@@ -114,10 +114,10 @@
             this.JoinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.JoinBtn.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.JoinBtn.ForeColor = System.Drawing.Color.White;
-            this.JoinBtn.Location = new System.Drawing.Point(136, 288);
+            this.JoinBtn.Location = new System.Drawing.Point(229, 422);
             this.JoinBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.JoinBtn.Name = "JoinBtn";
-            this.JoinBtn.Size = new System.Drawing.Size(343, 46);
+            this.JoinBtn.Size = new System.Drawing.Size(304, 46);
             this.JoinBtn.TabIndex = 8;
             this.JoinBtn.UseVisualStyleBackColor = false;
             this.JoinBtn.Click += new System.EventHandler(this.JoinBtn_Click);
@@ -126,11 +126,11 @@
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Client.Properties.Resources.A_bright_and_vibrant_game_menu_screen_for_Monopoly;
+            this.BackgroundImage = global::Client.Properties.Resources.Game_menu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(604, 469);
+            this.ClientSize = new System.Drawing.Size(749, 578);
             this.Controls.Add(this.JoinBtn);
             this.Controls.Add(this.startMultiplayerGameBtn);
             this.Controls.Add(this.quitBtn);

@@ -124,11 +124,17 @@
   <data name="th (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\th (3).jfif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="hin05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hin05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Screenshot (24)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Screenshot (24).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="81rRTIxhz4L._AC_SL1500_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\81rRTIxhz4L._AC_SL1500_.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="A_bright_and_vibrant_game_menu_screen_for_Monopoly" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\A_bright_and_vibrant_game_menu_screen_for_Monopoly.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hin000" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hin000.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,25 +148,22 @@
   <data name="monopoly-board-games-element-background-free-vector" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\monopoly-board-games-element-background-free-vector.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bluePawn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bluePawn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hin04" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hin04.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="hin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hin02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hin02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="hin04" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hin04.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="real-money-monopoly-background-free-vector" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\real-money-monopoly-background-free-vector.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hin05" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hin05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bluePawn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bluePawn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="A_bright_and_vibrant_game_menu_screen_for_Monopoly" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\A_bright_and_vibrant_game_menu_screen_for_Monopoly.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Game menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Game menu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

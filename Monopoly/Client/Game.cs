@@ -140,7 +140,7 @@ namespace Client
                                         + "Server is not working");
                         this.InstanceDisconnect();
                     }
-
+                    ConnectionOptions.Connect = true;
                     //Tạo luồng nhận dữ liệu từ Server 
                     Thread receiveThread = new Thread(ReceiveMessage);
                     receiveThread.Start();
@@ -837,11 +837,11 @@ namespace Client
             {
                 QuitGame();
             }
-            else if (Gamemodes.Create)
+            else if (Gamemodes.Create&&ConnectionOptions.Connect)
             {
                 QuitGame();
             }
-            else
+            else if(!ConnectionOptions.Started&&ConnectionOptions.Connect)
             {
                 SendMessageToServer("Exit lobby" + ";" + ConnectionOptions.PlayerName);
                 this.InstanceDisconnect();
