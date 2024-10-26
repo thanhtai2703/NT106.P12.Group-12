@@ -160,8 +160,10 @@ namespace Client
                     //Nếu chọn Cancel thì hủy kết nối rồi quay về MainMenu chính 
                     if (colorChoosing.DialogResult is DialogResult.Cancel)
                     {
-                        messagetype = "Disconected";
-                        SendMessageToServer(messagetype + ";" + ConnectionOptions.PlayerName);
+                        if (!Gamemodes.Create)
+                            messagetype = "Disconected";
+                        else messagetype = "Exit";
+                        SendMessageToServer(messagetype + ";" + ConnectionOptions.Room);
                         this.InstanceDisconnect();
                     }
                     else this.Show();
@@ -502,14 +504,10 @@ namespace Client
                             if (parts[1] == ConnectionOptions.Room)
                             {
                                 string decodedMessage = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(parts[3]));
-                                this.Invoke(new MethodInvoker(delegate
-                                {
                                     messageRTB.Invoke((MethodInvoker)delegate
                                 {
                                             messageRTB.AppendText(parts[2] + ": "+decodedMessage+ Environment.NewLine);
                                 });
-                                    //}
-                                }));
                             }
                             break;
                         case "Exit":
@@ -777,17 +775,12 @@ namespace Client
         {
             Receiving = false;
         }
-        //Đóng ứng dụng
-        private void CloseAll()
-        {
-            Environment.Exit(0); //đóng toàn bộ ứng dụng
-        }
         //Phương thức ngắt kết nối và đóng ứng dụng
         public void InstanceDisconnect()
         {
             StopReceiving();  // Dừng luồng nhận tin nhắn
             Disconnect();  // Gọi phương thức static Disconnect
-            CloseAll();
+            Environment.Exit(0);
         }
         //Phương thức ngắt kết nối 
         private static void Disconnect()
@@ -865,7 +858,7 @@ namespace Client
 
         private void sendBt_Click(object sender, EventArgs e)
         {
-            messagetype = "Nhắn";
+            messagetype = "Send";
             string message = messageTb.Text.Trim(); // loại bỏ khoảng trắng
             if (string.IsNullOrEmpty(message))
                 return;
@@ -1232,9 +1225,6 @@ namespace Client
                     SendMessageToServer("Exit" + ";" + ConnectionOptions.Room);
                 this.InstanceDisconnect();
                 this.Close();
-
-                //MainMenu mainMenu = new MainMenu();
-                //mainMenu.ShowDialog();
             }
         }
         private void QuitGameBtn_Click(object sender, EventArgs e)

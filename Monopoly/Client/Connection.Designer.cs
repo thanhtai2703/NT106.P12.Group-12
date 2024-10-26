@@ -46,9 +46,20 @@
             label1.Font = new System.Drawing.Font("Elephant", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.Location = new System.Drawing.Point(164, 139);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(87, 30);
+            label1.Size = new System.Drawing.Size(72, 25);
             label1.TabIndex = 20;
             label1.Text = "Phòng";
+            // 
+            // labelIp
+            // 
+            labelIp.AutoSize = true;
+            labelIp.BackColor = System.Drawing.Color.Transparent;
+            labelIp.Font = new System.Drawing.Font("Elephant", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            labelIp.Location = new System.Drawing.Point(164, 204);
+            labelIp.Name = "labelIp";
+            labelIp.Size = new System.Drawing.Size(37, 25);
+            labelIp.TabIndex = 22;
+            labelIp.Text = "IP";
             // 
             // roomTb
             // 
@@ -75,7 +86,7 @@
             this.btnChooseColor.Name = "btnChooseColor";
             this.btnChooseColor.Size = new System.Drawing.Size(147, 45);
             this.btnChooseColor.TabIndex = 13;
-            this.btnChooseColor.Text = "Next";
+            this.btnChooseColor.Text = "Connect";
             this.btnChooseColor.UseVisualStyleBackColor = false;
             this.btnChooseColor.Click += new System.EventHandler(this.btnConnect_Click);
             this.btnChooseColor.Paint += new System.Windows.Forms.PaintEventHandler(this.button1_Paint);
@@ -115,20 +126,9 @@
             this.ip_textbox.TabIndex = 21;
             this.ip_textbox.Text = "127.0.0.1";
             // 
-            // labelIp
-            // 
-            labelIp.AutoSize = true;
-            labelIp.BackColor = System.Drawing.Color.Transparent;
-            labelIp.Font = new System.Drawing.Font("Elephant", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            labelIp.Location = new System.Drawing.Point(164, 204);
-            labelIp.Name = "labelIp";
-            labelIp.Size = new System.Drawing.Size(44, 30);
-            labelIp.TabIndex = 22;
-            labelIp.Text = "IP";
-            // 
             // Connection
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Client.Properties.Resources.real_money_monopoly_background_free_vector;
