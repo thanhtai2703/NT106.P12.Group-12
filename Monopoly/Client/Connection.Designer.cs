@@ -43,21 +43,23 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = System.Drawing.Color.Transparent;
-            label1.Font = new System.Drawing.Font("Elephant", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(164, 139);
+            label1.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            label1.Location = new System.Drawing.Point(125, 48);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(82, 30);
+            label1.Size = new System.Drawing.Size(104, 39);
             label1.TabIndex = 20;
-            label1.Text = "Room";
+            label1.Text = "ROOM";
             // 
             // labelIp
             // 
             labelIp.AutoSize = true;
             labelIp.BackColor = System.Drawing.Color.Transparent;
-            labelIp.Font = new System.Drawing.Font("Elephant", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            labelIp.Location = new System.Drawing.Point(164, 204);
+            labelIp.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            labelIp.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            labelIp.Location = new System.Drawing.Point(125, 181);
             labelIp.Name = "labelIp";
-            labelIp.Size = new System.Drawing.Size(44, 30);
+            labelIp.Size = new System.Drawing.Size(47, 39);
             labelIp.TabIndex = 22;
             labelIp.Text = "IP";
             // 
@@ -65,11 +67,11 @@
             // 
             this.roomTb.BackColor = System.Drawing.Color.White;
             this.roomTb.ForeColor = System.Drawing.Color.Black;
-            this.roomTb.Location = new System.Drawing.Point(169, 172);
+            this.roomTb.Location = new System.Drawing.Point(155, 99);
             this.roomTb.MaxLength = 15;
             this.roomTb.Multiline = true;
             this.roomTb.Name = "roomTb";
-            this.roomTb.Size = new System.Drawing.Size(282, 29);
+            this.roomTb.Size = new System.Drawing.Size(282, 37);
             this.roomTb.TabIndex = 14;
             // 
             // btnChooseColor
@@ -80,13 +82,13 @@
             this.btnChooseColor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnChooseColor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnChooseColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChooseColor.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChooseColor.Font = new System.Drawing.Font("Comic Sans MS", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btnChooseColor.ForeColor = System.Drawing.Color.Black;
-            this.btnChooseColor.Location = new System.Drawing.Point(320, 288);
+            this.btnChooseColor.Location = new System.Drawing.Point(341, 312);
             this.btnChooseColor.Name = "btnChooseColor";
             this.btnChooseColor.Size = new System.Drawing.Size(147, 45);
             this.btnChooseColor.TabIndex = 13;
-            this.btnChooseColor.Text = "Connect";
+            this.btnChooseColor.Text = "CONNECT";
             this.btnChooseColor.UseVisualStyleBackColor = false;
             this.btnChooseColor.Click += new System.EventHandler(this.btnConnect_Click);
             this.btnChooseColor.Paint += new System.Windows.Forms.PaintEventHandler(this.button1_Paint);
@@ -101,13 +103,13 @@
             this.returnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.returnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.returnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.returnBtn.Font = new System.Drawing.Font("Elephant", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.returnBtn.Font = new System.Drawing.Font("Comic Sans MS", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.returnBtn.ForeColor = System.Drawing.Color.Black;
-            this.returnBtn.Location = new System.Drawing.Point(144, 288);
+            this.returnBtn.Location = new System.Drawing.Point(132, 311);
             this.returnBtn.Name = "returnBtn";
             this.returnBtn.Size = new System.Drawing.Size(146, 45);
             this.returnBtn.TabIndex = 19;
-            this.returnBtn.Text = "Back";
+            this.returnBtn.Text = "BACK";
             this.returnBtn.UseVisualStyleBackColor = false;
             this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
             this.returnBtn.Paint += new System.Windows.Forms.PaintEventHandler(this.button1_Paint);
@@ -118,20 +120,20 @@
             // 
             this.ip_textbox.BackColor = System.Drawing.Color.White;
             this.ip_textbox.ForeColor = System.Drawing.Color.Black;
-            this.ip_textbox.Location = new System.Drawing.Point(169, 237);
+            this.ip_textbox.Location = new System.Drawing.Point(155, 234);
             this.ip_textbox.MaxLength = 15;
             this.ip_textbox.Multiline = true;
             this.ip_textbox.Name = "ip_textbox";
-            this.ip_textbox.Size = new System.Drawing.Size(282, 29);
+            this.ip_textbox.Size = new System.Drawing.Size(282, 37);
             this.ip_textbox.TabIndex = 21;
             this.ip_textbox.Text = "127.0.0.1";
             // 
             // Connection
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::Client.Properties.Resources.real_money_monopoly_background_free_vector;
+            this.BackgroundImage = global::Client.Properties.Resources.download1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(587, 398);
             this.Controls.Add(labelIp);

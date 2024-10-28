@@ -1246,6 +1246,8 @@ namespace Client
             else 
                 currentPlayersTurn_textbox.Text = "You can't do that";
         }
+
+
         private void QuitGame()
         {
             if (MessageBox.Show("Are you want to exit", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

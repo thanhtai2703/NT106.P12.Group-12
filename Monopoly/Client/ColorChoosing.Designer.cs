@@ -49,7 +49,7 @@
             this.chooseBluePlayerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chooseBluePlayerBtn.FlatAppearance.BorderSize = 0;
             this.chooseBluePlayerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.chooseBluePlayerBtn.Location = new System.Drawing.Point(412, 95);
+            this.chooseBluePlayerBtn.Location = new System.Drawing.Point(486, 92);
             this.chooseBluePlayerBtn.Name = "chooseBluePlayerBtn";
             this.chooseBluePlayerBtn.Size = new System.Drawing.Size(150, 172);
             this.chooseBluePlayerBtn.TabIndex = 30;
@@ -65,7 +65,7 @@
             this.chooseRedPlayerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chooseRedPlayerBtn.FlatAppearance.BorderSize = 0;
             this.chooseRedPlayerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.chooseRedPlayerBtn.Location = new System.Drawing.Point(12, 95);
+            this.chooseRedPlayerBtn.Location = new System.Drawing.Point(64, 92);
             this.chooseRedPlayerBtn.Name = "chooseRedPlayerBtn";
             this.chooseRedPlayerBtn.Size = new System.Drawing.Size(157, 172);
             this.chooseRedPlayerBtn.TabIndex = 29;
@@ -75,17 +75,17 @@
             // 
             // returnBtn
             // 
-            this.returnBtn.BackColor = System.Drawing.Color.White;
+            this.returnBtn.BackColor = System.Drawing.Color.WhiteSmoke;
             this.returnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.returnBtn.FlatAppearance.BorderSize = 0;
             this.returnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.returnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.returnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.returnBtn.Font = new System.Drawing.Font("Elephant", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.returnBtn.Font = new System.Drawing.Font("Comic Sans MS", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.returnBtn.ForeColor = System.Drawing.Color.Black;
-            this.returnBtn.Location = new System.Drawing.Point(186, 323);
+            this.returnBtn.Location = new System.Drawing.Point(166, 334);
             this.returnBtn.Name = "returnBtn";
-            this.returnBtn.Size = new System.Drawing.Size(124, 33);
+            this.returnBtn.Size = new System.Drawing.Size(124, 37);
             this.returnBtn.TabIndex = 28;
             this.returnBtn.Text = "Exit";
             this.returnBtn.UseVisualStyleBackColor = false;
@@ -96,17 +96,17 @@
             // 
             // connect_button
             // 
-            this.connect_button.BackColor = System.Drawing.Color.White;
+            this.connect_button.BackColor = System.Drawing.Color.WhiteSmoke;
             this.connect_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.connect_button.FlatAppearance.BorderSize = 0;
             this.connect_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.connect_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.connect_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.connect_button.Font = new System.Drawing.Font("Elephant", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.connect_button.Font = new System.Drawing.Font("Comic Sans MS", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.connect_button.ForeColor = System.Drawing.Color.Black;
-            this.connect_button.Location = new System.Drawing.Point(316, 323);
+            this.connect_button.Location = new System.Drawing.Point(370, 334);
             this.connect_button.Name = "connect_button";
-            this.connect_button.Size = new System.Drawing.Size(124, 33);
+            this.connect_button.Size = new System.Drawing.Size(124, 37);
             this.connect_button.TabIndex = 24;
             this.connect_button.Text = "Connect";
             this.connect_button.UseVisualStyleBackColor = false;
@@ -117,73 +117,79 @@
             // 
             // tbColor
             // 
+            this.tbColor.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbColor.Enabled = false;
-            this.tbColor.Location = new System.Drawing.Point(216, 196);
+            this.tbColor.Location = new System.Drawing.Point(280, 227);
             this.tbColor.Multiline = true;
             this.tbColor.Name = "tbColor";
-            this.tbColor.Size = new System.Drawing.Size(151, 22);
+            this.tbColor.Size = new System.Drawing.Size(151, 37);
             this.tbColor.TabIndex = 31;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(226, 35);
+            this.label1.Location = new System.Drawing.Point(249, 161);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 21);
+            this.label1.Size = new System.Drawing.Size(209, 35);
             this.label1.TabIndex = 32;
-            this.label1.Text = "Choose Color";
+            this.label1.Text = "CHOOSE COLOR";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label2.Location = new System.Drawing.Point(212, 97);
+            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(208, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 18);
+            this.label2.Size = new System.Drawing.Size(286, 35);
             this.label2.TabIndex = 34;
-            this.label2.Text = "Enter your name.";
+            this.label2.Text = "Please enter your name";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(216, 123);
+            this.txtName.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtName.Location = new System.Drawing.Point(280, 92);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(151, 27);
+            this.txtName.Size = new System.Drawing.Size(151, 37);
             this.txtName.TabIndex = 35;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.IndianRed;
-            this.label3.Location = new System.Drawing.Point(30, 279);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(32, 284);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 20);
+            this.label3.Size = new System.Drawing.Size(223, 35);
             this.label3.TabIndex = 36;
             this.label3.Text = "Not chosen yet...";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.label4.Location = new System.Drawing.Point(420, 279);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(453, 288);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(117, 20);
+            this.label4.Size = new System.Drawing.Size(223, 35);
             this.label4.TabIndex = 37;
             this.label4.Text = "Not chosen yet...";
             // 
             // ColorChoosing
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::Client.Properties.Resources.monopoly_board_games_element_background_free_vector;
+            this.BackgroundImage = global::Client.Properties.Resources.download;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(583, 394);
+            this.ClientSize = new System.Drawing.Size(692, 394);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtName);

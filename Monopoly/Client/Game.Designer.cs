@@ -214,11 +214,11 @@
             this.bluePlayerStatusBox_richtextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bluePlayerStatusBox_richtextbox.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bluePlayerStatusBox_richtextbox.ForeColor = System.Drawing.Color.Black;
-            this.bluePlayerStatusBox_richtextbox.Location = new System.Drawing.Point(1045, 297);
+            this.bluePlayerStatusBox_richtextbox.Location = new System.Drawing.Point(1036, 311);
             this.bluePlayerStatusBox_richtextbox.Margin = new System.Windows.Forms.Padding(0);
             this.bluePlayerStatusBox_richtextbox.Name = "bluePlayerStatusBox_richtextbox";
             this.bluePlayerStatusBox_richtextbox.ReadOnly = true;
-            this.bluePlayerStatusBox_richtextbox.Size = new System.Drawing.Size(157, 132);
+            this.bluePlayerStatusBox_richtextbox.Size = new System.Drawing.Size(168, 118);
             this.bluePlayerStatusBox_richtextbox.TabIndex = 58;
             this.bluePlayerStatusBox_richtextbox.Text = "";
             // 
@@ -228,12 +228,12 @@
             this.redPlayerStatusBox_richtextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.redPlayerStatusBox_richtextbox.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.redPlayerStatusBox_richtextbox.ForeColor = System.Drawing.Color.Black;
-            this.redPlayerStatusBox_richtextbox.Location = new System.Drawing.Point(804, 303);
+            this.redPlayerStatusBox_richtextbox.Location = new System.Drawing.Point(797, 311);
             this.redPlayerStatusBox_richtextbox.Margin = new System.Windows.Forms.Padding(0);
             this.redPlayerStatusBox_richtextbox.Name = "redPlayerStatusBox_richtextbox";
             this.redPlayerStatusBox_richtextbox.ReadOnly = true;
             this.redPlayerStatusBox_richtextbox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.redPlayerStatusBox_richtextbox.Size = new System.Drawing.Size(166, 126);
+            this.redPlayerStatusBox_richtextbox.Size = new System.Drawing.Size(176, 118);
             this.redPlayerStatusBox_richtextbox.TabIndex = 57;
             this.redPlayerStatusBox_richtextbox.Text = "";
             // 
@@ -644,7 +644,7 @@
             this.redDot_picturebox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("redDot_picturebox.BackgroundImage")));
             this.redDot_picturebox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.redDot_picturebox.Cursor = System.Windows.Forms.Cursors.Default;
-            this.redDot_picturebox.Location = new System.Drawing.Point(944, 286);
+            this.redDot_picturebox.Location = new System.Drawing.Point(943, 285);
             this.redDot_picturebox.Margin = new System.Windows.Forms.Padding(0);
             this.redDot_picturebox.Name = "redDot_picturebox";
             this.redDot_picturebox.Size = new System.Drawing.Size(30, 30);
@@ -658,7 +658,7 @@
             this.blueDot_picturebox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("blueDot_picturebox.BackgroundImage")));
             this.blueDot_picturebox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.blueDot_picturebox.Cursor = System.Windows.Forms.Cursors.Default;
-            this.blueDot_picturebox.Location = new System.Drawing.Point(1184, 286);
+            this.blueDot_picturebox.Location = new System.Drawing.Point(1182, 285);
             this.blueDot_picturebox.Margin = new System.Windows.Forms.Padding(0);
             this.blueDot_picturebox.Name = "blueDot_picturebox";
             this.blueDot_picturebox.Size = new System.Drawing.Size(30, 30);
@@ -701,11 +701,12 @@
             // 
             // colorLb
             // 
+            this.colorLb.BackColor = System.Drawing.Color.Transparent;
             this.colorLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colorLb.ForeColor = System.Drawing.Color.Yellow;
-            this.colorLb.Location = new System.Drawing.Point(1149, 9);
+            this.colorLb.Location = new System.Drawing.Point(1074, 35);
             this.colorLb.Name = "colorLb";
-            this.colorLb.Size = new System.Drawing.Size(96, 20);
+            this.colorLb.Size = new System.Drawing.Size(116, 25);
             this.colorLb.TabIndex = 117;
             this.colorLb.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -718,13 +719,14 @@
             this.Startbtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.Startbtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.Startbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Startbtn.Font = new System.Drawing.Font("Times New Roman", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Startbtn.Location = new System.Drawing.Point(495, 412);
+            this.Startbtn.Font = new System.Drawing.Font("Comic Sans MS", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Startbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Startbtn.Location = new System.Drawing.Point(512, 375);
             this.Startbtn.Margin = new System.Windows.Forms.Padding(0);
             this.Startbtn.Name = "Startbtn";
             this.Startbtn.Size = new System.Drawing.Size(84, 37);
             this.Startbtn.TabIndex = 118;
-            this.Startbtn.Text = "Start";
+            this.Startbtn.Text = "START";
             this.Startbtn.UseVisualStyleBackColor = false;
             this.Startbtn.Click += new System.EventHandler(this.Startbtn_Click);
             // 
@@ -736,10 +738,11 @@
             // 
             this.timeLabel.AutoSize = true;
             this.timeLabel.BackColor = System.Drawing.Color.Transparent;
-            this.timeLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeLabel.Location = new System.Drawing.Point(177, 189);
+            this.timeLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.timeLabel.Location = new System.Drawing.Point(173, 186);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(69, 24);
+            this.timeLabel.Size = new System.Drawing.Size(80, 33);
             this.timeLabel.TabIndex = 119;
             this.timeLabel.Text = "Timer";
             // 
@@ -747,10 +750,11 @@
             // 
             this.Player1Name.AutoSize = true;
             this.Player1Name.BackColor = System.Drawing.Color.Transparent;
-            this.Player1Name.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Player1Name.Location = new System.Drawing.Point(800, 266);
+            this.Player1Name.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Player1Name.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Player1Name.Location = new System.Drawing.Point(803, 282);
             this.Player1Name.Name = "Player1Name";
-            this.Player1Name.Size = new System.Drawing.Size(79, 20);
+            this.Player1Name.Size = new System.Drawing.Size(123, 29);
             this.Player1Name.TabIndex = 120;
             this.Player1Name.Text = "Waiting....";
             // 
@@ -758,10 +762,11 @@
             // 
             this.Player2Name.AutoSize = true;
             this.Player2Name.BackColor = System.Drawing.Color.Transparent;
-            this.Player2Name.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Player2Name.Location = new System.Drawing.Point(1041, 266);
+            this.Player2Name.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Player2Name.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Player2Name.Location = new System.Drawing.Point(1041, 282);
             this.Player2Name.Name = "Player2Name";
-            this.Player2Name.Size = new System.Drawing.Size(79, 20);
+            this.Player2Name.Size = new System.Drawing.Size(123, 29);
             this.Player2Name.TabIndex = 121;
             this.Player2Name.Text = "Waiting....";
             // 
@@ -776,14 +781,14 @@
             this.throwDiceBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.throwDiceBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.throwDiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.throwDiceBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.throwDiceBtn.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.throwDiceBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.throwDiceBtn.Location = new System.Drawing.Point(251, 400);
+            this.throwDiceBtn.Location = new System.Drawing.Point(256, 402);
             this.throwDiceBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.throwDiceBtn.Name = "throwDiceBtn";
             this.throwDiceBtn.Size = new System.Drawing.Size(214, 52);
             this.throwDiceBtn.TabIndex = 122;
-            this.throwDiceBtn.Text = "ThrowDice";
+            this.throwDiceBtn.Text = "THROW DICE";
             this.throwDiceBtn.UseVisualStyleBackColor = false;
             this.throwDiceBtn.Click += new System.EventHandler(this.ThrowDiceBtn_Click);
             // 
@@ -796,9 +801,9 @@
             this.buyBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buyBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buyBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.buyBtn.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buyBtn.ForeColor = System.Drawing.Color.White;
-            this.buyBtn.Location = new System.Drawing.Point(266, 480);
+            this.buyBtn.Location = new System.Drawing.Point(266, 482);
             this.buyBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buyBtn.Name = "buyBtn";
             this.buyBtn.Size = new System.Drawing.Size(76, 41);
@@ -816,14 +821,14 @@
             this.endTurnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.endTurnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.endTurnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.endTurnBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.endTurnBtn.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endTurnBtn.ForeColor = System.Drawing.Color.White;
-            this.endTurnBtn.Location = new System.Drawing.Point(368, 480);
+            this.endTurnBtn.Location = new System.Drawing.Point(369, 464);
             this.endTurnBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.endTurnBtn.Name = "endTurnBtn";
-            this.endTurnBtn.Size = new System.Drawing.Size(110, 47);
+            this.endTurnBtn.Size = new System.Drawing.Size(110, 79);
             this.endTurnBtn.TabIndex = 124;
-            this.endTurnBtn.Text = "End Turn";
+            this.endTurnBtn.Text = "END TURN";
             this.endTurnBtn.UseVisualStyleBackColor = false;
             this.endTurnBtn.Click += new System.EventHandler(this.EndTurnBtn_Click);
             // 
@@ -838,14 +843,14 @@
             this.quitGameBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.quitGameBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.quitGameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.quitGameBtn.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitGameBtn.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quitGameBtn.ForeColor = System.Drawing.Color.Transparent;
             this.quitGameBtn.Location = new System.Drawing.Point(512, 134);
             this.quitGameBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.quitGameBtn.Name = "quitGameBtn";
-            this.quitGameBtn.Size = new System.Drawing.Size(67, 46);
+            this.quitGameBtn.Size = new System.Drawing.Size(67, 57);
             this.quitGameBtn.TabIndex = 125;
-            this.quitGameBtn.Text = "Quit Game";
+            this.quitGameBtn.Text = "Quit \r\nGame\r\n\r\n";
             this.quitGameBtn.UseVisualStyleBackColor = false;
             this.quitGameBtn.Click += new System.EventHandler(this.QuitGameBtn_Click);
             // 
@@ -860,9 +865,9 @@
             this.sendBt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.sendBt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.sendBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sendBt.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendBt.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sendBt.ForeColor = System.Drawing.Color.Transparent;
-            this.sendBt.Location = new System.Drawing.Point(1153, 599);
+            this.sendBt.Location = new System.Drawing.Point(1154, 597);
             this.sendBt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.sendBt.Name = "sendBt";
             this.sendBt.Size = new System.Drawing.Size(67, 45);
