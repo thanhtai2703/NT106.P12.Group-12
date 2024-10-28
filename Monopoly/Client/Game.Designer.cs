@@ -689,7 +689,7 @@
             // 
             // messageRTB
             // 
-            this.messageRTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(216)))), ((int)(((byte)(201)))));
+            this.messageRTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(204)))), ((int)(((byte)(183)))));
             this.messageRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.messageRTB.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.messageRTB.Location = new System.Drawing.Point(775, 468);
@@ -737,7 +737,7 @@
             this.timeLabel.AutoSize = true;
             this.timeLabel.BackColor = System.Drawing.Color.Transparent;
             this.timeLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeLabel.Location = new System.Drawing.Point(209, 189);
+            this.timeLabel.Location = new System.Drawing.Point(177, 189);
             this.timeLabel.Name = "timeLabel";
             this.timeLabel.Size = new System.Drawing.Size(69, 24);
             this.timeLabel.TabIndex = 119;
@@ -798,10 +798,10 @@
             this.buyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buyBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
             this.buyBtn.ForeColor = System.Drawing.Color.White;
-            this.buyBtn.Location = new System.Drawing.Point(251, 480);
+            this.buyBtn.Location = new System.Drawing.Point(266, 480);
             this.buyBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buyBtn.Name = "buyBtn";
-            this.buyBtn.Size = new System.Drawing.Size(91, 41);
+            this.buyBtn.Size = new System.Drawing.Size(76, 41);
             this.buyBtn.TabIndex = 123;
             this.buyBtn.Text = "BUY";
             this.buyBtn.UseVisualStyleBackColor = false;
