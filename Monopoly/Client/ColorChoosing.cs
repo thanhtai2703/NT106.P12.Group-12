@@ -48,9 +48,9 @@ namespace Client
         }
         private void connect_button_Click(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(txtName.Text, @"[^a-zA-Z0-9]")) // kiểm tra tên có ký tự đặc biệt không
+            if (Regex.IsMatch(txtName.Text, @"[^\p{L}\p{N}\s]"))
             {
-                MessageBox.Show("Please enter a name without special characters");
+                MessageBox.Show("Please enter a name without special characters.");
             }
             else if(txtName.Text == "")
             {

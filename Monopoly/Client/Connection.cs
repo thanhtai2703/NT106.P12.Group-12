@@ -12,7 +12,9 @@ namespace Client
     {
         public Connection()
         {
+            
             InitializeComponent();
+            roomTb.MaxLength = 5;
         }
         //Khi nhấn nút Connect 
         private void btnConnect_Click(object sender, EventArgs e)

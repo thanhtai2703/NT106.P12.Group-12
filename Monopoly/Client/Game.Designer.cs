@@ -35,9 +35,6 @@
             this.currentPositionInfo_richtextbox = new System.Windows.Forms.RichTextBox();
             this.currentPlayersTurn_textbox = new System.Windows.Forms.TextBox();
             this.whatIsOnDices_textbox = new System.Windows.Forms.TextBox();
-            this.endTurnBtn = new System.Windows.Forms.Button();
-            this.quitGameBtn = new System.Windows.Forms.Button();
-            this.buyBtn = new System.Windows.Forms.Button();
             this.bluePlayerStatusBox_richtextbox = new System.Windows.Forms.RichTextBox();
             this.redPlayerStatusBox_richtextbox = new System.Windows.Forms.RichTextBox();
             this.tile0 = new System.Windows.Forms.PictureBox();
@@ -84,7 +81,6 @@
             this.blueDot_picturebox = new System.Windows.Forms.PictureBox();
             this.pbControlMenu = new System.Windows.Forms.PictureBox();
             this.messageTb = new System.Windows.Forms.TextBox();
-            this.sendBt = new System.Windows.Forms.Button();
             this.messageRTB = new System.Windows.Forms.RichTextBox();
             this.colorLb = new System.Windows.Forms.Label();
             this.Startbtn = new System.Windows.Forms.Button();
@@ -93,6 +89,10 @@
             this.Player1Name = new System.Windows.Forms.Label();
             this.Player2Name = new System.Windows.Forms.Label();
             this.throwDiceBtn = new System.Windows.Forms.Button();
+            this.buyBtn = new System.Windows.Forms.Button();
+            this.endTurnBtn = new System.Windows.Forms.Button();
+            this.quitGameBtn = new System.Windows.Forms.Button();
+            this.sendBt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.redPawnIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bluePawnIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tile0)).BeginInit();
@@ -167,15 +167,15 @@
             // 
             // currentPositionInfo_richtextbox
             // 
-            this.currentPositionInfo_richtextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(152)))), ((int)(((byte)(124)))));
+            this.currentPositionInfo_richtextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(119)))), ((int)(((byte)(84)))));
             this.currentPositionInfo_richtextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.currentPositionInfo_richtextbox.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.currentPositionInfo_richtextbox.ForeColor = System.Drawing.Color.Black;
-            this.currentPositionInfo_richtextbox.Location = new System.Drawing.Point(932, 75);
+            this.currentPositionInfo_richtextbox.Location = new System.Drawing.Point(944, 86);
             this.currentPositionInfo_richtextbox.Margin = new System.Windows.Forms.Padding(0);
             this.currentPositionInfo_richtextbox.Name = "currentPositionInfo_richtextbox";
             this.currentPositionInfo_richtextbox.ReadOnly = true;
-            this.currentPositionInfo_richtextbox.Size = new System.Drawing.Size(235, 105);
+            this.currentPositionInfo_richtextbox.Size = new System.Drawing.Size(246, 105);
             this.currentPositionInfo_richtextbox.TabIndex = 65;
             this.currentPositionInfo_richtextbox.Text = "";
             // 
@@ -186,112 +186,54 @@
             this.currentPlayersTurn_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.currentPlayersTurn_textbox.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.currentPlayersTurn_textbox.ForeColor = System.Drawing.Color.Black;
-            this.currentPlayersTurn_textbox.Location = new System.Drawing.Point(757, 216);
+            this.currentPlayersTurn_textbox.Location = new System.Drawing.Point(778, 222);
             this.currentPlayersTurn_textbox.Margin = new System.Windows.Forms.Padding(0);
             this.currentPlayersTurn_textbox.Multiline = true;
             this.currentPlayersTurn_textbox.Name = "currentPlayersTurn_textbox";
             this.currentPlayersTurn_textbox.ReadOnly = true;
-            this.currentPlayersTurn_textbox.Size = new System.Drawing.Size(446, 34);
+            this.currentPlayersTurn_textbox.Size = new System.Drawing.Size(436, 29);
             this.currentPlayersTurn_textbox.TabIndex = 64;
             // 
             // whatIsOnDices_textbox
             // 
             this.whatIsOnDices_textbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(119)))), ((int)(((byte)(84)))));
             this.whatIsOnDices_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.whatIsOnDices_textbox.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.whatIsOnDices_textbox.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.whatIsOnDices_textbox.ForeColor = System.Drawing.Color.Black;
-            this.whatIsOnDices_textbox.Location = new System.Drawing.Point(807, 75);
+            this.whatIsOnDices_textbox.Location = new System.Drawing.Point(813, 89);
             this.whatIsOnDices_textbox.Margin = new System.Windows.Forms.Padding(0);
             this.whatIsOnDices_textbox.Multiline = true;
             this.whatIsOnDices_textbox.Name = "whatIsOnDices_textbox";
             this.whatIsOnDices_textbox.ReadOnly = true;
-            this.whatIsOnDices_textbox.Size = new System.Drawing.Size(85, 105);
+            this.whatIsOnDices_textbox.Size = new System.Drawing.Size(94, 91);
             this.whatIsOnDices_textbox.TabIndex = 63;
-            // 
-            // endTurnBtn
-            // 
-            this.endTurnBtn.BackColor = System.Drawing.Color.Transparent;
-            this.endTurnBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.endTurnBtn.FlatAppearance.BorderSize = 2;
-            this.endTurnBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
-            this.endTurnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
-            this.endTurnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.endTurnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.endTurnBtn.Font = new System.Drawing.Font("Times New Roman", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.endTurnBtn.Location = new System.Drawing.Point(369, 477);
-            this.endTurnBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.endTurnBtn.Name = "endTurnBtn";
-            this.endTurnBtn.Size = new System.Drawing.Size(96, 46);
-            this.endTurnBtn.TabIndex = 3;
-            this.endTurnBtn.Text = "Kết thúc\r\nlượt\r\n";
-            this.endTurnBtn.UseVisualStyleBackColor = false;
-            this.endTurnBtn.Click += new System.EventHandler(this.EndTurnBtn_Click);
-            // 
-            // quitGameBtn
-            // 
-            this.quitGameBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(176)))), ((int)(((byte)(193)))));
-            this.quitGameBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.quitGameBtn.FlatAppearance.BorderSize = 2;
-            this.quitGameBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
-            this.quitGameBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
-            this.quitGameBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.quitGameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.quitGameBtn.Font = new System.Drawing.Font("Times New Roman", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quitGameBtn.Location = new System.Drawing.Point(477, 143);
-            this.quitGameBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.quitGameBtn.Name = "quitGameBtn";
-            this.quitGameBtn.Size = new System.Drawing.Size(96, 46);
-            this.quitGameBtn.TabIndex = 4;
-            this.quitGameBtn.Text = "Kết thúc \r\ngame\r\n";
-            this.quitGameBtn.UseVisualStyleBackColor = false;
-            this.quitGameBtn.Click += new System.EventHandler(this.QuitGameBtn_Click);
-            // 
-            // buyBtn
-            // 
-            this.buyBtn.BackColor = System.Drawing.Color.Transparent;
-            this.buyBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buyBtn.FlatAppearance.BorderSize = 2;
-            this.buyBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
-            this.buyBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
-            this.buyBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.buyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buyBtn.Font = new System.Drawing.Font("Times New Roman", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buyBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.buyBtn.Location = new System.Drawing.Point(251, 477);
-            this.buyBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.buyBtn.Name = "buyBtn";
-            this.buyBtn.Size = new System.Drawing.Size(96, 42);
-            this.buyBtn.TabIndex = 2;
-            this.buyBtn.Text = "Buy";
-            this.buyBtn.UseVisualStyleBackColor = false;
-            this.buyBtn.Click += new System.EventHandler(this.BuyBtn_Click);
             // 
             // bluePlayerStatusBox_richtextbox
             // 
-            this.bluePlayerStatusBox_richtextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(164)))), ((int)(((byte)(139)))));
+            this.bluePlayerStatusBox_richtextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(119)))), ((int)(((byte)(84)))));
             this.bluePlayerStatusBox_richtextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bluePlayerStatusBox_richtextbox.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bluePlayerStatusBox_richtextbox.ForeColor = System.Drawing.Color.Black;
-            this.bluePlayerStatusBox_richtextbox.Location = new System.Drawing.Point(1011, 297);
+            this.bluePlayerStatusBox_richtextbox.Location = new System.Drawing.Point(1045, 297);
             this.bluePlayerStatusBox_richtextbox.Margin = new System.Windows.Forms.Padding(0);
             this.bluePlayerStatusBox_richtextbox.Name = "bluePlayerStatusBox_richtextbox";
             this.bluePlayerStatusBox_richtextbox.ReadOnly = true;
-            this.bluePlayerStatusBox_richtextbox.Size = new System.Drawing.Size(179, 116);
+            this.bluePlayerStatusBox_richtextbox.Size = new System.Drawing.Size(157, 132);
             this.bluePlayerStatusBox_richtextbox.TabIndex = 58;
             this.bluePlayerStatusBox_richtextbox.Text = "";
             // 
             // redPlayerStatusBox_richtextbox
             // 
-            this.redPlayerStatusBox_richtextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(164)))), ((int)(((byte)(139)))));
+            this.redPlayerStatusBox_richtextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(119)))), ((int)(((byte)(84)))));
             this.redPlayerStatusBox_richtextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.redPlayerStatusBox_richtextbox.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.redPlayerStatusBox_richtextbox.ForeColor = System.Drawing.Color.Black;
-            this.redPlayerStatusBox_richtextbox.Location = new System.Drawing.Point(780, 303);
+            this.redPlayerStatusBox_richtextbox.Location = new System.Drawing.Point(804, 303);
             this.redPlayerStatusBox_richtextbox.Margin = new System.Windows.Forms.Padding(0);
             this.redPlayerStatusBox_richtextbox.Name = "redPlayerStatusBox_richtextbox";
             this.redPlayerStatusBox_richtextbox.ReadOnly = true;
             this.redPlayerStatusBox_richtextbox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.redPlayerStatusBox_richtextbox.Size = new System.Drawing.Size(174, 109);
+            this.redPlayerStatusBox_richtextbox.Size = new System.Drawing.Size(166, 126);
             this.redPlayerStatusBox_richtextbox.TabIndex = 57;
             this.redPlayerStatusBox_richtextbox.Text = "";
             // 
@@ -301,77 +243,77 @@
             this.tile0.Location = new System.Drawing.Point(607, 576);
             this.tile0.Margin = new System.Windows.Forms.Padding(0);
             this.tile0.Name = "tile0";
-            this.tile0.Size = new System.Drawing.Size(94, 87);
+            this.tile0.Size = new System.Drawing.Size(112, 87);
             this.tile0.TabIndex = 68;
             this.tile0.TabStop = false;
             // 
             // tile9
             // 
             this.tile9.BackColor = System.Drawing.Color.Transparent;
-            this.tile9.Location = new System.Drawing.Point(94, 575);
+            this.tile9.Location = new System.Drawing.Point(113, 575);
             this.tile9.Margin = new System.Windows.Forms.Padding(0);
             this.tile9.Name = "tile9";
-            this.tile9.Size = new System.Drawing.Size(57, 89);
+            this.tile9.Size = new System.Drawing.Size(52, 89);
             this.tile9.TabIndex = 77;
             this.tile9.TabStop = false;
             // 
             // tile8
             // 
             this.tile8.BackColor = System.Drawing.Color.Transparent;
-            this.tile8.Location = new System.Drawing.Point(151, 577);
+            this.tile8.Location = new System.Drawing.Point(170, 577);
             this.tile8.Margin = new System.Windows.Forms.Padding(0);
             this.tile8.Name = "tile8";
-            this.tile8.Size = new System.Drawing.Size(57, 89);
+            this.tile8.Size = new System.Drawing.Size(52, 89);
             this.tile8.TabIndex = 76;
             this.tile8.TabStop = false;
             // 
             // tile7
             // 
             this.tile7.BackColor = System.Drawing.Color.Transparent;
-            this.tile7.Location = new System.Drawing.Point(207, 574);
+            this.tile7.Location = new System.Drawing.Point(226, 574);
             this.tile7.Margin = new System.Windows.Forms.Padding(0);
             this.tile7.Name = "tile7";
-            this.tile7.Size = new System.Drawing.Size(57, 89);
+            this.tile7.Size = new System.Drawing.Size(52, 89);
             this.tile7.TabIndex = 75;
             this.tile7.TabStop = false;
             // 
             // tile6
             // 
             this.tile6.BackColor = System.Drawing.Color.Transparent;
-            this.tile6.Location = new System.Drawing.Point(266, 575);
+            this.tile6.Location = new System.Drawing.Point(278, 575);
             this.tile6.Margin = new System.Windows.Forms.Padding(0);
             this.tile6.Name = "tile6";
-            this.tile6.Size = new System.Drawing.Size(57, 89);
+            this.tile6.Size = new System.Drawing.Size(52, 89);
             this.tile6.TabIndex = 74;
             this.tile6.TabStop = false;
             // 
             // tile5
             // 
             this.tile5.BackColor = System.Drawing.Color.Transparent;
-            this.tile5.Location = new System.Drawing.Point(323, 575);
+            this.tile5.Location = new System.Drawing.Point(338, 577);
             this.tile5.Margin = new System.Windows.Forms.Padding(0);
             this.tile5.Name = "tile5";
-            this.tile5.Size = new System.Drawing.Size(57, 89);
+            this.tile5.Size = new System.Drawing.Size(52, 89);
             this.tile5.TabIndex = 73;
             this.tile5.TabStop = false;
             // 
             // tile4
             // 
             this.tile4.BackColor = System.Drawing.Color.Transparent;
-            this.tile4.Location = new System.Drawing.Point(379, 574);
+            this.tile4.Location = new System.Drawing.Point(390, 577);
             this.tile4.Margin = new System.Windows.Forms.Padding(0);
             this.tile4.Name = "tile4";
-            this.tile4.Size = new System.Drawing.Size(57, 89);
+            this.tile4.Size = new System.Drawing.Size(52, 89);
             this.tile4.TabIndex = 72;
             this.tile4.TabStop = false;
             // 
             // tile3
             // 
             this.tile3.BackColor = System.Drawing.Color.Transparent;
-            this.tile3.Location = new System.Drawing.Point(436, 575);
+            this.tile3.Location = new System.Drawing.Point(443, 576);
             this.tile3.Margin = new System.Windows.Forms.Padding(0);
             this.tile3.Name = "tile3";
-            this.tile3.Size = new System.Drawing.Size(57, 89);
+            this.tile3.Size = new System.Drawing.Size(52, 89);
             this.tile3.TabIndex = 71;
             this.tile3.TabStop = false;
             // 
@@ -379,20 +321,20 @@
             // 
             this.tile2.BackColor = System.Drawing.Color.Transparent;
             this.tile2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tile2.Location = new System.Drawing.Point(493, 575);
+            this.tile2.Location = new System.Drawing.Point(500, 577);
             this.tile2.Margin = new System.Windows.Forms.Padding(0);
             this.tile2.Name = "tile2";
-            this.tile2.Size = new System.Drawing.Size(57, 89);
+            this.tile2.Size = new System.Drawing.Size(52, 89);
             this.tile2.TabIndex = 70;
             this.tile2.TabStop = false;
             // 
             // tile1
             // 
             this.tile1.BackColor = System.Drawing.Color.Transparent;
-            this.tile1.Location = new System.Drawing.Point(550, 574);
+            this.tile1.Location = new System.Drawing.Point(555, 577);
             this.tile1.Margin = new System.Windows.Forms.Padding(0);
             this.tile1.Name = "tile1";
-            this.tile1.Size = new System.Drawing.Size(57, 89);
+            this.tile1.Size = new System.Drawing.Size(52, 89);
             this.tile1.TabIndex = 69;
             this.tile1.TabStop = false;
             // 
@@ -402,47 +344,47 @@
             this.tile20.Location = new System.Drawing.Point(-1, 0);
             this.tile20.Margin = new System.Windows.Forms.Padding(0);
             this.tile20.Name = "tile20";
-            this.tile20.Size = new System.Drawing.Size(94, 87);
+            this.tile20.Size = new System.Drawing.Size(94, 89);
             this.tile20.TabIndex = 88;
             this.tile20.TabStop = false;
             // 
             // tile19
             // 
             this.tile19.BackColor = System.Drawing.Color.Transparent;
-            this.tile19.Location = new System.Drawing.Point(3, 87);
+            this.tile19.Location = new System.Drawing.Point(3, 109);
             this.tile19.Margin = new System.Windows.Forms.Padding(0);
             this.tile19.Name = "tile19";
-            this.tile19.Size = new System.Drawing.Size(89, 57);
+            this.tile19.Size = new System.Drawing.Size(99, 51);
             this.tile19.TabIndex = 87;
             this.tile19.TabStop = false;
             // 
             // tile18
             // 
             this.tile18.BackColor = System.Drawing.Color.Transparent;
-            this.tile18.Location = new System.Drawing.Point(3, 143);
+            this.tile18.Location = new System.Drawing.Point(3, 160);
             this.tile18.Margin = new System.Windows.Forms.Padding(0);
             this.tile18.Name = "tile18";
-            this.tile18.Size = new System.Drawing.Size(89, 54);
+            this.tile18.Size = new System.Drawing.Size(99, 53);
             this.tile18.TabIndex = 86;
             this.tile18.TabStop = false;
             // 
             // tile17
             // 
             this.tile17.BackColor = System.Drawing.Color.Transparent;
-            this.tile17.Location = new System.Drawing.Point(0, 197);
+            this.tile17.Location = new System.Drawing.Point(0, 213);
             this.tile17.Margin = new System.Windows.Forms.Padding(0);
             this.tile17.Name = "tile17";
-            this.tile17.Size = new System.Drawing.Size(94, 53);
+            this.tile17.Size = new System.Drawing.Size(104, 53);
             this.tile17.TabIndex = 85;
             this.tile17.TabStop = false;
             // 
             // tile16
             // 
             this.tile16.BackColor = System.Drawing.Color.Transparent;
-            this.tile16.Location = new System.Drawing.Point(3, 252);
+            this.tile16.Location = new System.Drawing.Point(3, 266);
             this.tile16.Margin = new System.Windows.Forms.Padding(0);
             this.tile16.Name = "tile16";
-            this.tile16.Size = new System.Drawing.Size(89, 54);
+            this.tile16.Size = new System.Drawing.Size(101, 40);
             this.tile16.TabIndex = 84;
             this.tile16.TabStop = false;
             // 
@@ -452,7 +394,7 @@
             this.tile15.Location = new System.Drawing.Point(0, 301);
             this.tile15.Margin = new System.Windows.Forms.Padding(0);
             this.tile15.Name = "tile15";
-            this.tile15.Size = new System.Drawing.Size(94, 57);
+            this.tile15.Size = new System.Drawing.Size(104, 57);
             this.tile15.TabIndex = 83;
             this.tile15.TabStop = false;
             // 
@@ -462,7 +404,7 @@
             this.tile14.Location = new System.Drawing.Point(3, 358);
             this.tile14.Margin = new System.Windows.Forms.Padding(0);
             this.tile14.Name = "tile14";
-            this.tile14.Size = new System.Drawing.Size(89, 54);
+            this.tile14.Size = new System.Drawing.Size(101, 54);
             this.tile14.TabIndex = 82;
             this.tile14.TabStop = false;
             // 
@@ -472,7 +414,7 @@
             this.tile13.Location = new System.Drawing.Point(3, 412);
             this.tile13.Margin = new System.Windows.Forms.Padding(0);
             this.tile13.Name = "tile13";
-            this.tile13.Size = new System.Drawing.Size(89, 55);
+            this.tile13.Size = new System.Drawing.Size(101, 55);
             this.tile13.TabIndex = 81;
             this.tile13.TabStop = false;
             // 
@@ -482,7 +424,7 @@
             this.tile12.Location = new System.Drawing.Point(3, 467);
             this.tile12.Margin = new System.Windows.Forms.Padding(0);
             this.tile12.Name = "tile12";
-            this.tile12.Size = new System.Drawing.Size(91, 54);
+            this.tile12.Size = new System.Drawing.Size(101, 54);
             this.tile12.TabIndex = 80;
             this.tile12.TabStop = false;
             // 
@@ -492,7 +434,7 @@
             this.tile11.Location = new System.Drawing.Point(3, 521);
             this.tile11.Margin = new System.Windows.Forms.Padding(0);
             this.tile11.Name = "tile11";
-            this.tile11.Size = new System.Drawing.Size(89, 54);
+            this.tile11.Size = new System.Drawing.Size(101, 54);
             this.tile11.TabIndex = 79;
             this.tile11.TabStop = false;
             // 
@@ -502,47 +444,47 @@
             this.tile10.Location = new System.Drawing.Point(3, 575);
             this.tile10.Margin = new System.Windows.Forms.Padding(0);
             this.tile10.Name = "tile10";
-            this.tile10.Size = new System.Drawing.Size(91, 86);
+            this.tile10.Size = new System.Drawing.Size(101, 91);
             this.tile10.TabIndex = 78;
             this.tile10.TabStop = false;
             // 
             // tile21
             // 
             this.tile21.BackColor = System.Drawing.Color.Transparent;
-            this.tile21.Location = new System.Drawing.Point(94, 0);
+            this.tile21.Location = new System.Drawing.Point(109, 1);
             this.tile21.Margin = new System.Windows.Forms.Padding(0);
             this.tile21.Name = "tile21";
-            this.tile21.Size = new System.Drawing.Size(57, 89);
+            this.tile21.Size = new System.Drawing.Size(57, 91);
             this.tile21.TabIndex = 89;
             this.tile21.TabStop = false;
             // 
             // tile22
             // 
             this.tile22.BackColor = System.Drawing.Color.Transparent;
-            this.tile22.Location = new System.Drawing.Point(152, 1);
+            this.tile22.Location = new System.Drawing.Point(166, 1);
             this.tile22.Margin = new System.Windows.Forms.Padding(0);
             this.tile22.Name = "tile22";
-            this.tile22.Size = new System.Drawing.Size(57, 89);
+            this.tile22.Size = new System.Drawing.Size(57, 91);
             this.tile22.TabIndex = 90;
             this.tile22.TabStop = false;
             // 
             // tile23
             // 
             this.tile23.BackColor = System.Drawing.Color.Transparent;
-            this.tile23.Location = new System.Drawing.Point(207, 1);
+            this.tile23.Location = new System.Drawing.Point(223, 1);
             this.tile23.Margin = new System.Windows.Forms.Padding(0);
             this.tile23.Name = "tile23";
-            this.tile23.Size = new System.Drawing.Size(57, 89);
+            this.tile23.Size = new System.Drawing.Size(55, 91);
             this.tile23.TabIndex = 91;
             this.tile23.TabStop = false;
             // 
             // tile24
             // 
             this.tile24.BackColor = System.Drawing.Color.Transparent;
-            this.tile24.Location = new System.Drawing.Point(266, -1);
+            this.tile24.Location = new System.Drawing.Point(278, -1);
             this.tile24.Margin = new System.Windows.Forms.Padding(0);
             this.tile24.Name = "tile24";
-            this.tile24.Size = new System.Drawing.Size(57, 89);
+            this.tile24.Size = new System.Drawing.Size(52, 91);
             this.tile24.TabIndex = 92;
             this.tile24.TabStop = false;
             // 
@@ -552,7 +494,7 @@
             this.tile25.Location = new System.Drawing.Point(322, 1);
             this.tile25.Margin = new System.Windows.Forms.Padding(0);
             this.tile25.Name = "tile25";
-            this.tile25.Size = new System.Drawing.Size(57, 89);
+            this.tile25.Size = new System.Drawing.Size(57, 91);
             this.tile25.TabIndex = 93;
             this.tile25.TabStop = false;
             // 
@@ -562,7 +504,7 @@
             this.tile26.Location = new System.Drawing.Point(379, -1);
             this.tile26.Margin = new System.Windows.Forms.Padding(0);
             this.tile26.Name = "tile26";
-            this.tile26.Size = new System.Drawing.Size(57, 89);
+            this.tile26.Size = new System.Drawing.Size(57, 91);
             this.tile26.TabIndex = 94;
             this.tile26.TabStop = false;
             // 
@@ -572,7 +514,7 @@
             this.tile27.Location = new System.Drawing.Point(438, 1);
             this.tile27.Margin = new System.Windows.Forms.Padding(0);
             this.tile27.Name = "tile27";
-            this.tile27.Size = new System.Drawing.Size(57, 89);
+            this.tile27.Size = new System.Drawing.Size(57, 91);
             this.tile27.TabIndex = 95;
             this.tile27.TabStop = false;
             // 
@@ -592,7 +534,7 @@
             this.tile29.Location = new System.Drawing.Point(552, 1);
             this.tile29.Margin = new System.Windows.Forms.Padding(0);
             this.tile29.Name = "tile29";
-            this.tile29.Size = new System.Drawing.Size(57, 89);
+            this.tile29.Size = new System.Drawing.Size(57, 91);
             this.tile29.TabIndex = 97;
             this.tile29.TabStop = false;
             // 
@@ -602,7 +544,7 @@
             this.tile30.Location = new System.Drawing.Point(609, 1);
             this.tile30.Margin = new System.Windows.Forms.Padding(0);
             this.tile30.Name = "tile30";
-            this.tile30.Size = new System.Drawing.Size(93, 89);
+            this.tile30.Size = new System.Drawing.Size(111, 91);
             this.tile30.TabIndex = 98;
             this.tile30.TabStop = false;
             // 
@@ -612,7 +554,7 @@
             this.tile38.Location = new System.Drawing.Point(608, 468);
             this.tile38.Margin = new System.Windows.Forms.Padding(0);
             this.tile38.Name = "tile38";
-            this.tile38.Size = new System.Drawing.Size(92, 55);
+            this.tile38.Size = new System.Drawing.Size(110, 55);
             this.tile38.TabIndex = 106;
             this.tile38.TabStop = false;
             // 
@@ -622,7 +564,7 @@
             this.tile37.Location = new System.Drawing.Point(610, 412);
             this.tile37.Margin = new System.Windows.Forms.Padding(0);
             this.tile37.Name = "tile37";
-            this.tile37.Size = new System.Drawing.Size(92, 55);
+            this.tile37.Size = new System.Drawing.Size(110, 55);
             this.tile37.TabIndex = 105;
             this.tile37.TabStop = false;
             // 
@@ -632,7 +574,7 @@
             this.tile39.Location = new System.Drawing.Point(609, 519);
             this.tile39.Margin = new System.Windows.Forms.Padding(0);
             this.tile39.Name = "tile39";
-            this.tile39.Size = new System.Drawing.Size(92, 55);
+            this.tile39.Size = new System.Drawing.Size(110, 55);
             this.tile39.TabIndex = 107;
             this.tile39.TabStop = false;
             // 
@@ -642,7 +584,7 @@
             this.tile36.Location = new System.Drawing.Point(607, 358);
             this.tile36.Margin = new System.Windows.Forms.Padding(0);
             this.tile36.Name = "tile36";
-            this.tile36.Size = new System.Drawing.Size(92, 55);
+            this.tile36.Size = new System.Drawing.Size(110, 55);
             this.tile36.TabIndex = 104;
             this.tile36.TabStop = false;
             // 
@@ -652,7 +594,7 @@
             this.tile35.Location = new System.Drawing.Point(607, 303);
             this.tile35.Margin = new System.Windows.Forms.Padding(0);
             this.tile35.Name = "tile35";
-            this.tile35.Size = new System.Drawing.Size(92, 55);
+            this.tile35.Size = new System.Drawing.Size(110, 55);
             this.tile35.TabIndex = 103;
             this.tile35.TabStop = false;
             // 
@@ -662,7 +604,7 @@
             this.tile34.Location = new System.Drawing.Point(610, 251);
             this.tile34.Margin = new System.Windows.Forms.Padding(0);
             this.tile34.Name = "tile34";
-            this.tile34.Size = new System.Drawing.Size(92, 55);
+            this.tile34.Size = new System.Drawing.Size(110, 55);
             this.tile34.TabIndex = 102;
             this.tile34.TabStop = false;
             // 
@@ -672,7 +614,7 @@
             this.tile33.Location = new System.Drawing.Point(608, 196);
             this.tile33.Margin = new System.Windows.Forms.Padding(0);
             this.tile33.Name = "tile33";
-            this.tile33.Size = new System.Drawing.Size(92, 55);
+            this.tile33.Size = new System.Drawing.Size(110, 55);
             this.tile33.TabIndex = 101;
             this.tile33.TabStop = false;
             // 
@@ -682,7 +624,7 @@
             this.tile32.Location = new System.Drawing.Point(609, 143);
             this.tile32.Margin = new System.Windows.Forms.Padding(0);
             this.tile32.Name = "tile32";
-            this.tile32.Size = new System.Drawing.Size(92, 55);
+            this.tile32.Size = new System.Drawing.Size(110, 55);
             this.tile32.TabIndex = 100;
             this.tile32.TabStop = false;
             // 
@@ -692,7 +634,7 @@
             this.tile31.Location = new System.Drawing.Point(609, 89);
             this.tile31.Margin = new System.Windows.Forms.Padding(0);
             this.tile31.Name = "tile31";
-            this.tile31.Size = new System.Drawing.Size(92, 55);
+            this.tile31.Size = new System.Drawing.Size(110, 55);
             this.tile31.TabIndex = 99;
             this.tile31.TabStop = false;
             // 
@@ -702,7 +644,7 @@
             this.redDot_picturebox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("redDot_picturebox.BackgroundImage")));
             this.redDot_picturebox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.redDot_picturebox.Cursor = System.Windows.Forms.Cursors.Default;
-            this.redDot_picturebox.Location = new System.Drawing.Point(924, 266);
+            this.redDot_picturebox.Location = new System.Drawing.Point(944, 286);
             this.redDot_picturebox.Margin = new System.Windows.Forms.Padding(0);
             this.redDot_picturebox.Name = "redDot_picturebox";
             this.redDot_picturebox.Size = new System.Drawing.Size(30, 30);
@@ -716,7 +658,7 @@
             this.blueDot_picturebox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("blueDot_picturebox.BackgroundImage")));
             this.blueDot_picturebox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.blueDot_picturebox.Cursor = System.Windows.Forms.Cursors.Default;
-            this.blueDot_picturebox.Location = new System.Drawing.Point(1184, 266);
+            this.blueDot_picturebox.Location = new System.Drawing.Point(1184, 286);
             this.blueDot_picturebox.Margin = new System.Windows.Forms.Padding(0);
             this.blueDot_picturebox.Name = "blueDot_picturebox";
             this.blueDot_picturebox.Size = new System.Drawing.Size(30, 30);
@@ -727,46 +669,30 @@
             // pbControlMenu
             // 
             this.pbControlMenu.BackColor = System.Drawing.Color.Transparent;
-            this.pbControlMenu.Location = new System.Drawing.Point(702, 1);
+            this.pbControlMenu.Location = new System.Drawing.Point(722, 1);
             this.pbControlMenu.Name = "pbControlMenu";
-            this.pbControlMenu.Size = new System.Drawing.Size(554, 666);
+            this.pbControlMenu.Size = new System.Drawing.Size(555, 674);
             this.pbControlMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbControlMenu.TabIndex = 112;
             this.pbControlMenu.TabStop = false;
             // 
             // messageTb
             // 
-            this.messageTb.BackColor = System.Drawing.Color.MistyRose;
+            this.messageTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(119)))), ((int)(((byte)(84)))));
             this.messageTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.messageTb.Font = new System.Drawing.Font("Palatino Linotype", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.messageTb.Location = new System.Drawing.Point(1019, 608);
+            this.messageTb.Location = new System.Drawing.Point(778, 608);
             this.messageTb.Multiline = true;
             this.messageTb.Name = "messageTb";
-            this.messageTb.Size = new System.Drawing.Size(148, 32);
+            this.messageTb.Size = new System.Drawing.Size(346, 23);
             this.messageTb.TabIndex = 113;
-            // 
-            // sendBt
-            // 
-            this.sendBt.BackColor = System.Drawing.Color.LightCoral;
-            this.sendBt.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.sendBt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
-            this.sendBt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.sendBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sendBt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sendBt.Location = new System.Drawing.Point(1184, 618);
-            this.sendBt.Name = "sendBt";
-            this.sendBt.Size = new System.Drawing.Size(61, 34);
-            this.sendBt.TabIndex = 115;
-            this.sendBt.Text = "Send";
-            this.sendBt.UseVisualStyleBackColor = false;
-            this.sendBt.Click += new System.EventHandler(this.sendBt_Click);
             // 
             // messageRTB
             // 
-            this.messageRTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(218)))), ((int)(((byte)(203)))));
+            this.messageRTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(216)))), ((int)(((byte)(201)))));
             this.messageRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.messageRTB.Font = new System.Drawing.Font("Palatino Linotype", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.messageRTB.Location = new System.Drawing.Point(757, 488);
+            this.messageRTB.Location = new System.Drawing.Point(775, 467);
             this.messageRTB.Name = "messageRTB";
             this.messageRTB.ReadOnly = true;
             this.messageRTB.Size = new System.Drawing.Size(457, 128);
@@ -793,7 +719,7 @@
             this.Startbtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.Startbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Startbtn.Font = new System.Drawing.Font("Times New Roman", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Startbtn.Location = new System.Drawing.Point(306, 349);
+            this.Startbtn.Location = new System.Drawing.Point(495, 412);
             this.Startbtn.Margin = new System.Windows.Forms.Padding(0);
             this.Startbtn.Name = "Startbtn";
             this.Startbtn.Size = new System.Drawing.Size(84, 37);
@@ -809,27 +735,33 @@
             // timeLabel
             // 
             this.timeLabel.AutoSize = true;
-            this.timeLabel.Location = new System.Drawing.Point(173, 194);
+            this.timeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.timeLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLabel.Location = new System.Drawing.Point(209, 189);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(47, 20);
+            this.timeLabel.Size = new System.Drawing.Size(69, 24);
             this.timeLabel.TabIndex = 119;
             this.timeLabel.Text = "Timer";
             // 
             // Player1Name
             // 
             this.Player1Name.AutoSize = true;
-            this.Player1Name.Location = new System.Drawing.Point(753, 266);
+            this.Player1Name.BackColor = System.Drawing.Color.Transparent;
+            this.Player1Name.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Player1Name.Location = new System.Drawing.Point(800, 266);
             this.Player1Name.Name = "Player1Name";
-            this.Player1Name.Size = new System.Drawing.Size(72, 20);
+            this.Player1Name.Size = new System.Drawing.Size(79, 20);
             this.Player1Name.TabIndex = 120;
             this.Player1Name.Text = "Waiting....";
             // 
             // Player2Name
             // 
             this.Player2Name.AutoSize = true;
-            this.Player2Name.Location = new System.Drawing.Point(1015, 266);
+            this.Player2Name.BackColor = System.Drawing.Color.Transparent;
+            this.Player2Name.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Player2Name.Location = new System.Drawing.Point(1041, 266);
             this.Player2Name.Name = "Player2Name";
-            this.Player2Name.Size = new System.Drawing.Size(72, 20);
+            this.Player2Name.Size = new System.Drawing.Size(79, 20);
             this.Player2Name.TabIndex = 121;
             this.Player2Name.Text = "Waiting....";
             // 
@@ -844,9 +776,9 @@
             this.throwDiceBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.throwDiceBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.throwDiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.throwDiceBtn.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.throwDiceBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.throwDiceBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.throwDiceBtn.Location = new System.Drawing.Point(251, 391);
+            this.throwDiceBtn.Location = new System.Drawing.Point(251, 400);
             this.throwDiceBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.throwDiceBtn.Name = "throwDiceBtn";
             this.throwDiceBtn.Size = new System.Drawing.Size(214, 52);
@@ -855,14 +787,102 @@
             this.throwDiceBtn.UseVisualStyleBackColor = false;
             this.throwDiceBtn.Click += new System.EventHandler(this.ThrowDiceBtn_Click);
             // 
+            // buyBtn
+            // 
+            this.buyBtn.BackColor = System.Drawing.Color.Transparent;
+            this.buyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buyBtn.FlatAppearance.BorderSize = 0;
+            this.buyBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.buyBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buyBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buyBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buyBtn.ForeColor = System.Drawing.Color.White;
+            this.buyBtn.Location = new System.Drawing.Point(251, 480);
+            this.buyBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buyBtn.Name = "buyBtn";
+            this.buyBtn.Size = new System.Drawing.Size(91, 41);
+            this.buyBtn.TabIndex = 123;
+            this.buyBtn.Text = "BUY";
+            this.buyBtn.UseVisualStyleBackColor = false;
+            this.buyBtn.Click += new System.EventHandler(this.BuyBtn_Click);
+            // 
+            // endTurnBtn
+            // 
+            this.endTurnBtn.BackColor = System.Drawing.Color.Transparent;
+            this.endTurnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.endTurnBtn.FlatAppearance.BorderSize = 0;
+            this.endTurnBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.endTurnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.endTurnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.endTurnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.endTurnBtn.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endTurnBtn.ForeColor = System.Drawing.Color.White;
+            this.endTurnBtn.Location = new System.Drawing.Point(368, 474);
+            this.endTurnBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.endTurnBtn.Name = "endTurnBtn";
+            this.endTurnBtn.Size = new System.Drawing.Size(97, 47);
+            this.endTurnBtn.TabIndex = 124;
+            this.endTurnBtn.Text = "End Turn";
+            this.endTurnBtn.UseVisualStyleBackColor = false;
+            this.endTurnBtn.Click += new System.EventHandler(this.EndTurnBtn_Click);
+            // 
+            // quitGameBtn
+            // 
+            this.quitGameBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.quitGameBtn.BackColor = System.Drawing.Color.Transparent;
+            this.quitGameBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.quitGameBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.quitGameBtn.FlatAppearance.BorderSize = 0;
+            this.quitGameBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.quitGameBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.quitGameBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.quitGameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.quitGameBtn.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitGameBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.quitGameBtn.Location = new System.Drawing.Point(512, 135);
+            this.quitGameBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.quitGameBtn.Name = "quitGameBtn";
+            this.quitGameBtn.Size = new System.Drawing.Size(72, 45);
+            this.quitGameBtn.TabIndex = 125;
+            this.quitGameBtn.Text = "Quit Game";
+            this.quitGameBtn.UseVisualStyleBackColor = false;
+            this.quitGameBtn.Click += new System.EventHandler(this.QuitGameBtn_Click);
+            // 
+            // sendBt
+            // 
+            this.sendBt.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.sendBt.BackColor = System.Drawing.Color.Transparent;
+            this.sendBt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.sendBt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sendBt.FlatAppearance.BorderSize = 0;
+            this.sendBt.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.sendBt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.sendBt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.sendBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sendBt.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendBt.ForeColor = System.Drawing.Color.Transparent;
+            this.sendBt.Location = new System.Drawing.Point(1153, 599);
+            this.sendBt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.sendBt.Name = "sendBt";
+            this.sendBt.Size = new System.Drawing.Size(67, 45);
+            this.sendBt.TabIndex = 126;
+            this.sendBt.Text = "Send";
+            this.sendBt.UseVisualStyleBackColor = false;
+            this.sendBt.Click += new System.EventHandler(this.sendBt_Click);
+            // 
             // Game
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::Client.Properties.Resources.Board;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1258, 664);
+            this.ClientSize = new System.Drawing.Size(1277, 672);
+            this.Controls.Add(this.sendBt);
+            this.Controls.Add(this.quitGameBtn);
+            this.Controls.Add(this.endTurnBtn);
+            this.Controls.Add(this.buyBtn);
             this.Controls.Add(this.throwDiceBtn);
             this.Controls.Add(this.Player2Name);
             this.Controls.Add(this.Player1Name);
@@ -870,7 +890,6 @@
             this.Controls.Add(this.Startbtn);
             this.Controls.Add(this.colorLb);
             this.Controls.Add(this.messageRTB);
-            this.Controls.Add(this.sendBt);
             this.Controls.Add(this.messageTb);
             this.Controls.Add(this.redDot_picturebox);
             this.Controls.Add(this.blueDot_picturebox);
@@ -879,9 +898,6 @@
             this.Controls.Add(this.currentPositionInfo_richtextbox);
             this.Controls.Add(this.currentPlayersTurn_textbox);
             this.Controls.Add(this.whatIsOnDices_textbox);
-            this.Controls.Add(this.endTurnBtn);
-            this.Controls.Add(this.quitGameBtn);
-            this.Controls.Add(this.buyBtn);
             this.Controls.Add(this.bluePlayerStatusBox_richtextbox);
             this.Controls.Add(this.redPlayerStatusBox_richtextbox);
             this.Controls.Add(this.tile0);
@@ -994,9 +1010,6 @@
         private System.Windows.Forms.RichTextBox currentPositionInfo_richtextbox;
         private System.Windows.Forms.TextBox currentPlayersTurn_textbox;
         private System.Windows.Forms.TextBox whatIsOnDices_textbox;
-        private System.Windows.Forms.Button endTurnBtn;
-        private System.Windows.Forms.Button quitGameBtn;
-        private System.Windows.Forms.Button buyBtn;
         private System.Windows.Forms.RichTextBox bluePlayerStatusBox_richtextbox;
         private System.Windows.Forms.RichTextBox redPlayerStatusBox_richtextbox;
         private System.Windows.Forms.PictureBox tile0;
@@ -1043,7 +1056,6 @@
         private System.Windows.Forms.PictureBox blueDot_picturebox;
         private System.Windows.Forms.PictureBox pbControlMenu;
         private System.Windows.Forms.TextBox messageTb;
-        private System.Windows.Forms.Button sendBt;
         private System.Windows.Forms.RichTextBox messageRTB;
         private System.Windows.Forms.Label colorLb;
         private System.Windows.Forms.Button Startbtn;
@@ -1052,5 +1064,9 @@
         private System.Windows.Forms.Label Player1Name;
         private System.Windows.Forms.Label Player2Name;
         private System.Windows.Forms.Button throwDiceBtn;
+        private System.Windows.Forms.Button buyBtn;
+        private System.Windows.Forms.Button endTurnBtn;
+        private System.Windows.Forms.Button quitGameBtn;
+        private System.Windows.Forms.Button sendBt;
     }
 }
