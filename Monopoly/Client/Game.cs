@@ -509,7 +509,7 @@ namespace Client
                                         }
                                         UpdateTimeDisplay();
                                         turnTimer.Start();
-                                        currentPlayersTurn_textbox.Text = Player1Name.Text + "Making turn, just waiting....";
+                                        currentPlayersTurn_textbox.Text = Player1Name.Text + " is making turn, just waiting....";
                                         Startbtn.Enabled = false;
                                     });
                                 }
@@ -1079,8 +1079,8 @@ namespace Client
 
             //Ném xúc sắc 
             Random rand = new Random();
-            int firstDice = 5;// rand.Next(1, 7);
-            int secondDice = 5;//rand.Next(1, 7);
+            int firstDice =  rand.Next(1, 7);
+            int secondDice = rand.Next(1, 7);
             Dice = firstDice + secondDice;
             //Hiển thị kết quả xức sắc 
             whatIsOnDices_textbox.Text = "Result: " + firstDice + " and " + secondDice + ". Total: " + Dice + ". ";

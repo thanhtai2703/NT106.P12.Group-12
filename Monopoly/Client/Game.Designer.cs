@@ -680,7 +680,7 @@
             // 
             this.messageTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(119)))), ((int)(((byte)(84)))));
             this.messageTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.messageTb.Font = new System.Drawing.Font("Palatino Linotype", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.messageTb.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.messageTb.Location = new System.Drawing.Point(778, 608);
             this.messageTb.Multiline = true;
             this.messageTb.Name = "messageTb";
@@ -691,11 +691,11 @@
             // 
             this.messageRTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(216)))), ((int)(((byte)(201)))));
             this.messageRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.messageRTB.Font = new System.Drawing.Font("Palatino Linotype", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.messageRTB.Location = new System.Drawing.Point(775, 467);
+            this.messageRTB.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.messageRTB.Location = new System.Drawing.Point(775, 468);
             this.messageRTB.Name = "messageRTB";
             this.messageRTB.ReadOnly = true;
-            this.messageRTB.Size = new System.Drawing.Size(457, 128);
+            this.messageRTB.Size = new System.Drawing.Size(445, 127);
             this.messageRTB.TabIndex = 116;
             this.messageRTB.Text = "";
             // 
@@ -724,7 +724,7 @@
             this.Startbtn.Name = "Startbtn";
             this.Startbtn.Size = new System.Drawing.Size(84, 37);
             this.Startbtn.TabIndex = 118;
-            this.Startbtn.Text = "Bắt đầu";
+            this.Startbtn.Text = "Start";
             this.Startbtn.UseVisualStyleBackColor = false;
             this.Startbtn.Click += new System.EventHandler(this.Startbtn_Click);
             // 
@@ -796,7 +796,7 @@
             this.buyBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buyBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buyBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buyBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
             this.buyBtn.ForeColor = System.Drawing.Color.White;
             this.buyBtn.Location = new System.Drawing.Point(251, 480);
             this.buyBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -816,12 +816,12 @@
             this.endTurnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.endTurnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.endTurnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.endTurnBtn.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endTurnBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
             this.endTurnBtn.ForeColor = System.Drawing.Color.White;
-            this.endTurnBtn.Location = new System.Drawing.Point(368, 474);
+            this.endTurnBtn.Location = new System.Drawing.Point(368, 480);
             this.endTurnBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.endTurnBtn.Name = "endTurnBtn";
-            this.endTurnBtn.Size = new System.Drawing.Size(97, 47);
+            this.endTurnBtn.Size = new System.Drawing.Size(110, 47);
             this.endTurnBtn.TabIndex = 124;
             this.endTurnBtn.Text = "End Turn";
             this.endTurnBtn.UseVisualStyleBackColor = false;
@@ -840,10 +840,10 @@
             this.quitGameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.quitGameBtn.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quitGameBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.quitGameBtn.Location = new System.Drawing.Point(512, 135);
+            this.quitGameBtn.Location = new System.Drawing.Point(512, 134);
             this.quitGameBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.quitGameBtn.Name = "quitGameBtn";
-            this.quitGameBtn.Size = new System.Drawing.Size(72, 45);
+            this.quitGameBtn.Size = new System.Drawing.Size(67, 46);
             this.quitGameBtn.TabIndex = 125;
             this.quitGameBtn.Text = "Quit Game";
             this.quitGameBtn.UseVisualStyleBackColor = false;

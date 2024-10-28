@@ -182,7 +182,7 @@ namespace Server
                             //bool isCreated = false;
                              Program.f.tbLog.Invoke((MethodInvoker)delegate
                                 {
-                                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Room " + arraypayload[1] + "is Created" + Environment.NewLine;
+                                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Room " + arraypayload[1] + " is Created" + Environment.NewLine;
                                 });
                             //khi một người chơi mới vào ( chưa chọn quân cờ).
                             for (int i = 0; i < room.Count; i++)//Duyệt các phòng hiện tại
@@ -230,7 +230,7 @@ namespace Server
                         case "Win":
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Player " + arraypayload[1] + "has won at room " + arraypayload[2] + Environment.NewLine;
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Player " + arraypayload[1] + " has won at room " + arraypayload[2] + Environment.NewLine;
                              
                                 Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Room " + arraypayload[2] + " has ended " + Environment.NewLine;
                             });
@@ -240,7 +240,7 @@ namespace Server
                         case "Lose":
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Player " + arraypayload[1] + "has losed " + arraypayload[2] + Environment.NewLine;
+                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Player " + arraypayload[1] + " has losed " + arraypayload[2] + Environment.NewLine;
                                 Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Room " + arraypayload[2] + " has ended " + Environment.NewLine;
                             });
                             RemoveRoom(Convert.ToInt32(arraypayload[2]));
