@@ -54,46 +54,46 @@ namespace Client
                 tile21, tile22, tile23, tile24, tile25, tile26, tile27, tile28, tile29, tile30,
                 tile31, tile32, tile33, tile34, tile35, tile36, tile37, tile38, tile39
             };
-            CreateTile("GO", false, "Null", 0, 0);
-            CreateTile("Phú Lâm", true, "Purple", 60, 1);
-            CreateTile("Khí vận", false, "Opportunity", 0, 2);
-            CreateTile("Nhà bè Phú Xuân", true, "Purple", 60, 3);
-            CreateTile("Thuế lợi tức", false, "White", 0, 4);
-            CreateTile("Bến xe Lục Tỉnh", true, "Station", 200, 5);
-            CreateTile("Thị Nghè", true, "Turquoise", 100, 6);
-            CreateTile("Cơ hội", false, "Opportunity", 0, 7);
-            CreateTile("Tân Định", true, "Turquoise", 100, 8);
-            CreateTile("Bến Chương Dương", true, "Turquoise", 120, 9);
-            CreateTile("Thăm tù", false, "Null", 0, 10);
-            CreateTile("Phan Đình Phùng", true, "Pink", 140, 11);
-            CreateTile("Công ty điện lực", true, "Station", 140, 12);
-            CreateTile("Trịnh Minh Thế", true, "Pink", 140, 13);
-            CreateTile("Lý Thái Tổ", true, "Pink", 160, 14);
-            CreateTile("Bến xe Lam Chợ Lớn", true, "Station", 200, 15);
-            CreateTile("Đại lộ Hùng Vương", true, "Orange", 180, 16);
-            CreateTile("Khí vận", false, "Opportunity", 0, 17);
-            CreateTile("Gia Long", true, "Orange", 180, 18);
-            CreateTile("Bến Bạch Đằng", true, "Orange", 200, 19);
-            CreateTile("Sân bay", false, "Null", 0, 20);
-            CreateTile("Đường Công Lý", true, "Red", 220, 21);
-            CreateTile("Cơ hội", false, "Opportunity", 0, 22);
-            CreateTile("Đại lộ thống nhất", true, "Red", 220, 23);
-            CreateTile("Đại lộ Cộng Hòa", true, "Red", 240, 24);
-            CreateTile("Bến xe An Đông", true, "Station", 200, 25);
-            CreateTile("Đại lộ Hồng Thập Tự", true, "Yellow", 260, 26);
-            CreateTile("Đại lộ Hai Bà Trưng", true, "Yellow", 260, 27);
-            CreateTile("Công ty thủy cục", true, "Station", 150, 28);
-            CreateTile("Xa lộ Biên Hòa", true, "Yellow", 280, 29);
-            CreateTile("VÔ TÙ", false, "Null", 0, 30);
-            CreateTile("Phan Thanh Giảm", true, "Green", 300, 31);
-            CreateTile("Lê Văn Duyệt", true, "Green", 300, 32);
-            CreateTile("Khí vận", false, "Opportunity", 0, 33);
-            CreateTile("Nguyễn Thái Học", true, "Green", 320, 34);
-            CreateTile("Tân Kì Tân Quý", true, "Station", 400, 35);
-            CreateTile("Cơ hội", false, "Opportunity", 0, 36);
-            CreateTile("Nha Trang", true, "Blue", 350, 37);
-            CreateTile("Thuế lương bổng", false, "White", 0, 38);
-            CreateTile("Cố Đô Huế", true, "Blue", 400, 39);
+            CreateTile("GO", false, "Null", 0, 0,0);
+            CreateTile("Phú Lâm", true, "Purple", 60, 1,60);
+            CreateTile("Khí vận", false, "Opportunity", 0, 2,0);
+            CreateTile("Nhà bè Phú Xuân", true, "Purple", 60, 3,60);
+            CreateTile("Thuế lợi tức", false, "White", 0, 4,0);
+            CreateTile("Bến xe Lục Tỉnh", true, "Station", 200, 5,20);
+            CreateTile("Thị Nghè", true, "Turquoise", 100, 6,120);
+            CreateTile("Cơ hội", false, "Opportunity", 0, 7,0);
+            CreateTile("Tân Định", true, "Turquoise", 100, 8,120);
+            CreateTile("Bến Chương Dương", true, "Turquoise", 120, 9,120);
+            CreateTile("Thăm tù", false, "Null", 0, 10,0);
+            CreateTile("Phan Đình Phùng", true, "Pink", 140, 11,160);
+            CreateTile("Công ty điện lực", true, "Station", 140, 12,20);
+            CreateTile("Trịnh Minh Thế", true, "Pink", 140, 13,160);
+            CreateTile("Lý Thái Tổ", true, "Pink", 160, 14,160);
+            CreateTile("Bến xe Lam Chợ Lớn", true, "Station", 200, 15,20);
+            CreateTile("Đại lộ Hùng Vương", true, "Orange", 180, 16,200);
+            CreateTile("Khí vận", false, "Opportunity", 0, 17,0);
+            CreateTile("Gia Long", true, "Orange", 180, 18,200);
+            CreateTile("Bến Bạch Đằng", true, "Orange", 200, 19,200);
+            CreateTile("Sân bay", false, "Null", 0, 20,0);
+            CreateTile("Đường Công Lý", true, "Red", 220, 21,240);
+            CreateTile("Cơ hội", false, "Opportunity", 0, 22,0);
+            CreateTile("Đại lộ thống nhất", true, "Red", 220, 23,240);
+            CreateTile("Đại lộ Cộng Hòa", true, "Red", 240, 24,240);
+            CreateTile("Bến xe An Đông", true, "Station", 200, 25,20);
+            CreateTile("Đại lộ Hồng Thập Tự", true, "Yellow", 260, 26,280);
+            CreateTile("Đại lộ Hai Bà Trưng", true, "Yellow", 260, 27,280);
+            CreateTile("Công ty thủy cục", true, "Station", 150, 28,20);
+            CreateTile("Xa lộ Biên Hòa", true, "Yellow", 280, 29,280);
+            CreateTile("VÔ TÙ", false, "Null", 0, 30,0);
+            CreateTile("Phan Thanh Giảm", true, "Green", 300, 31,320);
+            CreateTile("Lê Văn Duyệt", true, "Green", 300, 32,320);
+            CreateTile("Khí vận", false, "Opportunity", 0, 33,0);
+            CreateTile("Nguyễn Thái Học", true, "Green", 320, 34,320);
+            CreateTile("Tân Kì Tân Quý", true, "Station", 400, 35,20);
+            CreateTile("Cơ hội", false, "Opportunity", 0, 36,0);
+            CreateTile("Nha Trang", true, "Blue", 350, 37,400);
+            CreateTile("Thuế lương bổng", false, "White", 0, 38,400);
+            CreateTile("Cố Đô Huế", true, "Blue", 400, 39,400);
 
             Players[0] = new Player();
             Players[1] = new Player();
@@ -152,12 +152,12 @@ namespace Client
                     else SendMessageToServer("Join" + ";" + ConnectionOptions.Room);
 
                     // Tạm dừng trong 500ms để nhận phản hồi từ server (không chặn luồng)
-                    Thread.Sleep(50);
+                    Thread.Sleep(500);
                     this.Hide();
                     //Hiển thị Form chọn màu 
                     ColorChoosing colorChoosing = new ColorChoosing();
                     colorChoosing.ShowDialog();
-                    //Nếu chọn Cancel thì hủy kết nối rồi quay về MainMenu chính 
+                    //Nếu chọn Thoát thì ngắt kết nối và đóng ứng dụng
                     if (colorChoosing.DialogResult is DialogResult.Cancel)
                     {
                         if (!Gamemodes.Create)
@@ -166,7 +166,7 @@ namespace Client
                         SendMessageToServer(messagetype + ";" + ConnectionOptions.Room);
                         this.InstanceDisconnect();
                     }
-                    else this.Show();
+                    else this.Show(); //Hiển thị bàn cờ
 
                     //Gửi tên người chơi đến server
                     SendMessageToServer("Connect" + ";" + ConnectionOptions.PlayerName + ";" + ConnectionOptions.UserName + ";");
@@ -176,13 +176,13 @@ namespace Client
 
                     switch (player[0])
                     {
-                        case "Đỏ":
+                        case "Red":
                             //Players[0].Name = ConnectionOptions.RedUserName;
                             Player1Name.Text = ConnectionOptions.UserName;
                             colorLb.BackColor = Color.Red;
                             CurrentPlayerId = 0;
                             break;
-                        case "Xanh":
+                        case "Blue":
                             Player2Name.Text = ConnectionOptions.UserName;
                             //Players[1].Name = ConnectionOptions.BlueUserName;
                             colorLb.BackColor = Color.Blue;
@@ -213,7 +213,7 @@ namespace Client
         
 
         //Tạo ô cờ gồm tên, màu, có thể mua được, giá, vị trí 
-        private void CreateTile(string tileName, bool tileBuyable, string tileColor, int tilePrice, int tilePosition)
+        private void CreateTile(string tileName, bool tileBuyable, string tileColor, int tilePrice, int tilePosition,int rent)
         {
             //Tạo các đối tượng và gán giá trị 
             Property property = new Property
@@ -221,7 +221,8 @@ namespace Client
                 Name = tileName,
                 Color = tileColor,
                 Buyable = tileBuyable,
-                Price = tilePrice
+                Price = tilePrice,
+                Rent = rent
             };
             //Gắn ô trên bàn cờ vào vị trí tương ứng trong mảng Properties 
             Properties[tilePosition] = property;
@@ -233,7 +234,7 @@ namespace Client
             //Chạy qua ds tài sản, sau đó thêm tên, màu vào chuỗi 
             for (var i = 0; i < 40; i++)
                 if (propertyList[i] != 0)
-                    tempString = tempString + Properties[propertyList[i]].Name + ", " + Properties[propertyList[i]].Color + "\n";
+                    tempString = tempString + Properties[propertyList[i]].Name + " price " +Properties[propertyList[i]].Rent + "\n";
             return tempString;
         }
         //Cập nhật thông tin về người chơi trên giao diện 
@@ -245,14 +246,14 @@ namespace Client
                 {
                     redPlayerStatusBox_richtextbox.Text =
                 "Remaining money: " + Players[0].Balance + "\n"
-                + PropertiesToString(Players[0].PropertiesOwned);
+                + "Property :" + PropertiesToString(Players[0].PropertiesOwned);
                 });
                 }
             else
             {
                 redPlayerStatusBox_richtextbox.Text =
                "Remaining money: " + Players[0].Balance + "\n"
-              + PropertiesToString(Players[0].PropertiesOwned);
+              + "Property :" + PropertiesToString(Players[0].PropertiesOwned);
             }
             if (bluePlayerStatusBox_richtextbox.InvokeRequired)
             {
@@ -260,14 +261,14 @@ namespace Client
                 {
                     bluePlayerStatusBox_richtextbox.Text =
                          "Remaining money: " + Players[1].Balance + "\n"
-                        + PropertiesToString(Players[1].PropertiesOwned);
+                        + "Property :" + PropertiesToString(Players[1].PropertiesOwned);
                 });
             }
             else
             {
                 bluePlayerStatusBox_richtextbox.Text =
                          "Remaining money: " + Players[1].Balance + "\n"
-                        + PropertiesToString(Players[1].PropertiesOwned);
+                        + "Property :" + PropertiesToString(Players[1].PropertiesOwned);
             }    
         }
         //Thay đổi số dư và cập nhật lên giao diện 
@@ -308,11 +309,11 @@ namespace Client
             {
                 case 0:
                     currentPlayersTurn_textbox.Text =
-                        Player1Name.Text + "Red, you’re free! ";
+                        Player1Name.Text + " you’re free! ";
                     break;
                 case 1:
                     currentPlayersTurn_textbox.Text =
-                        Player2Name.Text + " Blue, you’re free! ";
+                        Player2Name.Text + " you’re free! ";
                     break;
             }
         }
@@ -613,14 +614,14 @@ namespace Client
                             }
                             break;
                             //sự kiện đi lên đất người khác
-                        case "Thuê":
+                        case "Rent":
                             if (parts[2] == ConnectionOptions.Room)
                             {
                                 string sumOfRentString = parts[3];
                                 int sumOfRent = Convert.ToInt32(sumOfRentString);
                                 switch (parts[1])
                                 {
-                                    case "Đỏ":
+                                    case "Red":
                                         ChangeBalance(Players[0], -sumOfRent);
                                         ChangeBalance(Players[1], sumOfRent);
                                         this.Invoke((MethodInvoker)delegate
@@ -628,7 +629,7 @@ namespace Client
                                            currentPlayersTurn_textbox.Text =  Player1Name.Text + "pay rent for " + Player2Name.Text + sumOfRent;
                                         });
                                         break;
-                                    case "Xanh":
+                                    case "Blue":
                                         ChangeBalance(Players[1], -sumOfRent);
                                         ChangeBalance(Players[0], sumOfRent);
                                         this.Invoke((MethodInvoker)delegate
@@ -689,7 +690,7 @@ namespace Client
                                 Environment.Exit(0);
                             });
                             break;
-                        case "Vị trí":
+                        case "Location":
                             if(ConnectionOptions.Room == parts[2])
                             MoveOpponentIcon(Convert.ToInt32(parts[3]),Convert.ToInt32(parts[4]));
                             break;
@@ -898,10 +899,11 @@ namespace Client
                 for (var i = from; i <= to; i++)
                 {
                     await Task.Delay(150);
-                    SendMessageToServer("Location" + ";"+ ConnectionOptions.PlayerName + ";" + CurrentPlayerId + ";" + i);
+                    if(Gamemodes.Multiplayer) SendMessageToServer("Location" + ";"+ ConnectionOptions.PlayerName + ";" + CurrentPlayerId + ";" + i);
                     MoveIcon(i);
-                    //SendMessageToServer("Vị trí" + ConnectionOptions.PlayerName + ";" + CurrentPlayerId +";" +i);
+                    endTurnBtn.Enabled = false;
                 }
+                endTurnBtn.Enabled = true;
             }
             else
             {
@@ -910,15 +912,18 @@ namespace Client
                 for (var i = from; i <= 39; i++)
                 {
                     await Task.Delay(150);
-                    SendMessageToServer("Location" + ";" + ConnectionOptions.PlayerName + ";" + CurrentPlayerId + ";" + i);
+                    if (Gamemodes.Multiplayer) SendMessageToServer("Location" + ";" + ConnectionOptions.PlayerName + ";" + CurrentPlayerId + ";" + i);
                     MoveIcon(i);
+                    endTurnBtn.Enabled = false;
                 }
                 for (var i = 0; i <= to - 40; i++)
                 {
                     await Task.Delay(150);
-                    SendMessageToServer("Location" + ";" + ConnectionOptions.PlayerName + ";" + CurrentPlayerId + ";" + i);
+                    if (Gamemodes.Multiplayer) SendMessageToServer("Location" + ";" + ConnectionOptions.PlayerName + ";" + CurrentPlayerId + ";" + i);
                     MoveIcon(i);
+                    endTurnBtn.Enabled = false;
                 }
+                endTurnBtn.Enabled = true;
             }
             return 1;
         }
@@ -1160,10 +1165,6 @@ namespace Client
                     if (Gamemodes.Multiplayer)
                     {
                         string rentMessage = "Rent"+";"+ConnectionOptions.PlayerName +";"+ GetRent(Dice);
-                        //this.Invoke((MethodInvoker)delegate
-                        //{
-                        //    MessageBox.Show(Player2Name.Text + " pay rent for " + Player1Name.Text + ":" + GetRent(Dice));
-                        //});
                         SendMessageToServer(rentMessage);
                     }
                     break;
@@ -1173,10 +1174,6 @@ namespace Client
                     if (Gamemodes.Multiplayer)
                     {
                         string rentMessage = "Rent" + ";" + ConnectionOptions.PlayerName + ";"+ GetRent(Dice);
-                        //this.Invoke((MethodInvoker)delegate
-                        //{
-                        //    MessageBox.Show(Player2Name.Text + " pay rent for " + Player1Name.Text + ":" + GetRent(Dice));
-                        //});
                         SendMessageToServer(rentMessage);
                     }
                     break;
@@ -1201,10 +1198,7 @@ namespace Client
                 if (Players[CurrentPlayerId].Balance >= Properties[CurrentPosition].Price)
                 {
                     ChangeBalance(Players[CurrentPlayerId], -Properties[CurrentPosition].Price);
-                    //Lấy vị trí nhà mới
-                    //Players[CurrentPlayerId].PropertiesOwned[Players[CurrentPlayerId].NumberOfPropertiesOwned] = CurrentPosition;
                     Players[CurrentPlayerId].PropertiesOwned[CurrentPosition] = CurrentPosition;
-
                     Properties[CurrentPosition].Owned = true;
                     Players[CurrentPlayerId].NumberOfPropertiesOwned++;
                     UpdatePlayersStatusBoxes();

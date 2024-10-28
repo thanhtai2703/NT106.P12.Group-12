@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\huung\AppData\Local\Temp\vs7BFE.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\taith\AppData\Local\Temp\vsE11C.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\huung\AppData\Local\Temp\vs7BFE.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\taith\AppData\Local\Temp\vsE11C.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -163,6 +163,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Game menu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChessBoard.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -19,7 +19,8 @@ namespace Server
         private StreamWriter write;
         static List<Room> room = new List<Room>(); // khời tạo 1 danh sách phòng chơi trên server để quản lý các phòng chơi hiện có.
         DateTime now = DateTime.Now;
-        //hàm cung cấp ID riêng biệt cho từng client 
+        protected internal string Id { get; } 
+        //constructer cung cấp ID riêng biệt cho từng client 
         public ClientObject(Socket socket, ServerObject serverObject)
         {
             Id = Guid.NewGuid().ToString(); //khởi tạo ID cho client
@@ -27,7 +28,6 @@ namespace Server
             server = serverObject;
             serverObject.AddConnection(this);//Thêm kết nối client vào server
         }
-        protected internal string Id { get; }
         //Xử lý tin nhắn gửi lên từ client
         public void Process()
         {
@@ -46,12 +46,12 @@ namespace Server
                                 if (room[i].roomId == Convert.ToInt32(arraypayload[2])) // nếu phòng đã tồn tại
                                 {
                                     isFound = true; // Tìm thấy
-                                    if (arraypayload[1] == "Đỏ") // cập nhật người chơi chọn quân cờ đỏ.
+                                    if (arraypayload[1] == "Red") // cập nhật người chơi chọn quân cờ đỏ.
                                     {
                                         room[i].roomTaken.Red = true; //Biến takenRed đánh dấu thể hiện quân đỏ đã được chọn.
                                         room[i].roomPlayer.Name1 = arraypayload[3]; // gán tên người chơi.
                                     }
-                                    if (arraypayload[1] == "Xanh") // cập nhật người chơi chọn quân xanh.
+                                    if (arraypayload[1] == "Blue") // cập nhật người chơi chọn quân xanh.
                                     {
                                         room[i].roomTaken.Blue = true; //tương tự
                                         room[i].roomPlayer.Name2 = arraypayload[3];//tương tự
@@ -70,14 +70,14 @@ namespace Server
                                 Room a = new Room(); // tạo một đối tượng room mới
                                 //Tiến hành gán các giá trị
                                 a.roomId = Convert.ToInt32(arraypayload[2]); 
-                                if (arraypayload[1] == "Đỏ")
+                                if (arraypayload[1] == "Red")
                                 {
                                     a.roomTaken.Blue = false;
                                     a.roomTaken.Red = true;
                                     a.roomPlayer.Name1 = arraypayload[3];
                                     a.roomPlayer.Name2 = "";
                                 }
-                                if (arraypayload[1] == "Xanh")
+                                if (arraypayload[1] == "Blue")
                                 {
                                     a.roomTaken.Red = false;
                                     a.roomTaken.Blue = true;
@@ -122,10 +122,10 @@ namespace Server
                             int number = room.FindIndex(room => room.roomId == Convert.ToInt32(arraypayload[2]));
                             switch (arraypayload[1])
                             {
-                                case "Đỏ":
+                                case "Red":
                                     room[number].roomTaken.Red = false;
                                     break;
-                                case "Xanh":
+                                case "Blue":
                                     room[number].roomTaken.Blue = false;
                                     break;
                             }
@@ -147,7 +147,7 @@ namespace Server
                             });
                             server.SendMessageToEveryone(message, Id);
                             break;
-                        case "Thuê":
+                        case "Rent":
                             //Sự kiện Thuê nhà trong trò chơi
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
@@ -155,7 +155,7 @@ namespace Server
                             });
                             server.SendMessageToOpponentClient(message, Id);
                             break;
-                        case "Vị trí":
+                        case "Location":
                             server.SendMessageToOpponentClient(message, Id);
                             break;
                         case "Red pawn already selected":
@@ -193,7 +193,7 @@ namespace Server
                                     server.RemoveConnection(this.Id);
                                     Program.f.tbLog.Invoke((MethodInvoker)delegate
                                     {
-                                        Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Room" + arraypayload[1] + "already exists" + Environment.NewLine;
+                                        Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Room " + arraypayload[1] + " already exists" + Environment.NewLine;
                                     });
                                     break;
                                 }
@@ -227,7 +227,7 @@ namespace Server
                                 server.RemoveConnection(this.Id);
                             }
                             break;
-                        case "Thắng":
+                        case "Win":
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
                                 Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Player " + arraypayload[1] + "has won at room " + arraypayload[2] + Environment.NewLine;
@@ -237,7 +237,7 @@ namespace Server
                             RemoveRoom(Convert.ToInt32(arraypayload[2]));
                             server.RemoveConnection(this.Id);
                             break;
-                        case "Thua":
+                        case "Lose":
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
                                 Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Player " + arraypayload[1] + "has losed " + arraypayload[2] + Environment.NewLine;
