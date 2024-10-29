@@ -44,8 +44,8 @@
             label1.AutoSize = true;
             label1.BackColor = System.Drawing.Color.Transparent;
             label1.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            label1.Location = new System.Drawing.Point(125, 48);
+            label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            label1.Location = new System.Drawing.Point(150, 69);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(71, 27);
             label1.TabIndex = 20;
@@ -57,7 +57,7 @@
             labelIp.BackColor = System.Drawing.Color.Transparent;
             labelIp.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             labelIp.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            labelIp.Location = new System.Drawing.Point(125, 181);
+            labelIp.Location = new System.Drawing.Point(150, 204);
             labelIp.Name = "labelIp";
             labelIp.Size = new System.Drawing.Size(32, 27);
             labelIp.TabIndex = 22;
@@ -66,6 +66,7 @@
             // roomTb
             // 
             this.roomTb.BackColor = System.Drawing.Color.White;
+            this.roomTb.Font = new System.Drawing.Font("Segoe UI Historic", 18F);
             this.roomTb.ForeColor = System.Drawing.Color.Black;
             this.roomTb.Location = new System.Drawing.Point(155, 99);
             this.roomTb.MaxLength = 15;
@@ -73,6 +74,7 @@
             this.roomTb.Name = "roomTb";
             this.roomTb.Size = new System.Drawing.Size(282, 37);
             this.roomTb.TabIndex = 14;
+            this.roomTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnChooseColor
             // 
@@ -119,7 +121,7 @@
             // ip_textbox
             // 
             this.ip_textbox.BackColor = System.Drawing.Color.White;
-            this.ip_textbox.Font = new System.Drawing.Font("Segoe UI Historic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ip_textbox.Font = new System.Drawing.Font("Segoe UI Historic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ip_textbox.ForeColor = System.Drawing.Color.Black;
             this.ip_textbox.Location = new System.Drawing.Point(155, 234);
             this.ip_textbox.MaxLength = 15;
@@ -128,6 +130,7 @@
             this.ip_textbox.Size = new System.Drawing.Size(282, 37);
             this.ip_textbox.TabIndex = 21;
             this.ip_textbox.Text = "127.0.0.1";
+            this.ip_textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Connection
             // 

@@ -127,11 +127,14 @@
   <data name="ChessBoard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ChessBoard.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dice_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dice_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Money" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Money.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hin05" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hin05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bluePawn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bluePawn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Screenshot (24)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Screenshot (24).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,9 +151,6 @@
   <data name="A_bright_and_vibrant_game_menu_screen_for_Monopoly" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\A_bright_and_vibrant_game_menu_screen_for_Monopoly.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="hin000" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hin000.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,14 +166,17 @@
   <data name="Blue cat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Blue cat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hin04" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hin04.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dice_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dice_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hin02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hin02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hin04" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hin04.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Game menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Game menu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,10 +193,10 @@
   <data name="Board" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\board.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bluePawn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bluePawn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hin05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hin05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Money" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Money.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Ban co" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ban co.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

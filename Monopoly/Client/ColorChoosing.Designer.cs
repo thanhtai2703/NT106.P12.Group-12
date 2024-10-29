@@ -132,7 +132,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(249, 161);
+            this.label1.Location = new System.Drawing.Point(276, 201);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 23);
             this.label1.TabIndex = 32;
@@ -144,7 +144,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(208, 41);
+            this.label2.Location = new System.Drawing.Point(249, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(192, 23);
             this.label2.TabIndex = 34;

@@ -83,6 +83,16 @@ namespace Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Ban_co {
+            get {
+                object obj = ResourceManager.GetObject("Ban co", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Blue_cat {
             get {
                 object obj = ResourceManager.GetObject("Blue cat", resourceCulture);

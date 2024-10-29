@@ -190,14 +190,14 @@
             this.currentPlayersTurn_textbox.AcceptsReturn = true;
             this.currentPlayersTurn_textbox.BackColor = System.Drawing.Color.White;
             this.currentPlayersTurn_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.currentPlayersTurn_textbox.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.currentPlayersTurn_textbox.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentPlayersTurn_textbox.ForeColor = System.Drawing.Color.Black;
-            this.currentPlayersTurn_textbox.Location = new System.Drawing.Point(778, 222);
+            this.currentPlayersTurn_textbox.Location = new System.Drawing.Point(778, 231);
             this.currentPlayersTurn_textbox.Margin = new System.Windows.Forms.Padding(0);
             this.currentPlayersTurn_textbox.Multiline = true;
             this.currentPlayersTurn_textbox.Name = "currentPlayersTurn_textbox";
             this.currentPlayersTurn_textbox.ReadOnly = true;
-            this.currentPlayersTurn_textbox.Size = new System.Drawing.Size(436, 29);
+            this.currentPlayersTurn_textbox.Size = new System.Drawing.Size(436, 20);
             this.currentPlayersTurn_textbox.TabIndex = 64;
             // 
             // whatIsOnDices_textbox
@@ -206,12 +206,12 @@
             this.whatIsOnDices_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.whatIsOnDices_textbox.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.whatIsOnDices_textbox.ForeColor = System.Drawing.Color.Black;
-            this.whatIsOnDices_textbox.Location = new System.Drawing.Point(809, 89);
+            this.whatIsOnDices_textbox.Location = new System.Drawing.Point(813, 89);
             this.whatIsOnDices_textbox.Margin = new System.Windows.Forms.Padding(0);
             this.whatIsOnDices_textbox.Multiline = true;
             this.whatIsOnDices_textbox.Name = "whatIsOnDices_textbox";
             this.whatIsOnDices_textbox.ReadOnly = true;
-            this.whatIsOnDices_textbox.Size = new System.Drawing.Size(115, 91);
+            this.whatIsOnDices_textbox.Size = new System.Drawing.Size(100, 86);
             this.whatIsOnDices_textbox.TabIndex = 63;
             // 
             // bluePlayerStatusBox_richtextbox
@@ -224,7 +224,7 @@
             this.bluePlayerStatusBox_richtextbox.Margin = new System.Windows.Forms.Padding(0);
             this.bluePlayerStatusBox_richtextbox.Name = "bluePlayerStatusBox_richtextbox";
             this.bluePlayerStatusBox_richtextbox.ReadOnly = true;
-            this.bluePlayerStatusBox_richtextbox.Size = new System.Drawing.Size(176, 118);
+            this.bluePlayerStatusBox_richtextbox.Size = new System.Drawing.Size(163, 118);
             this.bluePlayerStatusBox_richtextbox.TabIndex = 58;
             this.bluePlayerStatusBox_richtextbox.Text = "";
             // 
@@ -239,7 +239,7 @@
             this.redPlayerStatusBox_richtextbox.Name = "redPlayerStatusBox_richtextbox";
             this.redPlayerStatusBox_richtextbox.ReadOnly = true;
             this.redPlayerStatusBox_richtextbox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.redPlayerStatusBox_richtextbox.Size = new System.Drawing.Size(176, 118);
+            this.redPlayerStatusBox_richtextbox.Size = new System.Drawing.Size(164, 118);
             this.redPlayerStatusBox_richtextbox.TabIndex = 57;
             this.redPlayerStatusBox_richtextbox.Text = "";
             // 
@@ -746,7 +746,7 @@
             this.timeLabel.BackColor = System.Drawing.Color.Transparent;
             this.timeLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.timeLabel.Location = new System.Drawing.Point(173, 186);
+            this.timeLabel.Location = new System.Drawing.Point(199, 190);
             this.timeLabel.Name = "timeLabel";
             this.timeLabel.Size = new System.Drawing.Size(53, 23);
             this.timeLabel.TabIndex = 119;
@@ -756,11 +756,11 @@
             // 
             this.Player1Name.AutoSize = true;
             this.Player1Name.BackColor = System.Drawing.Color.Transparent;
-            this.Player1Name.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Player1Name.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player1Name.ForeColor = System.Drawing.Color.Red;
             this.Player1Name.Location = new System.Drawing.Point(822, 287);
             this.Player1Name.Name = "Player1Name";
-            this.Player1Name.Size = new System.Drawing.Size(91, 19);
+            this.Player1Name.Size = new System.Drawing.Size(77, 18);
             this.Player1Name.TabIndex = 120;
             this.Player1Name.Text = "Waiting....";
             // 
@@ -768,11 +768,11 @@
             // 
             this.Player2Name.AutoSize = true;
             this.Player2Name.BackColor = System.Drawing.Color.Transparent;
-            this.Player2Name.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Player2Name.Font = new System.Drawing.Font("Georgia", 11.25F);
             this.Player2Name.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.Player2Name.Location = new System.Drawing.Point(1045, 292);
             this.Player2Name.Name = "Player2Name";
-            this.Player2Name.Size = new System.Drawing.Size(91, 19);
+            this.Player2Name.Size = new System.Drawing.Size(77, 18);
             this.Player2Name.TabIndex = 121;
             this.Player2Name.Text = "Waiting....";
             // 
@@ -873,7 +873,7 @@
             this.sendBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sendBt.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sendBt.ForeColor = System.Drawing.Color.Transparent;
-            this.sendBt.Location = new System.Drawing.Point(1154, 597);
+            this.sendBt.Location = new System.Drawing.Point(1153, 599);
             this.sendBt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.sendBt.Name = "sendBt";
             this.sendBt.Size = new System.Drawing.Size(67, 45);
@@ -893,7 +893,6 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::Client.Properties.Resources.dice_icon;
             this.pictureBox2.Location = new System.Drawing.Point(178, 402);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 50);
@@ -904,7 +903,6 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = global::Client.Properties.Resources.Money;
             this.pictureBox3.Location = new System.Drawing.Point(213, 482);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(65, 50);
@@ -917,7 +915,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackgroundImage = global::Client.Properties.Resources.Board;
+            this.BackgroundImage = global::Client.Properties.Resources.Ban_co;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1277, 672);
             this.Controls.Add(this.pictureBox3);

@@ -175,13 +175,13 @@ namespace Client
                         case "Red":
                             //Players[0].Name = ConnectionOptions.RedUserName;
                             Player1Name.Text = ConnectionOptions.UserName;
-                            colorLb.BackColor = Color.Red;
+                            //colorLb.BackColor = Color.Red;
                             CurrentPlayerId = 0;
                             break;
                         case "Blue":
                             Player2Name.Text = ConnectionOptions.UserName;
                             //Players[1].Name = ConnectionOptions.BlueUserName;
-                            colorLb.BackColor = Color.Blue;
+                            //colorLb.BackColor = Color.Blue;
                             CurrentPlayerId = 1;
                             break;
 
@@ -538,12 +538,14 @@ namespace Client
                         case "Exit lobby":
                             if(ConnectionOptions.Room == parts[2])
                             {
+                                Startbtn.Enabled = false;
                                 switch(CurrentPlayerId)
                                 {
                                     case 0:
                                         ConnectionOptions.NameBlueIsTaken = false;
                                         Player2Name.Invoke((MethodInvoker)delegate
                                         {
+                                            currentPlayersTurn_textbox.Text = "Waiting for second player";
                                             Player2Name.Text = "Waiting for player ...";
                                         });
                                         break;
@@ -551,6 +553,7 @@ namespace Client
                                         ConnectionOptions.NameRedIsTaken = false;
                                         Player1Name.Invoke((MethodInvoker)delegate
                                         {
+                                            currentPlayersTurn_textbox.Text = "Waiting for second player";
                                             Player1Name.Text = "Waiting for player ...";
                                         });
                                         break;
@@ -898,10 +901,12 @@ namespace Client
             if (ConnectionOptions.Started)
             {
                 QuitGame();
+                //e.Cancel = true;
             }
             else if (Gamemodes.Create&&ConnectionOptions.Connect)
             {
                 QuitGame();
+                //e.Cancel = true;
             }
             else if(!ConnectionOptions.Started&&ConnectionOptions.Connect)
             {
@@ -1069,8 +1074,8 @@ namespace Client
 
             //Ném xúc sắc 
             Random rand = new Random();
-            int firstDice =  rand.Next(1, 7);
-            int secondDice = rand.Next(1, 7);
+            int firstDice = 4;//rand.Next(1, 7);
+            int secondDice = 1;//rand.Next(1, 7);
             Dice = firstDice + secondDice;
             //Hiển thị kết quả xức sắc 
             whatIsOnDices_textbox.Text = "Result: " + firstDice + " and " + secondDice + ". Total: " + Dice + ". ";

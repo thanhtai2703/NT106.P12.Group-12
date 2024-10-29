@@ -114,9 +114,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\board.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\redPawn.png" />
   </ItemGroup>
   <ItemGroup>
@@ -136,9 +133,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Game menu.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ChessBoard.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\download.jpg" />
@@ -163,6 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ban co.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
