@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\admin\AppData\Local\Temp\vs72EB.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\taith\AppData\Local\Temp\vsD797.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\admin\AppData\Local\Temp\vs72EB.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\taith\AppData\Local\Temp\vsD797.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -175,6 +175,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\download1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Red cat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blue cat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blue cat1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

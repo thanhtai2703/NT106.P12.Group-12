@@ -44,7 +44,7 @@
             // chooseBluePlayerBtn
             // 
             this.chooseBluePlayerBtn.BackColor = System.Drawing.Color.Transparent;
-            this.chooseBluePlayerBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chooseBluePlayerBtn.BackgroundImage")));
+            this.chooseBluePlayerBtn.BackgroundImage = global::Client.Properties.Resources.Blue_cat1;
             this.chooseBluePlayerBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.chooseBluePlayerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chooseBluePlayerBtn.FlatAppearance.BorderSize = 0;
@@ -60,7 +60,7 @@
             // chooseRedPlayerBtn
             // 
             this.chooseRedPlayerBtn.BackColor = System.Drawing.Color.Transparent;
-            this.chooseRedPlayerBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chooseRedPlayerBtn.BackgroundImage")));
+            this.chooseRedPlayerBtn.BackgroundImage = global::Client.Properties.Resources.Red_cat;
             this.chooseRedPlayerBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.chooseRedPlayerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chooseRedPlayerBtn.FlatAppearance.BorderSize = 0;
@@ -134,7 +134,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(249, 161);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(209, 35);
+            this.label1.Size = new System.Drawing.Size(141, 23);
             this.label1.TabIndex = 32;
             this.label1.Text = "CHOOSE COLOR";
             // 
@@ -146,7 +146,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(208, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(286, 35);
+            this.label2.Size = new System.Drawing.Size(192, 23);
             this.label2.TabIndex = 34;
             this.label2.Text = "Please enter your name";
             // 
@@ -155,7 +155,7 @@
             this.txtName.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtName.Location = new System.Drawing.Point(280, 92);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(151, 37);
+            this.txtName.Size = new System.Drawing.Size(151, 27);
             this.txtName.TabIndex = 35;
             // 
             // label3
@@ -166,7 +166,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(32, 284);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(223, 35);
+            this.label3.Size = new System.Drawing.Size(150, 23);
             this.label3.TabIndex = 36;
             this.label3.Text = "Not chosen yet...";
             // 
@@ -178,13 +178,13 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(453, 288);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(223, 35);
+            this.label4.Size = new System.Drawing.Size(150, 23);
             this.label4.TabIndex = 37;
             this.label4.Text = "Not chosen yet...";
             // 
             // ColorChoosing
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Client.Properties.Resources.download;

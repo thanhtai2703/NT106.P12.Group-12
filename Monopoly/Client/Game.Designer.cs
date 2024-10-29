@@ -143,7 +143,7 @@
             // redPawnIcon
             // 
             this.redPawnIcon.BackColor = System.Drawing.Color.Transparent;
-            this.redPawnIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("redPawnIcon.BackgroundImage")));
+            this.redPawnIcon.BackgroundImage = global::Client.Properties.Resources.Red_cat;
             this.redPawnIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.redPawnIcon.Cursor = System.Windows.Forms.Cursors.Default;
             this.redPawnIcon.Location = new System.Drawing.Point(607, 608);
@@ -156,9 +156,9 @@
             // bluePawnIcon
             // 
             this.bluePawnIcon.BackColor = System.Drawing.Color.Transparent;
-            this.bluePawnIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bluePawnIcon.BackgroundImage")));
+            this.bluePawnIcon.BackgroundImage = global::Client.Properties.Resources.Blue_cat1;
             this.bluePawnIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bluePawnIcon.Location = new System.Drawing.Point(654, 608);
+            this.bluePawnIcon.Location = new System.Drawing.Point(671, 606);
             this.bluePawnIcon.Margin = new System.Windows.Forms.Padding(0);
             this.bluePawnIcon.Name = "bluePawnIcon";
             this.bluePawnIcon.Size = new System.Drawing.Size(47, 36);
@@ -721,7 +721,7 @@
             this.Startbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Startbtn.Font = new System.Drawing.Font("Comic Sans MS", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Startbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Startbtn.Location = new System.Drawing.Point(512, 375);
+            this.Startbtn.Location = new System.Drawing.Point(512, 417);
             this.Startbtn.Margin = new System.Windows.Forms.Padding(0);
             this.Startbtn.Name = "Startbtn";
             this.Startbtn.Size = new System.Drawing.Size(84, 37);
@@ -742,7 +742,7 @@
             this.timeLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.timeLabel.Location = new System.Drawing.Point(173, 186);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(80, 33);
+            this.timeLabel.Size = new System.Drawing.Size(53, 23);
             this.timeLabel.TabIndex = 119;
             this.timeLabel.Text = "Timer";
             // 
@@ -751,10 +751,10 @@
             this.Player1Name.AutoSize = true;
             this.Player1Name.BackColor = System.Drawing.Color.Transparent;
             this.Player1Name.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Player1Name.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Player1Name.Location = new System.Drawing.Point(803, 282);
+            this.Player1Name.ForeColor = System.Drawing.Color.Red;
+            this.Player1Name.Location = new System.Drawing.Point(793, 287);
             this.Player1Name.Name = "Player1Name";
-            this.Player1Name.Size = new System.Drawing.Size(123, 29);
+            this.Player1Name.Size = new System.Drawing.Size(85, 19);
             this.Player1Name.TabIndex = 120;
             this.Player1Name.Text = "Waiting....";
             // 
@@ -763,10 +763,10 @@
             this.Player2Name.AutoSize = true;
             this.Player2Name.BackColor = System.Drawing.Color.Transparent;
             this.Player2Name.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Player2Name.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Player2Name.Location = new System.Drawing.Point(1041, 282);
+            this.Player2Name.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.Player2Name.Location = new System.Drawing.Point(1039, 287);
             this.Player2Name.Name = "Player2Name";
-            this.Player2Name.Size = new System.Drawing.Size(123, 29);
+            this.Player2Name.Size = new System.Drawing.Size(85, 19);
             this.Player2Name.TabIndex = 121;
             this.Player2Name.Text = "Waiting....";
             // 

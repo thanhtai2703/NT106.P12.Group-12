@@ -83,6 +83,26 @@ namespace Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Blue_cat {
+            get {
+                object obj = ResourceManager.GetObject("Blue cat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Blue_cat1 {
+            get {
+                object obj = ResourceManager.GetObject("Blue cat1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bluePawn {
             get {
                 object obj = ResourceManager.GetObject("bluePawn", resourceCulture);
@@ -226,6 +246,16 @@ namespace Client.Properties {
         internal static System.Drawing.Bitmap real_money_monopoly_background_free_vector {
             get {
                 object obj = ResourceManager.GetObject("real-money-monopoly-background-free-vector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Red_cat {
+            get {
+                object obj = ResourceManager.GetObject("Red cat", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
