@@ -16,7 +16,6 @@ namespace Server
         protected internal Socket Client;
         private readonly ServerObject server;
         private string userName; // tên người gửi thông điệp từ client.
-        private StreamWriter write;
         static List<Room> room = new List<Room>(); // khời tạo 1 danh sách phòng chơi trên server để quản lý các phòng chơi hiện có.
         DateTime now = DateTime.Now;
         protected internal string Id { get; } 
@@ -39,6 +38,7 @@ namespace Server
                     string []arraypayload = message.Split(';'); // tách chuỗi tin nhắn theo dấu ";"
                     switch (arraypayload[0]) // đọc thông điệp control message
                     {
+                        #region xử lí tin nhắn
                         case "Connect":
                             bool isFound = false; // tạo biến kiểm tra phòng đã tồn tại chưa
                             for (int i = 0; i < room.Count; i++) //duyệt danh sách phòng hiện có để tìm kiếm
@@ -246,9 +246,9 @@ namespace Server
                             RemoveRoom(Convert.ToInt32(arraypayload[2]));
                             server.RemoveConnection(this.Id);
                             break;
-
+                            #endregion
                     }
-                    
+
                 }
             }
             catch (Exception e)

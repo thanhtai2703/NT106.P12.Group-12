@@ -47,7 +47,7 @@
             label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             label1.Location = new System.Drawing.Point(125, 48);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(104, 39);
+            label1.Size = new System.Drawing.Size(71, 27);
             label1.TabIndex = 20;
             label1.Text = "ROOM";
             // 
@@ -59,7 +59,7 @@
             labelIp.ForeColor = System.Drawing.SystemColors.ButtonFace;
             labelIp.Location = new System.Drawing.Point(125, 181);
             labelIp.Name = "labelIp";
-            labelIp.Size = new System.Drawing.Size(47, 39);
+            labelIp.Size = new System.Drawing.Size(32, 27);
             labelIp.TabIndex = 22;
             labelIp.Text = "IP";
             // 
@@ -119,6 +119,7 @@
             // ip_textbox
             // 
             this.ip_textbox.BackColor = System.Drawing.Color.White;
+            this.ip_textbox.Font = new System.Drawing.Font("Segoe UI Historic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ip_textbox.ForeColor = System.Drawing.Color.Black;
             this.ip_textbox.Location = new System.Drawing.Point(155, 234);
             this.ip_textbox.MaxLength = 15;
@@ -130,7 +131,7 @@
             // 
             // Connection
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Client.Properties.Resources.download1;

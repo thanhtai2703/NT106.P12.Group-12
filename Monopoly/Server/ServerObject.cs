@@ -12,9 +12,8 @@ namespace Server
     public class ServerObject
     {
         private Socket serverSocket;
-        //tạo danh sách client quản lý client đang kết nối 
-        private readonly List<ClientObject> clients = new List<ClientObject>();
-        
+        private readonly List<ClientObject> clients = new List<ClientObject>();//tạo danh sách client quản lý client đang kết nối 
+
         //thêm kết nối
         protected internal void AddConnection(ClientObject clientObject)
         {
@@ -40,21 +39,18 @@ namespace Server
                 //Tạo kết nối với sever
                 serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 serverSocket.Bind(new IPEndPoint(IPAddress.Any, 11000));
-                serverSocket.Listen(100);
+                serverSocket.Listen(20);
                 Program.f.tbLog.Invoke((MethodInvoker)delegate
                 {
                     Program.f.tbLog.Text += "[" + DateTime.Now + "] " 
                                             + "Server is turn on, waiting for connection......." 
                                             + Environment.NewLine;
                 });
-                while (true)
+                while (true) //lặp liên tục để tiếp nhận yêu cầu từ client
                 {
-                    //Tiếp nhận các client 
-                    Socket handler = serverSocket.Accept();
-                    //Tạo một clientObject mới
-                    ClientObject clientObject = new ClientObject(handler, this); // handle đại diện cho kết nối của server với clientObject, this cho phép clientObject có thể gọi các phương thức của serverObject
-                    // Tạo luồng riêng cho ClientObject để nhận tin nhắn
-                    Thread clientThread = new Thread(new ThreadStart(clientObject.Process));
+                    Socket handler = serverSocket.Accept();//Tạo một kết nối clientObject mới
+                    ClientObject clientObject = new ClientObject(handler, this); //constructor khởi tạo của ClienObject
+                    Thread clientThread = new Thread(new ThreadStart(clientObject.Process));// Tạo luồng riêng cho ClientObject để nhận tin nhắn
                     clientThread.Start();
                 }
             }

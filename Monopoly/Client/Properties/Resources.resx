@@ -127,6 +127,9 @@
   <data name="ChessBoard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ChessBoard.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dice_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dice_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="hin05" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hin05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -175,6 +178,9 @@
   <data name="Game menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Game menu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Blue cat1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Blue cat1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Red cat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Red cat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -187,7 +193,7 @@
   <data name="bluePawn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bluePawn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Blue cat1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Blue cat1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Money" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Money.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -17,20 +17,15 @@ namespace Client
     public partial class Game : Form
     {
         private static Socket clientSocket;
-        //Tạo luồng mạng để gửi nhận dữ liệu 
-        private static NetworkStream Stream;
-        private bool Receiving = true; //Biến receiving để đánh dấu khi nào bắt đầu nhận, dừng nhận tin nhắn từ server.
-        //Lưu giá trị của Xúc xắc, vị trí trên bàn cờ, ID của người chơi, 
-        private static int Dice, CurrentPosition, CurrentPlayerId, RedDotsNameSplitter, BlueDotsNameSplitter;
-        private  bool isTurn;
-        //Lưu thông tin của người chơi 
+        private static NetworkStream Stream;//Tạo luồng mạng để gửi nhận dữ liệu
+        private string messagetype = ""; //Lệnh điều khiển
+        private bool Receiving = true; //Biến receiving để đánh dấu khi nào bắt đầu nhận, dừng nhận tin nhắn từ server. 
+        private static int Dice, CurrentPosition, CurrentPlayerId, RedDotsNameSplitter, BlueDotsNameSplitter;//Lưu giá trị của Xúc xắc, vị trí trên bàn cờ, ID của người chơi,
+        private  bool isTurn;//Lưu thông tin của người chơi 
         private readonly Player[] Players = new Player[2];
-        //Lưu thông tin của các ô trên bàn cờ 
-        private readonly Property[] Properties = new Property[40];
-        //Chứa hình ảnh của các ô 
-        private readonly PictureBox[] Tile;
-        private string messagetype=""; //Lệnh điều khiển
-        public static int counter=0;
+        private readonly Property[] Properties = new Property[40];//Lưu thông tin của các ô trên bàn cờ 
+        private readonly PictureBox[] Tile;//Chứa hình ảnh của các ô 
+        public static int counter = 0; //đếm số lượt đã pass
         private readonly int[] Opportunity = { -100, 100, -150, 150, -200, 200 };
         private System.Windows.Forms.Timer turnTimer;
         //Khởi tạo bộ đếm
@@ -146,11 +141,11 @@ namespace Client
                     //Tạo luồng nhận dữ liệu từ Server 
                     Thread receiveThread = new Thread(ReceiveMessage);
                     receiveThread.Start();
-                    #region Khởi tạo phòng chơi
-                    ConnectionOptions.Connect = true;
-                    //Gửi thông điệp "Tạo phòng" hoặc "Tham gia" và tạm dừng
+                    //Gửi thông điệp "Tạo phòng" hoặc "Tham gia"
                     if (Gamemodes.Create) SendMessageToServer("Create" + ";" + ConnectionOptions.Room);
                     else SendMessageToServer("Join" + ";" + ConnectionOptions.Room);
+                    #region Khởi tạo phòng chơi
+                    ConnectionOptions.Connect = true;
 
                     // Tạm dừng trong 500ms để nhận phản hồi từ server (không chặn luồng)
                     Thread.Sleep(500);
@@ -238,26 +233,27 @@ namespace Client
             //Chạy qua ds tài sản, sau đó thêm tên, màu vào chuỗi 
             for (var i = 0; i < 40; i++)
                 if (propertyList[i] != 0)
-                    tempString = tempString + Properties[propertyList[i]].Name + " price " +Properties[propertyList[i]].Rent + "\n";
+                    tempString = tempString + Properties[propertyList[i]].Name + ": " +Properties[propertyList[i]].Rent + "\n";
             return tempString;
         }
         //Cập nhật thông tin về người chơi trên giao diện 
         private void UpdatePlayersStatusBoxes()
         {
+            #region cập nhật hộp trạng thái
             if (redPlayerStatusBox_richtextbox.InvokeRequired)
             {
                 redPlayerStatusBox_richtextbox.Invoke((MethodInvoker)delegate
                 {
                     redPlayerStatusBox_richtextbox.Text =
                 "Remaining money: " + Players[0].Balance + "\n"
-                + "Property :" + PropertiesToString(Players[0].PropertiesOwned);
+                + "Property :\n" + PropertiesToString(Players[0].PropertiesOwned);
                 });
                 }
             else
             {
                 redPlayerStatusBox_richtextbox.Text =
                "Remaining money: " + Players[0].Balance + "\n"
-              + "Property :" + PropertiesToString(Players[0].PropertiesOwned);
+              + "Property :\n" + PropertiesToString(Players[0].PropertiesOwned);
             }
             if (bluePlayerStatusBox_richtextbox.InvokeRequired)
             {
@@ -265,15 +261,16 @@ namespace Client
                 {
                     bluePlayerStatusBox_richtextbox.Text =
                          "Remaining money: " + Players[1].Balance + "\n"
-                        + "Property :" + PropertiesToString(Players[1].PropertiesOwned);
+                        + "Property :\n" + PropertiesToString(Players[1].PropertiesOwned);
                 });
             }
             else
             {
                 bluePlayerStatusBox_richtextbox.Text =
                          "Remaining money: " + Players[1].Balance + "\n"
-                        + "Property :" + PropertiesToString(Players[1].PropertiesOwned);
-            }    
+                        + "Property :\n" + PropertiesToString(Players[1].PropertiesOwned);
+            }
+            #endregion
         }
         //Thay đổi số dư và cập nhật lên giao diện 
         private void ChangeBalance(Player player, int cashChange)
@@ -371,6 +368,7 @@ namespace Client
         //Vẽ hình tròn đại diện cho vị trí người chơi trên bàn cờ 
         private void DrawCircle(int position, int playerId)
         {
+            #region vẽ hình đại diện cho nhà đã mua
             //Lấy tọa độ x, y của các ô trên bàn cờ 
             int x = Tile[position].Location.X, y = Tile[position].Location.Y;
             //Tạo hình tròn đại diện cho người chơi và đặt tọa độ và hình ảnh tương ứng 
@@ -399,7 +397,7 @@ namespace Client
                     {
                         var blueMarker = new PictureBox
                         {
-                            Size = new Size(30, 30),
+                            Size = new Size(30,30),
                             Name = "blueMarker" + BlueDotsNameSplitter,
                             BackgroundImage = blueDot_picturebox.BackgroundImage,
                             BackColor = Color.Transparent,
@@ -413,6 +411,7 @@ namespace Client
                         break;
                     }
             }
+            #endregion
         }
         private void UpdateTimeDisplay()
         {
@@ -421,13 +420,13 @@ namespace Client
         //Nhận các tin nhắn từ server và xử lý
         private void ReceiveMessage()
         {
-            //Nhận tin nhắn nếu biên Receiving là true
+            //Nhận tin nhắn nếu Receiving là true
             while (Receiving)
                 try
                 {
                     //Tạo mảng byte để chứa dữ liệu từ máy chủ 
                     byte[] data = new byte[256];
-                    //Tạo một StringBuilder để xây dựng chuỗi tù ư dũ liệu nhận được 
+                    //Tạo một StringBuilder để xây dựng chuỗi từ dữ liệu nhận được 
                     StringBuilder builder = new StringBuilder();
                     //Đọc dữ liệu từ luồng và thêm vào StringBuilder cho tới khi không còn dữ liệu khả dụng 
                     do
@@ -439,7 +438,6 @@ namespace Client
                     String message = builder.ToString();
                     //Phân tích tin nhắn nhận được bằng dấu ";"
                     string[] parts = message.Split(';');
-                    //Nhận được thông điệp máy chủ cả 2 ngươi chơi đều đã kết nối
                     switch (parts[0]) // Xem loại tin nhắn
                     #region Xử lí thông điệp
                     {
@@ -802,28 +800,21 @@ namespace Client
             UpdatePlayersStatusBoxes();
         }
         // tắt cờ Reciving để dừng việc nhận tin nhắn 
-        private void StopReceiving()
-        {
-            Receiving = false;
-        }
         //Phương thức ngắt kết nối và đóng ứng dụng
         public void InstanceDisconnect()
         {
-            StopReceiving();  // Dừng luồng nhận tin nhắn
             Disconnect();  // Gọi phương thức static Disconnect
             Environment.Exit(0);
         }
         //Phương thức ngắt kết nối 
-        private static void Disconnect()
+        private void Disconnect()
         {
+            Receiving = false;
             try
             {
-
-
                 if (Stream != null)
                 {
                     Stream.Close();   // Đóng luồng
-                    Stream.Dispose(); // Giải phóng tài nguyên nếu cần
                     Stream = null;    // Đặt về null để tránh việc tái sử dụng
                 }
                 if (clientSocket != null)
@@ -834,7 +825,6 @@ namespace Client
                     }
 
                     clientSocket.Close();    // Đóng socket
-                    clientSocket.Dispose();  // Giải phóng tài nguyên
                     clientSocket = null;     // Đặt về null để tránh việc tái sử dụng
                 }
             }
@@ -931,7 +921,7 @@ namespace Client
             {
                 for (var i = from; i <= to; i++)
                 {
-                    await Task.Delay(150);
+                    await Task.Delay(200);
                     if(Gamemodes.Multiplayer) SendMessageToServer(messagetype + ";"+ ConnectionOptions.PlayerName + ";" + CurrentPlayerId + ";" + i);
                     MoveIcon(i);
                     endTurnBtn.Enabled = false;
@@ -944,14 +934,14 @@ namespace Client
                 // sau đó di chuyển từ ô đầu tiên (0) đến ô đích với phần dư của vị trí đích sau khi chia cho 40
                 for (var i = from; i <= 39; i++)
                 {
-                    await Task.Delay(150);
+                    await Task.Delay(200);
                     if (Gamemodes.Multiplayer) SendMessageToServer(messagetype + ";" + ConnectionOptions.PlayerName + ";" + CurrentPlayerId + ";" + i);
                     MoveIcon(i);
                     endTurnBtn.Enabled = false;
                 }
                 for (var i = 0; i <= to - 40; i++)
                 {
-                    await Task.Delay(150);
+                    await Task.Delay(200);
                     if (Gamemodes.Multiplayer) SendMessageToServer(messagetype + ";" + ConnectionOptions.PlayerName + ";" + CurrentPlayerId + ";" + i);
                     MoveIcon(i);
                     endTurnBtn.Enabled = false;
@@ -1152,7 +1142,7 @@ namespace Client
 
             currentPositionInfo_richtextbox.Text = "Position " + CurrentPosition;
             currentPositionInfo_richtextbox.AppendText("\r\n" + Properties[CurrentPosition].Name);
-            currentPositionInfo_richtextbox.AppendText("\r\n" + "Price " + Properties[CurrentPosition].Price);
+            currentPositionInfo_richtextbox.AppendText(" Price " + Properties[CurrentPosition].Price);
 
             if (visitedJailExploration) 
                 currentPositionInfo_richtextbox.AppendText("\r\n" + "You visit prison ");
@@ -1168,9 +1158,9 @@ namespace Client
 
             if (landedOpportunity)
                 if (CurrentPosition == 2 || CurrentPosition == 17 || CurrentPosition == 33)
-                    currentPositionInfo_richtextbox.AppendText("\r\n" + "You get " + Convert.ToString(OppResult) + " in \"Fortunate\".");
+                    currentPositionInfo_richtextbox.AppendText("\r\n" + "You get " + Convert.ToString(OppResult) + " in \"Khí Vận\".");
                 else
-                    currentPositionInfo_richtextbox.AppendText("\r\n" + "You get " + Convert.ToString(OppResult) + " in \"Opportunity\".");
+                    currentPositionInfo_richtextbox.AppendText("\r\n" + "You get " + Convert.ToString(OppResult) + " in \"Cơ Hội\".");
 
             if (goingToJail)
             {

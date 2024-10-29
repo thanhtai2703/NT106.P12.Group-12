@@ -123,30 +123,6 @@
     <None Include="Resources\bluePawn.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\hin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hin04.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hin02.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hin01.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hin05.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hin000.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Screenshot %2824%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\81rRTIxhz4L._AC_SL1500_.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\th %283%29.jfif" />
   </ItemGroup>
   <ItemGroup>
@@ -157,9 +133,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\monopoly-board-games-element-background-free-vector.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\A_bright_and_vibrant_game_menu_screen_for_Monopoly.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Game menu.jpg" />
@@ -184,6 +157,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Blue cat1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dice_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Money.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
