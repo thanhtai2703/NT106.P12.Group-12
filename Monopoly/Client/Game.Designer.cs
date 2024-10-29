@@ -175,13 +175,13 @@
             // 
             this.currentPositionInfo_richtextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(119)))), ((int)(((byte)(84)))));
             this.currentPositionInfo_richtextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.currentPositionInfo_richtextbox.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.currentPositionInfo_richtextbox.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentPositionInfo_richtextbox.ForeColor = System.Drawing.Color.Black;
-            this.currentPositionInfo_richtextbox.Location = new System.Drawing.Point(944, 86);
+            this.currentPositionInfo_richtextbox.Location = new System.Drawing.Point(944, 89);
             this.currentPositionInfo_richtextbox.Margin = new System.Windows.Forms.Padding(0);
             this.currentPositionInfo_richtextbox.Name = "currentPositionInfo_richtextbox";
             this.currentPositionInfo_richtextbox.ReadOnly = true;
-            this.currentPositionInfo_richtextbox.Size = new System.Drawing.Size(246, 105);
+            this.currentPositionInfo_richtextbox.Size = new System.Drawing.Size(246, 102);
             this.currentPositionInfo_richtextbox.TabIndex = 65;
             this.currentPositionInfo_richtextbox.Text = "";
             // 
@@ -190,7 +190,7 @@
             this.currentPlayersTurn_textbox.AcceptsReturn = true;
             this.currentPlayersTurn_textbox.BackColor = System.Drawing.Color.White;
             this.currentPlayersTurn_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.currentPlayersTurn_textbox.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentPlayersTurn_textbox.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentPlayersTurn_textbox.ForeColor = System.Drawing.Color.Black;
             this.currentPlayersTurn_textbox.Location = new System.Drawing.Point(778, 231);
             this.currentPlayersTurn_textbox.Margin = new System.Windows.Forms.Padding(0);
@@ -204,27 +204,27 @@
             // 
             this.whatIsOnDices_textbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(119)))), ((int)(((byte)(84)))));
             this.whatIsOnDices_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.whatIsOnDices_textbox.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.whatIsOnDices_textbox.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.whatIsOnDices_textbox.ForeColor = System.Drawing.Color.Black;
-            this.whatIsOnDices_textbox.Location = new System.Drawing.Point(813, 89);
+            this.whatIsOnDices_textbox.Location = new System.Drawing.Point(811, 89);
             this.whatIsOnDices_textbox.Margin = new System.Windows.Forms.Padding(0);
             this.whatIsOnDices_textbox.Multiline = true;
             this.whatIsOnDices_textbox.Name = "whatIsOnDices_textbox";
             this.whatIsOnDices_textbox.ReadOnly = true;
-            this.whatIsOnDices_textbox.Size = new System.Drawing.Size(100, 86);
+            this.whatIsOnDices_textbox.Size = new System.Drawing.Size(102, 83);
             this.whatIsOnDices_textbox.TabIndex = 63;
             // 
             // bluePlayerStatusBox_richtextbox
             // 
             this.bluePlayerStatusBox_richtextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(119)))), ((int)(((byte)(84)))));
             this.bluePlayerStatusBox_richtextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bluePlayerStatusBox_richtextbox.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bluePlayerStatusBox_richtextbox.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bluePlayerStatusBox_richtextbox.ForeColor = System.Drawing.Color.Black;
-            this.bluePlayerStatusBox_richtextbox.Location = new System.Drawing.Point(1036, 311);
+            this.bluePlayerStatusBox_richtextbox.Location = new System.Drawing.Point(1036, 319);
             this.bluePlayerStatusBox_richtextbox.Margin = new System.Windows.Forms.Padding(0);
             this.bluePlayerStatusBox_richtextbox.Name = "bluePlayerStatusBox_richtextbox";
             this.bluePlayerStatusBox_richtextbox.ReadOnly = true;
-            this.bluePlayerStatusBox_richtextbox.Size = new System.Drawing.Size(163, 118);
+            this.bluePlayerStatusBox_richtextbox.Size = new System.Drawing.Size(163, 110);
             this.bluePlayerStatusBox_richtextbox.TabIndex = 58;
             this.bluePlayerStatusBox_richtextbox.Text = "";
             // 
@@ -232,14 +232,14 @@
             // 
             this.redPlayerStatusBox_richtextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(119)))), ((int)(((byte)(84)))));
             this.redPlayerStatusBox_richtextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.redPlayerStatusBox_richtextbox.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.redPlayerStatusBox_richtextbox.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.redPlayerStatusBox_richtextbox.ForeColor = System.Drawing.Color.Black;
-            this.redPlayerStatusBox_richtextbox.Location = new System.Drawing.Point(797, 311);
+            this.redPlayerStatusBox_richtextbox.Location = new System.Drawing.Point(797, 319);
             this.redPlayerStatusBox_richtextbox.Margin = new System.Windows.Forms.Padding(0);
             this.redPlayerStatusBox_richtextbox.Name = "redPlayerStatusBox_richtextbox";
             this.redPlayerStatusBox_richtextbox.ReadOnly = true;
             this.redPlayerStatusBox_richtextbox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.redPlayerStatusBox_richtextbox.Size = new System.Drawing.Size(164, 118);
+            this.redPlayerStatusBox_richtextbox.Size = new System.Drawing.Size(164, 110);
             this.redPlayerStatusBox_richtextbox.TabIndex = 57;
             this.redPlayerStatusBox_richtextbox.Text = "";
             // 
@@ -686,7 +686,7 @@
             // 
             this.messageTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(119)))), ((int)(((byte)(84)))));
             this.messageTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.messageTb.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.messageTb.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.messageTb.Location = new System.Drawing.Point(778, 608);
             this.messageTb.Multiline = true;
             this.messageTb.Name = "messageTb";
@@ -697,11 +697,11 @@
             // 
             this.messageRTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(204)))), ((int)(((byte)(183)))));
             this.messageRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.messageRTB.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.messageRTB.Location = new System.Drawing.Point(775, 468);
+            this.messageRTB.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageRTB.Location = new System.Drawing.Point(775, 482);
             this.messageRTB.Name = "messageRTB";
             this.messageRTB.ReadOnly = true;
-            this.messageRTB.Size = new System.Drawing.Size(445, 127);
+            this.messageRTB.Size = new System.Drawing.Size(445, 113);
             this.messageRTB.TabIndex = 116;
             this.messageRTB.Text = "";
             // 
@@ -725,7 +725,7 @@
             this.Startbtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.Startbtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.Startbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Startbtn.Font = new System.Drawing.Font("Comic Sans MS", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Startbtn.Font = new System.Drawing.Font("Gill Sans MT", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Startbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Startbtn.Location = new System.Drawing.Point(512, 417);
             this.Startbtn.Margin = new System.Windows.Forms.Padding(0);
@@ -744,11 +744,11 @@
             // 
             this.timeLabel.AutoSize = true;
             this.timeLabel.BackColor = System.Drawing.Color.Transparent;
-            this.timeLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLabel.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.timeLabel.Location = new System.Drawing.Point(199, 190);
+            this.timeLabel.Location = new System.Drawing.Point(172, 196);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(53, 23);
+            this.timeLabel.Size = new System.Drawing.Size(86, 34);
             this.timeLabel.TabIndex = 119;
             this.timeLabel.Text = "Timer";
             // 
@@ -756,11 +756,11 @@
             // 
             this.Player1Name.AutoSize = true;
             this.Player1Name.BackColor = System.Drawing.Color.Transparent;
-            this.Player1Name.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Player1Name.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player1Name.ForeColor = System.Drawing.Color.Red;
-            this.Player1Name.Location = new System.Drawing.Point(822, 287);
+            this.Player1Name.Location = new System.Drawing.Point(805, 289);
             this.Player1Name.Name = "Player1Name";
-            this.Player1Name.Size = new System.Drawing.Size(77, 18);
+            this.Player1Name.Size = new System.Drawing.Size(135, 34);
             this.Player1Name.TabIndex = 120;
             this.Player1Name.Text = "Waiting....";
             // 
@@ -768,11 +768,11 @@
             // 
             this.Player2Name.AutoSize = true;
             this.Player2Name.BackColor = System.Drawing.Color.Transparent;
-            this.Player2Name.Font = new System.Drawing.Font("Georgia", 11.25F);
+            this.Player2Name.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player2Name.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.Player2Name.Location = new System.Drawing.Point(1045, 292);
+            this.Player2Name.Location = new System.Drawing.Point(1043, 289);
             this.Player2Name.Name = "Player2Name";
-            this.Player2Name.Size = new System.Drawing.Size(77, 18);
+            this.Player2Name.Size = new System.Drawing.Size(135, 34);
             this.Player2Name.TabIndex = 121;
             this.Player2Name.Text = "Waiting....";
             // 
@@ -787,7 +787,7 @@
             this.throwDiceBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.throwDiceBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.throwDiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.throwDiceBtn.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.throwDiceBtn.Font = new System.Drawing.Font("Gill Sans MT", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.throwDiceBtn.ForeColor = System.Drawing.Color.White;
             this.throwDiceBtn.Location = new System.Drawing.Point(256, 402);
             this.throwDiceBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -807,7 +807,7 @@
             this.buyBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buyBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buyBtn.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buyBtn.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buyBtn.ForeColor = System.Drawing.Color.White;
             this.buyBtn.Location = new System.Drawing.Point(266, 482);
             this.buyBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -827,7 +827,7 @@
             this.endTurnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.endTurnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.endTurnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.endTurnBtn.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endTurnBtn.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endTurnBtn.ForeColor = System.Drawing.Color.White;
             this.endTurnBtn.Location = new System.Drawing.Point(369, 464);
             this.endTurnBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -849,14 +849,14 @@
             this.quitGameBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.quitGameBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.quitGameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.quitGameBtn.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitGameBtn.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quitGameBtn.ForeColor = System.Drawing.Color.Transparent;
             this.quitGameBtn.Location = new System.Drawing.Point(512, 134);
             this.quitGameBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.quitGameBtn.Name = "quitGameBtn";
             this.quitGameBtn.Size = new System.Drawing.Size(67, 57);
             this.quitGameBtn.TabIndex = 125;
-            this.quitGameBtn.Text = "Quit \r\nGame\r\n\r\n";
+            this.quitGameBtn.Text = "Quit \r\n";
             this.quitGameBtn.UseVisualStyleBackColor = false;
             this.quitGameBtn.Click += new System.EventHandler(this.QuitGameBtn_Click);
             // 
@@ -871,12 +871,12 @@
             this.sendBt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.sendBt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.sendBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sendBt.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendBt.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sendBt.ForeColor = System.Drawing.Color.Transparent;
-            this.sendBt.Location = new System.Drawing.Point(1153, 599);
+            this.sendBt.Location = new System.Drawing.Point(1147, 599);
             this.sendBt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.sendBt.Name = "sendBt";
-            this.sendBt.Size = new System.Drawing.Size(67, 45);
+            this.sendBt.Size = new System.Drawing.Size(83, 45);
             this.sendBt.TabIndex = 126;
             this.sendBt.Text = "Send";
             this.sendBt.UseVisualStyleBackColor = false;

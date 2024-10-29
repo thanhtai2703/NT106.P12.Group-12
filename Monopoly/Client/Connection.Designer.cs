@@ -43,11 +43,11 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = System.Drawing.Color.Transparent;
-            label1.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            label1.Location = new System.Drawing.Point(150, 69);
+            label1.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.ForeColor = System.Drawing.Color.MediumBlue;
+            label1.Location = new System.Drawing.Point(150, 58);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(71, 27);
+            label1.Size = new System.Drawing.Size(142, 51);
             label1.TabIndex = 20;
             label1.Text = "ROOM";
             // 
@@ -55,18 +55,18 @@
             // 
             labelIp.AutoSize = true;
             labelIp.BackColor = System.Drawing.Color.Transparent;
-            labelIp.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            labelIp.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            labelIp.Location = new System.Drawing.Point(150, 204);
+            labelIp.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            labelIp.ForeColor = System.Drawing.Color.MediumBlue;
+            labelIp.Location = new System.Drawing.Point(150, 192);
             labelIp.Name = "labelIp";
-            labelIp.Size = new System.Drawing.Size(32, 27);
+            labelIp.Size = new System.Drawing.Size(58, 51);
             labelIp.TabIndex = 22;
             labelIp.Text = "IP";
             // 
             // roomTb
             // 
             this.roomTb.BackColor = System.Drawing.Color.White;
-            this.roomTb.Font = new System.Drawing.Font("Segoe UI Historic", 18F);
+            this.roomTb.Font = new System.Drawing.Font("Gill Sans MT", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomTb.ForeColor = System.Drawing.Color.Black;
             this.roomTb.Location = new System.Drawing.Point(155, 99);
             this.roomTb.MaxLength = 15;
@@ -84,7 +84,7 @@
             this.btnChooseColor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnChooseColor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnChooseColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChooseColor.Font = new System.Drawing.Font("Comic Sans MS", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.btnChooseColor.Font = new System.Drawing.Font("Gill Sans MT", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChooseColor.ForeColor = System.Drawing.Color.Black;
             this.btnChooseColor.Location = new System.Drawing.Point(341, 312);
             this.btnChooseColor.Name = "btnChooseColor";
@@ -105,7 +105,7 @@
             this.returnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.returnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.returnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.returnBtn.Font = new System.Drawing.Font("Comic Sans MS", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.returnBtn.Font = new System.Drawing.Font("Gill Sans MT", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.returnBtn.ForeColor = System.Drawing.Color.Black;
             this.returnBtn.Location = new System.Drawing.Point(132, 311);
             this.returnBtn.Name = "returnBtn";
@@ -121,7 +121,7 @@
             // ip_textbox
             // 
             this.ip_textbox.BackColor = System.Drawing.Color.White;
-            this.ip_textbox.Font = new System.Drawing.Font("Segoe UI Historic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ip_textbox.Font = new System.Drawing.Font("Gill Sans MT", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ip_textbox.ForeColor = System.Drawing.Color.Black;
             this.ip_textbox.Location = new System.Drawing.Point(155, 234);
             this.ip_textbox.MaxLength = 15;
@@ -134,7 +134,7 @@
             // 
             // Connection
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Client.Properties.Resources.download1;

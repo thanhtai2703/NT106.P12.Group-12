@@ -126,11 +126,11 @@
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Client.Properties.Resources.Game_menu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(749, 578);
+            this.ClientSize = new System.Drawing.Size(695, 578);
             this.Controls.Add(this.JoinBtn);
             this.Controls.Add(this.CreateBtn);
             this.Controls.Add(this.quitBtn);
