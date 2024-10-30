@@ -75,7 +75,7 @@
             // 
             // returnBtn
             // 
-            this.returnBtn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.returnBtn.BackColor = System.Drawing.SystemColors.Info;
             this.returnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.returnBtn.FlatAppearance.BorderSize = 0;
             this.returnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -96,7 +96,7 @@
             // 
             // connect_button
             // 
-            this.connect_button.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.connect_button.BackColor = System.Drawing.SystemColors.Info;
             this.connect_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.connect_button.FlatAppearance.BorderSize = 0;
             this.connect_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -117,7 +117,7 @@
             // 
             // tbColor
             // 
-            this.tbColor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbColor.BackColor = System.Drawing.SystemColors.Info;
             this.tbColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbColor.Enabled = false;
             this.tbColor.Location = new System.Drawing.Point(280, 238);
@@ -131,10 +131,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label1.Location = new System.Drawing.Point(238, 180);
+            this.label1.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label1.Location = new System.Drawing.Point(275, 196);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 34);
+            this.label1.Size = new System.Drawing.Size(179, 27);
             this.label1.TabIndex = 32;
             this.label1.Text = "CHOOSE COLOR";
             // 
@@ -142,9 +142,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label2.Location = new System.Drawing.Point(211, 46);
+            this.label2.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label2.Location = new System.Drawing.Point(211, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(283, 34);
             this.label2.TabIndex = 34;
@@ -152,10 +152,10 @@
             // 
             // txtName
             // 
-            this.txtName.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtName.BackColor = System.Drawing.SystemColors.Info;
             this.txtName.Location = new System.Drawing.Point(280, 92);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(151, 32);
+            this.txtName.Size = new System.Drawing.Size(151, 27);
             this.txtName.TabIndex = 35;
             // 
             // label3
@@ -166,9 +166,10 @@
             this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(65, 267);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(188, 31);
+            this.label3.Size = new System.Drawing.Size(156, 27);
             this.label3.TabIndex = 36;
             this.label3.Text = "Not chosen yet...";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -178,13 +179,14 @@
             this.label4.ForeColor = System.Drawing.Color.Aqua;
             this.label4.Location = new System.Drawing.Point(481, 267);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(188, 31);
+            this.label4.Size = new System.Drawing.Size(156, 27);
             this.label4.TabIndex = 37;
             this.label4.Text = "Not chosen yet...";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ColorChoosing
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Client.Properties.Resources.download;

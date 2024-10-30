@@ -47,7 +47,7 @@
             label1.ForeColor = System.Drawing.Color.AliceBlue;
             label1.Location = new System.Drawing.Point(150, 58);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(117, 42);
+            label1.Size = new System.Drawing.Size(94, 34);
             label1.TabIndex = 20;
             label1.Text = "ROOM";
             // 
@@ -59,7 +59,7 @@
             labelIp.ForeColor = System.Drawing.Color.AliceBlue;
             labelIp.Location = new System.Drawing.Point(150, 192);
             labelIp.Name = "labelIp";
-            labelIp.Size = new System.Drawing.Size(48, 42);
+            labelIp.Size = new System.Drawing.Size(39, 34);
             labelIp.TabIndex = 22;
             labelIp.Text = "IP";
             // 
@@ -134,7 +134,7 @@
             // 
             // Connection
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Client.Properties.Resources.download1;
