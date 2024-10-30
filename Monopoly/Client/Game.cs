@@ -715,7 +715,7 @@ namespace Client
                 }
                 catch (Exception e) 
                 {
-                    MessageBox.Show(e.Message);
+                    MessageBox.Show(e.Message,"Aler",MessageBoxButtons.OK);
                     SendMessageToServer("Exit" + ";" + ConnectionOptions.Room);
                     this.InstanceDisconnect();
                 }
@@ -1074,8 +1074,8 @@ namespace Client
 
             //Ném xúc sắc 
             Random rand = new Random();
-            int firstDice = 4;//rand.Next(1, 7);
-            int secondDice = 1;//rand.Next(1, 7);
+            int firstDice =rand.Next(1, 6);
+            int secondDice =rand.Next(1, 6);
             Dice = firstDice + secondDice;
             //Hiển thị kết quả xức sắc 
             whatIsOnDices_textbox.Text = "Result: " + firstDice + " and " + secondDice + ". Total: " + Dice + ". ";

@@ -123,7 +123,7 @@
             this.tbColor.Location = new System.Drawing.Point(280, 238);
             this.tbColor.Multiline = true;
             this.tbColor.Name = "tbColor";
-            this.tbColor.Size = new System.Drawing.Size(151, 37);
+            this.tbColor.Size = new System.Drawing.Size(151, 26);
             this.tbColor.TabIndex = 31;
             // 
             // label1
@@ -153,9 +153,10 @@
             // txtName
             // 
             this.txtName.BackColor = System.Drawing.SystemColors.Info;
+            this.txtName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtName.Location = new System.Drawing.Point(280, 92);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(151, 27);
+            this.txtName.Size = new System.Drawing.Size(151, 29);
             this.txtName.TabIndex = 35;
             // 
             // label3

@@ -149,10 +149,6 @@ namespace Server
                             break;
                         case "Rent":
                             //Sự kiện Thuê nhà trong trò chơi
-                            Program.f.tbLog.Invoke((MethodInvoker)delegate
-                            {
-                                Program.f.tbLog.Text += "[" + DateTime.Now + "] " + message + Environment.NewLine;
-                            });
                             server.SendMessageToOpponentClient(message, Id);
                             break;
                         case "Location":
