@@ -746,9 +746,9 @@
             this.timeLabel.BackColor = System.Drawing.Color.Transparent;
             this.timeLabel.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.timeLabel.Location = new System.Drawing.Point(172, 196);
+            this.timeLabel.Location = new System.Drawing.Point(190, 190);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(86, 34);
+            this.timeLabel.Size = new System.Drawing.Size(57, 23);
             this.timeLabel.TabIndex = 119;
             this.timeLabel.Text = "Timer";
             // 
@@ -756,11 +756,11 @@
             // 
             this.Player1Name.AutoSize = true;
             this.Player1Name.BackColor = System.Drawing.Color.Transparent;
-            this.Player1Name.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Player1Name.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player1Name.ForeColor = System.Drawing.Color.Red;
             this.Player1Name.Location = new System.Drawing.Point(805, 289);
             this.Player1Name.Name = "Player1Name";
-            this.Player1Name.Size = new System.Drawing.Size(135, 34);
+            this.Player1Name.Size = new System.Drawing.Size(103, 27);
             this.Player1Name.TabIndex = 120;
             this.Player1Name.Text = "Waiting....";
             // 
@@ -768,11 +768,11 @@
             // 
             this.Player2Name.AutoSize = true;
             this.Player2Name.BackColor = System.Drawing.Color.Transparent;
-            this.Player2Name.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Player2Name.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player2Name.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.Player2Name.Location = new System.Drawing.Point(1043, 289);
             this.Player2Name.Name = "Player2Name";
-            this.Player2Name.Size = new System.Drawing.Size(135, 34);
+            this.Player2Name.Size = new System.Drawing.Size(103, 27);
             this.Player2Name.TabIndex = 121;
             this.Player2Name.Text = "Waiting....";
             // 
@@ -893,6 +893,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::Client.Properties.Resources.dice_icon;
             this.pictureBox2.Location = new System.Drawing.Point(178, 402);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 50);
@@ -903,6 +904,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = global::Client.Properties.Resources.Money;
             this.pictureBox3.Location = new System.Drawing.Point(213, 482);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(65, 50);

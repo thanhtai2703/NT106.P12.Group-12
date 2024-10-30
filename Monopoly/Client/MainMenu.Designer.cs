@@ -49,7 +49,7 @@
             this.quitBtn.Location = new System.Drawing.Point(229, 503);
             this.quitBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.quitBtn.Name = "quitBtn";
-            this.quitBtn.Size = new System.Drawing.Size(304, 47);
+            this.quitBtn.Size = new System.Drawing.Size(258, 47);
             this.quitBtn.TabIndex = 6;
             this.quitBtn.UseVisualStyleBackColor = false;
             this.quitBtn.Click += new System.EventHandler(this.QuitBtn_Click);
@@ -73,7 +73,7 @@
             this.startSingleplayerGameBtn.Location = new System.Drawing.Point(229, 253);
             this.startSingleplayerGameBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.startSingleplayerGameBtn.Name = "startSingleplayerGameBtn";
-            this.startSingleplayerGameBtn.Size = new System.Drawing.Size(294, 45);
+            this.startSingleplayerGameBtn.Size = new System.Drawing.Size(258, 45);
             this.startSingleplayerGameBtn.TabIndex = 5;
             this.startSingleplayerGameBtn.UseVisualStyleBackColor = false;
             this.startSingleplayerGameBtn.Click += new System.EventHandler(this.StartSingleplayerGameBtn_Click);
@@ -95,7 +95,7 @@
             this.CreateBtn.Location = new System.Drawing.Point(229, 333);
             this.CreateBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CreateBtn.Name = "CreateBtn";
-            this.CreateBtn.Size = new System.Drawing.Size(294, 54);
+            this.CreateBtn.Size = new System.Drawing.Size(258, 54);
             this.CreateBtn.TabIndex = 7;
             this.CreateBtn.UseVisualStyleBackColor = false;
             this.CreateBtn.Click += new System.EventHandler(this.CreateBtn_Click);
@@ -117,7 +117,7 @@
             this.JoinBtn.Location = new System.Drawing.Point(229, 422);
             this.JoinBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.JoinBtn.Name = "JoinBtn";
-            this.JoinBtn.Size = new System.Drawing.Size(304, 46);
+            this.JoinBtn.Size = new System.Drawing.Size(258, 46);
             this.JoinBtn.TabIndex = 8;
             this.JoinBtn.UseVisualStyleBackColor = false;
             this.JoinBtn.Click += new System.EventHandler(this.JoinBtn_Click);
@@ -126,7 +126,7 @@
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Client.Properties.Resources.Game_menu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;

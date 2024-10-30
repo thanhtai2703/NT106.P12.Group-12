@@ -40,8 +40,7 @@ namespace Client
         public Game()
         {
             InitializeComponent();
-            //Tạo các ô trên bàn cờ và người chơi 
-            #region Creating tiles and players
+            #region Tạo các ô trên bàn cờ và người chơi 
             Tile = new[]
             {
                 tile0, tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9, tile10,
@@ -54,17 +53,17 @@ namespace Client
             CreateTile("Khí vận", false, "Opportunity", 0, 2,0);
             CreateTile("Nhà bè Phú Xuân", true, "Purple", 60, 3,60);
             CreateTile("Thuế lợi tức", false, "White", 0, 4,0);
-            CreateTile("Bến xe Lục Tỉnh", true, "Station", 200, 5,20);
+            CreateTile("Bến xe Lục Tỉnh", true, "Station", 200, 5,100);
             CreateTile("Thị Nghè", true, "Turquoise", 100, 6,120);
             CreateTile("Cơ hội", false, "Opportunity", 0, 7,0);
             CreateTile("Tân Định", true, "Turquoise", 100, 8,120);
             CreateTile("Bến Chương Dương", true, "Turquoise", 120, 9,120);
             CreateTile("Thăm tù", false, "Null", 0, 10,0);
             CreateTile("Phan Đình Phùng", true, "Pink", 140, 11,160);
-            CreateTile("Công ty điện lực", true, "Station", 140, 12,20);
+            CreateTile("Công ty điện lực", true, "Station", 140, 12,100);
             CreateTile("Trịnh Minh Thế", true, "Pink", 140, 13,160);
             CreateTile("Lý Thái Tổ", true, "Pink", 160, 14,160);
-            CreateTile("Bến xe Lam Chợ Lớn", true, "Station", 200, 15,20);
+            CreateTile("Bến xe Lam Chợ Lớn", true, "Station", 200, 15,100);
             CreateTile("Đại lộ Hùng Vương", true, "Orange", 180, 16,200);
             CreateTile("Khí vận", false, "Opportunity", 0, 17,0);
             CreateTile("Gia Long", true, "Orange", 180, 18,200);
@@ -74,17 +73,17 @@ namespace Client
             CreateTile("Cơ hội", false, "Opportunity", 0, 22,0);
             CreateTile("Đại lộ thống nhất", true, "Red", 220, 23,240);
             CreateTile("Đại lộ Cộng Hòa", true, "Red", 240, 24,240);
-            CreateTile("Bến xe An Đông", true, "Station", 200, 25,20);
+            CreateTile("Bến xe An Đông", true, "Station", 200, 25,100);
             CreateTile("Đại lộ Hồng Thập Tự", true, "Yellow", 260, 26,280);
             CreateTile("Đại lộ Hai Bà Trưng", true, "Yellow", 260, 27,280);
-            CreateTile("Công ty thủy cục", true, "Station", 150, 28,20);
+            CreateTile("Công ty thủy cục", true, "Station", 150, 28,100);
             CreateTile("Xa lộ Biên Hòa", true, "Yellow", 280, 29,280);
             CreateTile("VÔ TÙ", false, "Null", 0, 30,0);
             CreateTile("Phan Thanh Giảm", true, "Green", 300, 31,320);
             CreateTile("Lê Văn Duyệt", true, "Green", 300, 32,320);
             CreateTile("Khí vận", false, "Opportunity", 0, 33,0);
             CreateTile("Nguyễn Thái Học", true, "Green", 320, 34,320);
-            CreateTile("Tân Kì Tân Quý", true, "Station", 400, 35,20);
+            CreateTile("Tân Kì Tân Quý", true, "Station", 400, 35,100);
             CreateTile("Cơ hội", false, "Opportunity", 0, 36,0);
             CreateTile("Nha Trang", true, "Blue", 350, 37,400);
             CreateTile("Thuế lương bổng", false, "White", 0, 38,400);
