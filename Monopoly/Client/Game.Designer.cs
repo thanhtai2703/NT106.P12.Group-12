@@ -810,10 +810,10 @@
             this.buyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buyBtn.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buyBtn.ForeColor = System.Drawing.Color.White;
-            this.buyBtn.Location = new System.Drawing.Point(266, 482);
+            this.buyBtn.Location = new System.Drawing.Point(246, 482);
             this.buyBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buyBtn.Name = "buyBtn";
-            this.buyBtn.Size = new System.Drawing.Size(76, 41);
+            this.buyBtn.Size = new System.Drawing.Size(115, 41);
             this.buyBtn.TabIndex = 123;
             this.buyBtn.Text = "BUY";
             this.buyBtn.UseVisualStyleBackColor = false;
@@ -830,10 +830,10 @@
             this.endTurnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.endTurnBtn.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endTurnBtn.ForeColor = System.Drawing.Color.White;
-            this.endTurnBtn.Location = new System.Drawing.Point(369, 464);
+            this.endTurnBtn.Location = new System.Drawing.Point(369, 467);
             this.endTurnBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.endTurnBtn.Name = "endTurnBtn";
-            this.endTurnBtn.Size = new System.Drawing.Size(110, 79);
+            this.endTurnBtn.Size = new System.Drawing.Size(110, 76);
             this.endTurnBtn.TabIndex = 124;
             this.endTurnBtn.Text = "END TURN";
             this.endTurnBtn.UseVisualStyleBackColor = false;

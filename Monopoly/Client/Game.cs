@@ -715,7 +715,8 @@ namespace Client
                 }
                 catch (Exception e) 
                 {
-                        MessageBox.Show(e.Message);
+                    MessageBox.Show(e.Message);
+                    SendMessageToServer("Exit" + ";" + ConnectionOptions.Room);
                     this.InstanceDisconnect();
                 }
         }
