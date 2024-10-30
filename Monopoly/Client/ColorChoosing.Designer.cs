@@ -131,10 +131,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label1.ForeColor = System.Drawing.Color.AliceBlue;
             this.label1.Location = new System.Drawing.Point(238, 180);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 27);
+            this.label1.Size = new System.Drawing.Size(225, 34);
             this.label1.TabIndex = 32;
             this.label1.Text = "CHOOSE COLOR";
             // 
@@ -143,10 +143,10 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label2.Location = new System.Drawing.Point(238, 50);
+            this.label2.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label2.Location = new System.Drawing.Point(211, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(220, 27);
+            this.label2.Size = new System.Drawing.Size(283, 34);
             this.label2.TabIndex = 34;
             this.label2.Text = "Please enter your name";
             // 
@@ -155,7 +155,7 @@
             this.txtName.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtName.Location = new System.Drawing.Point(280, 92);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(151, 27);
+            this.txtName.Size = new System.Drawing.Size(151, 32);
             this.txtName.TabIndex = 35;
             // 
             // label3
@@ -163,10 +163,10 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Gill Sans MT", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Crimson;
+            this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(65, 267);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(156, 27);
+            this.label3.Size = new System.Drawing.Size(188, 31);
             this.label3.TabIndex = 36;
             this.label3.Text = "Not chosen yet...";
             // 
@@ -178,13 +178,13 @@
             this.label4.ForeColor = System.Drawing.Color.Aqua;
             this.label4.Location = new System.Drawing.Point(481, 267);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(156, 27);
+            this.label4.Size = new System.Drawing.Size(188, 31);
             this.label4.TabIndex = 37;
             this.label4.Text = "Not chosen yet...";
             // 
             // ColorChoosing
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Client.Properties.Resources.download;

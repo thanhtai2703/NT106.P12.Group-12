@@ -44,10 +44,10 @@
             label1.AutoSize = true;
             label1.BackColor = System.Drawing.Color.Transparent;
             label1.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.ForeColor = System.Drawing.Color.MediumBlue;
+            label1.ForeColor = System.Drawing.Color.AliceBlue;
             label1.Location = new System.Drawing.Point(150, 58);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(142, 51);
+            label1.Size = new System.Drawing.Size(117, 42);
             label1.TabIndex = 20;
             label1.Text = "ROOM";
             // 
@@ -56,10 +56,10 @@
             labelIp.AutoSize = true;
             labelIp.BackColor = System.Drawing.Color.Transparent;
             labelIp.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            labelIp.ForeColor = System.Drawing.Color.MediumBlue;
+            labelIp.ForeColor = System.Drawing.Color.AliceBlue;
             labelIp.Location = new System.Drawing.Point(150, 192);
             labelIp.Name = "labelIp";
-            labelIp.Size = new System.Drawing.Size(58, 51);
+            labelIp.Size = new System.Drawing.Size(48, 42);
             labelIp.TabIndex = 22;
             labelIp.Text = "IP";
             // 
@@ -134,7 +134,7 @@
             // 
             // Connection
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Client.Properties.Resources.download1;

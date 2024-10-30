@@ -1241,6 +1241,17 @@ namespace Client
                 currentPlayersTurn_textbox.Text = "You can't do that";
         }
 
+        private void messageTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Ngăn Enter tạo dòng mới trong TextBox
+                e.SuppressKeyPress = true;
+
+                // Gọi hàm sendBt_Click để gửi tin nhắn
+                sendBt.PerformClick();
+            }
+        }
 
         private void QuitGame()
         {

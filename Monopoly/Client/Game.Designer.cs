@@ -692,6 +692,7 @@
             this.messageTb.Name = "messageTb";
             this.messageTb.Size = new System.Drawing.Size(346, 23);
             this.messageTb.TabIndex = 113;
+            this.messageTb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.messageTb_KeyDown);
             // 
             // messageRTB
             // 
@@ -748,7 +749,7 @@
             this.timeLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.timeLabel.Location = new System.Drawing.Point(190, 190);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(57, 23);
+            this.timeLabel.Size = new System.Drawing.Size(71, 29);
             this.timeLabel.TabIndex = 119;
             this.timeLabel.Text = "Timer";
             // 
@@ -760,7 +761,7 @@
             this.Player1Name.ForeColor = System.Drawing.Color.Red;
             this.Player1Name.Location = new System.Drawing.Point(805, 289);
             this.Player1Name.Name = "Player1Name";
-            this.Player1Name.Size = new System.Drawing.Size(103, 27);
+            this.Player1Name.Size = new System.Drawing.Size(135, 34);
             this.Player1Name.TabIndex = 120;
             this.Player1Name.Text = "Waiting....";
             // 
@@ -772,7 +773,7 @@
             this.Player2Name.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.Player2Name.Location = new System.Drawing.Point(1043, 289);
             this.Player2Name.Name = "Player2Name";
-            this.Player2Name.Size = new System.Drawing.Size(103, 27);
+            this.Player2Name.Size = new System.Drawing.Size(135, 34);
             this.Player2Name.TabIndex = 121;
             this.Player2Name.Text = "Waiting....";
             // 
