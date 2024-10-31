@@ -190,7 +190,7 @@
             this.currentPlayersTurn_textbox.AcceptsReturn = true;
             this.currentPlayersTurn_textbox.BackColor = System.Drawing.Color.White;
             this.currentPlayersTurn_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.currentPlayersTurn_textbox.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentPlayersTurn_textbox.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentPlayersTurn_textbox.ForeColor = System.Drawing.Color.Black;
             this.currentPlayersTurn_textbox.Location = new System.Drawing.Point(778, 231);
             this.currentPlayersTurn_textbox.Margin = new System.Windows.Forms.Padding(0);
@@ -204,7 +204,7 @@
             // 
             this.whatIsOnDices_textbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(119)))), ((int)(((byte)(84)))));
             this.whatIsOnDices_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.whatIsOnDices_textbox.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.whatIsOnDices_textbox.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.whatIsOnDices_textbox.ForeColor = System.Drawing.Color.Black;
             this.whatIsOnDices_textbox.Location = new System.Drawing.Point(811, 89);
             this.whatIsOnDices_textbox.Margin = new System.Windows.Forms.Padding(0);
@@ -698,7 +698,7 @@
             // 
             this.messageRTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(204)))), ((int)(((byte)(183)))));
             this.messageRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.messageRTB.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageRTB.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.messageRTB.Location = new System.Drawing.Point(775, 482);
             this.messageRTB.Name = "messageRTB";
             this.messageRTB.ReadOnly = true;
