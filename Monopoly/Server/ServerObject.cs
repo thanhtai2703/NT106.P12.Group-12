@@ -13,16 +13,13 @@ namespace Server
     {
         private Socket serverSocket;
         private readonly List<ClientObject> clients = new List<ClientObject>();//tạo danh sách client quản lý client đang kết nối 
-
-        //thêm kết nối
         protected internal void AddConnection(ClientObject clientObject)
         {
             //thêm 1 client vào danh sách clients hiện có
             clients.Add(clientObject);
         }
         //xóa kết nối
-        protected internal void RemoveConnection(string id)
-        {
+        protected internal void RemoveConnection(string id){
             if (clients == null) return; // Kiểm tra null cho danh sách clients
                 var client = clients.Find(c => c.Id == id); //tìm kiến id của client trong danh sách
                 if (client != null)
@@ -64,7 +61,6 @@ namespace Server
                 });
             }
         }
-        //gửi tin nhắn đến đối thủ
         protected internal void SendMessageToOpponentClient(string message, string id)
         {
             foreach (var client in clients.Where(c => c.Id != id))
@@ -73,18 +69,14 @@ namespace Server
                 client.Client.Send(data);
             }
         }
-        //gửi tin nhắn đến chính người gửi, dùng trong trường hợp cần cập nhật thông tin
-        protected internal void SendMessageToSender(string message, string id)
-        {
+        protected internal void SendMessageToSender(string message, string id){
             foreach (var client in clients.Where(c => c.Id == id))
             {
                 byte[] data = Encoding.Unicode.GetBytes(message);
                 client.Client.Send(data);
             }
         }
-        //gửi tin đến mọi người
-        protected internal void SendMessageToEveryone(string message, string id)
-        {
+        protected internal void SendMessageToEveryone(string message, string id){
             foreach (var client in clients)
             {
                 byte[] data = Encoding.Unicode.GetBytes(message);

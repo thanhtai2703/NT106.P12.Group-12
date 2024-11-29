@@ -36,7 +36,7 @@ namespace Client
             }
             else
             {
-                MessageBox.Show("Nhập tên phòng là số nguyên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter integer digit", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 roomTb.Text = "";
             }
           

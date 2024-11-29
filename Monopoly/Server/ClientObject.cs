@@ -32,8 +32,7 @@ namespace Server
         {
             try
             {
-                while (true)
-                {
+                while (true){
                     string message = GetMessage(); //Tạo biến tạm để xử lý tin nhắn
                     string []arraypayload = message.Split(';'); // tách chuỗi tin nhắn theo dấu ";"
                     switch (arraypayload[0]) // đọc thông điệp control message
@@ -154,30 +153,9 @@ namespace Server
                         case "Location":
                             server.SendMessageToOpponentClient(message, Id);
                             break;
-                        case "Red pawn already selected":
-                            {
-                                //Khi quân cờ đỏ được chọn, gửi  thông tin đến đối thủ để vô hiệu hóa nút chọn.
-                                server.SendMessageToOpponentClient(message, Id);
-                                Program.f.tbLog.Invoke((MethodInvoker)delegate
-                                {
-                                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " + message + Environment.NewLine;
-                                });
-                                break;
-                            }
-                        case "Blue pawn already selected":
-                            {
-                                //tương tự quân cờ đỏ.
-                                server.SendMessageToOpponentClient(message, Id);
-                                Program.f.tbLog.Invoke((MethodInvoker)delegate
-                                {
-                                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " + message + Environment.NewLine;
-                                });
-                                break;
-                            }
                         case "Create":
                             //bool isCreated = false;
-                             Program.f.tbLog.Invoke((MethodInvoker)delegate
-                                {
+                             Program.f.tbLog.Invoke((MethodInvoker)delegate{
                                     Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Room " + arraypayload[1] + " is Created" + Environment.NewLine;
                                 });
                             //khi một người chơi mới vào ( chưa chọn quân cờ).
@@ -223,7 +201,7 @@ namespace Server
                                 server.RemoveConnection(this.Id);
                             }
                             break;
-                        case "Win":
+                        case "Win": //cập nhật người chơi thắng và xóa phòng chơi
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
                                 Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Player " + arraypayload[1] + " has won at room " + arraypayload[2] + Environment.NewLine;
