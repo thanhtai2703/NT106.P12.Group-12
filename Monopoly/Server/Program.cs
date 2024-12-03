@@ -24,6 +24,7 @@ namespace Server
         }
         //Lớp phòng dùng để biểu thị cho 1 phòng chơi trong server
         internal class Room{
+            public ClientObject[] players = new ClientObject[2]; //lưu lại client của người chơi để xử lí
             public int roomId;
             public Taken roomTaken = new Taken();
             public Player roomPlayer = new Player();

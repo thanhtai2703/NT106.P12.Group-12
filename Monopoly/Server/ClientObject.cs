@@ -18,7 +18,7 @@ namespace Server
         private string userName; // tên người gửi thông điệp từ client.
         static List<Room> room = new List<Room>(); // khời tạo 1 danh sách phòng chơi trên server để quản lý các phòng chơi hiện có.
         DateTime now = DateTime.Now;
-        protected internal string Id { get; } 
+        protected internal string Id { get; }
         //constructer cung cấp ID riêng biệt cho từng client 
         public ClientObject(Socket socket, ServerObject serverObject)
         {
@@ -42,39 +42,43 @@ namespace Server
                             bool isFound = false; // tạo biến kiểm tra phòng đã tồn tại chưa
                             for (int i = 0; i < room.Count; i++) //duyệt danh sách phòng hiện có để tìm kiếm
                             {
-                                if (room[i].roomId == Convert.ToInt32(arraypayload[2])) // nếu phòng đã tồn tại
+                                if (room[i].roomId == Convert.ToInt32(arraypayload[2])) // nếu phòng đã tồn tại->tiến hành tham gia
                                 {
                                     isFound = true; // Tìm thấy
                                     if (arraypayload[1] == "Red") // cập nhật người chơi chọn quân cờ đỏ.
                                     {
                                         room[i].roomTaken.Red = true; //Biến takenRed đánh dấu thể hiện quân đỏ đã được chọn.
                                         room[i].roomPlayer.Name1 = arraypayload[3]; // gán tên người chơi.
+                                        room[i].players[0] = this;
                                     }
                                     if (arraypayload[1] == "Blue") // cập nhật người chơi chọn quân xanh.
                                     {
                                         room[i].roomTaken.Blue = true; //tương tự
                                         room[i].roomPlayer.Name2 = arraypayload[3];//tương tự
+                                        room[i].players[1] = this;
                                     }
                                     if (room[i].roomTaken.Red == true && room[i].roomTaken.Blue == true) // kiểm tra nếu cả 2 quân cờ đã được chọn, tức là phòng đã đủ người
                                     {
                                         //Gửi thông điệp đến tất cả client trong phòng.
-                                        server.SendMessageToEveryone("Update" + ";" + room[i].roomId + ";" + room[i].roomPlayer.Name1 + ";" + room[i].roomPlayer.Name2 + ";", Id);
+                                        server.SendMessageToEveryone("Update" + ";" + room[i].roomId + ";" + room[i].roomPlayer.Name1 + ";" + room[i].roomPlayer.Name2 + ";", Id, room[i].players);
                                     }
+                                    server.SendMessageToOpponentClient(message, Id, room[i].players);
                                     break;
                                 }
                             }
-                            //Trường hợp phòng chưa tồn tại
-                            if(!isFound)
+                            //Khi tạo phòng
+                            if (!isFound)
                             {
                                 Room a = new Room(); // tạo một đối tượng room mới
                                 //Tiến hành gán các giá trị
-                                a.roomId = Convert.ToInt32(arraypayload[2]); 
+                                a.roomId = Convert.ToInt32(arraypayload[2]);
                                 if (arraypayload[1] == "Red")
                                 {
                                     a.roomTaken.Blue = false;
                                     a.roomTaken.Red = true;
                                     a.roomPlayer.Name1 = arraypayload[3];
                                     a.roomPlayer.Name2 = "";
+                                    a.players[0] = this;
                                 }
                                 if (arraypayload[1] == "Blue")
                                 {
@@ -82,21 +86,29 @@ namespace Server
                                     a.roomTaken.Blue = true;
                                     a.roomPlayer.Name2 = arraypayload[3];
                                     a.roomPlayer.Name1 = "";
+                                    a.players[1] = this;
                                 }
                                 room.Add(a); //Thêm phòng mới vào danh sách phòng hiện tại
-                            }    
-                                userName = arraypayload[1];
+                            }
+                            userName = arraypayload[1];
                                 Program.f.tbLog.Invoke((MethodInvoker)delegate
                                 {
                                     Program.f.tbLog.Text += "[" + DateTime.Now + "] " + arraypayload[3] + " has connected to room : " +arraypayload[2]+ Environment.NewLine;
                                  
                                 });
-                                server.SendMessageToOpponentClient(message, Id);
                             
                             break;
                         case "Start":
                             //Gửi thông điệp bắt đầu đến client, bắt đầu trò chơi
-                            server.SendMessageToEveryone(message, Id);
+
+                            for (int i = 0; i < room.Count; i++)
+                            {
+                                if (room[i].roomId == Convert.ToInt32(arraypayload[2]))
+                                {
+                                    server.SendMessageToEveryone(message, Id, room[i].players);
+                                    break;
+                                }
+                            }
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
                                 Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Room " + arraypayload[2] + " has started " + Environment.NewLine;
@@ -105,7 +117,13 @@ namespace Server
                             break;
                         case "Exit":
                             //Sự kiện Ngắt kết nối khỏi phòng chơi
-                            server.SendMessageToOpponentClient(message, Id);
+                            for(int i = 0; i < room.Count; i++){
+                                if(room[i].roomId == Convert.ToInt32(arraypayload[1]))
+                                {
+                                    server.SendMessageToOpponentClient(message, Id, room[i].players);
+                                    break;
+                                } 
+                            }
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
                                 Program.f.tbLog.Text += "[" + DateTime.Now + "] " + "Room " + arraypayload[1] + " has ended" + Environment.NewLine;
@@ -117,22 +135,35 @@ namespace Server
                             server.RemoveConnection(this.Id);
                             break;
                         case "Exit lobby":
-                            server.SendMessageToOpponentClient(message, Id);
-                            int number = room.FindIndex(room => room.roomId == Convert.ToInt32(arraypayload[2]));
-                            switch (arraypayload[1])
+                            for (int i = 0; i < room.Count; i++)
                             {
-                                case "Red":
-                                    room[number].roomTaken.Red = false;
+                                if (room[i].roomId == Convert.ToInt32(arraypayload[2]))
+                                {
+                                    server.SendMessageToOpponentClient(message, Id, room[i].players);
+                                    switch (arraypayload[1])
+                                    {
+                                        case "Red":
+                                            room[i].roomTaken.Red = false;
+                                            break;
+                                        case "Blue":
+                                            room[i].roomTaken.Blue = false;
+                                            break;
+                                    }
                                     break;
-                                case "Blue":
-                                    room[number].roomTaken.Blue = false;
-                                    break;
+                                }
                             }
                             server.RemoveConnection(this.Id);
-                                break;
+                            break;
                         case "Result":
+                            for (int i = 0; i < room.Count; i++)
+                            {
+                                if (room[i].roomId == Convert.ToInt32(arraypayload[2]))
+                                {
+                                    server.SendMessageToOpponentClient(message, Id, room[i].players);
+                                    break;
+                                }
+                            }
                             //Cập nhật thông tin lượt đi của người chơi vừa kết thúc lượt, gửi qua client đối thủ.
-                            server.SendMessageToOpponentClient(message, Id);
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
                                 Program.f.tbLog.Text += "[" + DateTime.Now + "] Room " + arraypayload[2] + ": next player turn" + Environment.NewLine;
@@ -140,18 +171,39 @@ namespace Server
                             break;
                         case "Send":
                             //Sự kiện Chat
+                            for (int i = 0; i < room.Count; i++)
+                            {
+                                if(room[i].roomId == Convert.ToInt32(arraypayload[1]))
+                                {
+                                   server.SendMessageToEveryone(message, Id, room[i].players);
+                                   break;
+                                }
+                            }
                             Program.f.tbLog.Invoke((MethodInvoker)delegate
                             {
                                 Program.f.tbLog.Text += "[" + DateTime.Now + "] room " + arraypayload[1] +":" + arraypayload[2] +" send a message " + Environment.NewLine;
                             });
-                            server.SendMessageToEveryone(message, Id);
                             break;
                         case "Rent":
                             //Sự kiện Thuê nhà trong trò chơi
-                            server.SendMessageToOpponentClient(message, Id);
+                            for (int i = 0; i < room.Count; i++)
+                            {
+                                if (room[i].roomId == Convert.ToInt32(arraypayload[2]))
+                                {
+                                    server.SendMessageToOpponentClient(message, Id, room[i].players);
+                                    break;
+                                }
+                            }
                             break;
                         case "Location":
-                            server.SendMessageToOpponentClient(message, Id);
+                            for (int i = 0; i < room.Count; i++)
+                            {
+                                if (room[i].roomId == Convert.ToInt32(arraypayload[2]))
+                                {
+                                    server.SendMessageToOpponentClient(message, Id, room[i].players);
+                                    break;
+                                }
+                            }
                             break;
                         case "Create":
                             //bool isCreated = false;

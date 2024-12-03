@@ -19,14 +19,14 @@ namespace Server
             clients.Add(clientObject);
         }
         //xóa kết nối
-        protected internal void RemoveConnection(string id){
+        protected internal void RemoveConnection(string id) {
             if (clients == null) return; // Kiểm tra null cho danh sách clients
-                var client = clients.Find(c => c.Id == id); //tìm kiến id của client trong danh sách
-                if (client != null)
-                {
+            var client = clients.Find(c => c.Id == id); //tìm kiến id của client trong danh sách
+            if (client != null)
+            {
 
-                    clients.Remove(client); // Xóa client khỏi danh sách
-                }
+                clients.Remove(client); // Xóa client khỏi danh sách
+            }
         }
         //lắng nghe từ client
         protected internal void Listen_Client()
@@ -39,8 +39,8 @@ namespace Server
                 serverSocket.Listen(20);
                 Program.f.tbLog.Invoke((MethodInvoker)delegate
                 {
-                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " 
-                                            + "Server is turn on, waiting for connection......." 
+                    Program.f.tbLog.Text += "[" + DateTime.Now + "] "
+                                            + "Server is turn on, waiting for connection......."
                                             + Environment.NewLine;
                 });
                 while (true) //lặp liên tục để tiếp nhận yêu cầu từ client
@@ -55,20 +55,22 @@ namespace Server
             {
                 Program.f.tbLog.Invoke((MethodInvoker)delegate
                 {
-                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " + 
-                                            ex.Message + 
+                    Program.f.tbLog.Text += "[" + DateTime.Now + "] " +
+                                            ex.Message +
                                             Environment.NewLine;
                 });
             }
         }
-        protected internal void SendMessageToOpponentClient(string message, string id)
-        {
-            foreach (var client in clients.Where(c => c.Id != id))
+        //phương thức gửi tin nhắn cho đối thủ trong phòng.
+        protected internal void SendMessageToOpponentClient(string message, string id, ClientObject[] player)
+        { 
+            foreach (var client in player.Where(c => c!=null && c.Id != id))
             {
                 byte[] data = Encoding.Unicode.GetBytes(message);
                 client.Client.Send(data);
             }
         }
+        //Gửi lại cho người gửi
         protected internal void SendMessageToSender(string message, string id){
             foreach (var client in clients.Where(c => c.Id == id))
             {
@@ -76,9 +78,12 @@ namespace Server
                 client.Client.Send(data);
             }
         }
-        protected internal void SendMessageToEveryone(string message, string id){
-            foreach (var client in clients)
+        //Gửi cho tất cả mọi người trong phòng
+        protected internal void SendMessageToEveryone(string message, string id, ClientObject[] player)
+        {
+            foreach (var client in player)
             {
+                if(client == null) continue;
                 byte[] data = Encoding.Unicode.GetBytes(message);
                 client.Client.Send(data);
             }
