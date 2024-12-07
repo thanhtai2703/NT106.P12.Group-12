@@ -17,22 +17,22 @@ namespace Client
     public partial class Game : Form
     {
         private static Socket clientSocket;
-        private static NetworkStream Stream;//Tạo luồng mạng để gửi nhận dữ liệu
+        private static NetworkStream Stream;
         private string messagetype = ""; //Lệnh điều khiển
         private bool Receiving = true; //Biến receiving để đánh dấu khi nào bắt đầu nhận, dừng nhận tin nhắn từ server. 
-        private static int Dice, CurrentPosition, CurrentPlayerId, RedDotsNameSplitter, BlueDotsNameSplitter;//Lưu giá trị của Xúc xắc, vị trí trên bàn cờ, ID của người chơi,
-        private  bool isTurn;//Lưu thông tin của người chơi 
-        private readonly Player[] Players = new Player[2];
+        private int Dice, CurrentPosition, CurrentPlayerId, RedDotsNameSplitter, BlueDotsNameSplitter; //giá trị xúc xắc, vị trí hiện tại, ID , số nhà đỏ, số nhà xanh
+        private  bool isTurn;//xác định xem có phải lượt chơi của mình không để bỏ qua khi hết thời gian. 
+        private readonly Player[] Players = new Player[2]; //2 người chơi
         private readonly Property[] Properties = new Property[40];//Lưu thông tin của các ô trên bàn cờ 
         private readonly PictureBox[] Tile;//Chứa hình ảnh của các ô 
-        public static int counter = 0; //đếm số lượt đã pass
+        public  int counter = 0; //đếm số lượt đã pass
         private readonly int[] Opportunity = { -100, 100, -150, 150, -200, 200 };
         private System.Windows.Forms.Timer turnTimer;
         //Khởi tạo bộ đếm
         private int timeLeft;
         private int turnTimeLimit = 20; 
-        //Nhận dữ liệu trên Server
-        private class ReceivedMessage{
+        //lưu trữ thông tin 1 người chơi
+        private class Playerinfomation{
             public int EndPosition, Balance;
             public readonly int[] PropertiesOwned = new int[40];
         }
@@ -164,15 +164,11 @@ namespace Client
                     switch (player[0])
                     {
                         case "Red":
-                            //Players[0].Name = ConnectionOptions.RedUserName;
                             Player1Name.Text = ConnectionOptions.UserName;
-                            //colorLb.BackColor = Color.Red;
                             CurrentPlayerId = 0;
                             break;
                         case "Blue":
                             Player2Name.Text = ConnectionOptions.UserName;
-                            //Players[1].Name = ConnectionOptions.BlueUserName;
-                            //colorLb.BackColor = Color.Blue;
                             CurrentPlayerId = 1;
                             break;
 
@@ -189,17 +185,13 @@ namespace Client
                 UpdatePlayersStatusBoxes();
                 buyBtn.Enabled = false;
             }
-            else
-            {
+            else{
                 Startbtn.Visible = false;
                 Player1Name.Text = "RED";
                 Player2Name.Text = "BLUE";
             }
 
         }
-        
-
-
 
         //Tạo ô cờ gồm tên, màu, có thể mua được, giá, vị trí 
         private void CreateTile(string tileName, bool tileBuyable, string tileColor, int tilePrice, int tilePosition,int rent)
@@ -424,7 +416,7 @@ namespace Client
                     switch (parts[0]) // Xem loại tin nhắn
                     {
                         case "Update":
-                            if (ConnectionOptions.Room == parts[1]){
+                           
                                 Player1Name.Invoke((MethodInvoker)delegate
                                 {
                                     Player1Name.Text = parts[2];
@@ -446,10 +438,10 @@ namespace Client
                                 Players[0].Name = parts[2];
                                 Players[1].Name = parts[3];
                                 UpdatePlayersStatusBoxes();
-                            }
+
                             break;
                         case "Start":
-                            if (ConnectionOptions.Room == parts[2]){
+
                                 ConnectionOptions.Started = true;
                                 if (CurrentPlayerId == Convert.ToInt32(parts[3])){
                                     currentPlayersTurn_textbox.Invoke((MethodInvoker)delegate
@@ -485,20 +477,15 @@ namespace Client
                                         Startbtn.Enabled = false;
                                     });
                                 }
-                            }
                             break;
                         case "Send":
-                            if (parts[1] == ConnectionOptions.Room)
-                            {
                                 string decodedMessage = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(parts[3]));
                                     messageRTB.Invoke((MethodInvoker)delegate
                                 {
                                             messageRTB.AppendText(parts[2] + ": "+decodedMessage+ Environment.NewLine);
                                 });
-                            }
                             break;
                         case "Exit":
-                            if (ConnectionOptions.Room == parts[1]){
                                 messagetype = "Exit";
                                 this.Invoke((MethodInvoker)delegate
                                 {
@@ -506,10 +493,8 @@ namespace Client
                                     SendMessageToServer(messagetype + ";" + ConnectionOptions.Room);
                                     this.InstanceDisconnect();
                                 });
-                            }
                             break;
                         case "Exit lobby":
-                            if(ConnectionOptions.Room == parts[2]){
                                 Startbtn.Enabled = false;
                                 switch(CurrentPlayerId)
                                 {
@@ -530,11 +515,9 @@ namespace Client
                                         });
                                         break;
                                 }    
-                            }   
                             break;
                             //Cập nhật thông tin người chơi.
                         case "Result":
-                            if (parts[2] == ConnectionOptions.Room){
                                 isTurn = true;
                                 int temp = Convert.ToInt32(parts[3]); //kiểm tra xem nếu người chơi hiện tại có số id = thông tin nhận được
                                 if (Convert.ToInt32(parts[3]) == CurrentPlayerId){
@@ -565,21 +548,18 @@ namespace Client
                                     });
                                 }
 
-                                // Tạo một đối tượng ReceivedMessage để lưu trữ thông điệp tài sản nhận được
-                                ReceivedMessage receivedMessage = new ReceivedMessage();
+                                // Tạo một đối tượng Playerinfomation để lưu trữ thông điệp tài sản nhận được
+                                Playerinfomation Playerinfomation = new Playerinfomation();
 
                                 // Lấy vị trí kết thúc lượt đi từ tin nhắn
-                                String stringPosition = parts[4];
-                                receivedMessage.EndPosition = Convert.ToInt32(stringPosition);
-
+                                Playerinfomation.EndPosition = Convert.ToInt32(parts[4]);
                                 // Lấy số tiền sau lượt đi từ tin nhắn
                                 String stringBalance = parts[5];
-                                receivedMessage.Balance = Convert.ToInt32(stringBalance);
+                                Playerinfomation.Balance = Convert.ToInt32(stringBalance);
 
-                                // Lấy tài sản (đất) hiện có từ tin nhắn
+                                // Lấy chuỗi tài sản (đất) hiện có từ tin nhắn
                                 String stringPropertiesOwned = parts[6];
                                 if (stringPropertiesOwned != null){
-                                    // Lấy mã số của các nhà được sở hữu
                                     //tách chuỗi tài sản bằng dấu ' '
                                     int[] tempArrayOfPropertiesOwned = stringPropertiesOwned
                                         .Split(' ')
@@ -587,17 +567,15 @@ namespace Client
                                         .Select(x => int.Parse(x))
                                         .ToArray();
                                     for (int k = 0; k < tempArrayOfPropertiesOwned.Length; k++)
-                                        receivedMessage.PropertiesOwned[k] = tempArrayOfPropertiesOwned[k];
+                                        Playerinfomation.PropertiesOwned[k] = tempArrayOfPropertiesOwned[k]; //cập nhật tài sản đang sở hữu cho người chơi
                                 }
-                                UpdatePlayerStatus(temp, receivedMessage);
+                                UpdatePlayerStatus(temp, Playerinfomation);
                                 if (Convert.ToInt32(stringBalance) < 0){
                                     Win();
                                 }
-                            }
                             break;
                             //sự kiện đi lên đất người khác
                         case "Rent":
-                            if (parts[2] == ConnectionOptions.Room){
                                 string sumOfRentString = parts[3];
                                 int sumOfRent = Convert.ToInt32(sumOfRentString);
                                 switch (parts[1])
@@ -619,21 +597,17 @@ namespace Client
                                         });
                                         break;
                                 }
-                            }
+                            //}
                             break;
                             //thông báo chọn quân cờ
                         case "Red pawn already selected":
-                                if (ConnectionOptions.Room == parts[1]){
-                                   ConnectionOptions.RedUserName = parts[2];
                                     ConnectionOptions.NameRedIsTaken = true;
-                                }
-                                break;
+                                    ConnectionOptions.RedUserName = parts[2];
+                            break;
                         case "Blue pawn already selected":
-                                if (ConnectionOptions.Room == parts[1]){
-                                    ConnectionOptions.BlueUserName = parts[2];
                                     ConnectionOptions.NameBlueIsTaken = true;
-                                }
-                                break;
+                                    ConnectionOptions.BlueUserName = parts[2];
+                            break;
                           //Các thông báo liên quan tới việt Tạo, Tham gia phòng chơi
                         case "Room is full":
                             this.Invoke((MethodInvoker)delegate
@@ -665,8 +639,7 @@ namespace Client
                             });
                             break;
                         case "Location":
-                            if(ConnectionOptions.Room == parts[2])
-                            MoveOpponentIcon(Convert.ToInt32(parts[3]),Convert.ToInt32(parts[4]));
+                            MoveOpponentIcon(parts[1], Convert.ToInt32(parts[3]));
                             break;
                     }
                 }
@@ -678,7 +651,6 @@ namespace Client
                 }
         }
         //Hàm được gọi khi người chơi thua cuộc
-
         private void Lose(){
             messagetype = "Lose";
             this.Invoke((MethodInvoker)delegate
@@ -717,22 +689,22 @@ namespace Client
 
         }
         //Hàm cập nhật thông tin người chơi
-        private void UpdatePlayerStatus(int playerId, ReceivedMessage receivedMessage){
+        private void UpdatePlayerStatus(int playerId, Playerinfomation Playerinfomation){
             int temp = CurrentPlayerId;
             CurrentPlayerId = CurrentPlayerId is 0 ? 1 : 0;
             // Di chuyển biểu tượng của người chơi đến vị trí kết thúc lượt đi
             Invoke((MethodInvoker)delegate
             {
-                MoveIcon(receivedMessage.EndPosition);
+                MoveIcon(Playerinfomation.EndPosition);
             });
 
             // Cập nhật vị trí và số dư của người chơi
-            Players[CurrentPlayerId].Position = receivedMessage.EndPosition;
-            Players[CurrentPlayerId].Balance = receivedMessage.Balance;
+            Players[CurrentPlayerId].Position = Playerinfomation.EndPosition;
+            Players[CurrentPlayerId].Balance = Playerinfomation.Balance;
 
             // Cập nhật danh sách tài sản được sở hữu của người chơi
             int i = 0;
-            foreach (var item in receivedMessage.PropertiesOwned)
+            foreach (var item in Playerinfomation.PropertiesOwned)
             {
                 Players[CurrentPlayerId].PropertiesOwned[i] = item;
                 i++;
@@ -790,12 +762,12 @@ namespace Client
 
         }
         //di chuyển quân cờ
-        private void MoveOpponentIcon(int id, int position)
+        private void MoveOpponentIcon(string color, int position)
         {
             int x, y;
-            switch(id)
+            switch(color)
             {
-                case 0:
+                case "Red":
                     x = Tile[position].Location.X;
                     y = Tile[position].Location.Y;
                     redPawnIcon.Invoke((MethodInvoker)delegate
@@ -803,7 +775,7 @@ namespace Client
                         redPawnIcon.Location = new Point(x, y);
                     });
                     break;
-                case 1:
+                case "Blue":
                     x = Tile[position].Location.X;
                     y = Tile[position].Location.Y;
                     bluePawnIcon.Invoke((MethodInvoker)delegate
@@ -876,7 +848,7 @@ namespace Client
             if (to < 40){
                 for (var i = from; i <= to; i++){
                     await Task.Delay(200);
-                    if(Gamemodes.Multiplayer) SendMessageToServer(messagetype + ";"+ ConnectionOptions.PlayerName + ";" + CurrentPlayerId + ";" + i);
+                    if(Gamemodes.Multiplayer) SendMessageToServer(messagetype + ";"+ ConnectionOptions.PlayerName + ";" + i);
                     MoveIcon(i);
                     endTurnBtn.Enabled = false;
                 }
