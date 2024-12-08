@@ -22,17 +22,14 @@ namespace Client
             //Nhập phòng cho client
             if (Regex.IsMatch(roomTb.Text, @"^\d+$"))
             {
-                ConnectionOptions.Room = roomTb.Text;
+                RoomInfo.Instance.Room = roomTb.Text;
                 //gán giá trị cổng của sever cho biến Port trong class ConnectionOptions
-                ConnectionOptions.Port = 11000;
-                //Convert.ToInt32(insertPort.Text);
+                ConnectionOptions.Instance.Port = 11000;
                 // gán địa chỉ IP của sever cho biến IP trong class ConnectionOptions
-                ConnectionOptions.IP =ip_textbox.Text;
-                //insertIP.Text;
+                ConnectionOptions.Instance.IP =ip_textbox.Text;
                 //Gắn cho DialogResult kết quả OK 
                 DialogResult = DialogResult.OK;
-                //Close();
-                this.Hide();
+                this.Close();
             }
             else
             {

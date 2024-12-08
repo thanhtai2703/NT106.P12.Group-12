@@ -20,19 +20,42 @@ namespace Client
         public static bool Multiplayer { get; set; }
         public static bool Create { get; set; }
     }
-
-    internal static class ConnectionOptions
+    internal class RoomInfo
     {
-        public static string IP { get; set; }
-        public static int Port { get; set; }
-        public static string Room { get; set; }
-        public static string PlayerName { get; set; } //Màu sắc quân cờ của người chơi
-        public static string UserName { get; set; } //Tên người chơi khi nhập vào textbox
-        public static string BlueUserName { get; set; } // biến dùng để hiển thị người chơi xanh khi người chơi xanh đã được chọn trong form colorchoosing
-        public static string RedUserName {  get; set; } // 
-        public static bool NameRedIsTaken { get; set; } //đánh dấu quân cờ nào đã được chọn
-        public static bool NameBlueIsTaken { get; set; }
-        public static bool Started { get; set; } = false; //Kiểm tra trạng thái phòng chơi
-        public static bool Connect { get; set; } = false; // kiểm tra tình trạng kết nối
+        private static RoomInfo _instance;
+        public string Room { get; set; } // id phòng
+        public string PlayerName { get; set; } // Tên mặc định của quân cờ người chơi chọn ( red, blue ) -> liên quan tới logic trò chơi
+        public string UserName { get; set; } // Tên người chơi nhập vào textbox, dùng để gửi lên server, hiển thị lên form server
+        public string choosenPlayer { get; set; }//đánh dấu tên người chơi chọn quân cờ để hiển thị trong form colorchoosing
+        public bool NameRedIsTaken { get; set; } //đánh dấu quân cờ nào đã được chọn
+        public bool NameBlueIsTaken { get; set; }
+        private RoomInfo() { }
+        public static RoomInfo Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new RoomInfo();
+                return _instance;
+            }
+        }
+    }
+    internal class ConnectionOptions
+    {
+        private static ConnectionOptions _instance;
+        public string IP { get; set; }
+        public int Port { get; set; }
+        public bool Started { get; set; } = false; //Kiểm tra trạng thái phòng chơi
+        public bool Connect { get; set; } = false; // kiểm tra tình trạng kết nối
+        private ConnectionOptions() { }
+        public static ConnectionOptions Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new ConnectionOptions();
+                return _instance;
+            }
+        }
     }
 }

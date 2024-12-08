@@ -13,15 +13,15 @@ namespace Client
             Program.colorChoosing = this;
             InitializeComponent();
             txtName.MaxLength = 12;
-            if (ConnectionOptions.NameRedIsTaken)
+            if (RoomInfo.Instance.NameRedIsTaken)
             {
                 chooseRedPlayerBtn.Enabled = false;
-                label3.Text = ConnectionOptions.RedUserName;
+                label3.Text = RoomInfo.Instance.choosenPlayer;
             }
-            if (ConnectionOptions.NameBlueIsTaken)
+            if (RoomInfo.Instance.NameBlueIsTaken)
             {
                 chooseBluePlayerBtn.Enabled = false;
-                label4.Text = ConnectionOptions.BlueUserName;
+                label4.Text = RoomInfo.Instance.choosenPlayer;
             }  
             //Thiết lập giá trị mặc định cho tbColor
             tbColor.Text = "Not selected yet.";
@@ -44,19 +44,17 @@ namespace Client
                     //Nếu chọn màu đỏ 
                     case "Red":
                         //Gán tên người chơi là Red 
-                        ConnectionOptions.UserName = txtName.Text;
-                        ConnectionOptions.PlayerName = "Red" + ";" + ConnectionOptions.Room;
-                        //Close();
-                        this.Hide();
+                        RoomInfo.Instance.UserName = txtName.Text;
+                        RoomInfo.Instance.PlayerName = "Red";
+                        this.Close();
                         DialogResult = DialogResult.OK;
                         break;
                     //Nếu chọn màu xanh
                     case "Blue":
                         //Gán tên người chơi là Blue
-                        ConnectionOptions.UserName = txtName.Text;
-                        ConnectionOptions.PlayerName = "Blue" + ";" + ConnectionOptions.Room;
-                        //Close();
-                        this.Hide();
+                        RoomInfo.Instance.UserName = txtName.Text;
+                        RoomInfo.Instance.PlayerName = "Blue";
+                        this.Close();
                         //Gắn cho DialogResult kết quả OK 
                         DialogResult = DialogResult.OK;
                         break;
@@ -71,7 +69,6 @@ namespace Client
        
         private void returnBtn_Click(object sender, EventArgs e)
         {
-            //Khi nhấn vào nút trở lại thì gắn cho DialogResult kết quả Cancel 
             DialogResult = DialogResult.Cancel;
             this.Close();
         }

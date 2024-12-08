@@ -22,11 +22,7 @@ namespace Server
         protected internal void RemoveConnection(string id) {
             if (clients == null) return; // Kiểm tra null cho danh sách clients
             var client = clients.Find(c => c.Id == id); //tìm kiến id của client trong danh sách
-            if (client != null)
-            {
-
-                clients.Remove(client); // Xóa client khỏi danh sách
-            }
+            if (client != null) clients.Remove(client); // Xóa client khỏi danh sách
         }
         //lắng nghe từ client
         protected internal void Listen_Client()
@@ -45,7 +41,7 @@ namespace Server
                 });
                 while (true) //lặp liên tục để tiếp nhận yêu cầu từ client
                 {
-                    Socket handler = serverSocket.Accept();//Tạo một kết nối clientObject mới
+                    Socket handler = serverSocket.Accept();
                     ClientObject clientObject = new ClientObject(handler, this); //constructor khởi tạo của ClienObject
                     Thread clientThread = new Thread(new ThreadStart(clientObject.Process));// Tạo luồng riêng cho ClientObject để nhận tin nhắn
                     clientThread.Start();
@@ -61,7 +57,7 @@ namespace Server
                 });
             }
         }
-        //phương thức gửi tin nhắn cho đối thủ trong phòng.
+        //phương thức gửi tin nhắn cho đối thủ trong phòng. tham số truyền vào ( tin nhắn, id client gửi, danh sách người chơi trong phòng )
         protected internal void SendMessageToOpponentClient(string message, string id, ClientObject[] player)
         { 
             foreach (var client in player.Where(c => c!=null && c.Id != id))
