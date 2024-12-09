@@ -129,7 +129,8 @@ namespace Client
                         MessageBox.Show("Can't connect to server."
                                         + Environment.NewLine
                                         + "Server is not working");
-                        this.InstanceDisconnect();
+                        this.Disconnect();
+                        Environment.Exit(0);
                     }
                     //Tạo luồng nhận dữ liệu từ Server 
                     Thread receiveThread = new Thread(ReceiveMessage);
@@ -151,7 +152,8 @@ namespace Client
                             messagetype = "Disconected";
                         else messagetype = "Exit";
                         SendMessageToServer(messagetype + ";" + RoomInfo.Instance.Room);
-                        this.InstanceDisconnect();
+                        this.Disconnect();
+                        Environment.Exit(0);
                     }
                     else this.Show(); //Hiển thị bàn cờ
 
@@ -481,7 +483,8 @@ namespace Client
                                 {
                                     MessageBox.Show("Your opponent has left.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                                     SendMessageToServer(messagetype + ";" + RoomInfo.Instance.Room);
-                                    this.InstanceDisconnect();
+                                    this.Disconnect();
+                                    Environment.Exit(0);
                                 });
                             break;
                         case "Exit lobby": //Thoát phòng mà không xóa phòng ( phòng chưa bắt đầu , không phải chủ phòng )
@@ -635,7 +638,8 @@ namespace Client
                 {
                     MessageBox.Show(e.Message,"Aler",MessageBoxButtons.OK);
                     SendMessageToServer("Exit" + ";" + RoomInfo.Instance.Room);
-                    this.InstanceDisconnect();
+                    this.Disconnect();
+                    Environment.Exit(0);
                 }
         }
         //Hàm được gọi khi người chơi thua cuộc
@@ -649,7 +653,8 @@ namespace Client
                     if (MessageBox.Show("You have passed turn 3 times, you lose", "", MessageBoxButtons.OK) == DialogResult.OK)
                     {
                         SendMessageToServer(messagetype + ";" + RoomInfo.Instance.UserName + ";" + RoomInfo.Instance.Room);
-                        this.InstanceDisconnect();
+                        this.Disconnect();
+                        Environment.Exit(0);
                     }
                 }
                 else
@@ -657,7 +662,8 @@ namespace Client
                     if (MessageBox.Show("You lose! Better next time!", "", MessageBoxButtons.OK) == DialogResult.OK)
                     {
                         SendMessageToServer(messagetype + ";" + RoomInfo.Instance.UserName + ";" + RoomInfo.Instance.Room);
-                        this.InstanceDisconnect();
+                        this.Disconnect();
+                        Environment.Exit(0);
                     }
                 }
             });
@@ -670,8 +676,8 @@ namespace Client
                 if (MessageBox.Show("You Win! Congratulations!", "Notification", MessageBoxButtons.OK) == DialogResult.OK)
                 {
                     SendMessageToServer(messagetype + ";" + RoomInfo.Instance.UserName + ";" + RoomInfo.Instance.Room);
-                    this.InstanceDisconnect();
-                    this.Close();
+                    this.Disconnect();
+                    Environment.Exit(0);
                 }
             });
 
@@ -714,12 +720,6 @@ namespace Client
 
             // Cập nhật hộp thông tin trạng thái của các người chơi
             UpdatePlayersStatusBoxes();
-        }
-        // tắt cờ Reciving để dừng việc nhận tin nhắn 
-        //Phương thức ngắt kết nối và đóng ứng dụng
-        public void InstanceDisconnect(){
-            Disconnect();  // Gọi phương thức Disconnect
-            Environment.Exit(0);
         }
         //Phương thức ngắt kết nối 
         private void Disconnect()
@@ -816,8 +816,8 @@ namespace Client
             {
                 messagetype = "Exit lobby";
                 SendMessageToServer(messagetype + ";"+ RoomInfo.Instance.Room + ";" + RoomInfo.Instance.PlayerName);
-                this.InstanceDisconnect();
-                this.Close();
+                this.Disconnect();
+                Environment.Exit(0);
             }
         }
 
@@ -1154,7 +1154,8 @@ namespace Client
             {
                 if (Gamemodes.Multiplayer)
                     SendMessageToServer("Exit" + ";" + RoomInfo.Instance.Room);
-                this.InstanceDisconnect();
+                this.Disconnect();
+                Environment.Exit(0);
             }
         }
         private void QuitGameBtn_Click(object sender, EventArgs e)
@@ -1175,8 +1176,8 @@ namespace Client
             {
                 MessageBox.Show("Are you want to exit","Exit",MessageBoxButtons.YesNo);
                 SendMessageToServer("Exit lobby" + ";" + RoomInfo.Instance.Room + ";" + RoomInfo.Instance.PlayerName);
-                this.InstanceDisconnect();
-                this.Close();
+                this.Disconnect();
+                Environment.Exit(0);
             } 
                 
         }
